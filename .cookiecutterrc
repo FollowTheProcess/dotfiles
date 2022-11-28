@@ -1,0 +1,10 @@
+default_context:
+    author_name: "Tom Fleet"
+    author_email: "tomfleet2018@gmail.com"
+    author_github_username: "FollowTheProcess"
+
+abbreviations:
+    ds: https://github.com/FollowTheProcess/lightweight_ds_cookie.git
+    pypkg: https://github.com/FollowTheProcess/cookie_pypackage.git
+    gopkg: https://github.com/FollowTheProcess/go_cookie.git
+    gocli: https://github.com/FollowTheProcess/go_cli.git

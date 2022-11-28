@@ -1,0 +1,34 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+command_timeout = 1000
+
+[python]
+symbol = " "
+python_binary = "py"
+detect_files = [
+    ".python-version",
+    "__init__.py",
+    "pyproject.toml",
+    "requirements.txt",
+    "setup.py",
+    "setup.cfg",
+]
+detect_folders = [ ".venv" ]
+
+[golang]
+symbol = "ﳑ "
+detect_files = [ "go.mod", "go.sum" ]
+
+[nodejs]
+symbol = " "
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
+
+[docker_context]
+symbol = " "
+
+[aws]
+disabled = true
