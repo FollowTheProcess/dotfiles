@@ -19,7 +19,6 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
         return 0
     end
 
-
     if [ -d ".venv" ]
         # If a venv directory exists, a venv has already been created
         # and therefore shouldn't be messed with
