@@ -39,22 +39,21 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
 
     else if [ -f "requirements-dev.txt" ]
         # If no venv folder but a requirements.txt, project must use venv and not conda
-        # Prefer requirements_dev as it will have everything
+        # Prefer requirements-dev as it will have everything
         set_color cyan
         echo "Found requirements-dev.txt. Installing dependencies..."
         set_color normal
         echo "Creating new environment with venv..."
-        echo
 
         # Create the new environment
-        # no longer need to activate if using `py`
         virtualenv .venv
 
-        # Update and install stuff
-        py -m pip install --quiet --upgrade pip setuptools wheel
-        py -m pip install -r requirements-dev.txt
-
         source .venv/bin/activate.fish
+
+        # Update and install stuff
+        python -m pip install --quiet --upgrade pip setuptools wheel
+        python -m pip install -r requirements-dev.txt
+
 
     else if [ -f "requirements.txt" ]
         # Fall back to requirements.txt
@@ -62,17 +61,16 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
         echo "Found requirements.txt. Installing dependencies..."
         set_color normal
         echo "Creating new environment with venv..."
-        echo
 
         # Create the new environment
-        # no longer need to activate if using `py`
         virtualenv .venv
 
-        # Update and install stuff
-        py -m pip install --quiet --upgrade pip setuptools wheel
-        py -m pip install -r requirements.txt
-
         source .venv/bin/activate.fish
+
+        # Update and install stuff
+        python -m pip install --quiet --upgrade pip setuptools wheel
+        python -m pip install -r requirements.txt
+
 
     else if [ -f "pyproject.toml" ]
         # PEP517/518 requires use of pyproject.toml
@@ -87,9 +85,10 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
             # Create the new environment
             # no longer need to activate if using `py`
             virtualenv .venv
+            source .venv/bin/activate.fish
 
             # Update core dependencies
-            py -m pip install --quiet --upgrade pip setuptools wheel
+            python -m pip install --quiet --upgrade pip setuptools wheel
 
             set_color cyan
             echo "Installing project dependencies (PEP 517)..."
@@ -101,7 +100,7 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
             echo
             set_color normal
 
-            py -m pip install -e .[dev]
+            python -m pip install -e .[dev]
 
             set_color green
 
@@ -122,9 +121,10 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
                     # Poetry handles all of this
                     poetry install
 
+                    source .venv/bin/activate.fish
+
                     # Just because I'm obsessed with keeping these up to date
-                    # poetry uses .venv, so we can use `py` again
-                    py -m pip install --quiet pip setuptools wheel
+                    python -m pip install --quiet pip setuptools wheel
 
                 case flit
                     # With flit we have to do a bit more work
@@ -134,9 +134,10 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
                     set_color normal
 
                     # Create the new environment
-                    # no longer need to activate if using `py`
                     virtualenv .venv
-                    py -m pip install --quiet --upgrade pip setuptools wheel
+                    source .venv/bin/activate.fish
+
+                    python -m pip install --quiet --upgrade pip setuptools wheel
 
                     # This is flit's equivalent of pip install -e .[dev]
                     flit install --deps develop --symlink --python .venv/bin/python
@@ -148,10 +149,10 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
                     set_color normal
 
                     virtualenv .venv
-                    py -m pip install --quiet --upgrade pip setuptools wheel
-                    py -m pip install -e .[dev]
-
                     source .venv/bin/activate.fish
+
+                    python -m pip install --quiet --upgrade pip setuptools wheel
+                    python -m pip install -e .[dev]
 
                 case "*"
                     set_color red
@@ -216,7 +217,6 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
     else
         # Means there's no environment at all yet
         # Given that we've called 'venv' we must want to create one
-
         set_color yellow
         echo "Can't detect any venv or conda environment for this project."
         set_color normal
@@ -228,8 +228,9 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
         set_color normal
 
         virtualenv .venv
-        py -m pip install --quiet --upgrade pip setuptools wheel
         source .venv/bin/activate.fish
+
+        python -m pip install --quiet --upgrade pip setuptools wheel
 
         set_color green
         echo "Fresh environment created (venv)"
