@@ -18,6 +18,9 @@ set -gx GOBIN $GOPATH/bin
 # This is so fish doesn't break on M1 mac
 fish_add_path /opt/homebrew/bin
 
+# Codon
+fish_add_path ~/.codon/bin
+
 # Python launcher
 set -gx PY_PYTHON (head -n 1 (pyenv root)/version | cut -d "." -f 1,2)
 
