@@ -19,6 +19,8 @@ echo -e "${GREEN}Copying fonts...${NC}"
 cp -r SF-Mono-Original ~/Library/Fonts/
 cp -r SF-Mono-Ligaturised ~/Library/Fonts/
 cp -r SF-Mono-Nerd-Font ~/Library/Fonts/
+cp Inconsolata-g.ttf ~/Library/Fonts/
+cp RobotoMono.ttf ~/Library/Fonts/
 
 # Rust
 echo -e "${GREEN}Installing Rustup...${NC}"
