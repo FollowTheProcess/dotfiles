@@ -11,15 +11,12 @@ set -gx GITHUB_TOKEN REPLACE ME # TODO: Replace with your token
 set -gx PIP_REQUIRE_VIRTUALENV true
 set -gx PIPENV_VENV_IN_PROJECT 1
 set -gx PIPENV_VERBOSITY -1
-set -gx EDITOR code-insiders
+set -gx EDITOR code
 set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
 
 # This is so fish doesn't break on M1 mac
 fish_add_path /opt/homebrew/bin
-
-# Codon
-fish_add_path ~/.codon/bin
 
 # Python launcher
 set -gx PY_PYTHON (head -n 1 (pyenv root)/version | cut -d "." -f 1,2)

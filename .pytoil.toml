@@ -1,7 +1,7 @@
 [pytoil]
-common_packages = [ "black", "mypy", "isort", "flake8" ]
+common_packages = ["black", "mypy", "isort", "flake8"]
 conda_bin = "mamba"
-editor = "code-insiders"
+editor = "code"
 git = true
 projects_dir = "~/Development"
 # TODO
