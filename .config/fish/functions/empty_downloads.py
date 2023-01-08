@@ -11,8 +11,8 @@ Created: 25/09/2022
 
 from __future__ import annotations
 
+import shutil
 import sys
-from gc import is_finalized
 from pathlib import Path
 
 DOWNLOADS = Path.home().joinpath("Downloads").resolve()
@@ -32,7 +32,7 @@ def main() -> int:
         try:
             match item.is_dir():
                 case True:
-                    item.rmdir()
+                    shutil.rmtree(item)
                 case False:
                     item.unlink()
         except Exception as err:
