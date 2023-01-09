@@ -1,6 +1,8 @@
-tell application "Finder"
-   set my count to count of items of the trash
-   If my count > 1 then
+on run {}
+  tell application "Finder"
+   set variable to count of items of the trash
+   If variable > 1 then
      empty trash
    End if
-end tell
+  end tell
+end run
