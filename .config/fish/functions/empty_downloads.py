@@ -30,11 +30,10 @@ def main() -> int:
     status_code: int = 0
     for item in DOWNLOADS.iterdir():
         try:
-            match item.is_dir():
-                case True:
-                    shutil.rmtree(item)
-                case False:
-                    item.unlink()
+            if item.is_dir():
+                shutil.rmtree(item)
+            else:
+                item.unlink()
         except Exception as err:
             print(f"Could not delete {item}: {err}")
             status_code = 1
