@@ -41,6 +41,7 @@ cp .gitignore $HOME/
 cp .pypirc $HOME/
 cp .pytoil.toml $HOME/
 cp -r hatch $HOME/Library/Preferences/
+cp -r pypoetry $HOME/Library/Preferences/
 
 # Create dev projects folder
 echo -e "${GREEN}Making coding projects folder...${NC}"

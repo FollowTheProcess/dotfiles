@@ -1,0 +1,7 @@
+[virtualenvs]
+prompt = ".venv"
+in-project = true
+prefer-active-python = true
+
+[installer]
+no-binary = [":none:"]
