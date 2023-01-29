@@ -18,7 +18,7 @@ function prune --description "Prunes all local branches that have been merged."
     end
 
     if set -q _flag_force
-        echo "Removing ALL local branches"
+        echo "Removing ALL local branches (other than this one... obviously)"
         git branch | grep -v '\*' | xargs git branch -D
         return 0
     end
