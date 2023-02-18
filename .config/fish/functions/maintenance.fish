@@ -87,8 +87,8 @@ function maintenance -d "Automates various cleaning and updates."
     echo "🗑  Emptying trash and cleaning Downloads..."
     echo
     set_color normal
-    osascript ~/.config/fish/functions/empty_trash.applescript
-    python ~/.config/fish/functions/empty_downloads.py
+    osascript ~/.config/fish/functions/helpers/empty_trash.applescript
+    python ~/.config/fish/functions/helpers/empty_downloads.py
 
     set_color green
     echo
