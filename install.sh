@@ -40,7 +40,7 @@ cp .gitconfig $HOME/
 cp .gitignore $HOME/
 cp .pypirc $HOME/
 cp .pytoil.toml $HOME/
-cp -r hatch $HOME/Library/Preferences/
+cp -r hatch $HOME/Library/Application\ Support/hatch/config.toml
 cp -r pypoetry $HOME/Library/Preferences/
 
 # Create dev projects folder

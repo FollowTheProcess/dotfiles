@@ -9,7 +9,7 @@ data = "~/Library/Application Support/hatch"
 cache = "~/Library/Caches/hatch"
 
 [dirs.env]
-virtual = "~/.virtualenvs"
+virtual = ".venv"
 
 [projects]
 
