@@ -64,7 +64,9 @@ class Args:
         Parse the arguments passed into an Args object.
         """
         parser = argparse.ArgumentParser(prog="pod", description=__doc__)
-        group = parser.add_argument_group("branch", "The type of branch to create")
+        group = parser.add_argument_group(
+            "branch", "The type of branch to create (mutually exclusive)"
+        )
         exclusive_group = group.add_mutually_exclusive_group()
 
         parser.add_argument(
