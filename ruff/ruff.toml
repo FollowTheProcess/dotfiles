@@ -1,0 +1,34 @@
+line-length = 120
+select = [
+    # https://github.com/charliermarsh/ruff#supported-rules
+    "E",   # Pycodestyle errors
+    "F",   # Pyflakes errors
+    "W",   # Pycodestyle warnings
+    "UP",  # All pyupgrade rules
+    "N",   # PEP8 naming
+    "I",   # Isort
+    "C90", # Complexity
+    "C4",  # Flake8 comprehensions
+    "ERA", # Commented out code
+    "B",   # Flake8 bugbear
+    "RUF", # Ruff specific rules
+    "YTT", # Flake8 2020
+    "ANN", # Type annotations
+    "BLE", # No blind excepts
+    "PT",  # Pytest style
+    "RET", # Function returns
+    "SIM", # Simplify
+    "ARG", # Unused arguments
+    "PTH", # Use pathlib over os.path
+    "PGH", # Pygrep hooks
+]
+ignore = [
+    "B905",   # zip() without strict=
+    "ANN101", # Missing type annotation for `self` in method
+]
+
+[mccabe]
+max-complexity = 15
+
+[isort]
+required-imports = [ "from __future__ import annotations" ]
