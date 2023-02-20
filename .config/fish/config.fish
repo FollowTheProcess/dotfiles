@@ -14,6 +14,7 @@ set -gx PIPENV_VERBOSITY -1
 set -gx EDITOR code
 set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
+set -gx CGO_ENABLED 0
 
 # This is so fish doesn't break on M1 mac
 fish_add_path /opt/homebrew/bin
