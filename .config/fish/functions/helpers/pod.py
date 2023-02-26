@@ -193,7 +193,7 @@ class Args:
         """
         if self.dry_run:
             print(f"Create branch: {self}")
-            return None
+            return
 
         subprocess.run(
             ["git", "switch", "--create", f"{self}"],
