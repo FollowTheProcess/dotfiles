@@ -350,6 +350,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>E518B4ED-E0EE-4A4C-9836-A5DAE41F0B86</string>
+	<key>DimInactiveSplitPanes</key>
+	<false/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideScrollbar</key>
@@ -1129,7 +1131,7 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.099468680076228735</real>
+	<real>0.01</real>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>VisualIndicatorForEsc</key>
