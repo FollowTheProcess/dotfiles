@@ -1,0 +1,5 @@
+[registries.crates-io]
+protocol = "sparse"
+
+[cargo-new]
+vcs = "git"

@@ -43,6 +43,7 @@ cp .pytoil.toml $HOME/
 cp -r hatch $HOME/Library/Application\ Support/hatch
 cp -r ruff $HOME/Library/Application\ Support/ruff
 cp -r pypoetry $HOME/Library/Preferences/
+cp -r .cargo $HOME/
 
 # Create dev projects folder
 echo -e "${GREEN}Making coding projects folder...${NC}"
