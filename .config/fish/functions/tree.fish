@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-function tree --wraps="tree -C" --description "Alias tree to tree -C to show colour always."
+function tree --wraps="et" --description "Alias tree to erdtree because it's nicer"
 
-    command tree -C $argv
+    command et $argv
 
 end
