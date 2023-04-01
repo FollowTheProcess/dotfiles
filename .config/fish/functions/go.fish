@@ -20,6 +20,9 @@ func main() {
     fmt.Println(\"Hello, World!\")
 }"
         command go mod init github.com/FollowTheProcess/$name
+        command git init
+        command git add .
+        command git commit -m "Initial commit"
     else
         command go $argv
     end
