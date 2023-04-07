@@ -26,8 +26,12 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
         set_color cyan
         echo ".venv directory found. Activating venv..."
         set_color normal
-        # Activate it
-        source .venv/bin/activate.fish
+        # If it's a hatch one, it will have a .venv/project_name/bin/activate.fish
+        if [ -f .venv/(path basename $PWD)/bin/activate.fish ]
+            source .venv/(path basename $PWD)/bin/activate.fish
+        else
+            source .venv/bin/activate.fish
+        end
 
     else if [ -d venv ]
         # Incase there is a directory called venv, just activate it
