@@ -33,9 +33,9 @@ src-layout = true
 
 [terminal.styles]
 info = "bold"
-success = "bold cyan"
+success = "bold green"
 error = "bold red"
 warning = "bold yellow"
-waiting = "bold magenta"
+waiting = "bold green"
 debug = "bold"
-spinner = "simpleDotsScrolling"
+spinner = "dots11"
