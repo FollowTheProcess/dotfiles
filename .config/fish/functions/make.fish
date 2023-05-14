@@ -1,5 +1,9 @@
 #!/usr/bin/env fish
 
-function make --wraps=gmake --description 'alias make=gmake'
-    command gmake $argv
+function make --description "Wrapper around make/just."
+    if [ -f justfile ] || [ -f Justfile ]
+        command just $argv
+    else
+        command gmake $argv
+    end
 end
