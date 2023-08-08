@@ -1,11 +1,11 @@
 #!/usr/bin/env fish
 
-function pod --description "Create a new POD ticket."
+function pod --description "Create a new POD ticket branch."
     argparse --min-args 0 --max-args 0 h/help -- $argv
     or return 1
 
     if set -q _flag_help
-        echo "Create a new POD ticket"
+        echo "Create a new POD ticket branch"
         echo
         echo (set_color --bold)"Usage:"(set_color normal)
         echo "	pod"
