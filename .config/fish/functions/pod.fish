@@ -19,6 +19,6 @@ function pod --description "Create a new POD ticket."
     set TYPE (gum choose --header "Type of branch?" "feature" "fix" "ci" "chore" "docs" "refactor" "deps" "release")
     set TICKET (gum input --placeholder "Jira ticket number")
 
-    command git switch --create $TYPE/$TICKET
+    command git switch --create $TYPE/POD-$TICKET
 
 end
