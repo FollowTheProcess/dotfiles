@@ -55,7 +55,6 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
         source .venv/bin/activate.fish
 
         # Update and install stuff
-        python -m pip install --quiet --upgrade pip setuptools wheel
         python -m pip install -r requirements-dev.txt
 
 
@@ -72,7 +71,6 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
         source .venv/bin/activate.fish
 
         # Update and install stuff
-        python -m pip install --quiet --upgrade pip setuptools wheel
         python -m pip install -r requirements.txt
 
 
@@ -90,9 +88,6 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
             # no longer need to activate if using `py`
             virtualenv .venv
             source .venv/bin/activate.fish
-
-            # Update core dependencies
-            python -m pip install --quiet --upgrade pip setuptools wheel
 
             set_color cyan
             echo "Installing project dependencies (PEP 517)..."
@@ -127,9 +122,6 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
 
                     source .venv/bin/activate.fish
 
-                    # Just because I'm obsessed with keeping these up to date
-                    python -m pip install --quiet pip setuptools wheel
-
                 case flit
                     # With flit we have to do a bit more work
                     set_color cyan
@@ -140,8 +132,6 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
                     # Create the new environment
                     virtualenv .venv
                     source .venv/bin/activate.fish
-
-                    python -m pip install --quiet --upgrade pip setuptools wheel
 
                     # This is flit's equivalent of pip install -e .[dev]
                     flit install --deps develop --symlink --python .venv/bin/python
@@ -155,7 +145,6 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
                     virtualenv .venv
                     source .venv/bin/activate.fish
 
-                    python -m pip install --quiet --upgrade pip setuptools wheel
                     python -m pip install -e .[dev]
 
                 case "*"
@@ -233,8 +222,6 @@ function venv -d "Auto detects or creates an appropriate python virtual environm
 
         virtualenv .venv
         source .venv/bin/activate.fish
-
-        python -m pip install --quiet --upgrade pip setuptools wheel
 
         set_color green
         echo "Fresh environment created (venv)"
