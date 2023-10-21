@@ -72,6 +72,8 @@ function maintenance -d "Automates various cleaning and updates."
     go install github.com/rakyll/gotest@latest
     go install golang.org/x/tools/cmd/stringer@latest
     go install mvdan.cc/gofumpt@latest
+    go install golang.org/x/pkgsite/cmd/pkgsite@latest
+    go install golang.org/x/tools/cmd/present@latest
 
     # tldr
     set_color cyan
