@@ -74,6 +74,7 @@ function maintenance -d "Automates various cleaning and updates."
     go install mvdan.cc/gofumpt@latest
     go install golang.org/x/pkgsite/cmd/pkgsite@latest
     go install golang.org/x/tools/cmd/present@latest
+    go install golang.org/x/perf/cmd/benchstat@latest
 
     # tldr
     set_color cyan
