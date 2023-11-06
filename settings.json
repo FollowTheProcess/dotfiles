@@ -164,7 +164,15 @@
     ]
   },
   "editor.wordWrap": "on",
+  "errorLens.alignMessage": {
+    "end": 0,
+    "minimumMargin": 0,
+    "start": 90
+  },
+  "errorLens.delayMode": "debounce",
+  "errorLens.margin": "8ch",
   "errorLens.messageBackgroundMode": "none",
+  "errorLens.messageMaxChars": 200,
   "evenBetterToml.formatter.arrayAutoCollapse": false,
   "evenBetterToml.formatter.compactArrays": false,
   "evenBetterToml.schema.associations": {
