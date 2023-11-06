@@ -79,7 +79,8 @@
   ],
   "autoDocstring.docstringFormat": "google",
   "autoDocstring.startOnNewLine": true,
-  "black-formatter.importStrategy": "fromEnvironment",
+  "catppuccin.italicKeywords": false,
+  "catppuccin.workbenchMode": "flat",
   "editor.acceptSuggestionOnEnter": "on",
   "editor.accessibilitySupport": "off",
   "editor.autoClosingOvertype": "auto",
@@ -117,6 +118,34 @@
         }
       ]
     },
+    "[Catppuccin Macchiato]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "entity.name.namespace"
+          ],
+          "settings": {
+            "foreground": "#a1e7f2ef"
+          }
+        },
+        {
+          "scope": [
+            "entity.name.type"
+          ],
+          "settings": {
+            "foreground": "#ffebc4e4"
+          }
+        },
+        {
+          "scope": [
+            "string"
+          ],
+          "settings": {
+            "foreground": "#a1e7f2ef"
+          }
+        }
+      ]
+    },
     "textMateRules": [
       {
         "name": "Comment",
@@ -135,6 +164,7 @@
     ]
   },
   "editor.wordWrap": "on",
+  "errorLens.messageBackgroundMode": "none",
   "evenBetterToml.formatter.arrayAutoCollapse": false,
   "evenBetterToml.formatter.compactArrays": false,
   "evenBetterToml.schema.associations": {
@@ -146,10 +176,10 @@
   "explorer.compactFolders": false,
   "explorer.excludeGitIgnore": false,
   "files.associations": {
+    "*.sarif": "json",
     "*.slide": "markdown",
     ".yamllint": "yaml",
     "justfile": "just",
-    "*.sarif": "json",
     "requirements*.in": "pip-requirements",
     "requirements*.txt": "pip-requirements"
   },
@@ -181,6 +211,12 @@
   ],
   "gitlens.showWelcomeOnInstall": false,
   "gitlens.showWhatsNewAfterUpgrades": false,
+  "go.addTags": {
+    "options": "json=omitempty",
+    "promptForTags": false,
+    "tags": "json",
+    "transform": "camelcase"
+  },
   "go.inlayHints.compositeLiteralFields": true,
   "go.lintFlags": [
     "--fast"
@@ -194,10 +230,15 @@
       "nilness": true,
       "shadow": true,
       "staticcheck": true,
-      "unused_write": true,
-      "unusedparams": false
+      "unusedparams": false,
+      "unusedwrite": true,
+      "useany": true
     },
     "formatting.gofumpt": true,
+    "ui.codelenses": {
+      "gc_details": true,
+      "generate": true
+    },
     "ui.completion.usePlaceholders": false,
     "ui.semanticTokens": true
   },
@@ -231,22 +272,19 @@
   "python.analysis.completeFunctionParens": false,
   "python.analysis.diagnosticMode": "openFilesOnly",
   "python.analysis.typeCheckingMode": "strict",
-  "python.formatting.provider": "none",
   "python.languageServer": "Pylance",
-  "python.linting.enabled": true,
-  "python.linting.lintOnSave": true,
   "python.terminal.activateEnvInCurrentTerminal": true,
   "python.terminal.activateEnvironment": true,
   "redhat.telemetry.enabled": false,
   "ruff.fixAll": true,
-  "ruff.importStrategy": "fromEnvironment",
+  "ruff.importStrategy": "useBundled",
   "ruff.organizeImports": true,
   "ruff.path": [
     "~/.local/bin/ruff"
   ],
+  "rust-analyzer.check.overrideCommand": "cargo clippy --all-targets --all-features --message-format json",
   "rust-analyzer.inlayHints.chainingHints.enable": false,
   "rust-analyzer.inlayHints.closingBraceHints.enable": false,
-  "rust-analyzer.check.overrideCommand": "cargo clippy --all-targets --all-features --message-format json",
   "search.exclude": {
     "**/*.code-search": true,
     "**/*.venv": true,
@@ -271,7 +309,8 @@
     "swaggerhub.orgs",
     "aws.profile",
     "aws.samcli.enableCodeLenses",
-    "aws.suppressPrompts"
+    "aws.suppressPrompts",
+    "zig.zls.path"
   ],
   "shellformat.effectLanguages": [
     "shellscript",
@@ -342,14 +381,14 @@
       "editorInlayHint.foreground": "#9AEFEA"
     }
   },
-  "workbench.colorTheme": "Ariake Dark",
+  "workbench.colorTheme": "Catppuccin Macchiato",
   "workbench.editor.enablePreview": false,
   "workbench.editor.languageDetection": false,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.fontAliasing": "auto",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "catppuccin-macchiato",
   "workbench.settings.editor": "json",
   "workbench.settings.openDefaultSettings": true,
   "workbench.settings.useSplitJSON": true,
@@ -382,5 +421,8 @@
     "!Select sequence",
     "!Split",
     "!Split sequence"
-  ]
+  ],
+  "zig.initialSetupDone": true,
+  "zig.path": "",
+  "zig.zls.path": "/Users/tomfleet/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls"
 }
