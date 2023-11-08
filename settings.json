@@ -79,6 +79,7 @@
   ],
   "autoDocstring.docstringFormat": "google",
   "autoDocstring.startOnNewLine": true,
+  "catppuccin.bracketMode": "rainbow",
   "catppuccin.italicKeywords": false,
   "catppuccin.workbenchMode": "flat",
   "editor.acceptSuggestionOnEnter": "on",
@@ -166,8 +167,8 @@
   "editor.wordWrap": "on",
   "errorLens.alignMessage": {
     "end": 0,
-    "minimumMargin": 0,
-    "start": 90
+    "minimumMargin": 10,
+    "start": 40
   },
   "errorLens.delayMode": "debounce",
   "errorLens.margin": "8ch",
@@ -215,6 +216,10 @@
     {
       "prefix": "POD-",
       "url": "https://chetwood.atlassian.net/browse/POD-<num>"
+    },
+    {
+      "prefix": "SO-",
+      "url": "https://chetwood.atlassian.net/browse/SO-<num>"
     }
   ],
   "gitlens.showWelcomeOnInstall": false,
