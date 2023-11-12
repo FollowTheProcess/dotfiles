@@ -14,7 +14,9 @@ set -gx PIPENV_VERBOSITY -1
 set -gx EDITOR code --wait
 set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
+set -gx GOEXPERIMENT loopvar
 set -gx CGO_ENABLED 0
+set -gx GO111MODULE on
 set -gx PYTHONUTF8 1
 
 # This is so fish doesn't break on M1 mac
