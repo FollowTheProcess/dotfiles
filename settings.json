@@ -212,16 +212,6 @@
   "git.enableCommitSigning": true,
   "git.openRepositoryInParentFolders": "never",
   "githubPullRequests.pullBranch": "never",
-  "gitlens.autolinks": [
-    {
-      "prefix": "POD-",
-      "url": "https://chetwood.atlassian.net/browse/POD-<num>"
-    },
-    {
-      "prefix": "SO-",
-      "url": "https://chetwood.atlassian.net/browse/SO-<num>"
-    }
-  ],
   "gitlens.showWelcomeOnInstall": false,
   "gitlens.showWhatsNewAfterUpgrades": false,
   "go.addTags": {
