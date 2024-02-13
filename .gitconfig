@@ -31,5 +31,9 @@
 	program = gpg
 [push]
 	autoSetupRemote = true
-[fetch]
-	prune = true
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
