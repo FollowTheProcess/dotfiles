@@ -37,3 +37,5 @@
 	ui = auto
 [branch]
 	sort = -committerdate
+[fetch]
+	prune = true
