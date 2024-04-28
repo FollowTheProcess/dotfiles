@@ -1,6 +1,4 @@
 tap "1password/tap"
-tap "aws/tap"
-tap "cargo-lambda/cargo-lambda"
 tap "followtheprocess/tap"
 tap "go-task/tap"
 tap "goreleaser/tap"
