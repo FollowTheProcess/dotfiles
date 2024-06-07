@@ -41,6 +41,9 @@ fish_add_path /opt/homebrew/opt/curl/bin
 # Starship
 starship init fish | source
 
+# fzf shell integration
+fzf --fish | source
+
 # Created by `pipx` on 2021-06-11 09:35:24
 fish_add_path "$HOME/.local/bin"
 
