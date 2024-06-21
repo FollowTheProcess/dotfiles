@@ -1,9 +1,9 @@
-target-version = "py311"
+target-version = "py312"
 line-length = 120
 
 [lint]
 select = [
-    # https://github.com/charliermarsh/ruff#supported-rules
+    # https://docs.astral.sh/ruff/rules/
     "E",   # Pycodestyle errors
     "F",   # Pyflakes errors
     "W",   # Pycodestyle warnings
@@ -22,6 +22,9 @@ select = [
     "ARG", # Unused arguments
     "PTH", # Use pathlib over os.path
     "PGH", # Pygrep hooks
+]
+unfixable = [
+    "F841", # Stops ruff from "fixing" unused variables while you're still working on them
 ]
 
 [lint.mccabe]
