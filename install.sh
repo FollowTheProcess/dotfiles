@@ -22,6 +22,9 @@ cp -r SF-Mono-Nerd-Font ~/Library/Fonts/
 cp Inconsolata-g.ttf ~/Library/Fonts/
 cp RobotoMono.ttf ~/Library/Fonts/
 
+# Go
+gup import --input ./gup.conf
+
 # Rust
 echo -e "${GREEN}Installing Rustup...${NC}"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
