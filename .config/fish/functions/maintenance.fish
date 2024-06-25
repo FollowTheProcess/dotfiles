@@ -62,19 +62,7 @@ function maintenance -d "Automates various cleaning and updates."
     echo "🐰 Updating go tools..."
     echo
     set_color normal
-    go install github.com/cweill/gotests/gotests@latest
-    go install github.com/fatih/gomodifytags@latest
-    go install github.com/josharian/impl@latest
-    go install github.com/haya14busa/goplay/cmd/goplay@latest
-    go install github.com/go-delve/delve/cmd/dlv@latest
-    go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-    go install golang.org/x/tools/gopls@latest
-    go install github.com/rakyll/gotest@latest
-    go install golang.org/x/tools/cmd/stringer@latest
-    go install mvdan.cc/gofumpt@latest
-    go install golang.org/x/pkgsite/cmd/pkgsite@latest
-    go install golang.org/x/tools/cmd/present@latest
-    go install golang.org/x/perf/cmd/benchstat@latest
+    gup update
 
     # tldr
     set_color cyan
