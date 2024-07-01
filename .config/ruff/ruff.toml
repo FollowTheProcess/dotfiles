@@ -3,28 +3,46 @@ line-length = 120
 
 [lint]
 select = [
-    # https://docs.astral.sh/ruff/rules/
-    "E",   # Pycodestyle errors
-    "F",   # Pyflakes errors
-    "W",   # Pycodestyle warnings
-    "UP",  # All pyupgrade rules
-    "N",   # PEP8 naming
-    "I",   # Isort
-    "C90", # Complexity
-    "C4",  # Flake8 comprehensions
-    "B",   # Flake8 bugbear
-    "RUF", # Ruff specific rules
-    "YTT", # Flake8 2020
-    "BLE", # No blind excepts
-    "PT",  # Pytest style
-    "RET", # Function returns
-    "SIM", # Simplify
-    "ARG", # Unused arguments
-    "PTH", # Use pathlib over os.path
-    "PGH", # Pygrep hooks
+  "ALL", # Enable all the things!
+]
+ignore = [
+  # Lots of 'D' rules conflict with one another, this seems to be the most stable config
+  "D203",   # One blank line before class docstring
+  "D212",   # Multi-line docstring summary should be on the first line
+  "D200",   # One line docstring should all be on one line
+  "D401",   # First line should be in imperative mood
+  "D205",   # One blank line required between summary line and description
+  "D417",   # Wants sphinx style docstrings
+  "D406",   # Section names should end with a newline
+  "D407",   # Missing dashed underline after section
+  "ANN101", # Missing type annotation for self in method
+  "ANN102", # Missing type annotation for cls in classmethod
+  "EM102",  # No f strings in exception text, only really applicable for libraries
+  "TRY003", # No text outside exception class, again only really applicable for libraries
+  "COM812", # Missing trailing commas, conflicts with ruff format
+  "ISC001", # Implicit string concatenation, conflicts with ruff format
 ]
 unfixable = [
-    "F841", # Stops ruff from "fixing" unused variables while you're still working on them
+  "F841", # Prevents ruff deleting "unused" variables you're still working on
+]
+
+[lint.per-file-ignores]
+"**/test_.py" = [
+  "ARG001", # Thinks pytest fixtures are unused arguments
+  "D104",   # Missing docstring in __init__.py in tests (which is fine)
+  "FBT001", # Tests are allowed positional bools (fixtures etc.)
+  "S101",   # Assert is allowed in tests (obviously)
+  "TCH",    # Tests will be run with dev dependencies so we don't care
+]
+"**/conftest.py" = [
+  "TCH", # Conftest is only run for tests (with dev dependencies)
+]
+
+# Local scripts
+"scripts/**/*.py" = [
+  "INP001", # Scripts by definition don't belong in a package
+  "S",      # Not run against production so security stuff is noise
+  "T201",   # Prints are allowed in scripts
 ]
 
 [lint.mccabe]
