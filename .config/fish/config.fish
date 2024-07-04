@@ -17,6 +17,8 @@ set -gx GOBIN $GOPATH/bin
 set -gx CGO_ENABLED 0
 set -gx GO111MODULE on
 set -gx PYTHONUTF8 1
+set -gx FZF_DEFAULT_COMMAND 'fd --type f --strip-cwd-prefix'
+set -gx FZF_CTRL_T_COMMAND 'fd --type -f --strip-cwd-prefix'
 
 # This is so fish doesn't break on M1 mac
 fish_add_path /opt/homebrew/bin
