@@ -32,7 +32,7 @@ brew "curl"
 brew "docker", link: false
 brew "dust"
 brew "erdtree"
-brew "exa"
+brew "eza"
 brew "fd"
 brew "findutils"
 brew "fish"

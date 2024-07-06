@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-function ls --wraps="exa" --description "Aliasing ls to exa."
+function ls --wraps="eza" --description "Aliasing ls to eza."
 
-    command exa $argv
+    command eza $argv
 
 end

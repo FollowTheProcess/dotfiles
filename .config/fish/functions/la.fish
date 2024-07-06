@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-function la --wraps="exa -a" --description "Wraps exa -a"
+function la --wraps="eza -a" --description "Wraps eza -a"
 
-    command exa -la $argv
+    command eza -la $argv
 
 end
