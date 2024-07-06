@@ -32,7 +32,6 @@ tag_disabled = false
 only_detached = false
 tag_max_candidates = 1
 
-
 [docker_context]
 symbol = " "
 
