@@ -3,6 +3,7 @@ import = [
   "~/.config/alacritty/catppuccin-macchiato.toml",
 ]
 live_config_reload = true
+working_directory = "~/Development"
 
 [env]
 TERM = "xterm-256color"
