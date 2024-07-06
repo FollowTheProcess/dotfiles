@@ -51,6 +51,12 @@ cp -r .cargo $HOME/
 echo -e "${GREEN}Making coding projects folder...${NC}"
 mkdir -p ~/Development
 
+# Themes
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
+wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+
 # macOS Preferences
 echo -e "${GREEN}Configuring macOS preferences...${NC}"
 echo "FYI you will need to restart for these to take effect"
