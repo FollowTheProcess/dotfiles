@@ -2459,8 +2459,6 @@
 	</dict>
 	<key>PromptOnQuit</key>
 	<false/>
-	<key>ShowFullScreenTabBar</key>
-	<false/>
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SoundForEsc</key>
