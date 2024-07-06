@@ -1,3 +1,4 @@
+# https://alacritty.org/config-alacritty.html
 import = [
   "~/.config/alacritty/catppuccin-macchiato.toml",
 ]
