@@ -25,7 +25,7 @@ tasks:
     desc: Installs fish functions
     cmds:
       - rm -rf {{.FISH_DIR}}/functions/
-      - cp -r .config/fish/functins {{.FISH_DIR}}
+      - cp -r .config/fish/functions {{.FISH_DIR}}
 
   completions:
     desc: Installs fish completions
