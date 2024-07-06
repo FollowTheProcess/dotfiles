@@ -35,9 +35,6 @@ tag_max_candidates = 1
 [docker_context]
 symbol = " "
 
-[aws]
-disabled = true
-
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
