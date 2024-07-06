@@ -1,0 +1,45 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  FISH_DIR: "~/.config/fish"
+
+tasks:
+  default:
+    desc: List all available tasks
+    silent: true
+    cmd: task --list
+
+  sync:
+    desc: Commit and push current state to GitHub
+    vars:
+      TIMESTAMP:
+        sh: date +"%Y-%m-%d %H:%M:%S"
+    cmds:
+      - git add -A
+      - "git commit -m 'Sync: {{.TIMESTAMP}}'"
+      - git push
+
+  functions:
+    desc: Installs fish functions
+    cmds:
+      - rm -rf {{.FISH_DIR}}/functions/
+      - cp -r .config/fish/functins {{.FISH_DIR}}
+
+  completions:
+    desc: Installs fish completions
+    cmds:
+      - cp -r .config/fish/completions {{.FISH_DIR}}
+
+  config:
+    desc: Installs fish config
+    cmds:
+      - cp -r .config/fish/config.fish {{.FISH_DIR}}
+
+  fish:
+    desc: Does all the fish things
+    cmds:
+      - task: functions
+      - task: completions
+      - task: config
