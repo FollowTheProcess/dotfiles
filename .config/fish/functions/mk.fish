@@ -20,6 +20,6 @@ function mk -d "Replaces the annoying mkdir && cd loop."
     set name $argv[1]
 
     mkdir $name
-    cd $name
+    command cd $name
 
 end
