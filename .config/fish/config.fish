@@ -8,6 +8,7 @@ set -U projdir $HOME/Development
 
 # Env variables
 set -gx GITHUB_TOKEN REPLACE ME # TODO: Replace with your token
+set -gx XDG_CONFIG_HOME ~/.config
 set -gx PIP_REQUIRE_VIRTUALENV true
 set -gx PIPENV_VENV_IN_PROJECT 1
 set -gx PIPENV_VERBOSITY -1
