@@ -15,6 +15,9 @@ detect_files = [
 ]
 detect_folders = [ ".venv" ]
 
+[aws]
+disabled = true
+
 [golang]
 symbol = "ﳑ "
 detect_files = [ "go.mod", "go.sum" ]
