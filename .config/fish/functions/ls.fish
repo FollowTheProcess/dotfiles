@@ -2,6 +2,6 @@
 
 function ls --wraps="eza" --description "Aliasing ls to eza."
 
-    command eza $argv
+    command eza --icons always $argv
 
 end
