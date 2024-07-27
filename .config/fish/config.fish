@@ -42,11 +42,8 @@ fish_add_path $GOBIN
 fish_add_path /opt/homebrew/opt/curl/bin
 
 # Starship
-function starship_transient_prompt_func
-    starship module character
-end
 starship init fish | source
-enable_transience
+
 
 # fzf shell integration
 fzf --fish | source
