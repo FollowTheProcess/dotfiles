@@ -41,7 +41,6 @@ brew "findutils"
 brew "fish"
 brew "fzf"
 brew "gdbm"
-brew "geckodriver"
 brew "gh"
 brew "git"
 brew "git-lfs"
@@ -102,9 +101,7 @@ brew "omissis/go-jsonschema/go-jsonschema"
 cask "alacritty", args: { appdir: "~/Applications" }
 cask "aws-vpn-client", args: { appdir: "~/Applications" }
 cask "docker", args: { appdir: "~/Applications" }
-cask "font-fira-code-nerd-font"
 cask "iterm2", args: { appdir: "~/Applications" }
-cask "notion"
 cask "obsidian", args: { appdir: "~/Applications" }
 cask "postman"
 cask "raycast", args: { appdir: "~/Applications" }
