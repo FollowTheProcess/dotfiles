@@ -44,7 +44,7 @@ cp .gitignore $HOME/
 cp .pypirc $HOME/
 cp .pytoil.toml $HOME/
 cp -r hatch $HOME/Library/Application\ Support/hatch
-cp -r pypoetry $HOME/Library/Preferences/
+cp -r pypoetry $HOME/Library/Application\ Support/pypoetry
 cp -r .cargo $HOME/
 
 # Create dev projects folder
