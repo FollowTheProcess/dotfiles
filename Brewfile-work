@@ -106,6 +106,7 @@ cask "obsidian", args: { appdir: "~/Applications" }
 cask "postman"
 cask "raycast", args: { appdir: "~/Applications" }
 cask "spotify"
+cask "teamviewer"
 cask "visual-studio-code"
 vscode "42crunch.vscode-openapi"
 vscode "adpyke.vscode-sql-formatter"
