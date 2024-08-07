@@ -69,4 +69,4 @@ curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritt
 echo -e "${GREEN}Configuring macOS preferences...${NC}"
 echo "FYI you will need to restart for these to take effect"
 echo "But after that, you're done!"
-sudo sh macos.sh
+sh macos.sh
