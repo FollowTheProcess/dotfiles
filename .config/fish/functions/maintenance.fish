@@ -37,15 +37,15 @@ function maintenance -d "Automates various cleaning and updates."
     echo
     set_color normal
     set PIP_REQUIRE_VIRTUALENV ""
-    python3 -m pip install --upgrade pip setuptools wheel pipx
+    python3 -m pip install --upgrade pip setuptools wheel
 
     # pipx
     set_color cyan
     echo
-    echo "🛠  Updating pipx installed CLI programs..."
+    echo "🛠  Updating uv installed CLI programs..."
     echo
     set_color normal
-    pipx upgrade-all
+    uv tool upgrade --all
 
     # Rust
     set_color cyan
