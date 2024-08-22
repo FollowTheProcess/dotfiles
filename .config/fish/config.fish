@@ -9,8 +9,6 @@ set -U projdir $HOME/Development
 # Env variables
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx PIP_REQUIRE_VIRTUALENV true
-set -gx PIPENV_VENV_IN_PROJECT 1
-set -gx PIPENV_VERBOSITY -1
 set -gx EDITOR code --wait
 set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
@@ -22,13 +20,6 @@ set -gx FZF_CTRL_T_COMMAND 'fd --type -f --strip-cwd-prefix'
 
 # This is so fish doesn't break on M1 mac
 fish_add_path /opt/homebrew/bin
-
-# Python launcher
-set -gx PY_PYTHON (head -n 1 (pyenv root)/version | cut -d "." -f 1,2)
-
-# Pyenv
-status is-interactive; and pyenv init --path | source
-pyenv init - | source
 
 # GPG stuff
 set -gx GPG_TTY (tty)
@@ -42,7 +33,6 @@ fish_add_path /opt/homebrew/opt/curl/bin
 
 # Starship
 starship init fish | source
-
 
 # fzf shell integration
 fzf --fish | source
