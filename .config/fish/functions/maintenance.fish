@@ -30,6 +30,14 @@ function maintenance -d "Automates various cleaning and updates."
     # restart shell incase anything that follows was updated
     source ~/.config/fish/config.fish
 
+    # VSCode
+    set_color cyan
+    echo
+    echo "🧑🏻‍💻 Updating VSCode Extensions"
+    echo
+    set_color normal
+    code --update-extensions
+
     # uv
     set_color cyan
     echo
