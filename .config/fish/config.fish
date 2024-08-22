@@ -47,9 +47,6 @@ starship init fish | source
 # fzf shell integration
 fzf --fish | source
 
-# Created by `pipx` on 2021-06-11 09:35:24
-fish_add_path "$HOME/.local/bin"
-
 # Rust
 fish_add_path "$HOME/.cargo/bin"
 
@@ -63,3 +60,6 @@ mcfly init fish | source
 direnv hook fish | source
 
 test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
+
+# uv
+fish_add_path "/Users/tomfleet/.local/bin"
