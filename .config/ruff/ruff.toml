@@ -1,48 +1,52 @@
-target-version = "py312"
 line-length = 120
+extend-exclude = [
+  "**/_vendor/**", # Exclude any vendored code by default
+]
+
+[format]
+# https://docs.astral.sh/ruff/settings/#format
+docstring-code-format = true
+quote-style = "double"
 
 [lint]
+# https://docs.astral.sh/ruff/rules/
 select = [
-  "ALL", # Enable all the things!
+  "ALL", # Lint all the things!
 ]
 ignore = [
   # Lots of 'D' rules conflict with one another, this seems to be the most stable config
-  "D203",   # One blank line before class docstring
-  "D212",   # Multi-line docstring summary should be on the first line
-  "D200",   # One line docstring should all be on one line
-  "D401",   # First line should be in imperative mood
-  "D205",   # One blank line required between summary line and description
-  "D417",   # Wants sphinx style docstrings
-  "D406",   # Section names should end with a newline
-  "D407",   # Missing dashed underline after section
+  "D203", # One blank line before class docstring
+  "D212", # Multi-line docstring summary should be on the first line
+  "D200", # One line docstring should all be on one line
+  "D401", # First line should be in imperative mood
+  "D205", # One blank line required between summary line and description
+  "D417", # Wants sphinx style docstrings
+  "D406", # Section names should end with a newline
+  "D407", # Missing dashed underline after section
+
+  # Not necessary to type annotate self and cls as it should be obvious
   "ANN101", # Missing type annotation for self in method
   "ANN102", # Missing type annotation for cls in classmethod
-  "EM102",  # No f strings in exception text, only really applicable for libraries
-  "TRY003", # No text outside exception class, again only really applicable for libraries
-  "COM812", # Missing trailing commas, conflicts with ruff format
-  "ISC001", # Implicit string concatenation, conflicts with ruff format
+
+  # https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+  "W191",   # Tab indentation
+  "E111",   # Indentation with invalid multiple
+  "E114",   # Indentation with invalid multiple comment
+  "E117",   # Over indented
+  "E501",   # Line too long
+  "D206",   # Indent with spaces
+  "D300",   # Triple single quotes
+  "Q000",   # Bad quotes inline string
+  "Q001",   # Bad quotes multiline string
+  "Q002",   # Bad quotes docstring
+  "Q003",   # Avoidable escaped quote
+  "COM812", # Missing traiiling comma
+  "COM819", # Prohibited trailing comma
+  "ISC001", # Single line implicit string concatenation
+  "ISC002", # Multi line implicit string concatenation
 ]
 unfixable = [
   "F841", # Prevents ruff deleting "unused" variables you're still working on
-]
-
-[lint.per-file-ignores]
-"**/test_.py" = [
-  "ARG001", # Thinks pytest fixtures are unused arguments
-  "D104",   # Missing docstring in __init__.py in tests (which is fine)
-  "FBT001", # Tests are allowed positional bools (fixtures etc.)
-  "S101",   # Assert is allowed in tests (obviously)
-  "TCH",    # Tests will be run with dev dependencies so we don't care
-]
-"**/conftest.py" = [
-  "TCH", # Conftest is only run for tests (with dev dependencies)
-]
-
-# Local scripts
-"scripts/**/*.py" = [
-  "INP001", # Scripts by definition don't belong in a package
-  "S",      # Not run against production so security stuff is noise
-  "T201",   # Prints are allowed in scripts
 ]
 
 [lint.mccabe]
@@ -50,3 +54,20 @@ max-complexity = 15
 
 [lint.isort]
 required-imports = [ "from __future__ import annotations" ]
+
+[lint.per-file-ignores]
+"tests/**/*.py" = [
+  "ARG001", # Thinks pytest fixtures are unused arguments
+  "D104",   # Missing docstring in __init__.py in tests (which is fine)
+  "FBT001", # Tests are allowed positional bools (fixtures etc.)
+  "S101",   # Assert is allowed in tests (obviously)
+  "TCH",    # Tests will be run with dev dependencies so we don't care about separating type hints
+]
+"conftest.py" = [
+  "TCH", # Conftest is only run for tests (with dev dependencies)
+]
+"scripts/**/*.py" = [
+  "INP001", # Scripts by definition don't belong in a package
+  "S",      # Not run against production so security stuff is noise
+  "T201",   # Prints are allowed in scripts
+]
