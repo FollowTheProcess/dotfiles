@@ -64,6 +64,7 @@ curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritt
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-frappe.toml
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-macchiato.toml
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
+curl -LO --output-dir ~/.config/alacritty https://github.com/zatchheems/tokyo-night-alacritty-theme/raw/main/tokyo-night.yaml
 
 # macOS Preferences
 echo -e "${GREEN}Configuring macOS preferences...${NC}"
