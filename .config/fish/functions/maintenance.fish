@@ -39,7 +39,7 @@ function maintenance -d "Automates various cleaning and updates."
     set PIP_REQUIRE_VIRTUALENV ""
     python3 -m pip install --upgrade pip setuptools wheel
 
-    # pipx
+    # uv
     set_color cyan
     echo
     echo "🛠  Updating uv installed CLI programs..."
