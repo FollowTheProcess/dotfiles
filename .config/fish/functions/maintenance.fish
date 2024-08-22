@@ -30,15 +30,6 @@ function maintenance -d "Automates various cleaning and updates."
     # restart shell incase anything that follows was updated
     source ~/.config/fish/config.fish
 
-    # Python
-    set_color cyan
-    echo
-    echo "🐍 Updating global python3 core dependencies..."
-    echo
-    set_color normal
-    set PIP_REQUIRE_VIRTUALENV ""
-    python3 -m pip install --upgrade pip setuptools wheel
-
     # uv
     set_color cyan
     echo
