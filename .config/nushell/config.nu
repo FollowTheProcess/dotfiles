@@ -15,4 +15,6 @@ $env.config = {
     }
 }
 
+# TODO(@FollowTheProcess): GPG stuff
+
 use ~/.cache/starship/init.nu
