@@ -47,7 +47,7 @@ cp .pytoil.toml $HOME/
 cp -r hatch $HOME/Library/Application\ Support/hatch
 cp -r pypoetry $HOME/Library/Application\ Support/pypoetry
 cp -r .cargo $HOME/
-cp -r nushell $HOME/Library/Application\ Support/nushell
+cp -r nushell $HOME/Library/Application\ Support
 
 # Create dev projects folder
 echo -e "${GREEN}Making coding projects folder...${NC}"
