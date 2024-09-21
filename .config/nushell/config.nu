@@ -13,8 +13,24 @@ $env.config = {
     table: {
         mode: "light"
     }
+
+    hooks: {
+        # Direnv
+        pre_prompt: [{ ||
+        if (which direnv | is-empty) {
+            return
+        }
+
+        direnv export json | from json | default {} | load-env
+        }]
+    }
 }
 
-# TODO(@FollowTheProcess): GPG stuff
-
+# Load starship init generated in env.nu
 use ~/.cache/starship/init.nu
+
+# Same with zoxide
+source ~/.zoxide.nu
+
+# Launch GPG Agent
+gpgconf --launch gpg-agent

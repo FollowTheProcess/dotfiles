@@ -1,5 +1,4 @@
 # Custom env vars
-# TODO(@FollowTheProcess): See if we can use https://www.nushell.sh/commands/docs/load-env.html
 $env.PIP_REQUIRE_VIRTUALENV = true
 $env.EDITOR = 'code --wait'
 $env.GOPATH = $env.HOME | path join go
@@ -9,7 +8,7 @@ $env.GO111MODULE = 'on'
 $env.PYTHONUTF8 = 1
 $env.FZF_DEFAULT_COMMAND = 'fd --type f --strip-cwd-prefix'
 $env.FZF_CTRL_T_COMMAND = 'fd --type f --strip-cwd-prefix'
-
+$env.GPG_TTY = (tty | str trim)
 
 # Add things to $PATH
 $env.PATH = (
@@ -22,6 +21,9 @@ $env.PATH = (
   | uniq # filter so the paths are unique
 )
 
-
+# Starship
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
+
+# zoxide
+zoxide init nushell | save -f ~/.zoxide.nu
