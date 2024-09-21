@@ -57,19 +57,3 @@ export def maintenance [] {
 
     success "All done!" --newline
 }
-
-# Automatically detect and/or create/activate a python virtual environment
-# from the current directory.
-export def venv [] {
-   if ($env.PWD | path join ".venv" | path exists) {
-    info ".venv directory found, activating"
-    overlay use .venv/bin/activate.nu
-    return
-   } else if ($env.PWD | path join "venv" | path exists) {
-    info "venv directory found, activating"
-    overlay use venv/bin/activate.nu
-   } else {
-    warn "No virtual environment detected, creating a new one"
-    uv venv --prompt .venv
-   }
-}
