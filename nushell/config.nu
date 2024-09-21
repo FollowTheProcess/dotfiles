@@ -132,7 +132,7 @@ let theme = {
   cellpath: $stheme.peach
   hints: dark_gray
 
-  shape_garbage: { fg: $stheme.crust bg: $stheme.red attr: b }
+  shape_garbage: $stheme.red
   shape_bool: $stheme.blue
   shape_int: { fg: $stheme.mauve attr: b}
   shape_float: { fg: $stheme.mauve attr: b}
