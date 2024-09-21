@@ -7,6 +7,13 @@ def info [
     print $"(ansi cyan)\n($msg)\n(ansi reset)"
 }
 
+# Prints a warning message tot he user, will be coloured with ansi yellow.
+def warn [
+    msg: string # The message to print
+] {
+    pprint $"⚠️ (ansi yellow)Warning:(ansi reset) ($msg)\n"
+}
+
 # Prints a success message to the user, will be coloured green.
 def success [
     msg: string # The message to print
@@ -49,4 +56,20 @@ export def maintenance [] {
     tldr --update
 
     success "All done!" --newline
+}
+
+# Automatically detect and/or create/activate a python virtual environment
+# from the current directory.
+export def venv [] {
+   if ($env.PWD | path join ".venv" | path exists) {
+    info ".venv directory found, activating"
+    overlay use .venv/bin/activate.nu
+    return
+   } else if ($env.PWD | path join "venv" | path exists) {
+    info "venv directory found, activating"
+    overlay use venv/bin/activate.nu
+   } else {
+    warn "No virtual environment detected, creating a new one"
+    uv venv --prompt .venv
+   }
 }
