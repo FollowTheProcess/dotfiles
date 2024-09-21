@@ -4,7 +4,7 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 # Make sure XDG_CONFIG_HOME is set
-cp ./environment.plist ~/Library/LaunchAgents/environment.plist
+mkdir -p ~/Library/LaunchAgents && cp ./environment.plist ~/Library/LaunchAgents/environment.plist
 export XDG_CONFIG_HOME=/Users/tomfleet/.config
 
 # Install Homebrew
