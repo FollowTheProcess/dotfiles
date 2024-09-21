@@ -215,8 +215,8 @@ alias tree = eza --tree # Use https://github.com/eza-community/eza instead of tr
 alias xargs = gxargs # Use GNU xargs
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
-alias nu-open = open
-alias open = ^open
+# alias nu-open = open
+# alias open = ^open
 
 # Source my custom commands/scripts
 use commands.nu *
