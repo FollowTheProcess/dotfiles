@@ -151,36 +151,45 @@ let theme = {
   shape_custom: {attr: b}
 }
 
+$env.LS_COLORS = ((cat `~/Library/Application Support/nushell/ls-colors`) | str trim)
+
 $env.config = {
     show_banner: false # true or false to enable or disable the welcome banner at startup
     color_config: $theme # Use catppuccin mocha defined above
 
     ls: {
-        use_ls_colors: true # use the LS_COLORS environment variable to colorize output
-        clickable_links: true # enable or disable clickable links. Your terminal has to support links.
+      use_ls_colors: true # use the LS_COLORS environment variable to colorize output
+      clickable_links: true # enable or disable clickable links. Your terminal has to support links.
     }
 
     rm: {
-        always_trash: true # always act as if -t was given. Can be overridden with -p
+      always_trash: true # always act as if -t was given. Can be overridden with -p
     }
 
     table: {
-        mode: "light"
+      mode: "light"
     }
 
     completions: {
-        algorithm: "fuzzy"
+      algorithm: "fuzzy"
+    }
+
+    history: {
+      max_size: 100_000 # Session has to be reloaded for this to take effect
+      sync_on_enter: true # Enable to share history between multiple sessions, else you have to close the session to write history to file
+      file_format: "sqlite" # "sqlite" or "plaintext"
+      isolation: false # only available with sqlite file_format. true enables history isolation, false disables it. 
     }
 
     hooks: {
-        # Direnv
-        pre_prompt: [{ ||
-        if (which direnv | is-empty) {
-            return
-        }
+      # Direnv
+      pre_prompt: [{ ||
+      if (which direnv | is-empty) {
+          return
+      }
 
-        direnv export json | from json | default {} | load-env
-        }]
+      direnv export json | from json | default {} | load-env
+      }]
     }
 }
 
