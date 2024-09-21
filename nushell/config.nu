@@ -151,7 +151,7 @@ let theme = {
   shape_custom: {attr: b}
 }
 
-$env.LS_COLORS = ((cat `~/Library/Application Support/nushell/ls-colors`) | str trim)
+$env.LS_COLORS = ($nu.default-config-dir | path join ls-colors | open | str trim)
 
 $env.config = {
     show_banner: false # true or false to enable or disable the welcome banner at startup
