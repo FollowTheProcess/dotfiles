@@ -44,3 +44,8 @@ tasks:
       - task: functions
       - task: completions
       - task: config
+
+  nu:
+    desc: Copies the nushell config
+    cmds:
+      - cp -r ./nushell ~/Library/Application\ Support
