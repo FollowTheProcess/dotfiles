@@ -508,3 +508,4 @@ pip-selfcheck.json
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,pycharm+all,python,jupyternotebooks,go,venv,virtualenv,flask,django,hugo,rust
 
 .vscode/
+!**/scripts

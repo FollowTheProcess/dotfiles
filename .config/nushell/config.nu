@@ -46,3 +46,6 @@ alias make = gmake # Use GNU make
 alias sed = gsed # Use GNU sed
 alias tree = eza --tree # Use https://github.com/eza-community/eza instead of tree
 alias xargs = gxargs # Use GNU xargs
+
+# Source my custom commands/scripts
+use commands.nu *
