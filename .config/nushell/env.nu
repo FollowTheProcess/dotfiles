@@ -16,7 +16,7 @@ $env.PATH = (
   $env.PATH
   | split row (char esep)
   | prepend '/opt/homebrew/bin' # macOS ARM64 Homebrew
-  | prepend ($env.CARGO_HOME | path join bin) # Cargo install
+  | prepend ($env.HOME | path join .cargo bin) # Cargo install
   | prepend ($env.HOME | path join .local bin) # uv and a bunch of other tools
   | prepend ($env.HOME | path join go bin) # GOBIN
   | uniq # filter so the paths are unique
