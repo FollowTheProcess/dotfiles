@@ -1,8 +1,52 @@
 # Custom commands as a nu module
 
-# mk creates a new directory then cd's into it.
-export def mk [
-    path: string # The path to the directory to make
+# Prints an info message to the user, will be coloured with ansi cyan.
+def info [
+    msg: string # The message to print
 ] {
-    mkdir $path; cd $path
+    print $"(ansi cyan)\n($msg)\n(ansi reset)"
+}
+
+# Prints a success message to the user, will be coloured green.
+def success [
+    msg: string # The message to print
+    --newline # Add a newline before the message
+] {
+    if $newline {
+        print $"\n✅ (ansi green)Success:(ansi reset) ($msg)\n"
+    } else {
+        print $"✅ (ansi green)Success:(ansi reset) ($msg)\n"
+    }
+}
+
+# Update, clean and maintain everything
+export def maintenance [] {
+    # Homebrew
+    info "🍺 Updating and cleaning homebrew packages"
+    brew update
+    brew upgrade
+    brew cleanup --scrub
+
+    # VSCode
+    info "🧑🏻‍💻 Updating VSCode Extensions"
+    code --update-extensions
+
+    # uv
+    info "🛠  Updating uv installed CLI programs"
+    uv tool upgrade --all
+
+    # Rust
+    info "🦀 Updating rust"
+    rustup self update
+    rustup update
+
+    # Go
+    info "🐰 Updating go tools"
+    gup update
+
+    # tldr
+    info "📓 Updating tldr"
+    tldr --update
+
+    success "All done!" --newline
 }
