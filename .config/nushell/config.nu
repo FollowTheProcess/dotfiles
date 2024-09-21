@@ -34,3 +34,15 @@ source ~/.zoxide.nu
 
 # Launch GPG Agent
 gpgconf --launch gpg-agent
+
+# Aliases
+alias build = pyproject-build --installer=uv # More convenient name for https://github.com/pypa/build, and faster
+alias cat = bat --paging=never # Use https://github.com/sharkdp/bat instead of cat
+alias du = dust # Use https://github.com/bootandy/dust instead of du
+alias find = gfind # Use GNU find
+alias gaa = git add --all
+alias gb = git branch -vv
+alias make = gmake # Use GNU make
+alias sed = gsed # Use GNU sed
+alias tree = eza --tree # Use https://github.com/eza-community/eza instead of tree
+alias xargs = gxargs # Use GNU xargs
