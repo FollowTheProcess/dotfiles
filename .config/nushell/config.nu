@@ -47,5 +47,9 @@ alias sed = gsed # Use GNU sed
 alias tree = eza --tree # Use https://github.com/eza-community/eza instead of tree
 alias xargs = gxargs # Use GNU xargs
 
+# https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
+alias nu-open = open
+alias open = ^open
+
 # Source my custom commands/scripts
 use commands.nu *
