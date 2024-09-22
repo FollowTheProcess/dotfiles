@@ -63,6 +63,6 @@ export def prune [] {
     git branch --merged
     | lines
     | where ($it != "* master" and $it != "* main")
-    | each { |br| git branch --delete --force ($br | str trim) }
+    | each { |br| print $"Removing branch ($br)"; git branch --delete --force ($br | str trim) }
     | str trim
 }
