@@ -212,6 +212,8 @@ alias tree = eza --tree # Use https://github.com/eza-community/eza instead of tr
 alias xargs = gxargs # Use GNU xargs
 alias gsc = git switch --create # Make a new branch
 alias gaa = git add --all # Stage all the things!
+alias gs = git switch # Lazyness at its peak
+alias gpu = git push # Can't break the muscle memory now
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
 # alias nu-open = open
