@@ -210,6 +210,8 @@ alias make = gmake # Use GNU make
 alias sed = gsed # Use GNU sed
 alias tree = eza --tree # Use https://github.com/eza-community/eza instead of tree
 alias xargs = gxargs # Use GNU xargs
+alias gsc = git switch --create # Make a new branch
+alias gaa = git add --all # Stage all the things!
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
 # alias nu-open = open
