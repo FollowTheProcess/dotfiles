@@ -46,6 +46,7 @@ export def maintenance [] {
     info "🦀 Updating rust"
     rustup self update
     rustup update
+    cargo install-update --all
 
     # Go
     info "🐰 Updating go tools"
