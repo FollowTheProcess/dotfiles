@@ -31,6 +31,7 @@ $env.PATH = (
   | prepend ($env.HOME | path join .cargo bin) # Cargo install
   | prepend ($env.HOME | path join .local bin) # uv and a bunch of other tools
   | prepend ($env.HOME | path join go bin) # GOBIN
+  | prepend ($env.HOME | path join zig bin) # Zig builds
   | uniq # filter so the paths are unique
 )
 
