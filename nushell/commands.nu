@@ -99,6 +99,7 @@ def install-zig [] {
 
 # Download the latest release of zls and put it on $PATH
 def install-zls [] {
+    let initial = pwd
     let tmp = mktemp --directory
     cd $tmp
     git clone https://github.com/zigtools/zls --depth 1 
@@ -107,5 +108,5 @@ def install-zls [] {
 
     cp ./zig-out/bin/zls ~/zig
 
-    cd -
+    cd $initial
 }
