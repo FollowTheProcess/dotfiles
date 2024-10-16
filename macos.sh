@@ -15,6 +15,21 @@ while true; do
     kill -0 "$$" || exit
 done 2>/dev/null &
 
+# ***** Settings > General > Software Update *****
+sudo softwareupdate --schedule ON
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticCheckEnabled -bool YES
+
+# ***** Settings > Appearance *****
+defaults write .GlobalPreferences AppleInterfaceStyle -string "Dark"
+defaults write .GlobalPreferences AppleInterfaceStyleSwitchesAutomatically -bool false
+
+# ***** Settings > Control Center *****
+# Bluetooth: always show in menu bar
+defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
+
+# Battery - show percentage
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
+
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
@@ -41,7 +56,7 @@ defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock largesize -int 40
 
 # System Preferences > Dock > Position:
-defaults write com.apple.dock orientation -string left
+defaults write com.apple.dock orientation -string right
 
 # Finder > Preferences > Show warning before removing from iCloud Drive
 defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
@@ -113,6 +128,7 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
 # Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
 
 # Disable AutoFill
