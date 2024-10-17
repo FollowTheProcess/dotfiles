@@ -40,7 +40,7 @@ defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
 defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Disable the sound effects on boot
