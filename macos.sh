@@ -2,6 +2,15 @@
 
 # Settings for mac
 
+__dock_item() {
+    printf '%s%s%s%s%s' \
+        '<dict><key>tile-data</key><dict><key>file-data</key><dict>' \
+        '<key>_CFURLString</key><string>' \
+        "$1" \
+        '</string><key>_CFURLStringType</key><integer>0</integer>' \
+        '</dict></dict></dict>'
+}
+
 # Close any open System Preferences panes, to prevent them from overriding settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
@@ -36,6 +45,25 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
+
+# Clear all dock items
+defaults write com.apple.dock persistent-apps -array
+
+# Add persistent apps to Dock
+defaults write com.apple.dock \
+    persistent-apps -array \
+    "$(__dock_item /Applications/Arc.app)" \
+    "$(__dock_item /Applications/Safari.app)" \
+    "$(__dock_item /System/Applications/Mail.app)" \
+    "$(__dock_item /System/Applications/Calendar.app)" \
+    "$(__dock_item /System/Applications/Notes.app)" \
+    "$(__dock_item /System/Applications/Reminders.app)" \
+    "$(__dock_item /Applications/1Password.app)" \
+    "$(__dock_item /Applications/Obsidian.app)" \
+    "$(__dock_item /Applications/Things3.app)" \
+    "$(__dock_item /Applications/"Visual Studio Code".app)" \
+    "$(__dock_item /Applications/iTerm.app)" \
+    "$(__dock_item /System/Applications/"System Settings".app)"
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
