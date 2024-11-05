@@ -224,3 +224,6 @@ alias gpu = git push # Can't break the muscle memory now
 
 # Source my custom commands/scripts
 use commands.nu *
+
+# Use common fate granted with nu
+use granted.nu *
