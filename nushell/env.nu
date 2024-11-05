@@ -39,5 +39,9 @@ $env.PATH = (
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 
+# Oh my posh
+# mkdir ~/.cache/omp
+# oh-my-posh init nu --config ~/.config/omp/star.omp.json --print | save ~/.cache/omp/init.nu --force
+
 # zoxide
 zoxide init --cmd cd nushell | save -f ~/.zoxide.nu
