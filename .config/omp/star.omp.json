@@ -20,6 +20,13 @@
           "type": "path"
         },
         {
+          "type": "go",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#ffffff",
+          "template": " ‭ﳑ {{ .Full }} "
+        },
+        {
           "foreground": "#C678DD",
           "properties": {
             "fetch_status": true
@@ -42,6 +49,18 @@
           "style": "plain",
           "template": "x ",
           "type": "status"
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "powerline_symbol": "",
+          "foreground": "#ffffff",
+          "template": " <#fefefe></> {{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 500,
+            "style": "austin",
+            "always_enabled": true
+          }
         }
       ],
       "type": "prompt"
