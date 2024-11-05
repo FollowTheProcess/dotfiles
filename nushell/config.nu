@@ -197,7 +197,7 @@ $env.config = {
 use ~/.cache/starship/init.nu
 
 # Oh my posh
-# use ~/.cache/omp/init.nu
+# source ~/.cache/omp/init.nu
 
 # Same with zoxide
 source ~/.zoxide.nu
