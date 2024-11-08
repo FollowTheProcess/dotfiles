@@ -193,6 +193,17 @@ $env.config = {
     }
 }
 
+# DNS Config
+$env.config.plugins.dns = {
+  server: "1.1.1.1" # Use cloudflare
+  protocol: https
+  dns-name: cloudflare-dns.com
+  dnssec-mode: strict
+  tasks: 16
+  timeout: 30sec
+}
+
+
 # Load starship init generated in env.nu
 use ~/.cache/starship/init.nu
 
@@ -227,13 +238,3 @@ use commands.nu *
 
 # Use common fate granted with nu
 use granted.nu *
-
-# DNS Config
-$env.config.plugins.dns = {
-  server: "1.1.1.1" # Use cloudflare
-  protocol: https
-  dns-name: cloudflare-dns.com
-  dnssec-mode: strict
-  tasks: 16
-  timeout: 30sec
-}

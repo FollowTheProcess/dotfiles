@@ -1,0 +1,43 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+version = 3
+
+[[blocks]]
+alignment = "left"
+type = "prompt"
+
+[[blocks.segments]]
+foreground = "lightYellow"
+style = "plain"
+template = "{{ .UserName }} "
+type = "session"
+
+[[blocks.segments]]
+foreground = "cyan"
+style = "plain"
+template = "<#ffffff>in</> {{ .Path }} "
+type = "path"
+
+[blocks.segments.properties]
+style = "folder"
+
+[[blocks.segments]]
+foreground = "#ff94df"
+style = "plain"
+template = "<#ffffff>on</> {{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
+type = "git"
+
+[blocks.segments.properties]
+branch_icon = " <#ff94df><b> </b></>"
+fetch_stash_count = true
+
+[[blocks]]
+alignment = "left"
+newline = true
+type = "prompt"
+
+[[blocks.segments]]
+foreground = "lightGreen"
+style = "plain"
+template = "❯"
+type = "text"
