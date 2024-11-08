@@ -46,9 +46,11 @@ brew "just"
 brew "make"
 brew "node"
 brew "marp-cli"
+brew "mas"
 brew "mcfly"
 brew "nushell"
 brew "openblas"
+brew "openjdk"
 brew "pandoc"
 brew "pinentry-mac"
 brew "pkl"
@@ -61,6 +63,7 @@ brew "syft"
 brew "tldr"
 brew "tokei"
 brew "tree"
+brew "typos-cli"
 brew "uv"
 brew "vhs"
 brew "wget"
@@ -89,3 +92,11 @@ cask "obsidian"
 cask "raycast"
 cask "spotify"
 cask "visual-studio-code"
+mas "1Password for Safari", id: 1569813296
+mas "Adblock Plus", id: 1432731683
+mas "Dropover", id: 1355679052
+mas "JSONPeep", id: 1458969831
+mas "Magnet", id: 441258766
+mas "Noir", id: 1592917505
+mas "Refined GitHub", id: 1519867270
+mas "Things", id: 904280696
