@@ -30,10 +30,16 @@ type = "git"
 fetch_status = true
 
 [[blocks.segments]]
-foreground = "#98C379"
+foreground = "#89DCEB"
 style = "plain"
 template = "<#ffffff>via</>  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
 type = "node"
+
+[[blocks.segments]]
+type = "go"
+style = "plain"
+foreground = "#89DCEB"
+template = "<#ffffff>via</> ﳑ {{ .Full }} "
 
 [blocks.segments.properties]
 fetch_version = true
