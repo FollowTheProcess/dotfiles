@@ -52,6 +52,10 @@ export def maintenance [] {
     info "🐰 Updating go tools"
     gup update
 
+    # Oh my posh
+    info "✨ Updating oh my posh"
+    omp upgrade
+
     # Zig
     info "🦎 Updating zig"
     install-zig

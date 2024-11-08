@@ -25,6 +25,10 @@ cp RobotoMono.ttf ~/Library/Fonts/
 # Go
 gup import --input ./gup.conf
 
+# Oh my posh with brew forces the install of homebrew go1.22
+# but we can just install the binary as it has a self-updating feature
+gh release download --repo JanDeDobbeleer/oh-my-posh --pattern posh-darwin-$(go env GOARCH) --output $HOME/.local/bin/omp && chmod +x $HOME/.local/bin/omp
+
 # Rust
 echo -e "${GREEN}Installing Rustup...${NC}"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
