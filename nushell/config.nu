@@ -228,6 +228,7 @@ alias gsc = git switch --create # Make a new branch
 alias gaa = git add --all # Stage all the things!
 alias gs = git switch # Lazyness at its peak
 alias gpu = git push # Can't break the muscle memory now
+alias python = uv run python # Use uv installed python globally
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
 # alias nu-open = open
