@@ -8,15 +8,6 @@ error_symbol = "[➜](bold red)"
 
 [python]
 symbol = " "
-detect_files = [
-    ".python-version",
-    "__init__.py",
-    "pyproject.toml",
-    "requirements.txt",
-    "setup.py",
-    "setup.cfg",
-]
-detect_folders = [ ".venv" ]
 
 [aws]
 disabled = true
