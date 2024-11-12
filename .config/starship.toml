@@ -8,7 +8,6 @@ error_symbol = "[➜](bold red)"
 
 [python]
 symbol = " "
-python_binary = "py"
 detect_files = [
     ".python-version",
     "__init__.py",
