@@ -39,7 +39,7 @@ type = "node"
 type = "go"
 style = "plain"
 foreground = "#89DCEB"
-template = "<#ffffff>via</> ﳑ {{ .Full }} "
+template = "<#ffffff>via</> ﳑ v{{ .Full }} "
 
 [blocks.segments.properties]
 fetch_version = true
