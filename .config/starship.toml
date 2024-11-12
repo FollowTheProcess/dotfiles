@@ -24,7 +24,6 @@ disabled = true
 
 [golang]
 symbol = "ﳑ "
-detect_files = [ "go.mod", "go.sum" ]
 
 [nodejs]
 symbol = " "
