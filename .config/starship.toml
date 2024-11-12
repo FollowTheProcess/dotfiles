@@ -1,6 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-palette = "catppuccin_macchiato"
+palette = "catppuccin_mocha"
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
 
 [python]
 symbol = " "
@@ -23,7 +27,7 @@ symbol = "ﳑ "
 detect_files = [ "go.mod", "go.sum" ]
 
 [nodejs]
-symbol = " "
+symbol = " "
 
 [git_status]
 ahead = "⇡${count}"
