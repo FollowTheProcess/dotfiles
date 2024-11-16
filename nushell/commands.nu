@@ -27,7 +27,9 @@ def success [
 }
 
 # Update, clean and maintain everything
-export def maintenance [] {
+export def maintenance [
+    --zig # Download and recompile zig and zls from master
+] {
     # Homebrew
     info "🍺 Updating and cleaning homebrew packages"
     brew update
@@ -57,10 +59,12 @@ export def maintenance [] {
     omp upgrade
 
     # Zig
-    info "🦎 Updating zig"
-    install-zig
-    install-zls
-
+    if $zig {
+        info "🦎 Updating zig"
+        install-zig
+        install-zls
+    }
+    
     # tldr
     info "📓 Updating tldr"
     tldr --update
