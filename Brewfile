@@ -96,7 +96,11 @@ mas "1Password for Safari", id: 1569813296
 mas "Adblock Plus", id: 1432731683
 mas "Dropover", id: 1355679052
 mas "JSONPeep", id: 1458969831
+mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "Noir", id: 1592917505
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Refined GitHub", id: 1519867270
 mas "Things", id: 904280696
+mas "WhatsApp", id: 310633997
