@@ -39,6 +39,11 @@
     }
   },
   "lsp": {
+    "typos": {
+      "initialization_options": {
+        "diagnosticSeverity": "Warning"
+      }
+    },
     "pyright": {
       "settings": {
         "python.analysis": {
@@ -81,6 +86,7 @@
   },
   "terminal": {
     "font_family": "SFMono Nerd Font",
-    "cursor_shape": "bar"
+    "cursor_shape": "bar",
+    "default_height": 500
   }
 }
