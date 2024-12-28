@@ -14,14 +14,6 @@ brew cleanup
 # Install from the Brewfile
 brew bundle --file Brewfile --no-lock
 
-# Can't get these on brew and they took me ages to find
-echo -e "${GREEN}Copying fonts...${NC}"
-cp -r SF-Mono-Original ~/Library/Fonts/
-cp -r SF-Mono-Ligaturised ~/Library/Fonts/
-cp -r SF-Mono-Nerd-Font ~/Library/Fonts/
-cp Inconsolata-g.ttf ~/Library/Fonts/
-cp RobotoMono.ttf ~/Library/Fonts/
-
 # Go
 gup import --input ./gup.conf
 
@@ -64,7 +56,6 @@ mkdir -p ~/.config/alacritty
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-frappe.toml
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-macchiato.toml
 curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
-curl -LO --output-dir ~/.config/alacritty https://github.com/alacritty/alacritty-theme/raw/master/themes/tokyo-night.toml
 
 # macOS Preferences
 echo -e "${GREEN}Configuring macOS preferences...${NC}"

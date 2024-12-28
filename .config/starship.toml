@@ -9,7 +9,7 @@ symbol = " "
 disabled = true
 
 [golang]
-symbol = "ﳑ "
+symbol = " "
 
 [nodejs]
 symbol = " "
