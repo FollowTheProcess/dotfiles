@@ -117,11 +117,11 @@ cask "alacritty", args: { appdir: "~/Applications" }
 cask "arc", args: { appdir: "~/Applications" }
 cask "aws-vpn-client", args: { appdir: "~/Applications" }
 cask "docker", args: { appdir: "~/Applications" }
-cask "font-hack"
-cask "font-hack-nerd-font"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-sf-mono-nerd-font-ligaturized"
+cask "font-geist-mono"
+cask "font-geist-mono-nerd-font"
 cask "ghostty"
 cask "iterm2", args: { appdir: "~/Applications" }
 cask "obsidian", args: { appdir: "~/Applications" }
