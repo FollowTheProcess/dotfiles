@@ -113,7 +113,7 @@ let catppuccin = {
   }
 }
 
-let stheme = $catppuccin.mocha
+let stheme = $catppuccin.macchiato
 let theme = {
   separator: $stheme.overlay0
   leading_trailing_space_bg: $stheme.overlay0
@@ -226,9 +226,8 @@ alias tree = eza --tree # Use https://github.com/eza-community/eza instead of tr
 alias xargs = gxargs # Use GNU xargs
 alias gsc = git switch --create # Make a new branch
 alias gaa = git add --all # Stage all the things!
-alias gs = git switch # Lazyness at its peak
+alias gs = git switch # Laziness at its peak
 alias gpu = git push # Can't break the muscle memory now
-alias python = uv run python # Use uv installed python globally
 alias tf = terraform # Lazy
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open

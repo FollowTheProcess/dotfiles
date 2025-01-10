@@ -95,12 +95,12 @@ def install-zig [] {
 
     let expanded = $local_tarball | path basename | str replace '.tar.xz' ''
     let zig_bin = $expanded | path join zig
-    let zig_lig = $expanded | path join lib
+    let zig_lib = $expanded | path join lib
 
     chmod +x $zig_bin
     mkdir ~/zig
     cp $zig_bin ~/zig/
-    cp -r $zig_lig ~/zig/
+    cp -r $zig_lib ~/zig/
 
     cd -
 }
