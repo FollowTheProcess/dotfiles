@@ -15,7 +15,7 @@
 [mergetool "vscode"]
     cmd = code --wait $MERGED
 [diff]
-    tool = vscode
+    external = difft
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
 [filter "lfs"]
