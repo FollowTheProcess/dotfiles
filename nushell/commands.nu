@@ -54,10 +54,6 @@ export def maintenance [
     info "🐰 Updating go tools"
     gup update
 
-    # Oh my posh
-    info "✨ Updating oh my posh"
-    omp upgrade
-
     # Zig
     if $zig {
         info "🦎 Updating zig"
@@ -74,7 +70,7 @@ export def maintenance [
 
 # Clean up merged local git branches
 export def prune [] {
-    git branch --merged
+    git branch
     | lines
     | where ($it != "* master" and $it != "* main")
     | each { |br| print $"Removing branch ($br)"; git branch --delete --force ($br | str trim) }
@@ -83,7 +79,7 @@ export def prune [] {
 
 # Download the latest release of zig and put it on $PATH
 def install-zig [] {
-    let download_url = http get https://ziglang.org/download/index.json | $in.master.x86_64-macos.tarball
+    let download_url = http get https://ziglang.org/download/index.json | $in.master.aarch64-macos.tarball
     let local_tarball = $download_url | url parse | get path | path basename
 
     let tmp = mktemp --directory
