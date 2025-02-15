@@ -53,7 +53,9 @@ defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock \
     persistent-apps -array \
     "$(__dock_item /Applications/Arc.app)" \
-    "$(__dock_item /Applications/Safari.app)" \
+    "$(__dock_item /Applications/Whatsapp.app)" \
+    "$(__dock_item /System/Applications/Messages.app)" \
+    "$(__dock_item /Applications/Spotify.app)" \
     "$(__dock_item /System/Applications/Mail.app)" \
     "$(__dock_item /System/Applications/Calendar.app)" \
     "$(__dock_item /System/Applications/Notes.app)" \
@@ -61,8 +63,8 @@ defaults write com.apple.dock \
     "$(__dock_item /Applications/1Password.app)" \
     "$(__dock_item /Applications/Obsidian.app)" \
     "$(__dock_item /Applications/Things3.app)" \
+    "$(__dock_item /Applications/Ghostty.app)" \
     "$(__dock_item /Applications/"Visual Studio Code".app)" \
-    "$(__dock_item /Applications/iTerm.app)" \
     "$(__dock_item /System/Applications/"System Settings".app)"
 
 # Minimize windows into their application’s icon
