@@ -1,9 +1,0 @@
-[pytoil]
-common_packages = ["black", "mypy", "isort", "flake8"]
-conda_bin = "mamba"
-editor = "code"
-git = true
-projects_dir = "~/Development"
-# TODO
-token = "REPLACE ME"
-username = "FollowTheProcess"
