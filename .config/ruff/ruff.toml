@@ -1,7 +1,4 @@
 line-length = 120
-extend-exclude = [
-  "**/_vendor/**", # Exclude any vendored code by default
-]
 
 [format]
 # https://docs.astral.sh/ruff/settings/#format
@@ -15,6 +12,7 @@ select = [
 ]
 ignore = [
   # Lots of 'D' rules conflict with one another, this seems to be the most stable config
+  "D107", # Documenting the init as well as D101 documenting the class is redundant
   "D203", # One blank line before class docstring
   "D212", # Multi-line docstring summary should be on the first line
   "D200", # One line docstring should all be on one line
@@ -24,9 +22,12 @@ ignore = [
   "D406", # Section names should end with a newline
   "D407", # Missing dashed underline after section
 
-  # Not necessary to type annotate self and cls as it should be obvious
-  "ANN101", # Missing type annotation for self in method
-  "ANN102", # Missing type annotation for cls in classmethod
+  # Only really applicable for libraries, not applications
+  "TRY003", # Avoid specifying long messages outside the exception class
+  "EM102",  # Exception must not use an f-string literal
+
+  # Avoid being too picky about TODO comments
+  "TD003", # 'TODO' comments don't need issue links
 
   # https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
   "W191",   # Tab indentation
@@ -57,14 +58,22 @@ required-imports = [ "from __future__ import annotations" ]
 
 [lint.per-file-ignores]
 "tests/**/*.py" = [
-  "ARG001", # Thinks pytest fixtures are unused arguments
-  "D104",   # Missing docstring in __init__.py in tests (which is fine)
-  "FBT001", # Tests are allowed positional bools (fixtures etc.)
-  "S101",   # Assert is allowed in tests (obviously)
-  "TCH",    # Tests will be run with dev dependencies so we don't care about separating type hints
+  "ARG001",  # Thinks pytest fixtures are unused arguments
+  "D104",    # Missing docstring in __init__.py in tests (which is fine)
+  "FBT001",  # Tests are allowed positional bools (fixtures etc.)
+  "TC",      # Tests will be run with dev dependencies so we don't care about separating type hints
+  "D102",    # Methods in tests don't require docstrings
+  "D105",    # Magic methods in tests don't require docstrings
+  "N803",    # Mocks/patches don't control the argument names
+  "PLR0913", # Too many arguments, tests can sometimes require (and benefit from) lots of fixtures
+  "S",       # Test code doesn't run in production so security stuff is noise
 ]
 "conftest.py" = [
-  "TCH", # Conftest is only run for tests (with dev dependencies)
+  "D102",    # Methods in conftest don't require docstrings
+  "D105",    # Magic methods in tests don't require docstrings
+  "N803",    # Mocks/patches don't control their argument names
+  "PLR0913", # Too many arguments, tests can sometimes require (and benefit from) lots of fixtures
+  "TC",      # Conftest is only run for tests (with dev dependencies)
 ]
 "scripts/**/*.py" = [
   "INP001", # Scripts by definition don't belong in a package
