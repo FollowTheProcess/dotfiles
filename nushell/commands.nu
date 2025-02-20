@@ -106,7 +106,7 @@ def install-zls [] {
     let initial = pwd
     let tmp = mktemp --directory
     cd $tmp
-    git clone https://github.com/zigtools/zls --depth 1 
+    git clone https://github.com/zigtools/zls
     cd zls
     zig build -Doptimize=ReleaseSafe
 
