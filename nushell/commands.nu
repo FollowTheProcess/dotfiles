@@ -58,7 +58,6 @@ export def maintenance [
     if $zig {
         info "🦎 Updating zig"
         install-zig
-        install-zls
     }
     
     # tldr
@@ -79,7 +78,16 @@ export def prune [] {
 
 # Download the latest release of zig and put it on $PATH
 def install-zig [] {
-    let download_url = http get https://ziglang.org/download/index.json | $in.master.aarch64-macos.tarball
+    let index = http get https://ziglang.org/download/index.json
+    let latest_version = $index | $in.master.version
+    let current_version = zig version | str trim
+
+    if $current_version == $latest_version {
+        print $"Zig version ($current_version) is up to date with latest ($latest_version)"
+        return
+    }
+
+    let download_url = $index | $in.master.aarch64-macos.tarball
     let local_tarball = $download_url | url parse | get path | path basename
 
     let tmp = mktemp --directory
@@ -99,6 +107,8 @@ def install-zig [] {
     cp -r $zig_lib ~/zig/
 
     cd -
+
+    install-zls
 }
 
 # Download the latest release of zls and put it on $PATH
