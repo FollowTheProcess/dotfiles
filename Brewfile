@@ -71,6 +71,7 @@ cask "font-geist-mono-nerd-font"
 cask "ghostty"
 cask "obsidian"
 cask "raycast"
+cask "slack"
 cask "spotify"
 cask "visual-studio-code"
 mas "1Password for Safari", id: 1569813296
