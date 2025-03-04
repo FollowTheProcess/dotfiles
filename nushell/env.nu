@@ -33,6 +33,7 @@ $env.PATH = (
   | prepend ($env.HOME | path join .local bin) # uv and a bunch of other tools
   | prepend ($env.HOME | path join go bin) # GOBIN
   | prepend ($env.HOME | path join zig) # Zig builds
+  | prepend ($env.HOME | path join .bun) # bun
   | uniq # filter so the paths are unique
 )
 
