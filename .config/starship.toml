@@ -14,6 +14,9 @@ symbol = " "
 [nodejs]
 symbol = " "
 
+[bun]
+symbol = " "
+
 [git_status]
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
