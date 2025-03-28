@@ -54,6 +54,10 @@ export def maintenance [
     info "🐰 Updating go tools"
     gup update
 
+    # Bun
+    info " Updating bun"
+    bun upgrade
+
     # Zig
     if $zig {
         info "🦎 Updating zig"
