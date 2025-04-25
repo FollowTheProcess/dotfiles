@@ -9,8 +9,7 @@ brew "actionlint"
 brew "xz"
 brew "openssl@3"
 brew "bat"
-brew "readline"
-brew "sqlite"
+brew "carapace"
 brew "cargo-nextest"
 brew "curl"
 brew "difftastic"
@@ -18,6 +17,8 @@ brew "dust"
 brew "erdtree"
 brew "eza"
 brew "fd"
+brew "readline"
+brew "sqlite"
 brew "findutils"
 brew "fzf"
 brew "gcc"
@@ -64,25 +65,17 @@ brew "go-task/tap/go-task"
 brew "goreleaser/tap/goreleaser"
 brew "nao1215/tap/gup"
 brew "taiki-e/tap/cargo-llvm-cov"
-cask "1password"
+cask "1password-cli"
 cask "arc"
+cask "docker"
 cask "font-geist-mono"
 cask "font-geist-mono-nerd-font"
 cask "ghostty"
-cask "obsidian"
 cask "raycast"
 cask "slack"
 cask "spotify"
 cask "visual-studio-code"
-mas "1Password for Safari", id: 1569813296
-mas "Adblock Plus", id: 1432731683
-mas "Dropover", id: 1355679052
-mas "JSONPeep", id: 1458969831
-mas "Keynote", id: 409183694
-mas "Magnet", id: 441258766
-mas "Noir", id: 1592917505
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Refined GitHub", id: 1519867270
+cask "zoom"
+mas "Bear", id: 1091189122
 mas "Things", id: 904280696
 mas "WhatsApp", id: 310633997
