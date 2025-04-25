@@ -214,8 +214,8 @@ $env.config.plugins.dns = {
 # Load starship init generated in env.nu
 use ~/.cache/starship/init.nu
 
-# Oh my posh
-# source ~/.cache/omp/init.nu
+# Carapace
+source ~/.cache/carapace/init.nu
 
 # Same with zoxide
 source ~/.zoxide.nu

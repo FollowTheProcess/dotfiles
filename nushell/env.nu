@@ -41,9 +41,9 @@ $env.PATH = (
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 
-# Oh my posh
-# mkdir ~/.cache/omp
-# omp init nu --config ~/.config/omp/prompt.toml --print | save ~/.cache/omp/init.nu --force
+# Carapace
+mkdir ~/.cache/carapace
+carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 # zoxide
 zoxide init --cmd cd nushell | save -f ~/.zoxide.nu
