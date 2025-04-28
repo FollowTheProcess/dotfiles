@@ -36,6 +36,7 @@ cp -r pypoetry $HOME/Library/Application\ Support/pypoetry
 cp -r .cargo $HOME/
 cp -r nushell $HOME/Library/Application\ Support
 cp -r copier $HOME/Library/Application\ Support
+cp -r k9s $HOME/Library/Application\ Support
 
 # Create dev projects folder
 echo -e "${GREEN}Making coding projects folder...${NC}"
@@ -47,6 +48,10 @@ wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/
 wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
 wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 bat cache --build
+
+# k9s theme
+mkdir -p $HOME/Library/Application\ Support/k9s/skins
+curl -L https://github.com/catppuccin/k9s/archive/main.tar.gz | tar xz -C $HOME/Library/Application\ Support/k9s/skins --strip-components=2 k9s-main/dist
 
 # macOS Preferences
 echo -e "${GREEN}Configuring macOS preferences...${NC}"
