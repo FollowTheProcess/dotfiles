@@ -45,6 +45,7 @@ brew "make"
 brew "node"
 brew "marp-cli"
 brew "mas"
+brew "minikube"
 brew "nushell"
 brew "openblas"
 brew "pandoc"
@@ -87,5 +88,6 @@ cask "visual-studio-code"
 cask "zoom"
 mas "Bear", id: 1091189122
 mas "Dropover", id: 1355679052
+mas "Magnet", id: 441258766
 mas "Things", id: 904280696
 mas "WhatsApp", id: 310633997
