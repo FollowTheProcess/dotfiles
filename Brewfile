@@ -51,6 +51,7 @@ brew "make"
 brew "node"
 brew "marp-cli"
 brew "mas"
+brew "mdbook"
 brew "minikube"
 brew "nushell"
 brew "pandoc"
@@ -60,6 +61,7 @@ brew "ripgrep"
 brew "ruff"
 brew "starship"
 brew "syft"
+brew "terraform-docs"
 brew "tflint"
 brew "tldr"
 brew "tree"
@@ -95,6 +97,7 @@ cask "slack"
 cask "spotify"
 cask "visual-studio-code"
 cask "zoom"
+mas "1Password for Safari", id: 1569813296
 mas "Bear", id: 1091189122
 mas "Dropover", id: 1355679052
 mas "Magnet", id: 441258766
