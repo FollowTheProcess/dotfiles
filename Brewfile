@@ -90,7 +90,6 @@ brew "kluctl/tap/kluctl"
 brew "nao1215/tap/gup"
 brew "taiki-e/tap/cargo-llvm-cov"
 cask "1password-cli"
-cask "aerospace"
 cask "arc"
 cask "docker"
 cask "font-geist-mono"
@@ -104,6 +103,7 @@ cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Bear", id: 1091189122
 mas "Dropover", id: 1355679052
+mas "Magnet", id: 441258766
 mas "Noir", id: 1592917505
 mas "Numbers", id: 409203825
 mas "Things", id: 904280696
