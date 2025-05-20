@@ -6,10 +6,32 @@
 	excludesfile = ~/.gitignore
 	editor = code --wait
 	autocrlf = false
+	whitespace = error
+	preloadindex = true
+[push]
+	autoSetupRemote = true
+	default = current
 [pull]
 	rebase = true
+	default = current
+[rebase]
+	autoStash = true
 [init]
 	defaultBranch = main
+[log]
+	abbrevCommit = true
+	graphColors = blue,yellow,cyan,magenta,green,red
+[color "decorate"]
+	HEAD = red
+	branch = blue
+	tag = yellow
+	remoteBranch = magenta
+[color "branch"]
+	current = magenta
+	local = default
+	remote = yellow
+	upstream = green
+	plain = blue
 [merge]
     tool = vscode
 [mergetool "vscode"]
@@ -29,13 +51,17 @@
 	gpgsign = true
 [gpg]
 	program = gpg
-[push]
-	autoSetupRemote = true
 [rerere]
 	enabled = true
 [column]
 	ui = auto
 [branch]
 	sort = -committerdate
+[tags]
+	sort = -taggerdate
 [fetch]
 	prune = true
+[url "https://github.com/FollowTheProcess/"]
+	insteadOf = "me:"
+[url "https://github.com/"]
+	insteadOf = "gh:"
