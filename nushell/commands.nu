@@ -57,8 +57,8 @@ export def maintenance [] {
     bun upgrade
 
     # Zig
-    info "🦎 Updating zig"
-    install-zig
+    # info "🦎 Updating zig"
+    # install-zig
 
     # tldr
     info "📓 Updating tldr"
