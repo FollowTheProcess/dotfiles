@@ -10,14 +10,18 @@
   "outline_panel": {
     "dock": "right"
   },
+  "project_panel": {
+    "auto_fold_dirs": false
+  },
+  "icon_theme": "Catppuccin Macchiato",
   "ui_font_size": 16,
   "buffer_font_size": 12,
   "cursor_shape": "bar",
-  "buffer_font_family": "SF Mono",
+  "buffer_font_family": "Geist Mono",
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Catppuccin Mocha"
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Macchiato"
   },
   "languages": {
     "Python": {
@@ -85,7 +89,7 @@
     }
   },
   "terminal": {
-    "font_family": "SFMono Nerd Font",
+    "font_family": "GeistMono Nerd Font Mono",
     "cursor_shape": "bar",
     "default_height": 500
   }
