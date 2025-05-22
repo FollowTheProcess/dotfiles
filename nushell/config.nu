@@ -242,7 +242,7 @@ alias cat = bat --paging=never # Use https://github.com/sharkdp/bat instead of c
 alias find = gfind # Use GNU find
 alias make = gmake # Use GNU make
 alias sed = gsed # Use GNU sed
-alias tree = eza --tree # Use https://github.com/eza-community/eza instead of tree
+alias tree = eza --tree --icons=always # Use https://github.com/eza-community/eza instead of tree
 alias xargs = gxargs # Use GNU xargs
 alias gsc = git switch --create # Make a new branch
 alias gaa = git add --all # Stage all the things!
