@@ -23,6 +23,7 @@ $env.FZF_DEFAULT_COMMAND = 'fd --type f --strip-cwd-prefix'
 $env.FZF_CTRL_T_COMMAND = 'fd --type f --strip-cwd-prefix'
 $env.GPG_TTY = (tty | str trim)
 $env.VIRTUALENV_PROMPT = '.venv'
+$env.XDG_CONFIG_HOME = $env.HOME | path join .config
 
 # Add things to $PATH
 $env.PATH = (
