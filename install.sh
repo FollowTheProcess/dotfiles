@@ -34,7 +34,6 @@ cp .gitignore $HOME/
 cp -r hatch $HOME/Library/Application\ Support/hatch
 cp -r pypoetry $HOME/Library/Application\ Support/pypoetry
 cp -r .cargo $HOME/
-cp -r nushell $HOME/Library/Application\ Support
 cp -r copier $HOME/Library/Application\ Support
 cp -r k9s $HOME/Library/Application\ Support
 
