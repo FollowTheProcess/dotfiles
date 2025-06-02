@@ -48,4 +48,4 @@ tasks:
   nu:
     desc: Copies the nushell config
     cmds:
-      - cp -r .config/nushell ~/Library/Application\ Support
+      - cp -r nushell ~/Library/Application\ Support

@@ -36,6 +36,7 @@ cp -r pypoetry $HOME/Library/Application\ Support/pypoetry
 cp -r .cargo $HOME/
 cp -r copier $HOME/Library/Application\ Support
 cp -r k9s $HOME/Library/Application\ Support
+cp -r nushell $HOME/Libary/Application\ Support
 
 # Create dev projects folder
 echo -e "${GREEN}Making coding projects folder...${NC}"
