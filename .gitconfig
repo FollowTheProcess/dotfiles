@@ -1,7 +1,7 @@
 [user]
 	name = Tom Fleet
 	email = me@followtheprocess.codes
-	signingkey = C3AAC1D75CA06086
+	signingkey = 667642356C177BC0
 [core]
 	excludesfile = ~/.gitignore
 	editor = code --wait
