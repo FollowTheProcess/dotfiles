@@ -102,7 +102,7 @@ export def --env --wrapped assume [...args: string] {
     let values = $command | skip 1
     let vars = $var_names |
       zip $values |
-      filter {|x| $x.1 != "None"} |
+      where {|x| $x.1 != "None"} |
       reduce --fold {} {|it, acc| $acc | insert $it.0 $it.1}
     $vars
   }
