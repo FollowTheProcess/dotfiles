@@ -233,6 +233,9 @@ source ~/.cache/carapace/init.nu
 # Same with zoxide
 source ~/.zoxide.nu
 
+# And atuin
+source ~/.cache/atuin/init.nu
+
 # Launch GPG Agent
 gpgconf --launch gpg-agent
 

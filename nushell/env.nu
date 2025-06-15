@@ -47,3 +47,7 @@ carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 # zoxide
 zoxide init --cmd cd nushell | save -f ~/.zoxide.nu
+
+# atuin
+mkdir ~/.cache/atuin
+atuin init nu | save ~/.cache/atuin/init.nu
