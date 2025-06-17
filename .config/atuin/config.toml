@@ -1,2 +1,4 @@
+dialect = "uk"
+
 [theme]
 name = "catpuccin-macchiato-mauve"
