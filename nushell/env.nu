@@ -43,7 +43,9 @@ starship init nu | save -f ~/.cache/starship/init.nu
 
 # Carapace
 mkdir ~/.cache/carapace
-carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
+# Carapace v1.3.2 / nushell v0.105 compat patch. Waiting for new carapace release
+# See carapace-sh/carapace-bin#2830
+carapace _carapace nushell | str replace 'default $carapace_completer completer' 'default { $carapace_completer } completer' | save --force ~/.cache/carapace/init.nu
 
 # zoxide
 zoxide init --cmd cd nushell | save --force ~/.zoxide.nu
