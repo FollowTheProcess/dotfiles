@@ -9,6 +9,7 @@ $env.NU_LIB_DIRS = [
 # The default for this is $nu.default-config-dir/plugins
 $env.NU_PLUGIN_DIRS = [
     ($nu.default-config-dir | path join 'plugins') # add <nushell-config-dir>/plugins
+    ($nu.current-exe | path dirname)
 ]
 
 # Custom env vars
