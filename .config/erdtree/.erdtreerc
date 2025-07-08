@@ -1,0 +1,12 @@
+# Long or short names work
+-s size
+
+# I prefer physical size
+--disk-usage physical
+
+# ooo pwetty
+--icons
+--human
+
+# This is prettier.. thanks bryceberger
+--prune

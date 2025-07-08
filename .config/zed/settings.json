@@ -1,0 +1,96 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "outline_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "auto_fold_dirs": false
+  },
+  "icon_theme": "Catppuccin Macchiato",
+  "ui_font_size": 16,
+  "buffer_font_size": 12,
+  "cursor_shape": "bar",
+  "buffer_font_family": "Geist Mono",
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Macchiato"
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["pyright", "ruff"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    }
+  },
+  "lsp": {
+    "typos": {
+      "initialization_options": {
+        "diagnosticSeverity": "Warning"
+      }
+    },
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "typeCheckingMode": "strict"
+        }
+      }
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "cargo": {
+          "allTargets": true
+        },
+        "check": {
+          "command": "clippy",
+          "allTargets": true,
+          "extraArgs": ["--all-features"]
+        }
+      }
+    },
+    "gopls": {
+      "initialization_options": {
+        "analyses": {
+          "nilness": true,
+          "shadow": true,
+          "staticcheck": true,
+          "unusedparams": false,
+          "unusedwrite": true,
+          "useany": true
+        },
+        "formatting.gofumpt": true,
+        "ui.codelenses": {
+          "gc_details": true,
+          "generate": true
+        },
+        "ui.documentation.hoverKind": "FullDocumentation",
+        "ui.semanticTokens": true,
+        "completeUnimported": true
+      }
+    }
+  },
+  "terminal": {
+    "font_family": "GeistMono Nerd Font Mono",
+    "cursor_shape": "bar",
+    "default_height": 500
+  }
+}

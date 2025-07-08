@@ -1,0 +1,67 @@
+[user]
+	name = Tom Fleet
+	email = me@followtheprocess.codes
+	signingkey = 667642356C177BC0
+[core]
+	excludesfile = ~/.gitignore
+	editor = code --wait
+	autocrlf = false
+	whitespace = error
+	preloadindex = true
+[push]
+	autoSetupRemote = true
+	default = current
+[pull]
+	rebase = true
+	default = current
+[rebase]
+	autoStash = true
+[init]
+	defaultBranch = main
+[log]
+	abbrevCommit = true
+	graphColors = blue,yellow,cyan,magenta,green,red
+[color "decorate"]
+	HEAD = red
+	branch = blue
+	tag = yellow
+	remoteBranch = magenta
+[color "branch"]
+	current = magenta
+	local = default
+	remote = yellow
+	upstream = green
+	plain = blue
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[diff]
+    external = difft
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg]
+	program = gpg
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tags]
+	sort = -taggerdate
+[fetch]
+	prune = true
+[url "https://github.com/FollowTheProcess/"]
+	insteadOf = "me:"
+[url "https://github.com/"]
+	insteadOf = "gh:"

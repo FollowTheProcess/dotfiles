@@ -1,0 +1,16 @@
+theme = catppuccin-macchiato
+font-family = "GeistMono Nerd Font Mono"
+font-size = 12
+font-style = Regular
+font-feature = calt
+font-feature = dlig
+font-feature = liga
+cursor-style = bar
+title = ""
+working-directory = "/Users/tomfleet/Development"
+window-padding-x = 6
+window-inherit-working-directory = true
+window-height = 50
+window-width = 130
+window-colorspace = "display-p3"
+macos-titlebar-style = tabs

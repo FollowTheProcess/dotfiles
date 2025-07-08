@@ -1,0 +1,82 @@
+line-length = 120
+
+[format]
+# https://docs.astral.sh/ruff/settings/#format
+docstring-code-format = true
+quote-style = "double"
+
+[lint]
+# https://docs.astral.sh/ruff/rules/
+select = [
+  "ALL", # Lint all the things!
+]
+ignore = [
+  # Lots of 'D' rules conflict with one another, this seems to be the most stable config
+  "D107", # Documenting the init as well as D101 documenting the class is redundant
+  "D203", # One blank line before class docstring
+  "D212", # Multi-line docstring summary should be on the first line
+  "D200", # One line docstring should all be on one line
+  "D401", # First line should be in imperative mood
+  "D205", # One blank line required between summary line and description
+  "D417", # Wants sphinx style docstrings
+  "D406", # Section names should end with a newline
+  "D407", # Missing dashed underline after section
+
+  # Only really applicable for libraries, not applications
+  "TRY003", # Avoid specifying long messages outside the exception class
+  "EM102",  # Exception must not use an f-string literal
+
+  # Avoid being too picky about TODO comments
+  "TD003", # 'TODO' comments don't need issue links
+
+  # https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+  "W191",   # Tab indentation
+  "E111",   # Indentation with invalid multiple
+  "E114",   # Indentation with invalid multiple comment
+  "E117",   # Over indented
+  "E501",   # Line too long
+  "D206",   # Indent with spaces
+  "D300",   # Triple single quotes
+  "Q000",   # Bad quotes inline string
+  "Q001",   # Bad quotes multiline string
+  "Q002",   # Bad quotes docstring
+  "Q003",   # Avoidable escaped quote
+  "COM812", # Missing traiiling comma
+  "COM819", # Prohibited trailing comma
+  "ISC001", # Single line implicit string concatenation
+  "ISC002", # Multi line implicit string concatenation
+]
+unfixable = [
+  "F841", # Prevents ruff deleting "unused" variables you're still working on
+]
+
+[lint.mccabe]
+max-complexity = 15
+
+[lint.isort]
+required-imports = [ "from __future__ import annotations" ]
+
+[lint.per-file-ignores]
+"tests/**/*.py" = [
+  "ARG001",  # Thinks pytest fixtures are unused arguments
+  "D104",    # Missing docstring in __init__.py in tests (which is fine)
+  "FBT001",  # Tests are allowed positional bools (fixtures etc.)
+  "TC",      # Tests will be run with dev dependencies so we don't care about separating type hints
+  "D102",    # Methods in tests don't require docstrings
+  "D105",    # Magic methods in tests don't require docstrings
+  "N803",    # Mocks/patches don't control the argument names
+  "PLR0913", # Too many arguments, tests can sometimes require (and benefit from) lots of fixtures
+  "S",       # Test code doesn't run in production so security stuff is noise
+]
+"conftest.py" = [
+  "D102",    # Methods in conftest don't require docstrings
+  "D105",    # Magic methods in tests don't require docstrings
+  "N803",    # Mocks/patches don't control their argument names
+  "PLR0913", # Too many arguments, tests can sometimes require (and benefit from) lots of fixtures
+  "TC",      # Conftest is only run for tests (with dev dependencies)
+]
+"scripts/**/*.py" = [
+  "INP001", # Scripts by definition don't belong in a package
+  "S",      # Not run against production so security stuff is noise
+  "T201",   # Prints are allowed in scripts
+]
