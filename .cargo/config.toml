@@ -1,6 +1,0 @@
-[cargo-new]
-vcs = "git"
-
-[alias]
-cov = "llvm-cov"
-gen = "generate"
