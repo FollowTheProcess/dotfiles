@@ -3,7 +3,7 @@
 	email = me@followtheprocess.codes
 	signingkey = 667642356C177BC0
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.config/git/ignore
 	editor = code --wait
 	autocrlf = false
 	whitespace = error

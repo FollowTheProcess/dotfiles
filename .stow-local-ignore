@@ -4,3 +4,4 @@ LICENSE
 \.DS_Store
 \.vscode
 \.config/raycast
+\.gitignore
