@@ -17,3 +17,13 @@ Now clone this repo to `~/.dotfiles`, `cd` into it then run:
 ```shell
 stow .
 ```
+
+Part of this will move `.Brewfile` into `$HOME` which is very handy because once it's done that:
+
+```shell
+brew bundle install --global
+```
+
+Will install *everything* in there 🚀
+
+See <https://docs.brew.sh/Brew-Bundle-and-Brewfile#brew-bundle-dump> for more info

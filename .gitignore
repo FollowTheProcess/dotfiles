@@ -470,3 +470,6 @@ docgen_tmp/
 ## Additions
 # https://taskfile.dev
 .task/
+
+# Raycast
+.config/raycast/

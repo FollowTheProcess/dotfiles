@@ -3,3 +3,4 @@ LICENSE
 \.git
 \.DS_Store
 \.vscode
+\.config/raycast
