@@ -11,6 +11,7 @@
   "base_keymap": "VSCode",
   "buffer_font_family": "Geist Mono",
   "buffer_font_size": 12,
+  "buffer_line_height": "comfortable",
   "completions": {
     "lsp": true,
     "lsp_fetch_timeout_ms": 1000
@@ -18,6 +19,7 @@
   "cursor_blink": true,
   "cursor_shape": "bar",
   "diagnostics": {
+    "include_warnings": true,
     "inline": {
       "enabled": true,
       "min_column": 80,
@@ -147,6 +149,7 @@
     },
     "font_family": "GeistMono Nerd Font Mono",
     "font_size": 12,
+    "line_height": "standard",
     "shell": {
       "program": "/opt/homebrew/bin/nu"
     }
