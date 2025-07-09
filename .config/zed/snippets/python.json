@@ -1,0 +1,16 @@
+{
+  "if __name__ == '__main__'": {
+    "prefix": "~main",
+    "description": "Inserts the check for a file running as __main__",
+    "body": [
+			"if __name__ == \"__main__\":",
+			"\t$1",
+			"$0"
+		]
+  },
+  "shebang": {
+    "prefix": "shebang",
+    "description": "Inserts a python3 shebang line",
+    "body": ["#!/usr/bin/env python3\n\n$0"]
+  }
+}
