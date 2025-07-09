@@ -152,7 +152,7 @@
     }
   },
   "theme": {
-    "dark": "Catppuccin Macchiato",
+    "dark": "Catppuccin Macchiato - No Italics",
     "light": "Catppuccin Latte",
     "mode": "dark"
   },
