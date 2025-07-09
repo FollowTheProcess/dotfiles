@@ -117,9 +117,6 @@
       }
     }
   },
-  "minimap": {
-    "show": "never"
-  },
   "outline_panel": {
     "dock": "right"
   },
@@ -140,7 +137,7 @@
   "terminal": {
     "blinking": "on",
     "cursor_shape": "bar",
-    "default_height": 500,
+    "default_height": 400,
     "detect_venv": {
       "on": {
         "activate_script": "default",
@@ -152,12 +149,22 @@
     "line_height": "standard",
     "shell": {
       "program": "/opt/homebrew/bin/nu"
+    },
+    "toolbar": {
+      "breadcrumbs": false
     }
   },
   "theme": {
     "dark": "Catppuccin Macchiato - No Italics",
     "light": "Catppuccin Latte",
     "mode": "dark"
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false,
+    "code_actions": false
   },
   "ui_font_size": 16
 }
