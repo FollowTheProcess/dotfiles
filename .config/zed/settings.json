@@ -7,31 +7,63 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "outline_panel": {
-    "dock": "right"
-  },
-  "project_panel": {
-    "auto_fold_dirs": false
-  },
-  "icon_theme": "Catppuccin Macchiato",
-  "ui_font_size": 16,
-  "buffer_font_size": 12,
-  "cursor_shape": "bar",
+  "auto_signature_help": true,
+  "base_keymap": "VSCode",
   "buffer_font_family": "Geist Mono",
-  "theme": {
-    "mode": "system",
+  "buffer_font_size": 12,
+  "completions": {
+    "lsp": true,
+    "lsp_fetch_timeout_ms": 1000
+  },
+  "cursor_blink": true,
+  "cursor_shape": "bar",
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "min_column": 80,
+      "update_debounce_ms": 150
+    }
+  },
+  "file_types": {
+    "JSONC": [
+      "**/.zed/**/*.json",
+      "**/zed/**/*.json",
+      "**/Zed/**/*.json",
+      "**/.vscode/**/*.json"
+    ],
+    "Shell Script": [".env.*"],
+    "TOML": ["**/*.toml", "**/staticcheck.conf"],
+    "dockerbake": ["docker-bake.hcl"],
+    "json": ["*.sarif", "*.json"],
+    "jsonc": ["*.json5"],
+    "markdown": ["*.slide"],
+    "pip-requirements": ["requirements*.in", "requirements*.txt"],
+    "ruby": [".Brewfile", "Brewfile"],
+    "terraform-vars": ["*.tfbackend", "*.tfvars"],
+    "xml": ["*.plist", "*.xml"]
+  },
+  "git": {
+    "inline_blame": {
+      "delay_ms": 1000,
+      "enabled": true
+    }
+  },
+  "icon_theme": {
+    "dark": "Catppuccin Macchiato",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato"
+    "mode": "dark"
+  },
+  "inlay_hints": {
+    "enabled": false
   },
   "languages": {
     "Python": {
-      "language_servers": ["pyright", "ruff"],
       "format_on_save": "on",
       "formatter": [
         {
           "code_actions": {
-            "source.organizeImports.ruff": true,
-            "source.fixAll.ruff": true
+            "source.fixAll.ruff": true,
+            "source.organizeImports.ruff": true
           }
         },
         {
@@ -39,13 +71,23 @@
             "name": "ruff"
           }
         }
-      ]
+      ],
+      "language_servers": ["pyright", "ruff"]
     }
   },
+  "linked_edits": true,
   "lsp": {
-    "typos": {
+    "gopls": {
       "initialization_options": {
-        "diagnosticSeverity": "Warning"
+        "formatting.gofumpt": true,
+        "ui.diagnostic.analyses": {
+          "shadow": true
+        },
+        "ui.diagnostic.staticcheck": true,
+        "ui.diagnostic.vulncheck": "Imports",
+        "ui.documentation.hoverKind": "FullDocumentation",
+        "ui.navigation.symbolScope": "workspace",
+        "ui.semanticTokens": true
       }
     },
     "pyright": {
@@ -61,36 +103,58 @@
           "allTargets": true
         },
         "check": {
-          "command": "clippy",
           "allTargets": true,
+          "command": "clippy",
           "extraArgs": ["--all-features"]
         }
       }
     },
-    "gopls": {
+    "typos": {
       "initialization_options": {
-        "analyses": {
-          "nilness": true,
-          "shadow": true,
-          "staticcheck": true,
-          "unusedparams": false,
-          "unusedwrite": true,
-          "useany": true
-        },
-        "formatting.gofumpt": true,
-        "ui.codelenses": {
-          "gc_details": true,
-          "generate": true
-        },
-        "ui.documentation.hoverKind": "FullDocumentation",
-        "ui.semanticTokens": true,
-        "completeUnimported": true
+        "diagnosticSeverity": "Warning"
       }
     }
   },
+  "minimap": {
+    "show": "never"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "preview_tabs": {
+    "enabled": false
+  },
+  "project_panel": {
+    "auto_fold_dirs": false,
+    "entry_spacing": "standard",
+    "hide_gitignore": false
+  },
+  "show_edit_predictions": true,
+  "show_signature_help_after_edits": true,
+  "soft_wrap": "editor_width",
+  "tabs": {
+    "file_icons": true
+  },
   "terminal": {
-    "font_family": "GeistMono Nerd Font Mono",
+    "blinking": "on",
     "cursor_shape": "bar",
-    "default_height": 500
-  }
+    "default_height": 500,
+    "detect_venv": {
+      "on": {
+        "activate_script": "default",
+        "directories": [".venv", "venv"]
+      }
+    },
+    "font_family": "GeistMono Nerd Font Mono",
+    "font_size": 12,
+    "shell": {
+      "program": "/opt/homebrew/bin/nu"
+    }
+  },
+  "theme": {
+    "dark": "Catppuccin Macchiato",
+    "light": "Catppuccin Latte",
+    "mode": "dark"
+  },
+  "ui_font_size": 16
 }
