@@ -85,7 +85,6 @@
       "language_servers": ["gopls", "golangci-lint"]
     },
     "Python": {
-      "format_on_save": "on",
       "formatter": [
         {
           "code_actions": {
