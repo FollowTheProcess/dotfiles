@@ -33,6 +33,21 @@
       }
     }
   },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/__pycache__",
+    "**/.mypy_cache",
+    "**/.ruff_cache",
+    "**/.pytest_cache"
+  ],
   "file_types": {
     "JSONC": [
       "**/.zed/**/*.json",
@@ -147,7 +162,7 @@
     "default_height": 400,
     "detect_venv": {
       "on": {
-        "activate_script": "default",
+        "activate_script": "nushell",
         "directories": [".venv", "venv"]
       }
     },
