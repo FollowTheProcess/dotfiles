@@ -26,6 +26,13 @@
       "update_debounce_ms": 150
     }
   },
+  "experimental.theme_overrides": {
+    "syntax": {
+      "string": {
+        "color": "#a1e7f2ef"
+      }
+    }
+  },
   "file_types": {
     "JSONC": [
       "**/.zed/**/*.json",
@@ -160,11 +167,11 @@
     "mode": "dark"
   },
   "toolbar": {
-    "breadcrumbs": false,
-    "quick_actions": false,
-    "selections_menu": false,
     "agent_review": false,
-    "code_actions": false
+    "breadcrumbs": false,
+    "code_actions": false,
+    "quick_actions": false,
+    "selections_menu": false
   },
   "ui_font_size": 16
 }
