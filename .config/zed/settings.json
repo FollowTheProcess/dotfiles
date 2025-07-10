@@ -81,6 +81,9 @@
     "enabled": false
   },
   "languages": {
+    "Go": {
+      "language_servers": ["gopls", "golangci-lint"]
+    },
     "Python": {
       "format_on_save": "on",
       "formatter": [
@@ -101,6 +104,16 @@
   },
   "linked_edits": true,
   "lsp": {
+    "golangci-lint": {
+      "initialization_options": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--output.json.path=stdout",
+          "--show-stats=false"
+        ]
+      }
+    },
     "gopls": {
       "initialization_options": {
         "formatting.gofumpt": true,
@@ -178,7 +191,7 @@
   },
   "theme": {
     "dark": "Catppuccin Macchiato - No Italics",
-    "light": "Catppuccin Latte",
+    "light": "Catppuccin Latte - No Italics",
     "mode": "dark"
   },
   "toolbar": {
