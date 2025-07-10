@@ -35,6 +35,7 @@ $env.PATH = (
   | prepend ($env.HOME | path join .local bin) # uv and a bunch of other tools
   | prepend ($env.HOME | path join go bin) # GOBIN
   | prepend ($env.HOME | path join .bun bin) # bun
+  | prepend '/opt/homebrew/opt/ruby/bin' # Use the non system ruby
   | uniq # filter so the paths are unique
 )
 
