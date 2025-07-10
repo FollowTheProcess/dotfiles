@@ -1,0 +1,12 @@
+{
+  "derive": {
+    "prefix": "derive",
+    "description": "Insert a derive macro",
+    "body": "#[derive($1)$0"
+  },
+  "todo": {
+    "prefix": "todo",
+    "description": "Add a TODO line comment with author name",
+    "body": "// TODO(@FollowTheProcess): $0"
+  }
+}

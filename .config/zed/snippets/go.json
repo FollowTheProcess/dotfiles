@@ -7,5 +7,10 @@
       "\treturn $1, fmt.Errorf(\"$2: %w\", err)",
       "    }"
     ]
+  },
+  "todo": {
+    "prefix": "todo",
+    "description": "Add a TODO line comment with author name",
+    "body": "// TODO(@FollowTheProcess): $0"
   }
 }
