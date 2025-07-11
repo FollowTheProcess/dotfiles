@@ -8,6 +8,9 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "auto_signature_help": true,
+  "agent": {
+    "enabled": false
+  },
   "base_keymap": "VSCode",
   "buffer_font_family": "Geist Mono",
   "buffer_font_size": 12,
@@ -32,6 +35,9 @@
         "color": "#a1e7f2ef"
       }
     }
+  },
+  "features": {
+    "edit_prediction_provider": "none"
   },
   "file_scan_exclusions": [
     "**/.git",
