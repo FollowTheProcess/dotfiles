@@ -147,6 +147,16 @@ export def prune [] {
     | str trim
 }
 
+# Generate gitignore files
+export def gig [...targets: string@targets] {
+    http get $"https://www.toptal.com/developers/gitignore/api/($targets | str join ',')"
+}
+
+# Generate completion targets for gig
+def targets [] {
+    http get https://www.toptal.com/developers/gitignore/api/list?format=lines | lines
+}
+
 # Download the latest release of zig and put it on $PATH
 def install-zig [] {
     let index = http get https://ziglang.org/download/index.json
