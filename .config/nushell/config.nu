@@ -247,6 +247,7 @@ alias gs = git switch # Laziness at its peak
 alias gpu = git push # Can't break the muscle memory now
 alias tf = terraform # Lazy
 alias k = kubectl # Everyone seems to do this so...
+alias ts = tree-sitter # Yep... more lazy
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
 # alias nu-open = open
