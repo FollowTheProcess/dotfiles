@@ -27,6 +27,7 @@ brew "gcc"
 brew "openblas"
 brew "checkov"
 brew "curl"
+brew "delve"
 brew "difftastic"
 brew "dust"
 brew "erdtree"
@@ -40,7 +41,9 @@ brew "git"
 brew "gnu-sed"
 brew "gnupg"
 brew "go"
+brew "gofumpt"
 brew "golangci-lint"
+brew "gomodifytags"
 brew "graphviz"
 brew "gum"
 brew "helm"
@@ -74,6 +77,7 @@ brew "terraform-docs"
 brew "tflint"
 brew "tldr"
 brew "tree"
+brew "tree-sitter"
 brew "trivy"
 brew "typos-cli"
 brew "uv"
@@ -118,7 +122,6 @@ mas "Bear", id: 1091189122
 mas "Dropover", id: 1355679052
 mas "JSONPeep", id: 1458969831
 mas "Keynote", id: 409183694
-mas "Magnet", id: 441258766
 mas "Noir", id: 1592917505
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
