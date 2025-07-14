@@ -201,7 +201,7 @@
   },
   "toolbar": {
     "agent_review": false,
-    "breadcrumbs": false,
+    "breadcrumbs": true,
     "code_actions": false,
     "quick_actions": false,
     "selections_menu": false

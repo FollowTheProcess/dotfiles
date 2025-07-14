@@ -1,0 +1,28 @@
+// Global tasks configuration. See https://zed.dev/docs/tasks for documentation.
+[
+  {
+    // Soon this will be part of gopls and I won't need this but this actually
+    // works pretty well!
+    // https://github.com/golang/vscode-go/issues/2002
+    "label": "Add Go Struct Tags",
+    "command": "gomodifytags",
+    "args": [
+      "-file",
+      "$ZED_RELATIVE_FILE",
+      "-struct",
+      "$ZED_SYMBOL",
+      "-add-tags",
+      "json",
+      "-transform",
+      "camelcase",
+      "-add-options",
+      "json=omitempty",
+      "-w"
+    ],
+    "reveal": "never",
+    "hide": "always",
+    "shell": {
+      "program": "sh"
+    }
+  }
+]
