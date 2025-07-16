@@ -150,11 +150,6 @@
           "extraArgs": ["--all-features"]
         }
       }
-    },
-    "typos": {
-      "initialization_options": {
-        "diagnosticSeverity": "Warning"
-      }
     }
   },
   "outline_panel": {
