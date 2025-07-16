@@ -14,8 +14,9 @@ gup import --input ~/.config/gup/gup.conf
 echo -e "${GREEN}Making coding projects folder...${NC}"
 mkdir -p ~/Development
 
-# Add nushell as a shell
+# Add nushell as a shell and make it the default
 echo /opt/homebrew/bin/nu | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/nu
 
 # macOS Preferences
 echo -e "${GREEN}Configuring macOS preferences...${NC}"
