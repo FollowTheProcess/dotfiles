@@ -15,6 +15,7 @@ echo -e "${GREEN}Making coding projects folder...${NC}"
 mkdir -p ~/Development
 
 # Add nushell as a shell and make it the default
+echo -e "${GREEN}Setting nushell as default shell (requires sudo)...${NC}"
 echo /opt/homebrew/bin/nu | sudo tee -a /etc/shells
 chsh -s /opt/homebrew/bin/nu
 
