@@ -182,7 +182,9 @@
     "font_family": "GeistMono Nerd Font Mono",
     "font_size": 12,
     "line_height": "standard",
-    "shell": "system",
+    "shell": {
+      "program": "/opt/homebrew/bin/nu"
+    },
     "toolbar": {
       "breadcrumbs": false
     }
