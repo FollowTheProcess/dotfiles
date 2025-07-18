@@ -16,6 +16,10 @@
       "cmd-ctrl-right": [
         "workspace::MoveItemToPaneInDirection",
         { "direction": "right" }
+      ],
+      "cmd-p": [
+        "task::Spawn",
+        { "task_name": "File Finder", "reveal_target": "center" }
       ]
     }
   }
