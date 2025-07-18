@@ -19,6 +19,15 @@ echo -e "${GREEN}Setting nushell as default shell (requires sudo)...${NC}"
 echo /opt/homebrew/bin/nu | sudo tee -a /etc/shells
 chsh -s /opt/homebrew/bin/nu
 
+# Set up system-wide $PATH so that non-terminal applications can see $PATH as I intend it
+# these are named {priority}-{name} and are loaded in priority order
+echo -e "${GREEN}Setting global PATH (requires sudo)...${NC}"
+echo /opt/homebrew/bin | sudo tee -a /etc/paths.d/20-homebrew
+echo /opt/homebrew/opt/ruby/bin | sudo tee -a /etc/paths.d/20-homebrew
+echo $HOME/.cargo/bin | sudo tee -a /etc/paths.d/30-cargo
+echo $HOME/.local/bin | sudo tee -a /etc/paths.d/40-local
+echo $HOME/go/bin | sudo tee -a /etc/paths.d/50-go
+
 # macOS Preferences
 echo -e "${GREEN}Configuring macOS preferences...${NC}"
 echo "FYI you will need to restart afterwards for many of these to take effect"
