@@ -18,11 +18,5 @@
         { "direction": "right" }
       ]
     }
-  },
-  {
-    "context": "Editor && vim_mode == insert && !menu",
-    "bindings": {
-      // "j k": "vim::SwitchToNormalMode"
-    }
   }
 ]
