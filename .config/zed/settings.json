@@ -12,7 +12,7 @@
     "enabled": false
   },
   "base_keymap": "VSCode",
-  "buffer_font_family": "Geist Mono",
+  "buffer_font_family": "GeistMono Nerd Font Mono",
   "buffer_font_size": 12,
   "buffer_line_height": "comfortable",
   "completions": {
@@ -196,7 +196,7 @@
   },
   "toolbar": {
     "agent_review": false,
-    "breadcrumbs": true,
+    "breadcrumbs": false,
     "code_actions": false,
     "quick_actions": false,
     "selections_menu": false
