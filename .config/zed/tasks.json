@@ -27,20 +27,5 @@
         "args": ["--noediting", "--norc", "--noprofile"]
       }
     }
-  },
-  // Nice telescope-style fuzzy file finder, mapped to replace
-  // the default CMD+P
-  {
-    "label": "File Finder",
-    "command": "zed \"$(tv files)\"",
-    "hide": "always",
-    "allow_concurrent_runs": true,
-    "use_new_terminal": true,
-    "shell": {
-      "with_arguments": {
-        "program": "sh",
-        "args": ["--noediting", "--norc", "--noprofile"]
-      }
-    }
   }
 ]
