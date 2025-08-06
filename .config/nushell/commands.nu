@@ -94,7 +94,7 @@ export def --env --wrapped assume [...args: string] {
   let granted_status = $env.LAST_EXIT_CODE
 
   # First line is the command
-  let command = $granted_output | get -i 0 | default "" | str trim | split row " "
+  let command = $granted_output | get --optional 0 | default "" | str trim | split row " "
 
   let flag = $command | get 0
   # Collect environment variables to set
