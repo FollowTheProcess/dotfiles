@@ -244,12 +244,12 @@ $env.CARGO_HOME = $env.HOME | path join .cargo
 # Add things to $PATH
 $env.PATH = (
   $env.PATH
-  | prepend '/opt/homebrew/bin' # macOS ARM64 Homebrew
+  | prepend '/opt/homebrew/opt/ruby/bin' # Use the non system ruby
   | prepend ($env.HOME | path join .cargo bin) # Cargo install
   | prepend ($env.HOME | path join .local bin) # uv and a bunch of other tools
-  | prepend ($env.HOME | path join go bin) # GOBIN
   | prepend ($env.HOME | path join .bun bin) # bun
-  | prepend '/opt/homebrew/opt/ruby/bin' # Use the non system ruby
+  | prepend ($env.HOME | path join go bin) # GOBIN
+  | prepend '/opt/homebrew/bin' # macOS ARM64 Homebrew
   | uniq # filter so the paths are unique
 )
 
