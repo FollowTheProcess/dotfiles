@@ -31,4 +31,4 @@ echo $HOME/go/bin | sudo tee -a /etc/paths.d/50-go
 # macOS Preferences
 echo -e "${GREEN}Configuring macOS preferences...${NC}"
 echo "FYI you will need to restart afterwards for many of these to take effect"
-zsh machos.sh
+zsh macos.sh
