@@ -241,6 +241,9 @@ $env.GPG_TTY = (tty | str trim)
 $env.VIRTUALENV_PROMPT = '.venv'
 $env.CARGO_HOME = $env.HOME | path join .cargo
 
+# Go Experiments
+$env.GOEXPERIMENT = "greenteagc,jsonv2"
+
 # Add things to $PATH
 $env.PATH = (
   $env.PATH
