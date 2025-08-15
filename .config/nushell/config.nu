@@ -306,6 +306,7 @@ alias gpu = git push # Can't break the muscle memory now
 alias tf = terraform # Lazy
 alias k = kubectl # Everyone seems to do this so...
 alias ts = tree-sitter # Yep... more lazy
+alias gl = glab # Mirror gh for GitHub
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
 # alias nu-open = open
