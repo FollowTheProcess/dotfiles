@@ -52,7 +52,9 @@
     "**/__pycache__",
     "**/.mypy_cache",
     "**/.ruff_cache",
-    "**/.pytest_cache"
+    "**/.pytest_cache",
+    "**/.venv",
+    "**/venv"
   ],
   "file_types": {
     "JSONC": [
@@ -70,7 +72,17 @@
     "pip-requirements": ["requirements*.in", "requirements*.txt"],
     "ruby": [".Brewfile", "Brewfile"],
     "terraform-vars": ["*.tfbackend", "*.tfvars"],
-    "XML": ["*.plist", "*.xml"]
+    "XML": ["*.plist", "*.xml"],
+    "Git Attributes": ["{git,.git,.git/info}/attributes"],
+    "Git Config": [
+      "{git,.git/modules,.git/modules/*}/config",
+      "**/.config/git/config"
+    ],
+    "Git Ignore": [
+      "{git,.git}/ignore",
+      ".git/info/exclude",
+      "**/.config/git/ignore"
+    ]
   },
   "git": {
     "inline_blame": {
