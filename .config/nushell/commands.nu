@@ -156,3 +156,25 @@ export def gig [...targets: string@targets] {
 def targets [] {
     http get https://www.toptal.com/developers/gitignore/api/list?format=lines | lines
 }
+
+# Perform a git commit in a pair programming context.
+# Requires a ~/.config/git/coauthors file with entries formatted like
+# `First Last <first.last@email.com>` on each line.
+export def "pair commit" [] {
+    let type = gum choose feat fix chore test refactor --header "Pick a semantic commit type"
+    let ticket = gum input --header "Jira ticket ref" --value "SR-"
+    let summary = gum input --width 50 --placeholder "Summary of changes"
+    let details = gum write --width 80 --placeholder "Details of changes"
+    let contents = $env.HOME | path join ".config" "git" "coauthors" | open $in | lines
+    let coauthors = gum choose --header "Pick git co-authors" --no-limit ...$contents | each { |author| $"Co-authored-by: ($author)" } | str join "\n"
+
+    let message = $"
+($type)\(($ticket)\): ($summary)
+
+($details | str trim)
+
+($coauthors)
+" | str trim --left
+
+    $message | git commit --file '-'
+}
