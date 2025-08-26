@@ -178,3 +178,27 @@ export def "pair commit" [] {
 
     $message | git commit --file '-'
 }
+
+# Interactively pick a Pull Request to checkout.
+export def "pr" [] {
+    let prs = gh pr list --json "number,title"
+        | from json
+        | rename --column { number: id }
+        | move id --first
+        | move title --after id
+        | sort-by id --reverse
+
+
+
+    if ($prs | is-empty) {
+        error make {
+            msg: "No open PRs for this repo"
+        }
+    }
+
+
+    let pick_list = $prs | each { |pr| $"($pr.id): ($pr.title)" }
+    let chosen = gum choose --header "Which PR?" ...$pick_list | parse "{id}: {title}"
+
+    gh pr checkout $chosen.id.0
+}
