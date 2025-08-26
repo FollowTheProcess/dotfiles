@@ -188,14 +188,11 @@ export def "pr" [] {
         | move title --after id
         | sort-by id --reverse
 
-
-
     if ($prs | is-empty) {
         error make {
             msg: "No open PRs for this repo"
         }
     }
-
 
     let pick_list = $prs | each { |pr| $"($pr.id): ($pr.title)" }
     let chosen = gum choose --header "Which PR?" ...$pick_list | parse "{id}: {title}"
