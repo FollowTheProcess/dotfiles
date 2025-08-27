@@ -101,7 +101,6 @@ brew "kluctl/tap/kluctl"
 brew "nao1215/tap/gup"
 brew "taiki-e/tap/cargo-llvm-cov"
 cask "1password-cli"
-cask "arc"
 cask "docker-desktop"
 cask "font-geist-mono"
 cask "font-geist-mono-nerd-font"
@@ -120,12 +119,13 @@ cask "txtract"
 cask "visual-studio-code"
 cask "wireshark-app"
 cask "zed"
+cask "zen"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259
 mas "Bear", id: 1091189122
 mas "Dropover", id: 1355679052
-mas "JSONPeep", id: 1458969831
+mas "JSON Peep", id: 1458969831
 mas "Keynote", id: 409183694
 mas "Noir", id: 1592917505
 mas "Numbers", id: 409203825
