@@ -7,7 +7,7 @@
 // from the command palette.
 [
   {
-    "context": "Workspace",
+    "context": "Editor",
     "bindings": {
       "cmd-ctrl-left": [
         "workspace::MoveItemToPaneInDirection",
