@@ -111,7 +111,7 @@
           }
         }
       ],
-      "language_servers": ["pyright", "ruff"]
+      "language_servers": ["ruff", "ty"]
     }
   },
   "linked_edits": true,
