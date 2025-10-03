@@ -52,7 +52,6 @@ defaults write com.apple.dock persistent-apps -array
 # Add persistent apps to Dock
 defaults write com.apple.dock \
     persistent-apps -array \
-    "$(__dock_item /Applications/Arc.app)" \
     "$(__dock_item /System/Applications/Safari.app)" \
     "$(__dock_item /Applications/Slack.app)" \
     "$(__dock_item /Applications/Whatsapp.app)" \

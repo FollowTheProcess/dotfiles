@@ -10,7 +10,7 @@ Make sure you have [GNU Stow] installed...
 brew install stow
 ```
 
-Now clone this repo to `~/.dotfiles`, `cd` into it then run:
+Now clone this repo to `~/dotfiles`, `cd` into it then run:
 
 ```shell
 stow .
