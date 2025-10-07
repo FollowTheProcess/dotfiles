@@ -147,6 +147,18 @@ export def prune [] {
     | str trim
 }
 
+# Clean untracked files
+export def gc [] {
+    git ls-files --other --exclude-standard | xargs rm -rf
+}
+
+# Pretty git log
+export def glog [] {
+    # TODO: Translate this into a nushell native one so it
+    # goes into a proper table
+    git log --graph --pretty="tformat:%C(always,yellow)%h%C(always,reset) %C(always,green)%ar%C(always,reset){%C(always,bold blue)%an%C(always,reset){%C(always,red)%d%C(always,reset) %s" | column -t -s '{' | less -XRS --quit-if-one-screen
+}
+
 # Generate gitignore files
 export def gig [...targets: string@targets] {
     http get $"https://www.toptal.com/developers/gitignore/api/($targets | str join ',')"
@@ -189,9 +201,8 @@ export def "pr" [] {
         | sort-by id --reverse
 
     if ($prs | is-empty) {
-        error make {
-            msg: "No open PRs for this repo"
-        }
+        success "No open PRs" --newline
+        return
     }
 
     let pick_list = $prs | each { |pr| $"($pr.id): ($pr.title)" }
