@@ -22,7 +22,7 @@ def success [
     if $newline {
         print $"\n✅ (ansi green)Success:(ansi reset) ($msg)\n"
     } else {
-        print $"✅ (ansi green)Success:(ansi reset) ($msg)"
+        print $"(ansi green)Success:(ansi reset) ($msg)"
     }
 }
 
@@ -145,11 +145,15 @@ export def prune [] {
     | where ($it != "* master" and $it != "* main")
     | each { |br| print $"Removing branch ($br)"; git branch --delete --force ($br | str trim) }
     | str trim
+    | ignore # Otherwise it prints "empty list"
 }
 
 # Clean untracked files
 export def gc [] {
-    git ls-files --other --exclude-standard | xargs rm -rf
+    git ls-files --other --exclude-standard
+    | lines
+    | each { |file| print $"Removing untracked file: ($file)"; rm -rf $file }
+    | ignore # Otherwise it prints "empty list"
 }
 
 # Pretty git log
