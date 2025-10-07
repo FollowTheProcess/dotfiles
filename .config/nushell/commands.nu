@@ -22,7 +22,7 @@ def success [
     if $newline {
         print $"\n✅ (ansi green)Success:(ansi reset) ($msg)\n"
     } else {
-        print $"✅ (ansi green)Success:(ansi reset) ($msg)\n"
+        print $"✅ (ansi green)Success:(ansi reset) ($msg)"
     }
 }
 
@@ -214,7 +214,7 @@ export def "pr" [] {
         | sort-by id --reverse
 
     if ($prs | is-empty) {
-        success "No open PRs" --newline
+        success "No open PRs"
         return
     }
 
