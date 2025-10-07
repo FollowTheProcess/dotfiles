@@ -154,9 +154,22 @@ export def gc [] {
 
 # Pretty git log
 export def glog [] {
-    # TODO: Translate this into a nushell native one so it
-    # goes into a proper table
-    git log --graph --pretty="tformat:%C(always,yellow)%h%C(always,reset) %C(always,green)%ar%C(always,reset){%C(always,bold blue)%an%C(always,reset){%C(always,red)%d%C(always,reset) %s" | column -t -s '{' | less -XRS --quit-if-one-screen
+    const hash = "%C(always,yellow)%h%C(always,reset)"
+    const subject = "%C(always,bold)%s%C(always,reset)"
+    const name = "%C(always,bold blue)%an%C(always,reset)"
+    const email = "%aE"
+    const date = "%aD"
+
+    const delimiter = "»¦«"
+
+    let format = $"($hash)($delimiter)($subject)($delimiter)($name)($delimiter)($email)($delimiter)($date)"
+
+    git log --max-count 100 --pretty=$"($format)"
+    | lines
+    | split column $delimiter commit subject name email date
+    | upsert date { |d| $d.date | into datetime }
+    | sort-by date
+    | reverse
 }
 
 # Generate gitignore files
