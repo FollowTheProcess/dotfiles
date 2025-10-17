@@ -260,9 +260,8 @@ alias gaa = git add --all # Stage all the things!
 alias gs = git switch # Laziness at its peak
 alias gpu = git push # Can't break the muscle memory now
 alias tf = terraform # Lazy
+alias tg = terragrunt # Also lazy
 alias k = kubectl # Everyone seems to do this so...
-alias ts = tree-sitter # Yep... more lazy
-alias gl = glab # Mirror gh for GitHub
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
 # alias nu-open = open

@@ -7,9 +7,6 @@ NC='\033[0m'
 echo -e "${GREEN}Installing Rustup...${NC}"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# Go
-gup import --input ~/.config/gup/gup.conf
-
 # Create dev projects folder
 echo -e "${GREEN}Making coding projects folder...${NC}"
 mkdir -p ~/Development
