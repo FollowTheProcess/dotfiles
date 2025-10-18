@@ -32,6 +32,7 @@ export def maintenance [] {
     info "🍺 Updating and cleaning homebrew packages"
     brew update
     brew upgrade
+    brew bundle --global # Sync with .Brewfile
     brew cleanup --scrub
 
     # VSCode
@@ -48,17 +49,9 @@ export def maintenance [] {
     rustup update
     cargo install-update --all
 
-    # Go
-    info "🐰 Updating go tools"
-    gup update
-
     # Bun
     info " Updating bun"
     bun upgrade
-
-    # Zig
-    # info "🦎 Updating zig"
-    # install-zig
 
     # tldr
     info "📓 Updating tldr"

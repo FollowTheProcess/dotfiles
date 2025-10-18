@@ -53,6 +53,8 @@ Temporary Items
 .history
 .ionide
 
+.vscode/
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode
 
 .config/raycast
