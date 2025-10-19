@@ -4,7 +4,6 @@
 	signingkey = 667642356C177BC0
 [core]
 	excludesfile = ~/.config/git/ignore
-	editor = zed --wait
 	autocrlf = false
 	whitespace = error
 	preloadindex = true
@@ -32,14 +31,8 @@
 	remote = yellow
 	upstream = green
 	plain = blue
-[merge]
-    tool = zed
-[mergetool "zed"]
-    cmd = zed --wait $MERGED
 [diff]
     external = difft
-[difftool "zed"]
-    cmd = zed --wait --diff $LOCAL $REMOTE
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

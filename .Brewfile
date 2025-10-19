@@ -81,6 +81,7 @@ brew "stow"
 brew "syft"
 brew "television"
 brew "terraform-docs"
+brew "terraform-ls"
 brew "tflint"
 brew "tldr"
 brew "tokei"
@@ -101,7 +102,6 @@ brew "fluxcd/tap/flux"
 brew "go-gremlins/tap/gremlins"
 brew "go-task/tap/go-task"
 brew "hashicorp/tap/terraform"
-brew "hashicorp/tap/terraform-ls"
 brew "kluctl/tap/kluctl"
 brew "nao1215/tap/gup"
 brew "taiki-e/tap/cargo-llvm-cov"
@@ -124,6 +124,7 @@ cask "txtract"
 cask "visual-studio-code"
 cask "wireshark-app"
 cask "zed"
+mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259
 mas "Bear", id: 1091189122
 mas "Dropover", id: 1355679052

@@ -7,6 +7,8 @@
 // from the command palette.
 [
   {
+    // Keep the VSCode style cmd-ctrl-{left|right} to move panes left and right as
+    // the default split duplicates them
     "context": "Workspace || Editor",
     "bindings": {
       "cmd-ctrl-left": [
@@ -17,6 +19,14 @@
         "workspace::MoveItemToPaneInDirection",
         { "direction": "right" }
       ]
+    }
+  },
+  {
+    "bindings": {
+      // Swap the bindings for open settings UI and open settings file as I only
+      // want to edit the JSON file with cmd+,
+      "cmd-,": "zed::OpenSettingsFile",
+      "cmd-alt-,": "zed::OpenSettings"
     }
   }
 ]
