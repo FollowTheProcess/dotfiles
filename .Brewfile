@@ -129,6 +129,7 @@ mas "AdGuard for Safari", id: 1440147259
 mas "Bear", id: 1091189122
 mas "Dropover", id: 1355679052
 mas "Noir", id: 1592917505
+mas "Numbers", id: 409203825
 mas "Things", id: 904280696
 mas "WhatsApp", id: 310633997
 vscode "bierner.github-markdown-preview"

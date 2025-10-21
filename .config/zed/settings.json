@@ -10,6 +10,7 @@
   "auto_install_extensions": {
     "catppuccin": true,
     "catppuccin-icons": true,
+    "catppuccin-blur": true,
     "dockerfile": true,
     "git-firefly": true,
     "golangci-lint": true,
