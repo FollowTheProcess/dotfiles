@@ -11,6 +11,7 @@
     "catppuccin": true,
     "catppuccin-icons": true,
     "catppuccin-blur": true,
+    "comment": true,
     "dockerfile": true,
     "git-firefly": true,
     "golangci-lint": true,
