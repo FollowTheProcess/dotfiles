@@ -8,6 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "auto_install_extensions": {
+    "bash": true,
     "catppuccin": true,
     "catppuccin-icons": true,
     "catppuccin-blur": true,
@@ -224,7 +225,7 @@
     }
   },
   "theme": {
-    "dark": "Catppuccin Mocha (Blur) [Light]",
+    "dark": "Catppuccin Macchiato (Blur) [Light]",
     "light": "Catppuccin Latte - No Italics",
     "mode": "dark"
   },
