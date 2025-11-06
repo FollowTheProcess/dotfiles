@@ -19,6 +19,7 @@ $env.GOEXPERIMENT = "greenteagc,jsonv2"
 $env.PATH = (
   $env.PATH
   | prepend '/opt/homebrew/opt/ruby/bin' # Use the non system ruby
+  | prepend '/opt/homebrew/opt/curl/bin' # Use non system curl
   | prepend ($env.HOME | path join .cargo bin) # Cargo install
   | prepend ($env.HOME | path join .local bin) # uv and a bunch of other tools
   | prepend ($env.HOME | path join .bun bin) # bun
