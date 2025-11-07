@@ -32,8 +32,8 @@ export def maintenance [] {
     info "🍺 Updating and cleaning homebrew packages"
     brew update
     brew upgrade
-    brew bundle --global --cleanup --all --quiet # Sync with .Brewfile
-    brew cleanup --scrub
+    brew bundle --global --cleanup --all --quiet --zap # Sync with .Brewfile
+    brew cleanup --scrub --prune all
 
     # VSCode
     info "🧑🏻‍💻 Updating VSCode Extensions"
