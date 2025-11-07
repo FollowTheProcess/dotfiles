@@ -24,7 +24,8 @@ $env.PATH = (
   | prepend ($env.HOME | path join .local bin) # uv and a bunch of other tools
   | prepend ($env.HOME | path join .bun bin) # bun
   | prepend ($env.HOME | path join go bin) # GOBIN
-  | prepend '/opt/homebrew/bin' # macOS ARM64 Homebrew
+  | prepend '/opt/homebrew/sbin' # Some formulas put executables here
+  | prepend '/opt/homebrew/bin' # most homebrew tools go here
   | uniq # filter so the paths are unique
 )
 
