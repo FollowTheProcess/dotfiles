@@ -125,7 +125,6 @@ cask "spotify"
 cask "tag"
 cask "txtract"
 cask "visual-studio-code"
-cask "wireshark-app"
 cask "yaak"
 cask "zed"
 # https://github.com/mas-cli/mas/issues/1029
