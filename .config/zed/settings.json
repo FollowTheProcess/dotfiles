@@ -14,6 +14,7 @@
     "catppuccin-blur": true,
     "comment": true,
     "dockerfile": true,
+    "github-actions": true,
     "git-firefly": true,
     "golangci-lint": true,
     "html": true,
@@ -91,6 +92,8 @@
       "**/Zed/**/*.json",
       "**/.vscode/**/*.json"
     ],
+    "yaml.openapi": ["**/openapi.yaml"],
+    "GitHub Actions": [".github/workflows/*.yml", ".github/workflows/*.yaml"],
     "markdown": ["*.slide"],
     "pip-requirements": ["requirements*.in", "requirements*.txt"],
     "ruby": [".Brewfile", "Brewfile"],

@@ -76,6 +76,7 @@ brew "redocly-cli"
 brew "ripgrep"
 brew "ruby"
 brew "ruff"
+brew "rumdl"
 brew "shfmt"
 brew "solargraph"
 brew "starship"
@@ -127,7 +128,7 @@ cask "txtract"
 cask "visual-studio-code"
 cask "yaak"
 cask "zed"
-# https://github.com/mas-cli/mas/issues/1029
+# # https://github.com/mas-cli/mas/issues/1029
 # mas "1Password for Safari", id: 1569813296
 # mas "AdGuard for Safari", id: 1440147259
 # mas "Bear", id: 1091189122
