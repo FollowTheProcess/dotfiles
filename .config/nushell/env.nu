@@ -1,6 +1,6 @@
 # Custom env vars
 $env.PIP_REQUIRE_VIRTUALENV = true
-$env.EDITOR = 'zed --wait'
+$env.EDITOR = 'code --wait'
 $env.GOPATH = $env.HOME | path join go
 $env.GOBIN = $env.HOME | path join go bin
 $env.CGO_ENABLED = 0
