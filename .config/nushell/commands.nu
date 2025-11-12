@@ -80,7 +80,7 @@ export def --env --wrapped assume [...args: string] {
 
   # Run assumego and collect its output
   let output = with-env {GRANTED_ALIAS_CONFIGURED: "true"} {
-    assumego ...$args
+    assumego -x ...$args
   }
 
   let granted_output = $output | lines
