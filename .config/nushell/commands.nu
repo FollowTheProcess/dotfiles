@@ -53,6 +53,10 @@ export def maintenance [] {
     info " Updating bun"
     bun upgrade
 
+    # Brew installs the go packages but doesn't keep them continuously updated
+    info " Updating GOPATH binaries"
+    gup update
+
     # tldr
     info "📓 Updating tldr"
     tldr --update
