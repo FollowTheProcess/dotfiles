@@ -70,7 +70,8 @@
     "**/.ruff_cache",
     "**/.pytest_cache",
     "**/.venv",
-    "**/venv"
+    "**/venv",
+    "**/.task"
   ],
   "file_types": {
     "dockerbake": ["docker-bake.hcl"],
@@ -85,12 +86,12 @@
       "**/.config/git/ignore"
     ],
     "json": ["*.sarif", "*.json"],
-    "jsonc": ["*.json5"],
     "JSONC": [
       "**/.zed/**/*.json",
       "**/zed/**/*.json",
       "**/Zed/**/*.json",
-      "**/.vscode/**/*.json"
+      "**/.vscode/**/*.json",
+      "*.json5"
     ],
     "yaml.openapi": ["**/openapi.yaml"],
     "GitHub Actions": [".github/workflows/*.yml", ".github/workflows/*.yaml"],
@@ -98,10 +99,11 @@
     "pip-requirements": ["requirements*.in", "requirements*.txt"],
     "ruby": [".Brewfile", "Brewfile"],
     "Shell Script": [".env.*"],
-    "terraform-tests": ["**/*.tftest.hcl"],
+    "terraform-tests": ["*.tftest.hcl"],
     "terraform-vars": ["*.tfbackend", "*.tfvars"],
-    "TOML": ["**/*.toml", "**/staticcheck.conf"],
-    "XML": ["*.plist", "*.xml"]
+    "TOML": ["*.toml", "**/staticcheck.conf"],
+    "XML": ["*.plist", "*.xml"],
+    "YAML": ["*.yaml", "*.yml", "*.snap"]
   },
   "git": {
     "blame": {
@@ -228,7 +230,7 @@
     }
   },
   "theme": {
-    "dark": "Catppuccin Macchiato (Blur) [Light]",
+    "dark": "Catppuccin Macchiato (Blur)",
     "light": "Catppuccin Latte - No Italics",
     "mode": "dark"
   },
