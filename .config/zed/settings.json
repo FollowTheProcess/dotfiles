@@ -11,7 +11,6 @@
     "bash": true,
     "catppuccin": true,
     "catppuccin-icons": true,
-    "catppuccin-blur": true,
     "comment": true,
     "dockerfile": true,
     "github-actions": true,
@@ -230,7 +229,7 @@
     }
   },
   "theme": {
-    "dark": "Catppuccin Macchiato",
+    "dark": "Catppuccin Macchiato - No Italics",
     "light": "Catppuccin Latte - No Italics",
     "mode": "dark"
   },
