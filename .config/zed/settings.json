@@ -68,6 +68,7 @@
     "**/.mypy_cache",
     "**/.ruff_cache",
     "**/.pytest_cache",
+    "**/.rumdl-cache",
     "**/.venv",
     "**/venv",
     "**/.task"
@@ -92,7 +93,6 @@
       "**/.vscode/**/*.json",
       "*.json5"
     ],
-    "yaml.openapi": ["**/openapi.yaml"],
     "GitHub Actions": [".github/workflows/*.yml", ".github/workflows/*.yaml"],
     "markdown": ["*.slide"],
     "pip-requirements": ["requirements*.in", "requirements*.txt"],
