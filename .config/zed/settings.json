@@ -140,6 +140,9 @@
         }
       ],
       "language_servers": ["ruff", "ty", "basedpyright", "!pyright"]
+    },
+    "YAML": {
+      "formatter": "language_server"
     }
   },
   "linked_edits": true,
@@ -202,7 +205,6 @@
     "entry_spacing": "standard",
     "hide_gitignore": false
   },
-  "show_edit_predictions": true,
   "show_signature_help_after_edits": true,
   "soft_wrap": "editor_width",
   "tabs": {
@@ -238,10 +240,10 @@
   },
   "toolbar": {
     "agent_review": false,
-    "breadcrumbs": false,
-    "code_actions": false,
+    "breadcrumbs": true,
+    "code_actions": true,
     "quick_actions": false,
-    "selections_menu": false
+    "selections_menu": true
   },
   "ui_font_size": 16,
   "use_smartcase_search": true
