@@ -91,6 +91,7 @@
       "**/zed/**/*.json",
       "**/Zed/**/*.json",
       "**/.vscode/**/*.json",
+      "**/.devcontainer/devcontainer.json",
       "*.json5"
     ],
     "GitHub Actions": [".github/workflows/*.yml", ".github/workflows/*.yaml"],
@@ -119,7 +120,7 @@
     "mode": "dark"
   },
   "inlay_hints": {
-    "enabled": false
+    "enabled": true
   },
   "languages": {
     "Go": {
@@ -170,7 +171,11 @@
         "ui.diagnostic.vulncheck": "Imports",
         "ui.documentation.hoverKind": "FullDocumentation",
         "ui.navigation.symbolScope": "workspace",
-        "ui.semanticTokens": true
+        "ui.semanticTokens": true,
+        "hints": {
+          "assignVariableTypes": false,
+          "compositeLiteralTypes": false
+        }
       }
     },
     "pyright": {
@@ -189,6 +194,11 @@
           "allTargets": true,
           "command": "clippy",
           "extraArgs": ["--all-features"]
+        },
+        "inlayHints": {
+          "closingBraceHints": {
+            "enable": false
+          }
         }
       }
     }
@@ -197,8 +207,7 @@
     "dock": "right"
   },
   "preview_tabs": {
-    "enable_preview_from_code_navigation": false,
-    "enabled": true
+    "enabled": false
   },
   "project_panel": {
     "auto_fold_dirs": false,
