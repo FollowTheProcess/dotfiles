@@ -4,19 +4,44 @@
     // Soon this will be part of gopls and I won't need this but this actually
     // works pretty well!
     // https://github.com/golang/vscode-go/issues/2002
-    "label": "Add Go Struct Tags",
+    "label": "Go: Add Struct Tags",
     "command": "gomodifytags",
     "args": [
       "-file",
-      "$ZED_RELATIVE_FILE",
+      "$ZED_FILE",
       "-struct",
       "$ZED_SYMBOL",
       "-add-tags",
       "json",
       "-transform",
       "camelcase",
-      "-add-options",
-      "json=omitempty",
+      "-skip-unexported",
+      "-quiet",
+      "-w"
+    ],
+    "reveal": "never",
+    "hide": "always",
+    "shell": {
+      "with_arguments": {
+        "program": "sh",
+        "args": ["--noediting", "--norc", "--noprofile"]
+      }
+    }
+  },
+  {
+    // Soon this will be part of gopls and I won't need this but this actually
+    // works pretty well!
+    // https://github.com/golang/vscode-go/issues/2002
+    "label": "Go: Remove Struct Tags",
+    "command": "gomodifytags",
+    "args": [
+      "-file",
+      "$ZED_FILE",
+      "-struct",
+      "$ZED_SYMBOL",
+      "-remove-tags",
+      "json",
+      "-quiet",
       "-w"
     ],
     "reveal": "never",

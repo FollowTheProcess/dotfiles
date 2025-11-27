@@ -150,7 +150,7 @@
   "lsp": {
     "golangci-lint": {
       "binary": {
-        "path": "/Users/tomfleet/go/bin/golangci-lint-langserver"
+        "path": "~/go/bin/golangci-lint-langserver"
       },
       "initialization_options": {
         "command": [
