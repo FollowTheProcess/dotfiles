@@ -220,7 +220,6 @@
   "project_panel": {
     "auto_fold_dirs": false,
     "entry_spacing": "standard",
-    "hide_root": true,
     "sticky_scroll": false
   },
   "show_signature_help_after_edits": true,
