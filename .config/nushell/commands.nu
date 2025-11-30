@@ -35,10 +35,6 @@ export def maintenance [] {
     brew bundle --global --cleanup --all --quiet --zap # Sync with .Brewfile
     brew cleanup --scrub --prune all
 
-    # VSCode
-    info "🧑🏻‍💻 Updating VSCode Extensions"
-    code --update-extensions
-
     # uv
     info "🛠  Updating uv installed CLI programs"
     uv tool upgrade --all
