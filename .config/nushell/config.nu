@@ -82,6 +82,7 @@ alias gpu = git push # Can't break the muscle memory now
 alias tf = terraform # Lazy
 alias tg = terragrunt # Also lazy
 alias k = kubectl # Everyone seems to do this so...
+alias kiro = kiro-cli # Bad name
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
 # alias nu-open = open
