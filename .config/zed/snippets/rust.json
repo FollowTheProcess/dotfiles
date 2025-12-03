@@ -2,7 +2,27 @@
   "derive": {
     "prefix": "derive",
     "description": "Insert a derive macro",
-    "body": "#[derive($1)$0"
+    "body": "#[derive($1)$0]"
+  },
+  "test": {
+    "prefix": "test",
+    "description": "Insert a #[test] macro",
+    "body": "#[test]"
+  },
+  "tests": {
+    "prefix": "tests",
+    "description": "Insert a test block",
+    "body": [
+      "#[cfg(test)]",
+      "mod tests {",
+      "    use super::*;",
+      "",
+      "    #[test]",
+      "    fn something() {",
+      "        assert_eq!(1 + 1, 2);",
+      "    }",
+      "}"
+    ]
   },
   "todo": {
     "prefix": "todo",
