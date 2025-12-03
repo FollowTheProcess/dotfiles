@@ -31,6 +31,7 @@
   "buffer_font_family": "GeistMono Nerd Font Mono",
   "buffer_font_size": 12,
   "buffer_line_height": "comfortable",
+  "colorize_brackets": false,
   "completions": {
     "lsp": true,
     "lsp_fetch_timeout_ms": 1000

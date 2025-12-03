@@ -1,6 +1,7 @@
 [global]
 load_dotenv = true # Allow .env as well as .envrc
 strict_env = true
+log_filter = "^$"
 
 [whitelist]
 prefix = [ "~/Development" ] # Trust anything under here
