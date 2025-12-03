@@ -33,7 +33,7 @@ let scheme = {
   constant: $theme.peach
   punctuation: $theme.overlay2
   operator: $theme.sky
-  string: $theme.green
+  string: $theme.text # original: $theme.green, I prefer this
   virtual_text: $theme.surface2
   variable: { fg: $theme.flamingo attr: i }
   filepath: $theme.yellow
