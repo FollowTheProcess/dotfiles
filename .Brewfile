@@ -66,7 +66,6 @@ brew "kubectx"
 brew "kustomize"
 brew "make"
 brew "marp-cli"
-brew "mas"
 brew "mdbook"
 brew "minikube"
 brew "nushell"
@@ -129,18 +128,6 @@ cask "tag"
 cask "txtract"
 cask "yaak"
 cask "zed"
-mas "1Password for Safari", id: 1569813296
-mas "AdGuard for Safari", id: 1440147259
-mas "Bear", id: 1091189122
-mas "Dropover", id: 1355679052
-mas "JSON Peep", id: 1458969831
-mas "Keynote", id: 409183694
-mas "Noir", id: 1592917505
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Refined GitHub", id: 1519867270
-mas "Things", id: 904280696
-mas "WhatsApp", id: 310633997
 go "golang.org/x/perf/cmd/benchstat"
 go "github.com/dkorunic/betteralign/cmd/betteralign"
 go "github.com/nametake/golangci-lint-langserver"
