@@ -17,7 +17,6 @@
     "github-actions": true,
     "golangci-lint": true,
     "html": true,
-    "jinja2-support": true,
     "make": true,
     "nu": true,
     "ruby": true,
@@ -142,7 +141,7 @@
           }
         }
       ],
-      "language_servers": ["ruff", "ty", "basedpyright", "!pyright"]
+      "language_servers": ["ruff", "ty", "!pyright"]
     },
     "YAML": {
       "formatter": "language_server"

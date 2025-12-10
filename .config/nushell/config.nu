@@ -83,6 +83,7 @@ alias tf = terraform # Lazy
 alias tg = terragrunt # Also lazy
 alias k = kubectl # Everyone seems to do this so...
 alias kiro = kiro-cli # Bad name
+alias ts = tree-sitter # More lazy
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
 # alias nu-open = open
