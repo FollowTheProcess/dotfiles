@@ -19,7 +19,6 @@
     "html": true,
     "make": true,
     "nu": true,
-    "ruby": true,
     "terraform": true,
     "toml": true,
     "txtar": true,
