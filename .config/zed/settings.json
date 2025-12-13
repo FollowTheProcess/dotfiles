@@ -114,11 +114,7 @@
       "enabled": true
     }
   },
-  "icon_theme": {
-    "dark": "Catppuccin Macchiato",
-    "light": "Catppuccin Latte",
-    "mode": "dark"
-  },
+  "icon_theme": "Catppuccin Macchiato",
   "inlay_hints": {
     "enabled": false
   },
@@ -247,11 +243,7 @@
       "breadcrumbs": false
     }
   },
-  "theme": {
-    "dark": "Catppuccin Macchiato - No Italics",
-    "light": "Catppuccin Latte - No Italics",
-    "mode": "dark"
-  },
+  "theme": "Catppuccin Macchiato - No Italics",
   "title_bar": {
     "show_branch_icon": true
   },
