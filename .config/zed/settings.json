@@ -28,7 +28,7 @@
   "autosave": "on_focus_change",
   "base_keymap": "VSCode",
   "buffer_font_family": "GeistMono Nerd Font Mono",
-  "buffer_font_size": 12,
+  "buffer_font_size": 12.5,
   "buffer_line_height": "comfortable",
   "colorize_brackets": false,
   "completions": {
@@ -120,7 +120,7 @@
     "mode": "dark"
   },
   "inlay_hints": {
-    "enabled": true
+    "enabled": false
   },
   "languages": {
     "Go": {
@@ -238,7 +238,7 @@
       }
     },
     "font_family": "GeistMono Nerd Font Mono",
-    "font_size": 12,
+    "font_size": 12.5,
     "line_height": "standard",
     "shell": {
       "program": "/opt/homebrew/bin/nu"
