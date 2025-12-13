@@ -77,13 +77,14 @@ alias tree = eza --tree --icons=auto # Use https://github.com/eza-community/eza 
 alias xargs = gxargs # Use GNU xargs
 alias gsc = git switch --create # Make a new branch
 alias gaa = git add --all # Stage all the things!
-alias gs = git switch # Laziness at its peak
-alias gpu = git push # Can't break the muscle memory now
-alias tf = terraform # Lazy
-alias tg = terragrunt # Also lazy
+alias gs = git switch
+alias gpu = git push
+alias gl = git log --oneline
+alias tf = terraform
+alias tg = terragrunt
 alias k = kubectl # Everyone seems to do this so...
 alias kiro = kiro-cli # Bad name
-alias ts = tree-sitter # More lazy
+alias ts = tree-sitter
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
 # alias nu-open = open
