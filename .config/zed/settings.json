@@ -160,6 +160,7 @@
     "gopls": {
       "initialization_options": {
         "formatting.gofumpt": true,
+        "formatting.newGoFileHeader": true,
         "hints": {
           // I don't like inlay hints in Go
           "assignVariableTypes": false,
