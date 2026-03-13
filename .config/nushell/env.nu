@@ -8,12 +8,13 @@ $env.GO111MODULE = 'on'
 $env.PYTHONUTF8 = 1
 $env.FZF_DEFAULT_COMMAND = 'fd --type f --strip-cwd-prefix'
 $env.FZF_CTRL_T_COMMAND = 'fd --type f --strip-cwd-prefix'
-$env.GPG_TTY = (tty | str trim)
+# Some tools start a login shell without an attached TTY. `tty` exits 1 there.
+$env.GPG_TTY = (try { tty | str trim } catch { "" })
 $env.VIRTUALENV_PROMPT = '.venv'
 $env.CARGO_HOME = $env.HOME | path join .cargo
 
 # Go Experiments
-$env.GOEXPERIMENT = "greenteagc,jsonv2"
+$env.GOEXPERIMENT = "jsonv2"
 
 # Add things to $PATH
 $env.PATH = (
