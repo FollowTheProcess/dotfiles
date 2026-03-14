@@ -8,7 +8,6 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "auto_install_extensions": {
-    "bash": true,
     "catppuccin": true,
     "catppuccin-icons": true,
     "comment": true,
@@ -22,7 +21,7 @@
     "terraform": true,
     "toml": true,
     "txtar": true,
-    "zig": true
+    "zig": true,
   },
   "auto_signature_help": true,
   "autosave": "on_focus_change",
@@ -33,7 +32,7 @@
   "colorize_brackets": false,
   "completions": {
     "lsp": true,
-    "lsp_fetch_timeout_ms": 1000
+    "lsp_fetch_timeout_ms": 1000,
   },
   "current_line_highlight": "none",
   "cursor_blink": true,
@@ -43,16 +42,16 @@
     "inline": {
       "enabled": true,
       "min_column": 80,
-      "update_debounce_ms": 150
-    }
+      "update_debounce_ms": 150,
+    },
   },
   "disable_ai": true,
   "experimental.theme_overrides": {
     "syntax": {
       "string": {
-        "color": "#a1e7f2ef"
-      }
-    }
+        "color": "#a1e7f2ef",
+      },
+    },
   },
   "file_scan_exclusions": [
     "**/.git",
@@ -71,19 +70,19 @@
     "**/.rumdl-cache",
     "**/.venv",
     "**/venv",
-    "**/.task"
+    "**/.task",
   ],
   "file_types": {
     "dockerbake": ["docker-bake.hcl"],
     "Git Attributes": ["{git,.git,.git/info}/attributes"],
     "Git Config": [
       "{git,.git/modules,.git/modules/*}/config",
-      "**/.config/git/config"
+      "**/.config/git/config",
     ],
     "Git Ignore": [
       "{git,.git}/ignore",
       ".git/info/exclude",
-      "**/.config/git/ignore"
+      "**/.config/git/ignore",
     ],
     "GitHub Actions": [".github/workflows/*.yml", ".github/workflows/*.yaml"],
     "json": ["*.sarif", "*.json"],
@@ -93,7 +92,7 @@
       "**/Zed/**/*.json",
       "**/.vscode/**/*.json",
       "**/.devcontainer/devcontainer.json",
-      "*.json5"
+      "*.json5",
     ],
     "markdown": ["*.slide"],
     "pip-requirements": ["requirements*.in", "requirements*.txt"],
@@ -103,59 +102,59 @@
     "terraform-vars": ["*.tfbackend", "*.tfvars"],
     "TOML": ["*.toml", "**/staticcheck.conf"],
     "XML": ["*.plist", "*.xml"],
-    "YAML": ["*.yaml", "*.yml", "*.snap"]
+    "YAML": ["*.yaml", "*.yml", "*.snap"],
   },
   "git": {
     "blame": {
-      "show_avatar": true
+      "show_avatar": true,
     },
     "inline_blame": {
       "delay_ms": 1000,
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "icon_theme": "Catppuccin Macchiato",
   "inlay_hints": {
-    "enabled": false
+    "enabled": false,
   },
   "languages": {
     "Go": {
-      "language_servers": ["gopls", "golangci-lint"]
+      "language_servers": ["gopls", "golangci-lint"],
     },
     "Python": {
       "formatter": [
         {
-          "code_action": "source.fixAll.ruff"
+          "code_action": "source.fixAll.ruff",
         },
         {
-          "code_action": "source.organizeImports.ruff"
+          "code_action": "source.organizeImports.ruff",
         },
         {
           "language_server": {
-            "name": "ruff"
-          }
-        }
+            "name": "ruff",
+          },
+        },
       ],
-      "language_servers": ["ruff", "ty", "!pyright"]
+      "language_servers": ["ruff", "ty", "!pyright"],
     },
     "YAML": {
-      "formatter": "language_server"
-    }
+      "formatter": "language_server",
+    },
   },
   "linked_edits": true,
   "lsp": {
     "golangci-lint": {
       "binary": {
-        "path": "~/go/bin/golangci-lint-langserver"
+        "path": "~/go/bin/golangci-lint-langserver",
       },
       "initialization_options": {
         "command": [
           "golangci-lint",
           "run",
           "--output.json.path=stdout",
-          "--show-stats=false"
-        ]
-      }
+          "--show-stats=false",
+        ],
+      },
     },
     "gopls": {
       "initialization_options": {
@@ -169,60 +168,60 @@
           "constantValues": false,
           "functionTypeParameters": false,
           "parameterNames": false,
-          "rangeVariableTypes": false
+          "rangeVariableTypes": false,
         },
         "ui.diagnostic.analyses": {
           "appendclipped": true,
           "shadow": true,
-          "slicesdelete": true
+          "slicesdelete": true,
         },
         "ui.diagnostic.staticcheck": true,
         "ui.diagnostic.vulncheck": "Imports",
         "ui.documentation.hoverKind": "FullDocumentation",
         "ui.navigation.symbolScope": "workspace",
-        "ui.semanticTokens": false
-      }
+        "ui.semanticTokens": false,
+      },
     },
     "pyright": {
       "settings": {
         "python.analysis": {
-          "typeCheckingMode": "strict"
-        }
-      }
+          "typeCheckingMode": "strict",
+        },
+      },
     },
     "rust-analyzer": {
       "initialization_options": {
         "cargo": {
-          "allTargets": true
+          "allTargets": true,
         },
         "check": {
           "allTargets": true,
           "command": "clippy",
-          "extraArgs": ["--all-features"]
+          "extraArgs": ["--all-features"],
         },
         "inlayHints": {
           "closingBraceHints": {
-            "enable": false
-          }
-        }
-      }
-    }
+            "enable": false,
+          },
+        },
+      },
+    },
   },
   "outline_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "preview_tabs": {
-    "enabled": true
+    "enabled": true,
   },
   "project_panel": {
     "auto_fold_dirs": false,
     "entry_spacing": "standard",
-    "sticky_scroll": false
+    "sticky_scroll": false,
   },
   "show_signature_help_after_edits": true,
   "soft_wrap": "editor_width",
   "tabs": {
-    "file_icons": true
+    "file_icons": true,
   },
   "terminal": {
     "blinking": "on",
@@ -231,30 +230,30 @@
     "detect_venv": {
       "on": {
         "activate_script": "nushell",
-        "directories": [".venv", "venv"]
-      }
+        "directories": [".venv", "venv"],
+      },
     },
     "font_family": "GeistMono Nerd Font Mono",
     "font_size": 12.5,
     "line_height": "standard",
     "shell": {
-      "program": "/opt/homebrew/bin/nu"
+      "program": "/opt/homebrew/bin/nu",
     },
     "toolbar": {
-      "breadcrumbs": false
-    }
+      "breadcrumbs": false,
+    },
   },
   "theme": "Catppuccin Macchiato - No Italics",
   "title_bar": {
-    "show_branch_icon": true
+    "show_branch_icon": true,
   },
   "toolbar": {
     "agent_review": false,
     "breadcrumbs": true,
     "code_actions": true,
     "quick_actions": false,
-    "selections_menu": true
+    "selections_menu": true,
   },
   "ui_font_size": 16,
-  "use_smartcase_search": true
+  "use_smartcase_search": true,
 }
