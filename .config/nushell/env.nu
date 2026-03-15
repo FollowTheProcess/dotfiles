@@ -43,4 +43,7 @@ zoxide init --cmd cd nushell | save --force ~/.zoxide.nu
 
 # atuin
 mkdir ~/.cache/atuin
-atuin init nu | save --force ~/.cache/atuin/init.nu
+# atuin init nu | save --force ~/.cache/atuin/init.nu
+atuin init nu |
+  str replace "job spawn -d atuin" "job spawn --tag atuin" |  # TODO: Remove when https://github.com/atuinsh/atuin/issues/3268 fixed
+  save --force ~/.cache/atuin/init.nu
