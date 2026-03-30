@@ -179,7 +179,6 @@
         "ui.diagnostic.vulncheck": "Imports",
         "ui.documentation.hoverKind": "FullDocumentation",
         "ui.navigation.symbolScope": "workspace",
-        "ui.semanticTokens": false,
       },
     },
     "pyright": {

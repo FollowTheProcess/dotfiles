@@ -54,6 +54,8 @@
 	sort = -taggerdate
 [fetch]
 	prune = true
+[url "https://github.com/"]
+	insteadOf = "git@github.com:"
 [url "https://github.com/FollowTheProcess/"]
 	insteadOf = "me:"
 [url "https://github.com/"]
