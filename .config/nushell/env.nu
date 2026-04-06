@@ -12,6 +12,7 @@ $env.FZF_CTRL_T_COMMAND = 'fd --type f --strip-cwd-prefix'
 $env.GPG_TTY = (try { tty | str trim } catch { "" })
 $env.VIRTUALENV_PROMPT = '.venv'
 $env.CARGO_HOME = $env.HOME | path join .cargo
+$env.RTK_TELEMETRY_DISABLED = 1
 
 # Go Experiments
 $env.GOEXPERIMENT = "jsonv2"
@@ -43,7 +44,8 @@ zoxide init --cmd cd nushell | save --force ~/.zoxide.nu
 
 # atuin
 mkdir ~/.cache/atuin
-# atuin init nu | save --force ~/.cache/atuin/init.nu
-atuin init nu |
-  str replace "job spawn -d atuin" "job spawn --tag atuin" |  # TODO: Remove when https://github.com/atuinsh/atuin/issues/3268 fixed
-  save --force ~/.cache/atuin/init.nu
+atuin init nu | save --force ~/.cache/atuin/init.nu
+
+# mise
+let mise_path = $nu.default-config-dir | path join mise.nu
+^mise activate nu | save $mise_path --force

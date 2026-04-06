@@ -83,7 +83,6 @@ alias gl = git log --oneline
 alias tf = terraform
 alias tg = terragrunt
 alias k = kubectl # Everyone seems to do this so...
-alias kiro = kiro-cli # Bad name
 alias ts = tree-sitter
 
 # https://www.nushell.sh/book/configuration.html#macos-keeping-usr-bin-open-as-open
@@ -92,3 +91,5 @@ alias ts = tree-sitter
 
 # Source my custom commands/scripts
 use commands.nu *
+
+use ($nu.default-config-dir | path join mise.nu)
