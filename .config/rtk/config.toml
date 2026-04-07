@@ -1,0 +1,4 @@
+[hooks]
+exclude_commands = [
+    "golangci-lint", # Original output is more helpful
+]
