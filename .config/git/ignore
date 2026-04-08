@@ -465,4 +465,6 @@ docgen_tmp/
 
 ## Additions
 # https://taskfile.dev
-.task/
+**/.task/
+
+**/.claude/settings.local.json
