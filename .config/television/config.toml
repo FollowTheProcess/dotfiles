@@ -4,7 +4,7 @@
 # ---------
 #  Linux:   `$HOME/.config/television/config.toml`
 #  macOS:   `$HOME/.config/television/config.toml`
-#  Windows: `%APPDATA%\television\config.toml`
+#  Windows: `%LocalAppData%\television\config\config.toml`
 #
 # XDG dirs:
 # ---------
@@ -17,6 +17,13 @@
 # ----------------------------------------------------------------------------
 tick_rate = 50
 default_channel = "files"
+# Shell settings
+# --------------
+# Default shell used for executing commands (source, preview, actions).
+# Options: bash, zsh, fish, powershell, cmd, nu
+# If not specified, the shell is detected from the environment ($SHELL on Unix).
+# Channel-specific shell settings override this global setting.
+# shell = "bash"
 # History settings
 # ---------------
 # Maximum number of entries to keep in the global history (default: 100)
@@ -107,15 +114,9 @@ sort_alphabetically = true
 # text_fg = "#ffffff"
 # selection_bg = "#444444"
 # match_fg = "#ff0000"
-# The default size of the preview panel (in percentage of the screen)
 
 # Keybindings and Events
 # ----------------------------------------------------------------------------
-#
-# NEW CONFIGURATION FORMAT:
-# -------------------------
-# The keybindings are now structured as Key -> Action mappings
-# This provides better discoverability and eliminates configuration complexity
 #
 [keybindings]
 # Application control
@@ -147,6 +148,7 @@ enter = "confirm_selection"
 # --------------------
 pagedown = "scroll_preview_half_page_down"
 pageup = "scroll_preview_half_page_up"
+ctrl-f = "cycle_previews"
 
 # Data operations
 # --------------
@@ -157,6 +159,7 @@ ctrl-s = "cycle_sources"
 # UI Features
 # ----------
 ctrl-t = "toggle_remote_control"
+ctrl-x = "toggle_action_picker"
 ctrl-o = "toggle_preview"
 ctrl-h = "toggle_help"
 f12 = "toggle_status_bar"
@@ -174,16 +177,6 @@ home = "go_to_input_start"
 ctrl-a = "go_to_input_start"
 end = "go_to_input_end"
 ctrl-e = "go_to_input_end"
-
-# Event bindings
-# ----------------------------------------------------------------------------
-# Event bindings map non-keyboard events to actions
-# This includes mouse events, resize events, and custom events
-[events]
-# Mouse events
-# -----------
-mouse-scroll-up = "scroll_preview_up"
-mouse-scroll-down = "scroll_preview_down"
 
 # Shell integration
 # ----------------------------------------------------------------------------
@@ -215,7 +208,7 @@ fallback_channel = "files"
 # ```
 "alias" = ["alias", "unalias"]
 "env" = ["export", "unset"]
-"dirs" = ["cd", "ls", "rmdir"]
+"dirs" = ["cd", "ls", "rmdir", "z"]
 "files" = [
   "cat",
   "less",
@@ -241,6 +234,7 @@ fallback_channel = "files"
 "git-diff" = ["git add", "git restore"]
 "git-branch" = [
   "git checkout",
+  "git switch",
   "git branch",
   "git merge",
   "git rebase",

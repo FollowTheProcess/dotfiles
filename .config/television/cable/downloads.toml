@@ -1,0 +1,31 @@
+[metadata]
+name = "downloads"
+description = "Browse recent files in Downloads folder"
+requirements = ["fd", "bat"]
+
+[source]
+command = "sh -c 'fd -t f . ~/Downloads 2>/dev/null | head -200'"
+
+[preview]
+command = "sh -c 'bat -n --color=always \"{}\" 2>/dev/null || file \"{}\"'"
+env = { BAT_THEME = "ansi" }
+
+[keybindings]
+enter = "actions:open"
+ctrl-d = "actions:delete"
+ctrl-m = "actions:move"
+
+[actions.open]
+description = "Open the selected file with default application"
+command = "^open '{}'"
+mode = "fork"
+
+[actions.delete]
+description = "Delete the selected file"
+command = "rm -i '{}'"
+mode = "execute"
+
+[actions.move]
+description = "Move the selected file to current directory"
+command = "mv '{}' ."
+mode = "fork"

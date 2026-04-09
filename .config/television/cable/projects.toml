@@ -1,0 +1,18 @@
+[metadata]
+name = "projects"
+description = "Find git repositories under ~/Development"
+requirements = ["fd", "bat"]
+
+[source]
+command = "fd -H -t d -g '.git' ~/Development -x echo {//}"
+
+[preview]
+command = "sh -c 'bat -n --color=always \"{}/README.md\" 2>/dev/null || ls -la \"{}\"'"
+
+[keybindings]
+enter = "actions:open"
+
+[actions.open]
+description = "Open the project in Zed"
+command = "zed '{}'"
+mode = "fork"
