@@ -15,4 +15,4 @@ enter = "actions:open"
 [actions.open]
 description = "Open the project in Zed"
 command = "zed '{}'"
-mode = "fork"
+mode = "execute"
