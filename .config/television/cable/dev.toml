@@ -1,5 +1,5 @@
 [metadata]
-name = "projects"
+name = "dev"
 description = "Find git repositories under ~/Development"
 requirements = ["fd", "bat"]
 
