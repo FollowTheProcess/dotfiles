@@ -45,7 +45,3 @@ zoxide init --cmd cd nushell | save --force ~/.zoxide.nu
 # atuin
 mkdir ~/.cache/atuin
 atuin init nu | save --force ~/.cache/atuin/init.nu
-
-# mise
-let mise_path = $nu.default-config-dir | path join mise.nu
-^mise activate nu | save $mise_path --force
