@@ -13,10 +13,6 @@
 
 See docs/testing.md
 
-## Comms
-
-See docs/comms.md
-
 ## Languages
 
 ### Go
