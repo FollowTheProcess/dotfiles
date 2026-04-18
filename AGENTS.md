@@ -1,5 +1,9 @@
 # Guidance for Agents
 
+I use [nushell](https://www.nushell.sh), you can run `Bash` commands as normal but when giving *me* a shell command for me run, ensure it's `nushell` syntax
+
+## General Coding Guidelines
+
 - Always follow TDD
 - Think deeply and understand the full context
 - If you're unsure: ask me
