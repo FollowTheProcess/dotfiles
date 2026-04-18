@@ -91,5 +91,3 @@ alias ts = tree-sitter
 
 # Source my custom commands/scripts
 use commands.nu *
-
-use ($nu.default-config-dir | path join mise.nu)
