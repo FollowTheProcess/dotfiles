@@ -12,17 +12,6 @@ I use [nushell](https://www.nushell.sh), you can run `Bash` commands as normal b
 - Use pure functions whenever possible
 - Prefer early returns to nesting
 - Correctness beats performance
+- Comments explain *why* in weird cases, let code be it's own documentation
 
-## Testing
-
-See docs/testing.md
-
-## Languages
-
-### Go
-
-See docs/go.md
-
-### Python
-
-See docs/python.md
+Language- and task-specific conventions live in skills under `~/.claude/skills/` (e.g. `writing-go`, `writing-python`, `writing-tests`) and load automatically when relevant.

@@ -135,9 +135,12 @@ export def --env --wrapped assume [...args: string] {
 export def prune [] {
     git branch
     | lines
-    | where ($it != "* master" and $it != "* main")
-    | each { |br| print $"Removing branch ($br)"; git branch --delete --force ($br | str trim) }
-    | str trim
+    | where ($it !~ '^[*+]')
+    | each { |br|
+        let name = ($br | str substring 2..)
+        print $"Removing branch ($name)"
+        git branch --delete --force $name
+    }
     | ignore # Otherwise it prints "empty list"
 }
 
