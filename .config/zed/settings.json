@@ -151,6 +151,13 @@
     "YAML": {
       "formatter": "language_server",
     },
+    "TOML": {
+      "formatter": {
+        "language_server": {
+          "name": "tombi",
+        },
+      },
+    },
   },
   "linked_edits": true,
   "lsp": {
@@ -192,13 +199,6 @@
         "ui.navigation.symbolScope": "workspace",
       },
     },
-    "pyright": {
-      "settings": {
-        "python.analysis": {
-          "typeCheckingMode": "strict",
-        },
-      },
-    },
     "rust-analyzer": {
       "initialization_options": {
         "cargo": {
@@ -213,6 +213,14 @@
           "closingBraceHints": {
             "enable": false,
           },
+        },
+      },
+    },
+    "tombi": {
+      "binary": {
+        "arguments": ["lsp"],
+        "env": {
+          "NO_COLOR": "true",
         },
       },
     },
