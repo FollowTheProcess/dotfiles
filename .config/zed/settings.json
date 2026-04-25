@@ -7,6 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "auto_install_extensions": {
     "catppuccin": true,
     "catppuccin-icons": true,
@@ -213,6 +224,7 @@
     "enabled": true,
   },
   "project_panel": {
+    "dock": "left",
     "auto_fold_dirs": false,
     "entry_spacing": "standard",
     "sticky_scroll": false,
