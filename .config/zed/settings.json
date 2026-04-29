@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cli_default_open_behavior": "new_window",
   "collaboration_panel": {
     "dock": "left",
   },
@@ -264,13 +265,13 @@
   },
   "theme": "Catppuccin Macchiato - No Italics",
   "title_bar": {
-    "show_branch_icon": true,
+    "show_branch_status_icon": true,
   },
   "toolbar": {
     "agent_review": false,
     "breadcrumbs": true,
     "code_actions": true,
-    "quick_actions": false,
+    "quick_actions": true,
     "selections_menu": true,
   },
   "ui_font_size": 16,
