@@ -467,4 +467,5 @@ docgen_tmp/
 # https://taskfile.dev
 **/.task/
 
-**/.claude/settings.local.json
+**/.claude/
+**/docs/superpowers/
