@@ -12,7 +12,6 @@ $env.FZF_CTRL_T_COMMAND = 'fd --type f --strip-cwd-prefix'
 $env.GPG_TTY = (try { tty | str trim } catch { "" })
 $env.VIRTUALENV_PROMPT = '.venv'
 $env.CARGO_HOME = $env.HOME | path join .cargo
-$env.RTK_TELEMETRY_DISABLED = 1
 
 # Go Experiments
 $env.GOEXPERIMENT = "jsonv2"
