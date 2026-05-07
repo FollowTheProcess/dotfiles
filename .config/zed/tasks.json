@@ -17,16 +17,16 @@
       "camelcase",
       "-skip-unexported",
       "-quiet",
-      "-w"
+      "-w",
     ],
     "reveal": "never",
     "hide": "always",
     "shell": {
       "with_arguments": {
         "program": "sh",
-        "args": ["--noediting", "--norc", "--noprofile"]
-      }
-    }
+        "args": ["--noediting", "--norc", "--noprofile"],
+      },
+    },
   },
   {
     // Soon this will be part of gopls and I won't need this but this actually
@@ -42,15 +42,15 @@
       "-remove-tags",
       "json",
       "-quiet",
-      "-w"
+      "-w",
     ],
     "reveal": "never",
     "hide": "always",
     "shell": {
       "with_arguments": {
         "program": "sh",
-        "args": ["--noediting", "--norc", "--noprofile"]
-      }
-    }
-  }
+        "args": ["--noediting", "--norc", "--noprofile"],
+      },
+    },
+  },
 ]
