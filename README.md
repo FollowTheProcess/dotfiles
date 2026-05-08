@@ -13,8 +13,15 @@ brew install stow
 Now clone this repo to `~/dotfiles`, `cd` into it then run:
 
 ```shell
-stow .
+make stow
 ```
+
+This invokes `stow --no-folding .` under the hood. The `--no-folding` flag is important: it keeps `~/Library/LaunchAgents/` as a real directory with individual file symlinks, instead of letting stow collapse it into a single directory symlink. macOS auto-bootstraps LaunchAgents from that path at login, and on recent macOS versions the auto-bootstrap is unreliable when the directory is itself a symlink, which manifests as the `setenv.XDG_CONFIG_HOME` agent intermittently not running on boot.
+
+Other Make targets:
+
+- `make unstow` removes all stow-managed symlinks
+- `make restow` re-applies (useful after adding/removing files in the repo)
 
 Part of this will move `.Brewfile` into `$HOME` which is very handy because once it's done that:
 

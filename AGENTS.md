@@ -2,7 +2,7 @@
 
 - I use [nushell](https://www.nushell.sh), you can run `Bash` commands as normal but when giving *me* a shell command to run, ensure it's `nushell` syntax
 - Never use Em dashes (—) or En dashes (–)
-- Any global config is managed via [GNU stow](https://www.gnu.org/software/stow/) from `~/dotfiles` (flat layout); run `stow .` from there to apply changes
+- Any global config is managed via [GNU stow](https://www.gnu.org/software/stow/) from `~/dotfiles` (flat layout); run `make stow` from there to apply changes
 
 ## General Coding Guidelines
 
