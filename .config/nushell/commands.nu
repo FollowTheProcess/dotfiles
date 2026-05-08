@@ -187,7 +187,7 @@ def targets [] {
 # Requires a ~/.config/git/coauthors file with entries formatted like
 # `First Last <first.last@email.com>` on each line.
 export def "pair commit" [] {
-    let type = gum choose feat fix chore test refactor --header "Pick a semantic commit type"
+    let type = gum choose feat fix chore style test refactor docs --header "Pick a semantic commit type"
     let ticket = gum input --header "Jira ticket ref" --value "SR-"
     let summary = gum input --width 50 --placeholder "Summary of changes"
     let details = gum write --width 80 --placeholder "Details of changes"

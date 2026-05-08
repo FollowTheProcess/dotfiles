@@ -12,6 +12,8 @@ $env.FZF_CTRL_T_COMMAND = 'fd --type f --strip-cwd-prefix'
 $env.GPG_TTY = (try { tty | str trim } catch { "" })
 $env.VIRTUALENV_PROMPT = '.venv'
 $env.CARGO_HOME = $env.HOME | path join .cargo
+$env.XDG_CONFIG_HOME = $env.HOME | path join .config
+$env.KUBECTL_EXTERNAL_DIFF = "difft --exit-code"
 
 # Go Experiments
 $env.GOEXPERIMENT = "jsonv2"

@@ -61,3 +61,7 @@ Temporary Items
 .config/gup/assets/
 .config/zed/conversations/
 .config/zed/prompts/
+*.sqlite3*
+.config/dlv/.dbg_history
+.config/glab-cli
+!.claude/skills/

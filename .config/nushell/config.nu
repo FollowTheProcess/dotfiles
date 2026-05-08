@@ -75,6 +75,7 @@ alias make = gmake # Use GNU make
 alias sed = gsed # Use GNU sed
 alias tree = eza --tree --icons=auto # Use https://github.com/eza-community/eza instead of tree
 alias xargs = gxargs # Use GNU xargs
+alias tar = gtar # Use GNU tar
 alias gsc = git switch --create # Make a new branch
 alias gaa = git add --all # Stage all the things!
 alias gs = git switch
