@@ -38,6 +38,7 @@ export def maintenance [] {
     # uv
     info "🛠  Updating uv installed CLI programs"
     uv tool upgrade --all
+    uv cache prune
 
     # Rust
     info "🦀 Updating rust"
