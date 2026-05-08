@@ -4,4 +4,10 @@ LICENSE
 \.DS_Store
 \.vscode
 \.config/raycast
+\.config/glab-cli
+\.config/gup/assets
+\.config/zed/conversations
+\.config/zed/prompts
+\.config/dlv/\.dbg_history
+.*\.sqlite3.*
 \.gitignore
