@@ -1,5 +1,8 @@
 README.md
 LICENSE
+Makefile
+macos.sh
+setup.sh
 \.git
 \.DS_Store
 \.vscode

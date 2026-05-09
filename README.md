@@ -38,12 +38,10 @@ See <https://docs.brew.sh/Brew-Bundle-and-Brewfile#brew-bundle-dump> for more in
 Once that's done, most configuration and packages will be installed and set up correctly. There are a few follow ups included in a script `setup.sh` that does some nicities:
 
 - Install [rustup]
-- Use [gup] to install everything in `.config/gup.conf` to `$GOBIN`
 - Make a `~/Development` folder to house your projects
-- Adds [nushell] to `/etc/shells`
-- Run's a bunch of `defaults write` commands to configure MacOS itself
+- Adds [nushell] to `/etc/shells` and `chsh`'s to it
+- Runs a bunch of `defaults write` commands to configure macOS itself (via `macos.sh`)
 
 [GNU Stow]: https://www.gnu.org/software/stow/
 [rustup]: https://rustup.rs
-[gup]: https://github.com/nao1215/gup
 [nushell]: https://www.nushell.sh
