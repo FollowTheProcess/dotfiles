@@ -228,8 +228,8 @@ alt-shift-keypad9 = "move-node-to-workspace 9"
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = "workspace-back-and-forth"
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
-cmd-alt-ctrl-left = "move-node-to-monitor --wrap-around prev"
-cmd-alt-ctrl-right = "move-node-to-monitor --wrap-around next"
+cmd-alt-ctrl-left = "move-node-to-monitor --wrap-around --focus-follows-window prev"
+cmd-alt-ctrl-right = "move-node-to-monitor --wrap-around --focus-follows-window next"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#join-with
 # Wraps the focused window and its neighbour into a sub-container, which is how
