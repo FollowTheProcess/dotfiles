@@ -100,13 +100,6 @@ outer.right = 6
 
 # Auto-route apps to workspaces / layouts when a new window appears.
 # See: https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
-[[on-window-detected]]
-if.app-id = "dev.zed.Zed"
-run = "move-node-to-workspace 1"
-
-[[on-window-detected]]
-if.app-id = "com.mitchellh.ghostty"
-run = "move-node-to-workspace 2"
 
 # Apps that don't play nicely with tiling — keep them floating.
 [[on-window-detected]]
