@@ -62,10 +62,9 @@ defaults write com.apple.dock \
     "$(__dock_item /System/Applications/Notes.app)" \
     "$(__dock_item /System/Applications/Reminders.app)" \
     "$(__dock_item /Applications/1Password.app)" \
-    "$(__dock_item /Applications/Bear.app)" \
+    "$(__dock_item /Applications/Obsidian.app)" \
     "$(__dock_item /Applications/Things3.app)" \
     "$(__dock_item /Applications/Ghostty.app)" \
-    "$(__dock_item /Applications/"Visual Studio Code".app)" \
     "$(__dock_item /Applications/Zed.app)" \
     "$(__dock_item /System/Applications/"System Settings".app)"
 
@@ -77,6 +76,9 @@ defaults write com.apple.dock autohide -bool true
 
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
+
+# Group apps in mission control
+defaults write com.apple.dock expose-group-apps -bool true
 
 # System Preferences > Dock > Size:
 defaults write com.apple.dock tilesize -int 26
