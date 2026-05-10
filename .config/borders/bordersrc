@@ -1,11 +1,12 @@
 #!/bin/bash
 
+# Use catppuccin macchiato border colours!
 options=(
     style=round
     width=4.0
     hidpi=on
-    active_color=0xffe2e2e3
-    inactive_color=0xff414550
+    active_color=0xffc6a0f6
+    inactive_color=0xff5b6078
 )
 
 borders "${options[@]}"

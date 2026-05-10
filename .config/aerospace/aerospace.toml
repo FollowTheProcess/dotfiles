@@ -90,13 +90,17 @@ outer.right = 6
 
 # Pin workspaces to monitors so new windows land predictably (no more
 # stray "workspace 10" on whichever screen happens to be focused).
-# Patterns are tried in order; the first matching monitor wins. Falling
-# back to "built-in" means ws1 lives on the U32R59x when it's connected
-# and on the laptop display otherwise.
+# Patterns are tried in order; the first matching monitor wins. ws1
+# stays on the laptop (which sits to the left of the external when
+# docked), and ws2 lives on the U32R59x when connected, falling back
+# to the laptop when it isn't.
+
+# Pin workspaces to monitors so it's predictable. When connected to my external
+# monitor my macbook is on the left so 1 makes more brain sense to me
 # See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [workspace-to-monitor-force-assignment]
-1 = ["U32R59x", "built-in"]
-2 = "built-in"
+1 = "built-in"
+2 = ["U32R59x", "built-in"]
 
 # Auto-route apps to workspaces / layouts when a new window appears.
 # See: https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
