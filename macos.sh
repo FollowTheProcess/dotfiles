@@ -102,6 +102,9 @@ defaults write com.apple.trackpad scaling -float 3.0
 defaults write com.apple.finder NewWindowTarget -string "PfDo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Documents/"
 
+# Finder > Preferences > Default view
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
 # Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
