@@ -81,12 +81,12 @@ preset = "qwerty"
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 6
-inner.vertical = 0
-outer.left = 6
-outer.bottom = 10
-outer.top = 0
-outer.right = 6
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 6 }, 6]
+outer.bottom = [{ monitor."U32R59x" = 20 }, { monitor.built-in = 10 }, 10]
+outer.top = [{ monitor."U32R59x" = 2 }, { monitor.built-in = 4 }, 4]
+outer.right = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 6 }, 6]
 
 # Pin workspaces to monitors so new windows land predictably (no more
 # stray "workspace 10" on whichever screen happens to be focused).
@@ -191,15 +191,15 @@ cmd-alt-9 = "workspace 9"
 
 # Numpad equivalents for the external keyboard. Inert when the numpad
 # isn't connected, so they coexist with the top-row bindings above.
-alt-keypad1 = "workspace 1"
-alt-keypad2 = "workspace 2"
-alt-keypad3 = "workspace 3"
-alt-keypad4 = "workspace 4"
-alt-keypad5 = "workspace 5"
-alt-keypad6 = "workspace 6"
-alt-keypad7 = "workspace 7"
-alt-keypad8 = "workspace 8"
-alt-keypad9 = "workspace 9"
+cmd-alt-keypad1 = "workspace 1"
+cmd-alt-keypad2 = "workspace 2"
+cmd-alt-keypad3 = "workspace 3"
+cmd-alt-keypad4 = "workspace 4"
+cmd-alt-keypad5 = "workspace 5"
+cmd-alt-keypad6 = "workspace 6"
+cmd-alt-keypad7 = "workspace 7"
+cmd-alt-keypad8 = "workspace 8"
+cmd-alt-keypad9 = "workspace 9"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = "move-node-to-workspace 1"
