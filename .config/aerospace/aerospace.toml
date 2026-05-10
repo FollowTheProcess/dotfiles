@@ -147,11 +147,11 @@ alt-slash = "layout tiles horizontal vertical"
 alt-comma = "layout accordion horizontal vertical"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-# I'm not a vim person so hjkl make no sense to me
-alt-cmd-left = "focus left"
-alt-cmd-down = "focus down"
-alt-cmd-up = "focus up"
-alt-cmd-right = "focus right"
+# Cycle windows via depth-first traversal so a single left/right pair can
+# reach any window regardless of split orientation. Up/down are deliberately
+# unbound because cmd+alt+up/down is Zed's add-cursor-above/below shortcut.
+alt-cmd-left = "focus dfs-prev"
+alt-cmd-right = "focus dfs-next"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 # I've mirrored the setup I had for magnet/raycast here because muscle memory
