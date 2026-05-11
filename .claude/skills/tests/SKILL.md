@@ -1,97 +1,87 @@
 ---
 name: tests
-description: Use when writing, modifying, reviewing, or evaluating tests in any language — unit, integration, or end-to-end. Covers TDD discipline, black-box testing through public APIs, negative and error-path coverage, and naming.
+description: Use when writing, modifying, reviewing, or evaluating tests in any language (unit, integration, or end-to-end). Covers TDD discipline, black-box testing through public APIs, negative and error-path coverage, and naming.
 ---
 
 # Tests
 
 ## Overview
 
-Tests document *expected behaviour*, not implementation. They exercise the public API as a black box. Every feature or bugfix starts with a failing test.
+Tests document *expected behaviour*. They exercise the public API as a black box, so they survive refactors and read as a spec for what the code promises. Every feature or bugfix starts with a failing test.
 
-**REQUIRED BACKGROUND:** Core TDD discipline — red/green/refactor, Iron Law, rationalization traps — lives in `superpowers:test-driven-development`. This skill layers project-style preferences on top.
+**REQUIRED BACKGROUND:** Core TDD discipline (red/green/refactor, the Iron Law, rationalization traps) lives in `superpowers:test-driven-development`. This skill layers project-style preferences on top.
 
 ## When to use
 
 - Adding a new feature or fixing a bug (write the failing test first)
-- Adding coverage to existing code
-- Reviewing tests in a PR
-- Evaluating whether existing tests are worth keeping
+- Backfilling coverage on existing code
+- Reviewing tests
+- Deciding whether an existing test is worth keeping
 
 ## Do
 
-- **Follow TDD.** No production code without a failing test. See `superpowers:test-driven-development` for the full discipline.
-- **Test through the public API.** Internals are invisible to tests.
-- **Name tests after behaviour, not methods.** `TestParse_rejects_trailing_comma` beats `TestParse_error_1`.
-- **Cover negative behaviour explicitly.** "X does *not* do Y" is as important as "X does Z".
-- **Cover error paths**, not just happy paths. Timeouts, invalid input, partial failures.
-- **Look for refactor opportunities on every green.** Tests give you the safety net — use it.
-- **One behaviour per test.** If you need "and" in the test name, split it.
-- **Arrange / Act / Assert structure.** Keep these three phases visually distinct (blank lines work fine, don't comment with these words).
-- **Use fakes over mocks** where a hand-written stub with real logic is simple. Mocks that only assert call shape are fragile.
-- **Only mock code you own.** Wrap third-party APIs in a thin adapter first, then fake the adapter.
-- **Use language-native table/parametrized tests** for many similar cases.
+- **Failing test first.** No production code without a prior red. A test you never watched fail proves nothing. See `superpowers:test-driven-development`.
+- **Test through the public API.** Internals are invisible to tests. If you can't reach a behaviour from outside, it isn't one worth pinning.
+- **Name tests after behaviour, not methods.** `parses_trailing_comma_as_error` beats `test_parse_1`. If the name needs "and", split the test.
+- **Cover the negative path explicitly.** "X does *not* do Y" carries the same weight as "X does Z". This is where real bugs hide.
+- **Cover error paths,** not just happy ones: timeouts, invalid input, partial failures, cancellation.
+- **One behaviour per test.** Arrange / Act / Assert as three visually distinct blocks (blank lines, not comments).
+- **Fakes over mocks** when a small hand-written stub with real logic will do. Mocks that only assert call shape stay green when the real API drifts.
+- **Only mock code you own.** Wrap a third-party API in a thin adapter, then fake the adapter.
+- **Use the language's native table / parametrized form** for many similar cases. One body, many rows.
+- **Refactor on green.** The passing test is your safety net. Use it on production code *and* the tests themselves.
+- **Every test is independent.** Fresh fixtures, no shared mutable state, no inter-test ordering.
 
 ## Don't
 
-- **Don't test implementation details.** Internal helpers, private methods, field values.
-- **Don't create 1:1 `foo.go` ↔ `foo_test.go` mappings as a rule.** Organize tests by *behaviour being tested*, not by file layout.
-- **Don't write tests that pass immediately without a prior red.** A test you never saw fail proves nothing.
-- **Don't skip negative cases** "because they're obvious". They're where real bugs hide.
+- **Don't test implementation details:** internal helpers, private methods, field values. They change without changing behaviour.
+- **Don't mirror source files 1:1 in tests.** Organize by *behaviour being tested*, not by file layout.
+- **Don't skip negative cases** because they feel obvious. The obvious ones are where regressions land.
 - **Don't assert on log output** unless logging *is* the behaviour under test.
-- **Don't share mutable state between tests.** Every test runs in isolation; use fresh fixtures.
-- **Don't use "test" as a verb in the test name.** `TestFoo_does_X`, not `TestFoo_tests_X`.
+- **Don't use "test" as a verb in the test name.** `parses_x`, not `tests_parsing_x`.
+- **Don't mock a third-party library directly.** Wrap it; fake the wrapper.
+- **Don't mock your own pure functions.** Call them.
+- **Don't share mutable state between tests.** Every test starts from a fresh fixture.
 
-## The loop
+## Rationalizations
 
-```
-1. Pick the smallest behaviour you can describe in one sentence.
-2. Write a test that asserts it. Run it. See red.
-3. Write the minimum code to make it green.
-4. Refactor — code and tests — with the green as your safety net.
-5. Repeat.
-```
-
-If you skipped step 2, stop and delete what you wrote. Start over.
+| Excuse | Reality |
+|--------|---------|
+| "This change is too small for a test" | Then the test is too small to skip. The cost is seconds; the regression isn't. |
+| "I'll write the test after, same outcome" | Tests-after answer *what does this do?*. Tests-first answer *what should this do?*. Different artefacts, different bugs found. |
+| "Easier to assert on the private field" | The public API is missing an affordance. Fix that, not the test. |
+| "Mocking is faster than a fake" | Until the mocked call shape drifts. Then every test stays green while production breaks. |
+| "Happy path is enough" | Production runs the negative path on every bad input. Untested = unspecified. |
+| "I manually verified it works" | Not repeatable, not reviewable, won't catch the regression six months out. |
+| "It's flaky, just add a retry" | Flakiness is a race or shared state. Retries hide it; they don't fix it. |
 
 ## Quick reference
 
 | Need | Approach |
 |------|----------|
-| Many similar cases | Table / parametrized tests |
-| External service | Wrap in adapter, fake the adapter |
-| Filesystem | Temp dirs (`t.TempDir()`, `tmp_path`) |
-| Time / clocks | Inject a clock; don't rely on real time |
+| Many similar cases | Language-native table / parametrized form |
+| External service | Adapter you own; fake the adapter |
+| Filesystem | Per-test temp dir (`t.TempDir()`, `tmp_path`) |
+| Time / clocks | Inject a clock; never call wall-clock APIs in code under test |
 | Randomness | Seed it or inject the source |
-| Slow setup | Fixture-scoped (`module` / `session`) — but only if the work is truly shared |
+| Slow setup | Fixture-scoped only if truly shared and immutable |
+| Flaky test | Find the race or shared state; never `@retry` |
 
-## Black-box vs. implementation tests
+## Black-box vs. implementation
 
 ```python
-# Good — describes behaviour
-def test_cache_returns_cached_value_on_second_call():
+# Good. Pins the contract; survives refactors.
+def test_cache_returns_same_value_on_second_call():
     c = Cache(loader=lambda k: object())
     first = c.get("x")
     second = c.get("x")
     assert first is second
 
-# Bad — tests an internal detail
+# Bad. Pins the storage shape, not the contract.
 def test_cache_stores_value_in_dict():
     c = Cache(loader=lambda k: "v")
     c.get("x")
     assert c._storage == {"x": "v"}
 ```
 
-The second test breaks the moment you change `_storage` to an LRU — but the behaviour is identical. That's a false signal.
-
-## Common mistakes
-
-| Mistake | Fix |
-|---------|-----|
-| Writing the test after the code | Delete the code. Restart with a failing test. |
-| Test name says `TestFoo_works` | Rename: *what* does it do? |
-| One test, many unrelated assertions | Split per behaviour |
-| Mocking your own pure function | Call the real function |
-| Mocking a third-party library directly | Wrap it, then fake the wrapper |
-| Asserting on private fields | Assert on public output or observable effects |
-| Shared module-level fixtures mutating state | Scope the fixture to `function`, or make it immutable |
+The second test fails the moment you swap the dict for an LRU, even though the behaviour is identical. That's a false signal that punishes the refactor it should have enabled.

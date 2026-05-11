@@ -85,7 +85,7 @@ inner.horizontal = 8
 inner.vertical = 8
 outer.left = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 6 }, 6]
 outer.bottom = [{ monitor."U32R59x" = 20 }, { monitor.built-in = 10 }, 10]
-outer.top = [{ monitor."U32R59x" = 2 }, { monitor.built-in = 4 }, 4]
+outer.top = [{ monitor."U32R59x" = 20 }, { monitor.built-in = 4 }, 4]
 outer.right = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 6 }, 6]
 
 # Pin workspaces to monitors so new windows land predictably (no more

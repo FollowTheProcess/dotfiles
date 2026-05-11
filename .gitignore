@@ -64,4 +64,6 @@ Temporary Items
 *.sqlite3*
 .config/dlv/.dbg_history
 .config/glab-cli
+!.claude/
+.claude/*
 !.claude/skills/
