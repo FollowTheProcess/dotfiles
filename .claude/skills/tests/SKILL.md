@@ -85,3 +85,20 @@ def test_cache_stores_value_in_dict():
 ```
 
 The second test fails the moment you swap the dict for an LRU, even though the behaviour is identical. That's a false signal that punishes the refactor it should have enabled.
+
+## The 12 Desiderata
+
+Kent Beck's 12 test desiderata defines standards that must be upheld for all software tests and a bar that all tests should be assessed against.
+
+- **Isolated**: Tests don't affect each other, order doesn't matter, shared state is reset
+- **Composable**: Tests can run in any subset or combination without breaking
+- **Fast**: The suite runs in seconds, not minutes, fast enough to run on every save
+- **Inspiring**: A passing suite genuinely increases confidence that the software works
+- **Writable**: Adding a new test is cheap, low ceremony, good helpers, clear patterns
+- **Readable**: A test communicates what it's testing and why it might fail
+- **Behavioral**: Tests describe what the system does, not how it's implemented internally
+- **Structure-insensitive**: Refactoring internals doesn't break tests unless behavior changes
+- **Automated**: No human steps needed, tests run in CI and locally with one command
+- **Specific**: A failing test pinpoints the exact problem, not just "something broke"
+- **Deterministic**: Tests always produce the same result, no flakiness, no timing-dependent behavior
+- **Predictive**: Passing tests are a reliable signal that production will work
