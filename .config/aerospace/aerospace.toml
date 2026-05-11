@@ -173,6 +173,10 @@ alt-ctrl-right = "move right"
 alt-minus = "resize smart -50"
 alt-equal = "resize smart +50"
 
+# Numpad equivalents for the external keyboard's +/- keys.
+alt-keypadMinus = "resize smart -50"
+alt-keypadPlus = "resize smart +50"
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#fullscreen
 # Mirrors Raycast's fullscreen shortcut.
 ctrl-alt-enter = "fullscreen"
