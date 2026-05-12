@@ -14,6 +14,13 @@ after-startup-command = [
   "exec-and-forget borders"
 ]
 
+# Notify sketchybar about workspace changes
+exec-on-workspace-change = [
+  "/bin/bash",
+  "-c",
+  "/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+
 # Start AeroSpace at login
 start-at-login = true
 
@@ -251,18 +258,34 @@ alt-shift-up = "join-with up"
 alt-shift-right = "join-with right"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = "mode service"
+alt-shift-semicolon = [
+  "mode service",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_mode_change MODE=service",
+]
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-esc = ["reload-config", "mode main"]
-r = ["flatten-workspace-tree", "mode main"]  # reset layout
+esc = [
+  "reload-config",
+  "mode main",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_mode_change MODE=main",
+]
+r = [
+  "flatten-workspace-tree",
+  "mode main",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_mode_change MODE=main",
+]  # reset layout
 f = [
   "layout floating tiling",
-  "mode main"
+  "mode main",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_mode_change MODE=main",
 ]  # Toggle between floating and tiling layout
-backspace = ["close-all-windows-but-current", "mode main"]
+backspace = [
+  "close-all-windows-but-current",
+  "mode main",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_mode_change MODE=main",
+]
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 # s = ['layout sticky tiling', 'mode main']
