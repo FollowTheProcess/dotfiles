@@ -119,6 +119,11 @@ run = "layout floating"
 if.app-id = "com.electron.brain.fm"
 run = "layout floating"
 
+# Docker doesn't tile well for some reason, always hangs over monitor boundaries
+[[on-window-detected]]
+if.app-id = "com.electron.dockerdesktop"
+run = "layout floating"
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
