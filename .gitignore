@@ -59,6 +59,7 @@ Temporary Items
 
 .config/raycast
 .config/gup/assets/
+.config/sketchybar/helpers/bt_battery
 .config/zed/conversations/
 .config/zed/prompts/
 *.sqlite3*

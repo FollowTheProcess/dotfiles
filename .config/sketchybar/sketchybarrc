@@ -49,9 +49,9 @@ items=(
 # are statically defined in aerospace config, so the controller can read this
 # instead of forking aerospace on every workspace_change event.
 WORKSPACES_CACHE="${TMPDIR:-/tmp}/sketchybar.workspaces"
-aerospace list-workspaces --all > "$WORKSPACES_CACHE"
+aerospace list-workspaces --all >"$WORKSPACES_CACHE"
 
-for sid in $(< "$WORKSPACES_CACHE"); do
+for sid in $(<"$WORKSPACES_CACHE"); do
     items+=(
         --add item space."$sid" left
         --set space."$sid"
@@ -132,18 +132,26 @@ items+=(
 # Memory
 items+=(
     --add item memory right
-    --set memory update_freq=2 icon=􀧖 script="$PLUGIN_DIR"/memory.sh
+    --set memory update_freq=5 icon=􀧖 script="$PLUGIN_DIR"/memory.sh
 )
 
-# Airpods
+# Bluetooth audio batteries: airpods (L/R/case) and over-ear headphones.
+# bluetooth_change fires on connect/disconnect but not on battery deltas, so
+# the controller also polls periodically. One hidden item drives every visible
+# item via a single batched sketchybar call - the alternative was N scripts
+# each forking system_profiler.
 items+=(
     --add item airpods.right right
     --set airpods.right icon=􀲍 drawing=off
     --add item airpods.case right
     --set airpods.case icon=􀹬 drawing=off
     --add item airpods.left right
-    --set airpods.left icon=􀲎 drawing=off script="$PLUGIN_DIR/airpods.sh"
-    --subscribe airpods.left bluetooth_change
+    --set airpods.left icon=􀲎 drawing=off
+    --add item headphones right
+    --set headphones icon=􃍅 drawing=off
+    --add item bluetooth_controller right
+    --set bluetooth_controller drawing=off updates=on update_freq=60 script="$PLUGIN_DIR/bluetooth.sh"
+    --subscribe bluetooth_controller bluetooth_change
 )
 
 sketchybar "${items[@]}"

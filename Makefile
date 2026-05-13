@@ -1,20 +1,25 @@
-.PHONY: stow unstow restow dump
+.PHONY: stow unstow restow dump build
 
 # Apply the dotfiles.
 #
-# We pass --no-folding so stow creates individual file symlinks instead of
-# collapsing whole directories into a single symlink. Specifically,
-# ~/Library/LaunchAgents/ must stay a real directory: macOS auto-bootstraps
-# LaunchAgents from there at login, and on macOS 26 (Tahoe) at least, that
-# auto-bootstrap is unreliable when the directory itself is a symlink.
-stow:
+# --no-folding means stow creates individual links, one per file instead
+# of linking whole directories. Fixes a bunch of issues I had like apps
+# writing into ~/.config/<app> and those writes showing up in here, and
+# some flakiness with LaunchAgents
+stow: build
 	stow --no-folding .
 
 unstow:
 	stow -D .
 
-restow:
+restow: build
 	stow -R --no-folding .
+
+# Compile the swift helpers (getting bluetooth info) so they run quicker
+build: .config/sketchybar/helpers/bt_battery
+
+.config/sketchybar/helpers/bt_battery: .config/sketchybar/helpers/bt_battery.swift
+	swiftc -O -o $@ $<
 
 # Refresh ~/.Brewfile from the currently-installed state.
 #
