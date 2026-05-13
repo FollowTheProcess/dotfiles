@@ -93,7 +93,7 @@ inner.horizontal = 8
 inner.vertical = 8
 outer.left = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 6 }, 6]
 outer.bottom = [{ monitor."U32R59x" = 20 }, { monitor.built-in = 10 }, 10]
-outer.top = [{ monitor."U32R59x" = 20 }, { monitor.built-in = 4 }, 4]
+outer.top = [{ monitor."U32R59x" = 42 }, { monitor.built-in = 4 }, 4]
 outer.right = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 6 }, 6]
 
 # Pin workspaces to monitors so new windows land predictably (no more
@@ -224,25 +224,82 @@ cmd-alt-keypad8 = "workspace 8"
 cmd-alt-keypad9 = "workspace 9"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = "move-node-to-workspace 1"
-alt-shift-2 = "move-node-to-workspace 2"
-alt-shift-3 = "move-node-to-workspace 3"
-alt-shift-4 = "move-node-to-workspace 4"
-alt-shift-5 = "move-node-to-workspace 5"
-alt-shift-6 = "move-node-to-workspace 6"
-alt-shift-7 = "move-node-to-workspace 7"
-alt-shift-8 = "move-node-to-workspace 8"
-alt-shift-9 = "move-node-to-workspace 9"
+# Each binding also nudges sketchybar so its per-workspace app icons refresh:
+# move-node-to-workspace doesn't change focus, so the regular
+# exec-on-workspace-change hook wouldn't fire on its own.
+alt-shift-1 = [
+  "move-node-to-workspace 1",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-2 = [
+  "move-node-to-workspace 2",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-3 = [
+  "move-node-to-workspace 3",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-4 = [
+  "move-node-to-workspace 4",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-5 = [
+  "move-node-to-workspace 5",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-6 = [
+  "move-node-to-workspace 6",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-7 = [
+  "move-node-to-workspace 7",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-8 = [
+  "move-node-to-workspace 8",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-9 = [
+  "move-node-to-workspace 9",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
 
-alt-shift-keypad1 = "move-node-to-workspace 1"
-alt-shift-keypad2 = "move-node-to-workspace 2"
-alt-shift-keypad3 = "move-node-to-workspace 3"
-alt-shift-keypad4 = "move-node-to-workspace 4"
-alt-shift-keypad5 = "move-node-to-workspace 5"
-alt-shift-keypad6 = "move-node-to-workspace 6"
-alt-shift-keypad7 = "move-node-to-workspace 7"
-alt-shift-keypad8 = "move-node-to-workspace 8"
-alt-shift-keypad9 = "move-node-to-workspace 9"
+alt-shift-keypad1 = [
+  "move-node-to-workspace 1",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-keypad2 = [
+  "move-node-to-workspace 2",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-keypad3 = [
+  "move-node-to-workspace 3",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-keypad4 = [
+  "move-node-to-workspace 4",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-keypad5 = [
+  "move-node-to-workspace 5",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-keypad6 = [
+  "move-node-to-workspace 6",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-keypad7 = [
+  "move-node-to-workspace 7",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-keypad8 = [
+  "move-node-to-workspace 8",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
+alt-shift-keypad9 = [
+  "move-node-to-workspace 9",
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
+]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = "workspace-back-and-forth"

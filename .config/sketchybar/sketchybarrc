@@ -45,7 +45,17 @@ for sid in $(aerospace list-workspaces --all); do
         --add item space."$sid" left
         --subscribe space."$sid" aerospace_workspace_change
         --set space."$sid"
-        label="$sid"
+        icon="$sid"
+        icon.padding_left=10
+        icon.padding_right=6
+        label.font="sketchybar-app-font:Regular:14.0"
+        label.padding_left=0
+        label.padding_right=10
+        label.drawing=off
+        background.color=0x80363a4f
+        background.corner_radius=6
+        background.height=26
+        background.drawing=off
         click_script="aerospace workspace $sid"
         script="$CONFIG_DIR/plugins/aerospace.sh $sid"
     )
