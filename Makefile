@@ -1,4 +1,4 @@
-.PHONY: stow unstow restow
+.PHONY: stow unstow restow dump
 
 # Apply the dotfiles.
 #
@@ -15,3 +15,16 @@ unstow:
 
 restow:
 	stow -R --no-folding .
+
+# Refresh ~/.Brewfile from the currently-installed state.
+#
+# `brew bundle dump` strips per-entry options (restart_service, start_service,
+# etc.) so we re-apply them after the dump. The sed patterns anchor to
+# end-of-line, so they only match the bare lines `dump` produces and leave
+# anything already annotated alone (idempotent).
+dump:
+	brew bundle dump --force --global --all
+	sed -i '' \
+		-e 's|^brew "felixkratz/formulae/borders"$$|brew "felixkratz/formulae/borders",  restart_service: :changed, start_service: true|' \
+		-e 's|^brew "felixkratz/formulae/sketchybar"$$|brew "felixkratz/formulae/sketchybar",  restart_service: :changed, start_service: true|' \
+		.Brewfile
