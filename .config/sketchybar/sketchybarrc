@@ -2,12 +2,14 @@
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
+source "$CONFIG_DIR/helpers/colors.sh"
+
 # Bar appearance
 bar=(
     position=top
     height=40
     blur_radius=30
-    color=0xa01e2030
+    color="0xa0${MANTLE}"
     shadow=on
     sticky=on
     padding_left=10
@@ -23,8 +25,8 @@ default=(
     padding_right=5
     icon.font="GeistMono Nerd Font:Bold:17.0"
     label.font="GeistMono Nerd Font:Bold:14.0"
-    icon.color=0xffffffff
-    label.color=0xffffffff
+    icon.color="0xff${WHITE}"
+    label.color="0xff${WHITE}"
     icon.padding_left=4
     icon.padding_right=4
     label.padding_left=4
@@ -52,7 +54,7 @@ for sid in $(aerospace list-workspaces --all); do
         label.padding_left=0
         label.padding_right=10
         label.drawing=off
-        background.color=0x80363a4f
+        background.color="0x80${SURFACE0}"
         background.corner_radius=6
         background.height=26
         background.drawing=off
@@ -68,7 +70,7 @@ items+=(
     --subscribe aerospace_mode aerospace_mode_change
     --set aerospace_mode
     drawing=off
-    label.color=0xffffaa00
+    label.color="0xff${PEACH}"
     icon.drawing=off
     script="$PLUGIN_DIR/aerospace_mode.sh"
 )
