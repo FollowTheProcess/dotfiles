@@ -16,7 +16,7 @@ INFO="$(system_profiler SPBluetoothDataType -json -detailLevel basic 2>/dev/null
           end
     ')"
 
-ARGS=(-m)
+ARGS=()
 
 # An item is "reporting" when it has a non-empty, non-zero percentage.
 # A 0%/"-" reading means that part isn't connected (ear in case, case away).
