@@ -103,10 +103,22 @@ items+=(
     --subscribe front_app front_app_switched
 )
 
+# Network: WiFi/VPN/offline state with IP plus live up/down throughput
+items+=(
+    --add item network left
+    --set network update_freq=5 script="$PLUGIN_DIR/network.sh"
+    --subscribe network wifi_change system_woke
+    --add item network.up left
+    --set network.up icon=⇡ icon.color="0xff${PEACH}" drawing=off
+    --add item network.down left
+    --set network.down icon=⇣ icon.color="0xff${GREEN}" drawing=off
+)
+
 # Clock/calendar
 items+=(
     --add item clock right
     --set clock update_freq=30 icon=􀧞 icon.font="SF Pro:Bold:14.0" script="$PLUGIN_DIR/clock.sh"
+    --subscribe clock system_woke
 )
 
 # Volume
@@ -136,10 +148,6 @@ items+=(
 )
 
 # Bluetooth audio batteries: airpods (L/R/case) and over-ear headphones.
-# bluetooth_change fires on connect/disconnect but not on battery deltas, so
-# the controller also polls periodically. One hidden item drives every visible
-# item via a single batched sketchybar call - the alternative was N scripts
-# each forking system_profiler.
 items+=(
     --add item airpods.right right
     --set airpods.right icon=􀲍 drawing=off
@@ -151,7 +159,7 @@ items+=(
     --set headphones icon=􃍅 drawing=off
     --add item bluetooth_controller right
     --set bluetooth_controller drawing=off updates=on update_freq=60 script="$PLUGIN_DIR/bluetooth.sh"
-    --subscribe bluetooth_controller bluetooth_change
+    --subscribe bluetooth_controller bluetooth_change system_woke
 )
 
 sketchybar "${items[@]}"
