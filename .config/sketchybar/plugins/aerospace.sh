@@ -3,34 +3,41 @@
 source "$CONFIG_DIR/helpers/icon_map.sh"
 source "$CONFIG_DIR/helpers/colors.sh"
 
-SID=$1
+# Single batch refresh for every Aerospace workspace tile in the bar.
+#
+# One aerospace call enumerates windows in all workspaces; one sketchybar invocation
+# applies every update.
+#
+# FOCUSED_WORKSPACE arrives via the triggering event; fall back to querying it so
+# the script still works when invoked manually or from a non-workspace event.
+FOCUSED="${FOCUSED_WORKSPACE:-$(aerospace list-workspaces --focused)}"
 
-# Collect unique app names for windows in this workspace.
-apps=$(aerospace list-windows --workspace "$SID" --format '%{app-name}' | sort -u)
-
-icons=""
-while IFS= read -r app; do
-    [ -z "$app" ] && continue
+declare -A icons_by_ws seen
+while IFS=$'\t' read -r ws app; do
+    [ -z "$ws" ] || [ -z "$app" ] && continue
+    key="$ws|$app"
+    [ -n "${seen[$key]:-}" ] && continue
+    seen[$key]=1
     __icon_map "$app"
-    icons+="$icon_result"
-done <<<"$apps"
+    icons_by_ws[$ws]+="$icon_result"
+done < <(aerospace list-windows --all --format '%{workspace}'$'\t''%{app-name}')
 
 args=()
+for sid in $(aerospace list-workspaces --all); do
+    icons="${icons_by_ws[$sid]:-}"
+    args+=(--set space."$sid")
+    if [ "$sid" = "$FOCUSED" ]; then
+        args+=(drawing=on background.drawing=on background.color="0x88${MAUVE}")
+    elif [ -n "$icons" ]; then
+        args+=(drawing=on background.drawing=on background.color="0x80${SURFACE0}")
+    else
+        args+=(drawing=off)
+    fi
+    if [ -n "$icons" ]; then
+        args+=(label="$icons" label.drawing=on)
+    else
+        args+=(label.drawing=off)
+    fi
+done
 
-# Mauve at ~53% alpha for the focused workspace, Surface0 at half alpha for
-# occupied-but-unfocused: barely there so the mauve accent does the heavy lifting.
-if [ "$SID" = "$FOCUSED_WORKSPACE" ]; then
-    args+=(drawing=on background.drawing=on background.color="0x88${MAUVE}")
-elif [ -n "$apps" ]; then
-    args+=(drawing=on background.drawing=on background.color="0x80${SURFACE0}")
-else
-    args+=(drawing=off)
-fi
-
-if [ -n "$icons" ]; then
-    args+=(label="$icons" label.drawing=on)
-else
-    args+=(label.drawing=off)
-fi
-
-sketchybar --set "$NAME" "${args[@]}"
+sketchybar "${args[@]}"
