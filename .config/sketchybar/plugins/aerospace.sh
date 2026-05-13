@@ -22,8 +22,17 @@ while IFS=$'\t' read -r ws app; do
     icons_by_ws[$ws]+="$icon_result"
 done < <(aerospace list-windows --all --format '%{workspace}'$'\t''%{app-name}')
 
+# Workspaces are statically defined in aerospace config and cached by
+# sketchybarrc at startup; fall back to a live query if the cache is gone.
+WORKSPACES_CACHE="${TMPDIR:-/tmp}/sketchybar.workspaces"
+if [ -r "$WORKSPACES_CACHE" ]; then
+    workspaces=$(<"$WORKSPACES_CACHE")
+else
+    workspaces=$(aerospace list-workspaces --all)
+fi
+
 args=()
-for sid in $(aerospace list-workspaces --all); do
+for sid in $workspaces; do
     icons="${icons_by_ws[$sid]:-}"
     args+=(--set space."$sid")
     if [ "$sid" = "$FOCUSED" ]; then

@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-PERCENTAGE="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)"
-CHARGING="$(pmset -g batt | grep 'AC Power')"
+PMSET="$(pmset -g batt)"
 
-if [ "$PERCENTAGE" = "" ]; then
+# Bash regex
+if [[ $PMSET =~ ([0-9]+)% ]]; then
+    PERCENTAGE="${BASH_REMATCH[1]}"
+else
     exit 0
 fi
 
@@ -23,7 +25,7 @@ case "${PERCENTAGE}" in
 *) ICON="􀛪" ;;
 esac
 
-if [[ "$CHARGING" != "" ]]; then
+if [[ $PMSET == *"AC Power"* ]]; then
     ICON="􀢋"
 fi
 
