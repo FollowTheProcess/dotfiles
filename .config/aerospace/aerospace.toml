@@ -49,6 +49,13 @@ default-root-container-orientation = "auto"
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = []
 
+# Refresh sketchybar workspace indicators on every focus change. Covers the
+# window-close case: aerospace has no on-window-destroyed callback, but
+# closing a window usually shifts focus to a neighbour, which fires this.
+on-focus-changed = [
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(/opt/homebrew/bin/aerospace list-workspaces --focused)"
+]
+
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
@@ -112,6 +119,19 @@ outer.right = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 6 }, 6]
 
 # Auto-route apps to workspaces / layouts when a new window appears.
 # See: https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
+
+# Nudge sketchybar to refresh its per-workspace app icons on every new window.
+# exec-on-workspace-change only fires when the focused workspace changes, so an
+# app launched into the already-focused workspace would otherwise not show up
+# on the bar until you switch back and forth.
+# check-further-callbacks lets the per-app rules below still match.
+# AEROSPACE_FOCUSED_WORKSPACE is only exported for exec-on-workspace-change, so
+# query the focused workspace directly here.
+[[on-window-detected]]
+check-further-callbacks = true
+run = [
+  "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(/opt/homebrew/bin/aerospace list-workspaces --focused)"
+]
 
 # Apps that don't play nicely with tiling — keep them floating.
 [[on-window-detected]]
