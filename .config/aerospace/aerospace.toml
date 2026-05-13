@@ -10,8 +10,9 @@ config-version = 2
 after-startup-command = [
   # JankyBorders has a built-in detection of already running process,
   # so it won't be run twice on AeroSpace restart
-  # See .config/borders/bordersrc for config
-  "exec-and-forget borders"
+  # See .config/borders/bordersrc for config.
+  # Launching is handled by `brew services`
+  # "exec-and-forget borders"
 ]
 
 # Notify sketchybar about workspace changes

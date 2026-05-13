@@ -45,9 +45,9 @@ for sid in $(aerospace list-workspaces --all); do
         --add item space."$sid" left
         --subscribe space."$sid" aerospace_workspace_change
         --set space."$sid"
-            label="$sid"
-            click_script="aerospace workspace $sid"
-            script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+        label="$sid"
+        click_script="aerospace workspace $sid"
+        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
     )
 done
 
@@ -57,34 +57,54 @@ items+=(
     --add item aerospace_mode left
     --subscribe aerospace_mode aerospace_mode_change
     --set aerospace_mode
-        drawing=off
-        label.color=0xffffaa00
-        icon.drawing=off
-        script="$PLUGIN_DIR/aerospace_mode.sh"
+    drawing=off
+    label.color=0xffffaa00
+    icon.drawing=off
+    script="$PLUGIN_DIR/aerospace_mode.sh"
 )
 
 # Show focussed app with a nice icon (uses aerospace focussed app)
 items+=(
     --add item chevron left
-    --set chevron icon= label.drawing=off
+    --set chevron icon=❯ label.drawing=off
     --add item front_app left
     --set front_app
-        icon.font="sketchybar-app-font:Regular:16.0"
-        icon.drawing=on
-        script="$PLUGIN_DIR/front_app.sh"
+    icon.font="sketchybar-app-font:Regular:16.0"
+    icon.drawing=on
+    script="$PLUGIN_DIR/front_app.sh"
     --subscribe front_app front_app_switched
 )
 
-# Battery, volume and calendar/clock on the right
+# Clock/calendar
 items+=(
     --add item clock right
-    --set clock update_freq=10 icon=􀉉 icon.font="SF Pro:Bold:14.0" script="$PLUGIN_DIR/clock.sh"
+    --set clock update_freq=10 icon=􀧞 icon.font="SF Pro:Bold:14.0" script="$PLUGIN_DIR/clock.sh"
+)
+
+# Volume
+items+=(
     --add item volume right
     --set volume script="$PLUGIN_DIR/volume.sh"
     --subscribe volume volume_change
+)
+
+# Battery
+items+=(
     --add item battery right
     --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh"
     --subscribe battery system_woke power_source_change
+)
+
+# CPU
+items+=(
+    --add item cpu right
+    --set cpu update_freq=2 icon=􀧓 script="$PLUGIN_DIR"/cpu.sh
+)
+
+# Memory
+items+=(
+    --add item memory right
+    --set memory update_req=2 icon=􀧖 script="$PLUGIN_DIR"/memory.sh
 )
 
 sketchybar "${items[@]}"
