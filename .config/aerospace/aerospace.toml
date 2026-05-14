@@ -14,8 +14,11 @@ after-startup-command = [
   # Launching is handled by `brew services`
   # "exec-and-forget borders"
 
-  # OCD, always start on workspace 1
-  "workspace 1",
+  # OCD, always start on workspace 1. macOS brings login apps (notably
+  # Finder) to the foreground after aerospace's startup finishes, and
+  # their focus event drags us to whichever workspace those windows
+  # happen to live on. Defer past the shuffle so workspace 1 wins.
+  "exec-and-forget /bin/bash -c 'sleep 5 && /opt/homebrew/bin/aerospace workspace 1'",
 ]
 
 # Notify sketchybar about workspace changes
