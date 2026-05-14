@@ -13,6 +13,9 @@ after-startup-command = [
   # See .config/borders/bordersrc for config.
   # Launching is handled by `brew services`
   # "exec-and-forget borders"
+
+  # OCD, always start on workspace 1
+  "workspace 1",
 ]
 
 # Notify sketchybar about workspace changes
