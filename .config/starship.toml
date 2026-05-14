@@ -1,12 +1,9 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
 
 palette = "catppuccin_macchiato"
 
 [python]
 symbol = " "
-
-[aws]
-disabled = true
 
 [golang]
 symbol = " "

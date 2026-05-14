@@ -44,31 +44,10 @@ items=(
     --add event bluetooth_change "com.apple.bluetooth.status"
 )
 
-# Show the Aerospace workspaces, updates managed by the controller below so
-# no subscriptions/events here. Cache the workspace list once - workspaces
-# are statically defined in aerospace config, so the controller can read this
-# instead of forking aerospace on every workspace_change event.
-WORKSPACES_CACHE="${TMPDIR:-/tmp}/sketchybar.workspaces"
-aerospace list-workspaces --all >"$WORKSPACES_CACHE"
-
-for sid in $(<"$WORKSPACES_CACHE"); do
-    items+=(
-        --add item space."$sid" left
-        --set space."$sid"
-        icon="$sid"
-        icon.padding_left=10
-        icon.padding_right=6
-        label.font="sketchybar-app-font:Regular:14.0"
-        label.padding_left=0
-        label.padding_right=10
-        label.drawing=off
-        background.color="0x80${SURFACE0}"
-        background.corner_radius=6
-        background.height=26
-        background.drawing=off
-        click_script="aerospace workspace $sid"
-    )
-done
+# Aerospace workspace tiles are added/removed by the controller plugin below
+# to track aerospace's live workspace list — see plugins/aerospace.sh. The
+# final `--trigger aerospace_workspace_change` at the bottom of this file
+# kicks the plugin once at startup so the bar populates from a cold start.
 
 # Hidden controller, batches up workspace change events so we don't
 # have to call sketchybar N times (N = number of workspaces).

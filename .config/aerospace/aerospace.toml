@@ -65,17 +65,20 @@ automatically-unhide-macos-hidden-apps = true
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = [
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-]
+#
+# I don't use these
+#
+# persistent-workspaces = [
+#   "1",
+#   "2",
+#   "3",
+#   "4",
+#   "5",
+#   "6",
+#   "7",
+#   "8",
+#   "9",
+# ]
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -321,8 +324,11 @@ alt-shift-keypad9 = [
   "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE"
 ]
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-alt-tab = "workspace-back-and-forth"
+# Cycle through workspaces with wrap.
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+alt-tab = "workspace next --wrap-around"
+alt-shift-tab = "workspace prev --wrap-around"
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
 cmd-alt-ctrl-left = "move-node-to-monitor --wrap-around --focus-follows-window prev"
 cmd-alt-ctrl-right = "move-node-to-monitor --wrap-around --focus-follows-window next"
