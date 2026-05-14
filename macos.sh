@@ -1,6 +1,7 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-# Settings for mac
+# macOS defaults
+# Run from `~/dotfiles`. Inspect any setting with `defaults read <domain> <key>`.
 
 __dock_item() {
     printf '%s%s%s%s%s' \
@@ -11,13 +12,13 @@ __dock_item() {
         '</dict></dict></dict>'
 }
 
-# Close any open System Preferences panes, to prevent them from overriding settings we’re about to change
-osascript -e 'tell application "System Preferences" to quit'
+# Close any open System Settings panes so they don't override the values we write
+osascript -e 'tell application "System Settings" to quit'
 
 # Ask for the administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+# Keep-alive: update existing `sudo` time stamp until this script has finished
 while true; do
     sudo -n true
     sleep 60
@@ -29,24 +30,69 @@ sudo softwareupdate --schedule ON
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticCheckEnabled -bool YES
 
 # ***** Settings > Appearance *****
-defaults write .GlobalPreferences AppleInterfaceStyle -string "Dark"
-defaults write .GlobalPreferences AppleInterfaceStyleSwitchesAutomatically -bool false
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool false
+
+# ***** Settings > General > Language & Region *****
+defaults write NSGlobalDomain AppleLocale -string "en_GB"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+defaults write NSGlobalDomain AppleMetricUnits -bool true
+defaults write NSGlobalDomain AppleTemperatureUnit -string "Celsius"
+defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
+
+# ***** Menu Bar *****
+# Hide the system menu bar; sketchybar replaces it
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
 # ***** Settings > Control Center *****
-# Bluetooth: always show in menu bar
+# Bluetooth: always show in menu bar (still relevant for sketchybar plugins reading state)
 defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
 
-# Battery - show percentage
+# Battery: show percentage
 defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
-# Set a blazingly fast keyboard repeat rate
+# ***** Settings > Keyboard *****
+# Blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
-# Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+# Disable press-and-hold accent picker so keys repeat in editors like Helix
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Clear all dock items
+# Full keyboard access: tab through every control in dialogs, not just text fields
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Expand Save and Print panels by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Disable text auto-corrections; they get in the way when typing code
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# ***** Sound *****
+# Silence the boot chime. The byte 0x80 matches what System Settings >
+# Sound > "Play sound on startup" writes, so the script and the UI stay
+# in sync. Any non-default byte mutes; the specific value is cosmetic.
+sudo nvram SystemAudioVolume=$'\x80'
+
+# ***** Trackpad *****
+# Tracking speed. NOTE: the key lives in NSGlobalDomain with a literal dot in
+# its name (`com.apple.trackpad.scaling`); writing to `com.apple.trackpad`
+# silently does nothing
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 3.0
+
+# ***** Windows *****
+# Drag windows by holding ctrl+cmd and clicking anywhere on the window
+defaults write NSGlobalDomain NSWindowShouldDragOnGesture -bool true
+
+# ***** Dock *****
+# Clear all dock items before rebuilding the list
 defaults write com.apple.dock persistent-apps -array
 
 # Add persistent apps to Dock
@@ -54,7 +100,7 @@ defaults write com.apple.dock \
     persistent-apps -array \
     "$(__dock_item /System/Applications/Safari.app)" \
     "$(__dock_item /Applications/Slack.app)" \
-    "$(__dock_item /Applications/Whatsapp.app)" \
+    "$(__dock_item /Applications/WhatsApp.app)" \
     "$(__dock_item /System/Applications/Messages.app)" \
     "$(__dock_item /Applications/Spotify.app)" \
     "$(__dock_item /System/Applications/Mail.app)" \
@@ -68,41 +114,65 @@ defaults write com.apple.dock \
     "$(__dock_item /Applications/Zed.app)" \
     "$(__dock_item /System/Applications/"System Settings".app)"
 
-# Minimize windows into their application’s icon
+# Minimize windows into their application's icon
 defaults write com.apple.dock minimize-to-application -bool true
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
-# Don’t show recent applications in Dock
+# Don't show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
 
-# Group apps in mission control
+# Group windows by application in Mission Control
 defaults write com.apple.dock expose-group-apps -bool true
 
-# System Preferences > Dock > Size:
+# Don't auto-rearrange spaces by most recent use; AeroSpace assigns workspaces
+# to fixed positions and this would shuffle them around
+defaults write com.apple.dock mru-spaces -bool false
+
+# Dock size and magnification
 defaults write com.apple.dock tilesize -int 26
-
-# System Preferences > Dock > Magnification:
 defaults write com.apple.dock magnification -bool true
-
-# System Preferences > Dock > Size (magnified):
 defaults write com.apple.dock largesize -int 40
 
-# System Preferences > Dock > Position:
+# Dock position
 defaults write com.apple.dock orientation -string right
 
-# Finder > Preferences > Show warning before removing from iCloud Drive
+# ***** Mission Control *****
+# Treat all displays as one continuous space
+defaults write com.apple.spaces spans-displays -bool true
+
+# ***** Hot Corners *****
+# Values: 1 = no action, 2 = Mission Control, 3 = Application Windows,
+# 4 = Desktop, 5 = Start Screen Saver, 6 = Disable Screen Saver,
+# 10 = Put Display to Sleep, 11 = Launchpad, 12 = Notification Center,
+# 13 = Lock Screen, 14 = Quick Note. Modifier 0 = no key needed.
+# Top-left
+defaults write com.apple.dock wvous-tl-corner -int 1
+defaults write com.apple.dock wvous-tl-modifier -int 0
+# Top-right
+defaults write com.apple.dock wvous-tr-corner -int 1
+defaults write com.apple.dock wvous-tr-modifier -int 0
+# Bottom-left
+defaults write com.apple.dock wvous-bl-corner -int 1
+defaults write com.apple.dock wvous-bl-modifier -int 0
+# Bottom-right: Desktop
+defaults write com.apple.dock wvous-br-corner -int 4
+defaults write com.apple.dock wvous-br-modifier -int 0
+
+# ***** Stage Manager *****
+# Explicitly disabled; AeroSpace handles tiling
+defaults write com.apple.WindowManager GloballyEnabled -bool false
+
+# ***** Finder *****
+# Don't warn when removing from iCloud Drive
 defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
 
-# System Preferences > Trackpad > Tracking speed
-defaults write com.apple.trackpad scaling -float 3.0
-
-# Finder > Preferences > Default open location
+# Default open location
 defaults write com.apple.finder NewWindowTarget -string "PfDo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Documents/"
 
-# Finder > Preferences > Default view
+# Default view: column view
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 # Keep folders on top when sorting by name
@@ -111,101 +181,119 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# Disable the annoying "this app was downloaded from the internet" warning
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+# Auto-empty Trash items older than 30 days
+defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 
-# Disable automatic capitalization as it’s annoying when typing code
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-
-# Disable smart dashes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-# Disable automatic period substitution as it’s annoying when typing code
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
-
-# Disable smart quotes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
-# Drag windows by holding ctrl + cmd and clicking anywhere on the window, rather than
-# just the window pane
-defaults write -g NSWindowShouldDragOnGesture -bool true
-
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
-# Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "${HOME}/Desktop"
-
-# Disable displays having their own "spaces"
-defaults write com.apple.spaces spans-displays -bool true
-
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "png"
-
-# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+# Allow quitting Finder via ⌘+Q (also hides desktop icons)
 defaults write com.apple.finder QuitMenuItem -bool true
 
-# Finder: show hidden files by default
+# Show hidden files
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
-# Enable HiDPI display modes (requires restart)
-sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+# Show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Keep folders on top when sorting by name
-defaults write com.apple.finder _FXSortFoldersFirst -bool true
+# Sidebar icon size: 1 = small, 2 = medium, 3 = large
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
-# When performing a search, search the current folder by default
+# Show path bar and status bar
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Show full POSIX path in window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Search the current folder by default (not the whole Mac)
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# Disable the warning when changing a file extension
+# Don't warn when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Disable the warning before emptying the Trash
-defaults write com.apple.finder WarnOnEmptyTrash -bool false
+# Disable the "downloaded from the internet" warning
+defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-# Prevent Safari from opening ‘safe’ files automatically after downloading
+# Stop writing .DS_Store on network shares and USB drives
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# ***** Screenshots *****
+# Keep screenshots on the clipboard rather than dumping to Desktop
+defaults write com.apple.screencapture target -string "clipboard"
+
+# PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# ***** Photos *****
+# Don't auto-launch Photos when a camera or phone is connected
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# ***** Time Machine *****
+# Stop the "use this disk for backups?" prompt for every new external drive
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# ***** TextEdit *****
+# Default to plain text
+defaults write com.apple.TextEdit RichText -int 0
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+# ***** Activity Monitor *****
+# Show all processes
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+# Sort by CPU usage, descending
+defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+defaults write com.apple.ActivityMonitor SortDirection -int 0
+
+# ***** Mail *****
+# Show attachments as icons, never inline
+defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
+
+# ***** Mac App Store *****
+# Don't autoplay app preview videos
+defaults write com.apple.AppStore AutoPlayVideoSetting -string "off"
+
+# Note: there's no working `defaults` key for in-app review prompts on
+# modern macOS. Toggle System Settings > App Store > "In-App Ratings &
+# Reviews" manually; the setting writes to a private daemon flag.
+
+# ***** Safari *****
+# Don't open "safe" downloads automatically
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
-# Enable the Develop menu and the Web Inspector in Safari
+# Show full URL in the status bar overlay when hovering a link
+defaults write com.apple.Safari ShowOverlayStatusBar -bool true
+
+# Enable the Develop menu and Web Inspector
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
-# Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+# Disable Safari's spelling auto-correct too
 defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
 
-# Disable AutoFill
+# Disable all forms of AutoFill (1Password handles this)
 defaults write com.apple.Safari AutoFillFromAddressBook -bool false
 defaults write com.apple.Safari AutoFillPasswords -bool false
 defaults write com.apple.Safari AutoFillCreditCardData -bool false
 defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
 
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
-for app in "Activity Monitor" \
-    "Address Book" \
+# Restart affected apps so changes pick up
+for app in \
+    "Activity Monitor" \
     "Calendar" \
     "cfprefsd" \
     "Contacts" \
     "Dock" \
     "Finder" \
-    "Google Chrome Canary" \
-    "Google Chrome" \
     "Mail" \
     "Messages" \
-    "Opera" \
     "Photos" \
     "Safari" \
-    "SizeUp" \
-    "Spectacle" \
-    "SystemUIServer" \
-    "Terminal" \
-    "Transmission" \
-    "Tweetbot" \
-    "Twitter" \
-    "iCal"; do
+    "SystemUIServer"; do
     killall "${app}" &>/dev/null
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+# Show the user's ~/Library folder, which Apple hides by default
+chflags nohidden ~/Library
+
+echo "Done. Some changes require a logout or restart to take effect."
