@@ -60,7 +60,7 @@ if [ -n "$IS_VPN" ]; then
     LABEL_COLOR="0xff${WHITE}"
 elif [ -n "$IP_ADDRESS" ]; then
     ICON="􀙇"
-    LABEL="$IP_ADDRESS"
+    LABEL=""
     ICON_COLOR="0xff${BLUE}"
     LABEL_COLOR="0xff${WHITE}"
 else
@@ -69,6 +69,9 @@ else
     ICON_COLOR="0xff${OVERLAY1}"
     LABEL_COLOR="0xff${OVERLAY1}"
 fi
+
+LABEL_DRAWING=on
+[ -z "$LABEL" ] && LABEL_DRAWING=off
 
 # Throughput is shown whenever we're connected. Idle traffic (mDNS, keepalives)
 # reads as ~0 B/s and that's fine - constant items don't jitter neighbours.
@@ -83,6 +86,7 @@ sketchybar \
     icon.color="$ICON_COLOR" \
     label="$LABEL" \
     label.color="$LABEL_COLOR" \
+    label.drawing="$LABEL_DRAWING" \
     --set network.up \
     drawing="$THRU" \
     label="$(human "$UP_BPS")/s" \
