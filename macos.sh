@@ -95,10 +95,12 @@ defaults write NSGlobalDomain NSWindowShouldDragOnGesture -bool true
 # Clear all dock items before rebuilding the list
 defaults write com.apple.dock persistent-apps -array
 
-# Add persistent apps to Dock
+# Add persistent apps to Dock. Safari ships in a sealed system Cryptex
+# (/Applications/Safari.app is just a symlink to it). The Dock can't
+# resolve the symlink and renders a `?` icon, so point at the real path.
 defaults write com.apple.dock \
     persistent-apps -array \
-    "$(__dock_item /System/Applications/Safari.app)" \
+    "$(__dock_item /System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app)" \
     "$(__dock_item /Applications/Slack.app)" \
     "$(__dock_item /Applications/WhatsApp.app)" \
     "$(__dock_item /System/Applications/Messages.app)" \
