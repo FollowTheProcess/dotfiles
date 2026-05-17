@@ -75,6 +75,7 @@ brew "kubernetes-cli"
 brew "kustomize"
 brew "make"
 brew "marp-cli"
+brew "mas"
 brew "mdbook"
 brew "minikube"
 brew "mise"
@@ -82,7 +83,6 @@ brew "nushell"
 brew "pandoc"
 brew "pinentry-mac"
 brew "procs"
-brew "pyrefly"
 brew "redocly-cli"
 brew "ripgrep"
 brew "ruby"
@@ -92,6 +92,7 @@ brew "shfmt"
 brew "solargraph"
 brew "starship"
 brew "staticcheck"
+brew "stern"
 brew "stow"
 brew "syft"
 brew "television"
@@ -125,6 +126,7 @@ brew "hashicorp/tap/terraform"
 brew "kluctl/tap/kluctl"
 brew "nao1215/tap/gup"
 brew "taiki-e/tap/cargo-llvm-cov"
+cask "1password-cli"
 cask "nikitabobko/tap/aerospace"
 cask "theboredteam/boring-notch/boring-notch"
 cask "brainfm"
@@ -149,6 +151,19 @@ cask "followtheprocess/tap/tag"
 cask "followtheprocess/tap/txtract"
 cask "yaak"
 cask "zed"
+mas "1Password for Safari", id: 1569813296
+mas "Bear", id: 1091189122
+mas "Dropover", id: 1355679052
+mas "JSON Peep", id: 1458969831
+mas "Kagi for Safari", id: 1622835804
+mas "Keynote", id: 361285480
+mas "Noir", id: 1592917505
+mas "Numbers", id: 361304891
+mas "Pages", id: 361309726
+mas "Refined GitHub", id: 1519867270
+mas "Things", id: 904280696
+mas "WhatsApp", id: 310633997
+mas "Xcode", id: 497799835
 go "golang.org/x/perf/cmd/benchstat"
 go "github.com/dkorunic/betteralign/cmd/betteralign"
 go "github.com/nametake/golangci-lint-langserver"
@@ -168,7 +183,4 @@ uv "aws-sam-cli"
 uv "copier"
 uv "httpie"
 uv "nox"
-uv "pdm"
-uv "poetry"
-uv "pre-commit"
 uv "ty"
