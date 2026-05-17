@@ -164,6 +164,14 @@
         },
       },
     },
+    "Swift": {
+      "formatter": {
+        "external": {
+          "command": "swift",
+          "arguments": ["format"],
+        },
+      },
+    },
   },
   "linked_edits": true,
   "lsp": {
