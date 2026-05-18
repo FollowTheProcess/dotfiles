@@ -2,6 +2,9 @@
 
 palette = "catppuccin_macchiato"
 
+[username]
+disabled = true
+
 [python]
 symbol = " "
 
