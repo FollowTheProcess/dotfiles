@@ -13,20 +13,20 @@
     "bindings": {
       "cmd-ctrl-left": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "left" }
+        { "direction": "left" },
       ],
       "cmd-ctrl-right": [
         "workspace::MoveItemToPaneInDirection",
-        { "direction": "right" }
-      ]
-    }
+        { "direction": "right" },
+      ],
+    },
   },
   {
     "bindings": {
       // Swap the bindings for open settings UI and open settings file as I only
       // want to edit the JSON file with cmd+,
       "cmd-,": "zed::OpenSettingsFile",
-      "cmd-alt-,": "zed::OpenSettings"
-    }
-  }
+      "cmd-alt-,": "zed::OpenSettings",
+    },
+  },
 ]
