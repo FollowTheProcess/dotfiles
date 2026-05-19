@@ -35,6 +35,7 @@ symbol = " "
 
 [kubernetes]
 disabled = false
+detect_env_vars = ["SHOW_STARSHIP_K8S_CONTEXT"]
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]

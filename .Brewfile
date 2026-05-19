@@ -136,8 +136,10 @@ cask "brainfm"
 cask "claude-code@latest"
 cask "container"
 cask "docker-desktop"
+cask "font-geist"
 cask "font-geist-mono"
 cask "font-geist-mono-nerd-font"
+cask "font-inter"
 cask "font-sf-pro"
 cask "font-sketchybar-app-font"
 cask "ghostty"
@@ -155,7 +157,6 @@ cask "followtheprocess/tap/txtract"
 cask "yaak"
 cask "zed"
 mas "1Password for Safari", id: 1569813296
-mas "Bear", id: 1091189122
 mas "Dropover", id: 1355679052
 mas "JSON Peep", id: 1458969831
 mas "Kagi for Safari", id: 1622835804

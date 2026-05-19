@@ -225,3 +225,9 @@ export def "pr" [] {
 
     gh pr checkout $chosen.id.0
 }
+
+# Pick a k8s cluster and trigger starship to show the context in the prompt.
+export def --env "kctx" [...args] {
+    kubectx ...$args
+    $env.SHOW_STARSHIP_K8S_CONTEXT = "1"
+}

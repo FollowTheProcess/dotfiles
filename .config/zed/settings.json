@@ -356,6 +356,7 @@
     "quick_actions": true,
     "selections_menu": true,
   },
+  "ui_font_family": "Geist",
   "ui_font_size": 16,
   "use_smartcase_search": true,
 }
