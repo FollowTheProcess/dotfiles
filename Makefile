@@ -28,7 +28,7 @@ build: .config/sketchybar/helpers/bt_battery
 # end-of-line, so they only match the bare lines `dump` produces and leave
 # anything already annotated alone (idempotent).
 dump:
-	brew bundle dump --force --global --all
+	brew bundle dump --force --global
 	sed -i '' \
 		-e 's|^brew "felixkratz/formulae/borders"$$|brew "felixkratz/formulae/borders",  restart_service: :changed, start_service: true|' \
 		-e 's|^brew "felixkratz/formulae/sketchybar"$$|brew "felixkratz/formulae/sketchybar",  restart_service: :changed, start_service: true|' \
