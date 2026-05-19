@@ -24,6 +24,7 @@
     "catppuccin": true,
     "catppuccin-icons": true,
     "comment": true,
+    "cooklang": true,
     "dockerfile": true,
     "git-firefly": true,
     "github-actions": true,
