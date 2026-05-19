@@ -3,5 +3,5 @@ respect-ignore-files = true
 
 [format]
 [format.rules]
-key-value-equals-sign-alignment = true
-trailing-comment-alignment = true
+key-value-equals-sign-alignment = false
+trailing-comment-alignment      = true
