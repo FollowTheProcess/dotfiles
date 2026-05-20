@@ -60,7 +60,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 #   .   then match only regular files
 #   N   nullable - don't error if the directory is empty
 #   :t  basename, since autoload wants names not paths
-fpath=("$ZDOTDIR/functions" "$fpath")
+fpath=("$ZDOTDIR/functions" $fpath)
 autoload -Uz "$ZDOTDIR/functions"/*(-.N:t)
 
 # Extra completions
