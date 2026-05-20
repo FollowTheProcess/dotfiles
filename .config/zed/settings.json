@@ -20,7 +20,6 @@
     "dock": "left",
   },
   "auto_install_extensions": {
-    "basher": true,
     "catppuccin": true,
     "catppuccin-icons": true,
     "comment": true,
