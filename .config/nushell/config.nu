@@ -1,6 +1,6 @@
 source ~/.config/nushell/catppuccin-macchiatto.nu
 
-$env.LS_COLORS = ($nu.default-config-dir | path join ls-colors | open | str trim)
+$env.LS_COLORS = ($env.XDG_CONFIG_HOME | path join ls-colors catppuccin-macchiato | open | str trim)
 $env.config.show_banner = false
 $env.config.ls = {
     use_ls_colors: true

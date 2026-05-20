@@ -116,7 +116,7 @@
     "markdown": ["*.slide"],
     "pip-requirements": ["requirements*.in", "requirements*.txt"],
     "ruby": [".Brewfile", "Brewfile"],
-    "Shell Script": [".env.*"],
+    "Shell Script": [".env.*", "**/.config/zsh/functions/*"],
     "terraform-tests": ["*.tftest.hcl"],
     "terraform-vars": ["*.tfbackend", "*.tfvars"],
     "TOML": ["*.toml", "**/staticcheck.conf"],

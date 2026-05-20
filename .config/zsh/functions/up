@@ -1,0 +1,7 @@
+# `up [n]` - cd up `n` directories (default 1). `up 3` -> ../../..
+local count=${1:-1}
+local path_up=""
+for ((i = 0; i < count; i++)); do
+    path_up="../$path_up"
+done
+cd -- "$path_up" || return
