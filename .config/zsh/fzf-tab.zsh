@@ -15,6 +15,9 @@ zstyle ':fzf-tab:*' continuous-trigger 'tab'
 # Use tmux popup if inside tmux, else inline fzf. The popup feels much nicer.
 zstyle ':fzf-tab:*' fzf-command fzf
 
+# Hide fzf's `current/total` scroll indicator in all preview panes.
+zstyle ':fzf-tab:*' fzf-flags --preview-window=noinfo
+
 # Preview pane: bat for files, eza tree for directories.
 zstyle ':fzf-tab:complete:*:*' fzf-preview '
     if [[ -d $realpath ]]; then
@@ -47,7 +50,8 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 # kill / ps: show full process line in the preview.
 zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
     '[[ $group == "[process ID]" ]] && ps --pid=$word -o cmd --no-headers -w -w'
-zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=down:3:wrap
+
+zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=down:3:wrap:noinfo
 
 # Environment variables: show the value.
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
@@ -62,3 +66,22 @@ zstyle ':fzf-tab:complete:brew-(install|uninstall|info|search|cat):*' fzf-previe
 
 # systemctl: show unit status (mostly useful on Linux but harmless on macOS).
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+
+# go: show `go help <cmd...>` in the preview. Works for any
+# subcommand depth (`go mod tidy`, `go help mod tidy`, ...).
+zstyle ':fzf-tab:complete:(go|go-*):*' fzf-preview '
+    local -a chain=(${words[2,-2]})
+    local idx=${chain[(i)-*]}
+    (( idx <= ${#chain} )) && chain=(${chain[1,idx-1]})
+    [[ ${chain[1]:-} == help ]] && chain=(${chain[2,-1]})
+    local target=${word% }
+    [[ $target == -* ]] && target=
+    local out
+    out=$(go help ${chain[@]} $target 2>/dev/null)
+    if [[ -n $out ]]; then
+        printf "%s\n" "$out" | bat --plain --language=help --color=always 2>/dev/null \
+            || printf "%s\n" "$out"
+    else
+        echo "no help: go help ${chain[*]} $target"
+    fi
+'

@@ -7,6 +7,6 @@ path=(
     "$HOME/.cargo/bin"         # cargo install
     /opt/homebrew/opt/curl/bin # use non-system curl
     /opt/homebrew/opt/ruby/bin # use non-system ruby
-    "$path"
+    $path
 )
 export PATH
