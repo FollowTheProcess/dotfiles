@@ -6,8 +6,24 @@ $env.GOBIN = $env.HOME | path join go bin
 $env.CGO_ENABLED = 0
 $env.GO111MODULE = 'on'
 $env.PYTHONUTF8 = 1
-$env.FZF_DEFAULT_COMMAND = 'fd --type f --strip-cwd-prefix'
-$env.FZF_CTRL_T_COMMAND = 'fd --type f --strip-cwd-prefix'
+# Use bat as the pager for man. MANROFFOPT="-c" fixes bold/underline
+# rendering on macOS where mandoc otherwise strips the formatting.
+$env.MANPAGER = "sh -c 'col -bx | bat -l man -p'"
+$env.MANROFFOPT = "-c"
+
+# fzf: layout + catppuccin macchiato palette.
+# https://github.com/catppuccin/fzf
+$env.FZF_DEFAULT_OPTS = "--height=40% --layout=reverse --border=rounded --info=inline --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 --color=selected-bg:#494d64 --color=border:#363a4f,label:#cad3f5"
+
+# Use fd for fzf's file/dir walks - faster, respects .gitignore.
+$env.FZF_DEFAULT_COMMAND = 'fd --type=f --hidden --follow --exclude .git'
+$env.FZF_CTRL_T_COMMAND = $env.FZF_DEFAULT_COMMAND
+$env.FZF_ALT_C_COMMAND = 'fd --type=d --hidden --follow --exclude .git'
+
+# Previews: bat for files (with syntax highlight), eza tree for dirs.
+$env.FZF_CTRL_T_OPTS = "--preview 'bat --color=always --style=numbers --line-range=:200 {}'"
+$env.FZF_ALT_C_OPTS = "--preview 'eza --tree --color=always --icons=auto {} | head -200'"
+
 # Some tools start a login shell without an attached TTY. `tty` exits 1 there.
 $env.GPG_TTY = (try { tty | str trim } catch { "" })
 $env.VIRTUALENV_PROMPT = '.venv'

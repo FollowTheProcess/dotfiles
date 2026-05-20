@@ -11,7 +11,7 @@ def info [
 def warn [
     msg: string # The message to print
 ] {
-    pprint $"⚠️ (ansi yellow)Warning:(ansi reset) ($msg)\n"
+    print $"⚠️ (ansi yellow)Warning:(ansi reset) ($msg)\n"
 }
 
 # Prints a success message to the user, will be coloured green.
@@ -230,4 +230,18 @@ export def "pr" [] {
 export def --env "kctx" [...args] {
     kubectx ...$args
     $env.SHOW_STARSHIP_K8S_CONTEXT = "1"
+}
+
+# `mkcd <dir>` - create the directory (parents included) and cd into it.
+export def --env mkcd [dir: path] {
+    mkdir $dir
+    cd $dir
+}
+
+# `up [n]` - cd up `n` directories (default 1). `up 3` is `cd ../../..`.
+export def --env up [count: int = 1] {
+    if $count < 1 {
+        error make { msg: $"up: count must be at least 1, got ($count)" }
+    }
+    cd (1..$count | each { ".." } | str join "/")
 }
