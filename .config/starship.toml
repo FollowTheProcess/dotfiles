@@ -5,6 +5,9 @@ palette = "catppuccin_macchiato"
 [username]
 disabled = true
 
+[aws]
+symbol = "☁️ "
+
 [python]
 symbol = " "
 

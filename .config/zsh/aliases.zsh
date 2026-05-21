@@ -5,6 +5,9 @@
 # Short-hand abbreviations (gs, k, tf, build, etc.) live in `abbreviations` -
 # those expand visibly so history records the full command.
 
+# https://docs.commonfate.io/granted/internals/shell-alias
+alias assume="source $HOMEBREW_PREFIX/bin/assume"
+
 alias cat='bat --paging=never'                                           # Use https://github.com/sharkdp/bat instead of cat
 alias find='gfind'                                                       # Use GNU find
 alias make='gmake'                                                       # Use GNU make

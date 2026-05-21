@@ -8,6 +8,9 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export EDITOR="zed --wait"
 export VISUAL="zed --wait"
 
+# Granted: https://docs.commonfate.io/granted/internals/shell-alias
+export GRANTED_ALIAS_CONFIGURED="true"
+
 # Use bat as the pager for man. MANROFFOPT="-c" fixes bold/underline
 # rendering on macOS where mandoc otherwise strips the formatting.
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"

@@ -1,0 +1,39 @@
+# Update, clean and maintain everything
+
+info() { print -P "\n%F{cyan}$1%f\n"; }
+success() { print -P "\n✅ %F{green}Success:%f $1\n"; }
+
+# Homebrew
+info "🍺 Updating and cleaning homebrew packages"
+brew update
+brew upgrade
+brew bundle install --global --quiet # Sync with .Brewfile
+brew bundle cleanup --global --force --zap --quiet
+brew cleanup --scrub --prune all
+
+# uv
+info "🛠  Updating uv installed CLI programs"
+uv tool upgrade --all
+uv cache prune
+
+# Rust
+info "🦀 Updating rust"
+rustup self update
+rustup update
+cargo install-update --all
+
+# Bun
+info " Updating bun"
+bun upgrade
+
+# Brew installs the go packages but doesn't keep them continuously updated
+info " Updating GOPATH binaries"
+gup update
+
+# tldr
+info "📓 Updating tldr"
+tldr --update
+
+success "All done!"
+
+unfunction info success
