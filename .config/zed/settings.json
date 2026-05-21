@@ -91,6 +91,7 @@
     "**/.task",
   ],
   "file_types": {
+    "Cooklang": ["*.cook", "*.menu"],
     "dockerbake": ["docker-bake.hcl"],
     "Git Attributes": ["{git,.git,.git/info}/attributes"],
     "Git Config": [
@@ -156,6 +157,7 @@
       "language_servers": ["ruff", "ty", "!pyright"],
     },
     "YAML": {
+      "tab_size": 2,
       "formatter": {
         "external": {
           "command": "yamlfmt",
@@ -164,6 +166,7 @@
       },
     },
     "TOML": {
+      "tab_size": 2,
       "formatter": {
         "language_server": {
           "name": "tombi",
