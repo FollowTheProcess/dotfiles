@@ -52,6 +52,18 @@ local function icons_for(apps)
 end
 
 sbar.add("event", "aerospace_workspace_change")
+-- Fired once when the first refresh completes (or bails on empty), so
+-- downstream left-aligned items can stay hidden until the workspace run
+-- has taken its final position. Avoids a cold-start flash where they sit
+-- at the left edge before the async aerospace queries finish.
+sbar.add("event", "aerospace_initialized")
+
+local initialized = false
+local function mark_initialized()
+    if initialized then return end
+    initialized = true
+    sbar.exec("sketchybar --trigger aerospace_initialized")
+end
 
 -- Hidden controller. Two jobs: event sink for aerospace_workspace_change,
 -- and positional anchor that every space.N tile is moved before so the
@@ -154,8 +166,12 @@ local function refresh(env)
         sbar.exec("aerospace list-workspaces --focused", function(out)
             local trimmed = (out:gsub("%s+$", ""))
             -- Aerospace daemon not running. Bail and let the next event-driven
-            -- refresh retry; recursing on empty would loop forever.
-            if trimmed == "" then return end
+            -- refresh retry; recursing on empty would loop forever. Still
+            -- release the init gate so dependent items don't hang invisible.
+            if trimmed == "" then
+                mark_initialized()
+                return
+            end
             refresh({ FOCUSED_WORKSPACE = trimmed })
         end)
         return
@@ -184,6 +200,7 @@ local function refresh(env)
                 if #move_args > 0 then
                     sbar.exec("sketchybar " .. table.concat(move_args, " "))
                 end
+                mark_initialized()
             end
         )
     end)

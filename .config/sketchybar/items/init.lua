@@ -1,4 +1,5 @@
 require("items.aerospace.workspace")
+require("items.front_app")
 -- Right items
 require("items.clock")
 require("items.volume")
