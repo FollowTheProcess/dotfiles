@@ -1,5 +1,3 @@
-local settings = require("settings")
-
 -- Show the date/time on the right
 local clock = sbar.add("item", "clock", {
     position = "right",
