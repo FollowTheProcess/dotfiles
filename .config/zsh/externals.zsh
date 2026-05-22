@@ -6,7 +6,7 @@ eval "$(starship init zsh)"
 
 # Carapace - completion engine bridge. Loads eagerly because compinit-style
 # state must exist before any completion attempt.
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+export CARAPACE_BRIDGES='zsh,bash'
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
