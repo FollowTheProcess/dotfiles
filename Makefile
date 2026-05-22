@@ -1,4 +1,4 @@
-.PHONY: stow unstow restow dump build
+.PHONY: stow unstow restow dump build drop-compdump
 
 # Apply the dotfiles.
 #
@@ -6,14 +6,20 @@
 # of linking whole directories. Fixes a bunch of issues I had like apps
 # writing into ~/.config/<app> and those writes showing up in here, and
 # some flakiness with LaunchAgents
-stow: build
+stow: build drop-compdump
 	stow --no-folding .
 
 unstow:
 	stow -D .
 
-restow: build
+restow: build drop-compdump
 	stow -R --no-folding .
+
+# Drop the zsh completion dump so the next shell start rescans fpath. The
+# .zshrc uses `compinit -C` when the dump is fresh, which skips picking up
+# any newly-stowed completion functions until the cache is 24h old.
+drop-compdump:
+	rm -f "$${XDG_CACHE_HOME:-$$HOME/.cache}/zsh/zcompdump"
 
 # Compile the swift helpers (getting bluetooth info) so they run quicker
 build: .config/sketchybar/helpers/bt_battery

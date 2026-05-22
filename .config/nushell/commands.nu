@@ -174,14 +174,59 @@ export def glog [] {
     | reverse
 }
 
-# Generate gitignore files
-export def gig [...targets: string@targets] {
-    http get $"https://www.toptal.com/developers/gitignore/api/($targets | str join ',')"
+# Cache file path for gig's completion target list.
+def gig-cache-file [] {
+    $env.XDG_CACHE_HOME? | default ($env.HOME | path join ".cache")
+    | path join "nushell" "gig-targets"
 }
 
-# Generate completion targets for gig
+# Fetch the list of valid gitignore templates from toptal and write it to the
+# cache file. Used by both the auto-refresh in `targets` and `gig --refresh`.
+def gig-fetch-targets [] {
+    let file = gig-cache-file
+    mkdir ($file | path dirname)
+    http get https://www.toptal.com/developers/gitignore/api/list?format=lines
+    | save --force $file
+}
+
+# Return the cached gitignore template list, refreshing if the cache is missing
+# or older than 30 days. Used as the completion source for `gig`.
 def targets [] {
-    http get https://www.toptal.com/developers/gitignore/api/list?format=lines | lines
+    let file = gig-cache-file
+    let stale = if ($file | path exists) {
+        ((date now) - (ls $file | get 0.modified)) > 30day
+    } else {
+        true
+    }
+    if $stale {
+        try { gig-fetch-targets }
+    }
+    if ($file | path exists) { open $file | lines } else { [] }
+}
+
+# Generate gitignore files. With templates given positionally, fetches them
+# directly. With no args, opens a multi-select gum picker over the cached list.
+# `--refresh` forces a re-fetch of the cached completion targets and exits.
+export def gig [
+    ...templates: string@targets
+    --refresh # Re-fetch the cached completion targets and exit
+] {
+    if $refresh {
+        gig-fetch-targets
+        success "gig targets refreshed"
+        return
+    }
+    let chosen = if ($templates | is-empty) {
+        let options = targets
+        if ($options | is-empty) {
+            error make { msg: "no gig targets available - try `gig --refresh` once online" }
+        }
+        gum choose --header "Pick gitignore templates" --no-limit ...$options | lines
+    } else {
+        $templates
+    }
+    if ($chosen | is-empty) { return }
+    http get $"https://www.toptal.com/developers/gitignore/api/($chosen | str join ',')"
 }
 
 # Perform a git commit in a pair programming context.

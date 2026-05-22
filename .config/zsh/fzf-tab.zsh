@@ -67,6 +67,10 @@ zstyle ':fzf-tab:complete:brew-(install|uninstall|info|search|cat):*' fzf-previe
 # systemctl: show unit status (mostly useful on Linux but harmless on macOS).
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 
+# gig: multi-select gitignore templates (Tab toggles, Enter inserts all).
+# No preview - template names aren't files, so the default file preview is noise.
+zstyle ':fzf-tab:complete:gig:*' fzf-flags --multi --no-preview
+
 # go: show `go help <cmd...>` in the preview. Works for any
 # subcommand depth (`go mod tidy`, `go help mod tidy`, ...).
 zstyle ':fzf-tab:complete:(go|go-*):*' fzf-preview '

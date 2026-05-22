@@ -1,0 +1,29 @@
+#compdef gig
+
+# Completion for `gig` - fetches the list of valid gitignore templates from
+# https://www.toptal.com/developers/gitignore/api/list and caches them via the
+# standard zsh completion cache (see use-cache / cache-path zstyles in .zshrc).
+# fzf-tab handles the picker UI; --multi for gig is set in fzf-tab.zsh.
+
+_gig_caching_policy() {
+    # Refresh when the cache file is older than 30 days (720 hours).
+    local -a oldp
+    oldp=( "$1"(Nmh+720) )
+    (( $#oldp ))
+}
+
+local update_policy
+zstyle -s ":completion:*:*:gig:*" cache-policy update_policy
+[[ -z $update_policy ]] && \
+    zstyle ":completion:*:*:gig:*" cache-policy _gig_caching_policy
+
+local -a targets
+if _cache_invalid gig-targets || ! _retrieve_cache gig-targets; then
+    local raw
+    if raw=$(curl --fail --silent 'https://www.toptal.com/developers/gitignore/api/list?format=lines'); then
+        targets=( ${(f)raw} )
+        _store_cache gig-targets targets
+    fi
+fi
+
+_describe 'gitignore template' targets

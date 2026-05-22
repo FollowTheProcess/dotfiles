@@ -1,0 +1,4 @@
+# Fetch a combined .gitignore from https://www.toptal.com/developers/gitignore/api
+# Joins args with commas: `gig macos node python` -> /api/macos,node,python
+local IFS=,
+curl --fail --silent --show-error "https://www.toptal.com/developers/gitignore/api/$*"

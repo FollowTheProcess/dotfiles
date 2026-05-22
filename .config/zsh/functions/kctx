@@ -1,0 +1,3 @@
+# Pick a k8s cluster and trigger starship to show the context in the prompt.
+kubectx "$@"
+export SHOW_STARSHIP_K8S_CONTEXT=1

@@ -1,0 +1,9 @@
+# Delete all local git branches except the current one (`*`) and any checked
+# out in another worktree (`+`). Forced, so unmerged branches go too.
+local line name
+for line in ${(f)"$(git branch)"}; do
+    [[ $line == [\*+]* ]] && continue
+    name=${line:2}
+    print "Removing branch $name"
+    git branch --delete --force "$name"
+done

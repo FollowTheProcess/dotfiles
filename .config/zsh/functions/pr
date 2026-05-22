@@ -1,0 +1,12 @@
+# Interactively checkout a GitHub PR using https://github.com/charmbracelet/gum
+local prs
+prs=$(gh pr list --json number,title --jq 'sort_by(.number) | reverse | .[] | "\(.number): \(.title)"') || return
+
+if [[ -z $prs ]]; then
+    print -P "\n✅ %F{green}Success:%f No open PRs\n"
+    return
+fi
+
+local chosen
+chosen=$(print -r -- "$prs" | gum choose --header "Which PR?") || return
+gh pr checkout "${chosen%%:*}"
