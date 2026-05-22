@@ -14,7 +14,7 @@ return {
     padding = 4,
     font = {
         icon = {
-            family = "GeistMono Nerd Font",
+            family = "SF Pro",
             style = "Bold",
             size = 17.0
         },
