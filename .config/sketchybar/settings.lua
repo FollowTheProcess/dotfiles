@@ -15,7 +15,7 @@ return {
     font = {
         icon = {
             family = "SF Pro",
-            style = "Bold",
+            style = "Regular",
             size = 17.0
         },
         label = {
