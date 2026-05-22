@@ -1,4 +1,10 @@
-let theme = {
+# Catppuccin Macchiato palette and nushell theme.
+# Import with: `use catppuccin-macchiatto.nu palette`
+# The palette is exposed as a `const` so other configs can reference colors by
+# name (`$palette.surface0`, `$palette.red`, ...). The `export-env` block below
+# wires the same palette into `$env.config.color_config` automatically.
+
+export const palette = {
   rosewater: "#f4dbd6"
   flamingo: "#f0c6c6"
   pink: "#f5bde6"
@@ -26,6 +32,9 @@ let theme = {
   mantle: "#1e2030"
   crust: "#181926"
 }
+
+export-env {
+let theme = $palette
 
 let scheme = {
   recognized_command: $theme.blue
@@ -163,4 +172,5 @@ $env.config.explore = {
         info: $theme.blue,
     },
     selected_cell: { bg: $theme.blue fg: $theme.base },
+}
 }

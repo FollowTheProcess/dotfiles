@@ -1,0 +1,8 @@
+# Remove every file `git` considers untracked (anything that would show up in
+# `git ls-files --other --exclude-standard`). Ignored files are left alone.
+local file
+git ls-files --other --exclude-standard | while IFS= read -r file; do
+    [[ -z $file ]] && continue
+    print "Removing untracked file: $file"
+    rm -rf -- "$file"
+done

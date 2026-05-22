@@ -51,18 +51,27 @@ $env.PATH = (
   | uniq # filter so the paths are unique
 )
 
-# Starship
-mkdir ~/.cache/starship
-starship init nu | save -f ~/.cache/starship/init.nu
+# Cache the output of a tool's shell-init command, regenerating only when the
+# binary's `--version` output changes. Without this, every shell start re-runs
+# (and re-writes) all four init files below.
+def cache-init [binary: string, cached: path, generator: closure] {
+    if (which $binary | is-empty) { return }
+    let version_file = $cached + ".version"
+    let current = try { ^$binary --version | str trim } catch { "" }
+    let stored = if ($version_file | path exists) {
+        open --raw $version_file | decode | str trim
+    } else { "" }
+    if $current == $stored and ($cached | path exists) { return }
+    mkdir ($cached | path dirname)
+    do $generator | save --force $cached
+    $current | save --force $version_file
+}
 
-# Carapace
+# Carapace bridges translate old-school bash/zsh completion scripts into
+# carapace specs - useful coverage for tools that don't ship native specs.
 $env.CARAPACE_BRIDGES = 'zsh,bash'
-mkdir ~/.cache/carapace
-carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
-# zoxide
-zoxide init --cmd cd nushell | save --force ~/.zoxide.nu
-
-# atuin
-mkdir ~/.cache/atuin
-atuin init nu | save --force ~/.cache/atuin/init.nu
+cache-init 'starship' ($env.XDG_CACHE_HOME | path join starship init.nu) { starship init nu }
+cache-init 'carapace' ($env.XDG_CACHE_HOME | path join carapace init.nu) { carapace _carapace nushell }
+cache-init 'zoxide'   ($env.XDG_CACHE_HOME | path join zoxide init.nu)   { zoxide init --cmd cd nushell }
+cache-init 'atuin'    ($env.XDG_CACHE_HOME | path join atuin init.nu)    { atuin init nu }

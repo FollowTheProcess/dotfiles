@@ -19,6 +19,24 @@ export MANROFFOPT="-c"
 # GPG
 export GPG_TTY=$TTY
 
+# Python: never let pip install outside a virtualenv. Force UTF-8 mode.
+export PIP_REQUIRE_VIRTUALENV=true
+export PYTHONUTF8=1
+export VIRTUALENV_PROMPT='.venv'
+
+# Go
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export GO111MODULE=on
+export CGO_ENABLED=0
+export GOEXPERIMENT=jsonv2
+
+# Rust
+export CARGO_HOME="$HOME/.cargo"
+
+# Use difftastic for `kubectl diff` output
+export KUBECTL_EXTERNAL_DIFF="difft --exit-code"
+
 # Catppuccin Macchiato palette for ls, eza, fd, zsh completions, etc.
 export LS_COLORS="$(<"$XDG_CONFIG_HOME/ls-colors/catppuccin-macchiato")"
 

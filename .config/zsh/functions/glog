@@ -1,0 +1,5 @@
+# Pretty colorised git log (max 100 commits by default). Extra args are passed
+# through, eg `glog -- path/to/file` or `glog main..HEAD`.
+git log --max-count 100 \
+    --pretty=format:'%C(yellow)%h%Creset %C(bold)%s%Creset %C(bold blue)%an%Creset %aE %aD' \
+    "$@"

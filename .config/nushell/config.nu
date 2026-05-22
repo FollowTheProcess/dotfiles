@@ -1,4 +1,4 @@
-source ~/.config/nushell/catppuccin-macchiatto.nu
+use ~/.config/nushell/catppuccin-macchiatto.nu palette
 
 $env.LS_COLORS = ($env.XDG_CONFIG_HOME | path join ls-colors catppuccin-macchiato | open | str trim)
 $env.config.show_banner = false
@@ -9,8 +9,35 @@ $env.config.ls = {
 $env.config.rm.always_trash = true
 $env.config.table.mode = "light"
 $env.config.completions.algorithm = "fuzzy"
+
 # Enable external completers explicitly.
 $env.config.completions.external.enable = true
+
+# Open the current command line in $env.config.buffer_editor with Ctrl+O.
+$env.config.buffer_editor = "zed --wait"
+
+# Catppuccin-styled completion menu (the default menus list is empty, so this
+# replaces nu's internal fallback with one that matches the rest of the theme).
+$env.config.menus = [
+    {
+        name: completion_menu
+        only_buffer_difference: false
+        marker: "| "
+        type: {
+            layout: columnar
+            columns: 4
+            col_width: 20
+            col_padding: 2
+        }
+        style: {
+            text: $palette.text
+            selected_text: { fg: $palette.text bg: $palette.surface0 attr: b }
+            description_text: $palette.subtext0
+            match_text: { fg: $palette.red attr: u }
+            selected_match_text: { fg: $palette.red bg: $palette.surface0 attr: u }
+        }
+    }
+]
 $env.config.history = {
     max_size: 100_000 # Session has to be reloaded for this to take effect
     sync_on_enter: true # Enable to share history between multiple sessions, else you have to close the session to write history to file
@@ -54,17 +81,15 @@ $env.config.plugins.dns = {
   server: "1.1.1.1" # Use cloudflare
 }
 
-# Load starship init generated in env.nu
-use ~/.cache/starship/init.nu
+# Note: we can't use $env.XDG_CACHE_HOME here as it's a "runtime" value
+# and source/use needs "parse time" values. $nu.cache_dir respects
+# XDG_CACHE_HOME anyway so it's fine.
+const xdg_cache = ($nu.cache-dir | path dirname)
 
-# Carapace
-source ~/.cache/carapace/init.nu
-
-# Same with zoxide
-source ~/.zoxide.nu
-
-# And atuin
-source ~/.cache/atuin/init.nu
+use ($xdg_cache | path join starship init.nu)
+source ($xdg_cache | path join carapace init.nu)
+source ($xdg_cache | path join zoxide init.nu)
+source ($xdg_cache | path join atuin init.nu)
 
 # Launch GPG Agent
 gpgconf --launch gpg-agent
