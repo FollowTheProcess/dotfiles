@@ -156,6 +156,15 @@
       ],
       "language_servers": ["ruff", "ty", "!pyright"],
     },
+    "GitHub Actions": {
+      "tab_size": 2,
+      "formatter": {
+        "external": {
+          "command": "yamlfmt",
+          "arguments": ["-"],
+        },
+      },
+    },
     "YAML": {
       "tab_size": 2,
       "formatter": {
