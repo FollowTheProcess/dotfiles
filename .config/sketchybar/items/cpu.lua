@@ -20,3 +20,7 @@ cpu:subscribe({ "routine", "forced", "system_woke" }, function()
         cpu:set({ label = percent .. "%" })
     end)
 end)
+
+cpu:subscribe("mouse.clicked", function(env)
+    sbar.exec("open -a 'Activity Monitor'")
+end)
