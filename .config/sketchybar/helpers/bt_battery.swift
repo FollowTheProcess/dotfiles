@@ -16,26 +16,26 @@ import IOBluetooth
 typealias BatteryFn = @convention(c) (AnyObject, Selector) -> Int
 
 func batteryLevel(_ device: IOBluetoothDevice, selector name: String) -> Int {
-    let sel = NSSelectorFromString(name)
-    guard let method = class_getInstanceMethod(IOBluetoothDevice.self, sel) else {
-        return 0
-    }
-    let fn = unsafeBitCast(method_getImplementation(method), to: BatteryFn.self)
-    return fn(device as AnyObject, sel)
+  let sel = NSSelectorFromString(name)
+  guard let method = class_getInstanceMethod(IOBluetoothDevice.self, sel) else {
+    return 0
+  }
+  let fn = unsafeBitCast(method_getImplementation(method), to: BatteryFn.self)
+  return fn(device as AnyObject, sel)
 }
 
 let paired = IOBluetoothDevice.pairedDevices() ?? []
 
 var devices: [[String: Any]] = []
 for case let device as IOBluetoothDevice in paired where device.isConnected() {
-    devices.append([
-        "name": device.name ?? "",
-        "address": device.addressString ?? "",
-        "left": batteryLevel(device, selector: "batteryPercentLeft"),
-        "right": batteryLevel(device, selector: "batteryPercentRight"),
-        "case": batteryLevel(device, selector: "batteryPercentCase"),
-        "single": batteryLevel(device, selector: "batteryPercentSingle"),
-    ])
+  devices.append([
+    "name": device.name ?? "",
+    "address": device.addressString ?? "",
+    "left": batteryLevel(device, selector: "batteryPercentLeft"),
+    "right": batteryLevel(device, selector: "batteryPercentRight"),
+    "case": batteryLevel(device, selector: "batteryPercentCase"),
+    "single": batteryLevel(device, selector: "batteryPercentSingle"),
+  ])
 }
 
 let data = try JSONSerialization.data(withJSONObject: devices, options: [])
