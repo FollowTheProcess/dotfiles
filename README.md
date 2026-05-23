@@ -1,6 +1,8 @@
 # dotfiles
 
-My dotfiles and setup scripts, managed with [GNU Stow]
+My dotfiles and setup scripts for macOS, managed with [GNU Stow]
+
+![screenshot](./img/screenshot.png)
 
 ## Installation
 
