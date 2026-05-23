@@ -71,7 +71,7 @@ local ARROW_FONT = {
 -- Label width is pinned so the two arrows stay vertically aligned regardless
 -- of throughput magnitude (e.g. "589 B/s" vs "2.5 KiB/s"). Right-aligned text
 -- keeps the unit suffix flush against the right edge of the cluster.
-local LABEL_WIDTH = 64
+local LABEL_WIDTH = 68
 
 local wifi_up     = sbar.add("item", "network.up", {
     position = "right",

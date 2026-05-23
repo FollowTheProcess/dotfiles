@@ -3,6 +3,7 @@ LICENSE
 Makefile
 macos.sh
 setup.sh
+img/
 \.git
 \.DS_Store
 \.vscode

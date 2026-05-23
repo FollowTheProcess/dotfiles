@@ -6,42 +6,29 @@ My dotfiles and setup scripts for macOS, managed with [GNU Stow]
 
 ## Installation
 
-Make sure you have [GNU Stow] installed...
+On a fresh macOS install, run:
 
-```shell
-brew install stow
+```bash
+curl -fsSL https://raw.githubusercontent.com/FollowTheProcess/dotfiles/main/bootstrap.sh | bash
 ```
 
-Now clone this repo to `~/dotfiles`, `cd` into it then run:
+This installs Homebrew, clones the repo to `~/dotfiles`, applies the stow symlinks, installs everything in `.Brewfile`, then runs `macos.sh`. See [`bootstrap.sh`](./bootstrap.sh) for what each step does.
 
-```shell
-make stow
-```
+Each step is guarded, so it's safe to re-run after fixing a failure - already-completed steps will skip themselves.
 
-Part of this will move `.Brewfile` into `$HOME` which is very handy because once it's done that:
+## What's in the Box 📦
 
-```shell
-brew bundle install --global
-```
+- The full suite of `XDG_xxx_HOME` env vars, set at the OS level with a `LaunchAgent` so even GUI apps can see them
+- `PATH` set both for the shell and GUI apps
+- A clean, modern [zsh] setup for the default macOS shell
+- A similar setup for [nushell] (set up as the default shell instead of `zsh`)
+- [aerospace] tiling window manager
+- [sketchybar] integrated into aerospace with a clean bar setup
+- Plus a tonne of config for the apps I use all the time
 
-Will install *everything* in there 🚀
-
-See <https://docs.brew.sh/Brew-Bundle-and-Brewfile#brew-bundle-dump> for more info
-
-Other Make targets:
-
-- `make unstow` removes all stow-managed symlinks
-- `make restow` re-applies (useful after adding/removing files in the repo)
-
-### Follow up Steps
-
-Once that's done, most configuration and packages will be installed and set up correctly. There are a few follow ups included in a script `setup.sh` that does some nicities:
-
-- Install [rustup]
-- Make a `~/Development` folder to house your projects
-- Adds [nushell] to `/etc/shells` and `chsh`'s to it
-- Runs a bunch of `defaults write` commands to configure macOS itself (via `macos.sh`)
 
 [GNU Stow]: https://www.gnu.org/software/stow/
-[rustup]: https://rustup.rs
+[zsh]: https://www.zsh.org
 [nushell]: https://www.nushell.sh
+[aerospace]: https://github.com/nikitabobko/AeroSpace
+[sketchybar]: https://github.com/FelixKratz/SketchyBar

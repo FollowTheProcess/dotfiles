@@ -3,6 +3,7 @@
 - I use [nushell](https://www.nushell.sh), you can run `Bash` commands as normal but when giving *me* a shell command to run, ensure it's `nushell` syntax
 - Never use Em dashes (—) or En dashes (–)
 - Any global config is managed via [GNU stow](https://www.gnu.org/software/stow/) from `~/dotfiles` (flat layout); run `make stow` from there to apply changes
+- Unless I explicitly tell you to commit, git commits will be handled by me either during or at the end of a task. You should not commit.
 
 ## General Coding Guidelines
 
@@ -14,4 +15,5 @@
 - Use pure functions whenever possible
 - Prefer early returns to nesting
 - Correctness beats performance
-- Comments explain *why* in weird cases, let code be it's own documentation
+- Comments explain *why* in weird cases, do not over-comment, let code be it's own documentation
+- Use the language specific skills for more details about a specific language's standards
