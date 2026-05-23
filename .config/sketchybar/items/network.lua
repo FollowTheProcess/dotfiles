@@ -1,5 +1,6 @@
 -- Network state + throughput for the default-route interface.
 local colors = require("colors")
+local settings = require("settings")
 
 ---Format a non-negative byte count as a human-readable string with /s suffix.
 ---1024-based units. Bytes are printed as integers, larger units to 1 decimal.
@@ -60,23 +61,23 @@ local function parse_counters(stdout, iface)
     return nil, nil
 end
 
-local ARROW_FONT        = { family = "GeistMono Nerd Font", style = "Bold", size = 9.0 }
+local ARROW_FONT = {
+    family = settings.font.label.family,
+    style = settings.font.label.style,
+    size = 10.0,
+}
 
--- Registration order matters: position=right items appear right-to-left in
--- add order. wifi_up is added first so it sits rightmost; wifi (the icon)
--- is added last so it lands on the left of the cluster. wifi_padding sits
--- to the left of everything, providing breathing room to bluetooth.
---
+
 -- Label width is pinned so the two arrows stay vertically aligned regardless
 -- of throughput magnitude (e.g. "589 B/s" vs "2.5 KiB/s"). Right-aligned text
 -- keeps the unit suffix flush against the right edge of the cluster.
-local LABEL_WIDTH       = 64
+local LABEL_WIDTH = 64
 
-local wifi_up           = sbar.add("item", "network.up", {
+local wifi_up     = sbar.add("item", "network.up", {
     position = "right",
     padding_left = -5,
     width = 0,
-    y_offset = 4,
+    y_offset = 6,
     icon = {
         string = "􀄨",
         padding_right = 0,
@@ -92,7 +93,7 @@ local wifi_up           = sbar.add("item", "network.up", {
     },
 })
 
-local wifi_down         = sbar.add("item", "network.down", {
+local wifi_down   = sbar.add("item", "network.down", {
     position = "right",
     padding_left = -5,
     y_offset = -4,
@@ -111,7 +112,7 @@ local wifi_down         = sbar.add("item", "network.down", {
     },
 })
 
-local wifi              = sbar.add("item", "network.wifi", {
+local wifi        = sbar.add("item", "network.wifi", {
     position = "right",
     update_freq = 2,
     icon = {
@@ -123,18 +124,6 @@ local wifi              = sbar.add("item", "network.wifi", {
     },
 })
 
-local wifi_padding      = sbar.add("item", "network.padding", {
-    position = "right",
-    label = { drawing = false },
-})
-
-local wifi_bracket      = sbar.add("bracket", "network.bracket", {
-    wifi.name, wifi_up.name, wifi_down.name,
-}, {
-    background = {
-        color = colors.with_alpha(colors.surface0, 0.5),
-    },
-})
 
 -- Module-level state. Closure-captured, only refresh() writes it.
 local prev              = { iface = "", t = 0, rx = 0, tx = 0 }

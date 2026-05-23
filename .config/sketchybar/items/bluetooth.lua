@@ -7,7 +7,10 @@
 -- so the callback receives `[{name,address,left,right,case,single}, ...]`
 -- directly.
 
+-- Name of my over-ear headphones
 local HEADPHONE_NAME = "Tom's Headphones"
+
+-- The swift compiled helper program to fetch BT battery info
 local HELPER = os.getenv("HOME") .. "/.config/sketchybar/helpers/bt_battery"
 
 local items = {
