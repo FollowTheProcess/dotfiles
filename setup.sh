@@ -3,6 +3,10 @@
 GREEN='\033[0;32m'
 NC='\033[0m'
 
+# Sketchybar Lua (https://github.com/FelixKratz/SbarLua)
+echo -e "${GREEN}Installing Sketchybar Lua API...${NC}"
+(git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install)
+
 # Rust
 echo -e "${GREEN}Installing Rustup...${NC}"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

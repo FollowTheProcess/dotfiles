@@ -1,0 +1,11 @@
+require("items.aerospace.workspace")
+require("items.front_app")
+-- Right items
+require("items.clock")
+require("items.volume")
+require("items.battery")
+require("items.cpu")
+require("items.memory")
+require("items.network")
+require("items.bluetooth")
+require("items.aerospace.mode")
