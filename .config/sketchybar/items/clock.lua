@@ -12,4 +12,8 @@ clock:subscribe({ "routine", "forced", "system_woke" }, function()
 end
 )
 
+clock:subscribe("mouse.clicked", function(env)
+    sbar.exec("open -a 'Calendar'")
+end)
+
 return clock

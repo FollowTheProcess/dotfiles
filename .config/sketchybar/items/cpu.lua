@@ -24,3 +24,5 @@ end)
 cpu:subscribe("mouse.clicked", function(env)
     sbar.exec("open -a 'Activity Monitor'")
 end)
+
+return cpu
