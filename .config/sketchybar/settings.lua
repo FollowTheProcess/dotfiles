@@ -20,7 +20,7 @@ return {
         },
         label = {
             family = "GeistMono Nerd Font",
-            style = "Bold",
+            style = "Regular",
             size = 14.0
         }
     }
