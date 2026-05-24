@@ -11,7 +11,7 @@
 #   3. Clone this repo to ~/dotfiles
 #   4. make stow
 #   5. brew bundle install --global
-#   6. setup.sh then macos.sh
+#   6. Post-install tooling, then macos.sh
 
 set -euo pipefail
 
@@ -61,21 +61,39 @@ log "Installing brew bundle (this may take a while)..."
 brew bundle install --global
 
 # 6. Post-install + macOS defaults
-log "Installing Sketchybar Lua API..."
-(git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install)
+if [ -f "$HOME/.local/share/sketchybar_lua/sketchybar.so" ]; then
+    log "Sketchybar Lua API already installed, skipping"
+else
+    log "Installing Sketchybar Lua API..."
+    rm -rf /tmp/SbarLua
+    git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua
+    make -C /tmp/SbarLua install
+    rm -rf /tmp/SbarLua
+fi
 
-log "Installing Rustup..."
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+if [ -x "$HOME/.cargo/bin/rustup" ]; then
+    log "Rustup already installed, skipping"
+else
+    log "Installing Rustup..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
-log "Creating ~/Development folder..."
+log "Ensuring ~/Development folder exists..."
 mkdir -p ~/Development
 
 log "Building bat theme cache..."
 bat cache --build
 
-log "Setting nushell as the default shell (requires sudo)..."
-echo /opt/homebrew/bin/nu | sudo tee -a /etc/shells
-chsh -s /opt/homebrew/bin/nu
+# $SHELL reflects the parent process, not the login shell, so query the
+# directory service for the real value before deciding to run chsh.
+current_shell=$(dscl . -read "/Users/$(id -un)" UserShell 2>/dev/null | awk '{print $2}')
+if grep -qxF /opt/homebrew/bin/nu /etc/shells && [ "$current_shell" = "/opt/homebrew/bin/nu" ]; then
+    log "nushell already the default shell, skipping"
+else
+    log "Setting nushell as the default shell (requires sudo)..."
+    grep -qxF /opt/homebrew/bin/nu /etc/shells || echo /opt/homebrew/bin/nu | sudo tee -a /etc/shells >/dev/null
+    [ "$current_shell" = "/opt/homebrew/bin/nu" ] || chsh -s /opt/homebrew/bin/nu
+fi
 
 log "Configuring macOS defaults (requires sudo)..."
 ./macos.sh

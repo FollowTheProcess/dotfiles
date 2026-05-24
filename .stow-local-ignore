@@ -2,7 +2,7 @@ README.md
 LICENSE
 Makefile
 macos.sh
-setup.sh
+bootstrap.sh
 img/
 \.git
 \.DS_Store
