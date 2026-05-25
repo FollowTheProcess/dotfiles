@@ -19,9 +19,9 @@ return {
             size = 17.0
         },
         label = {
-            family = "GeistMono Nerd Font",
+            family = "Geist",
             style = "Regular",
-            size = 14.0
+            size = 13.0
         }
     }
 }
