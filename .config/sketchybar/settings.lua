@@ -19,7 +19,7 @@ return {
             size = 17.0
         },
         label = {
-            family = "Geist",
+            family = "SF Pro",
             style = "Regular",
             size = 13.0
         }
