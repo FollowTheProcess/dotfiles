@@ -2,6 +2,7 @@
 local battery = sbar.add("item", "battery", {
     position = "right",
     update_freq = 120,
+    click_script = "open 'x-apple.systempreferences:com.apple.Battery-Settings.extension'",
 })
 
 ---Returns the SF Symbol matching a battery level
