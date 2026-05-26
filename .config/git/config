@@ -56,6 +56,10 @@
 	prune = true
 [url "https://github.com/"]
 	insteadOf = "git@github.com:"
+	insteadOf = "ssh://git@github.com/"
+[url "https://gitlab.com/"]
+	insteadOf = git@gitlab.com:
+	insteadOf = ssh://git@gitlab.com/
 [url "https://github.com/FollowTheProcess/"]
 	insteadOf = "me:"
 [url "https://github.com/"]
