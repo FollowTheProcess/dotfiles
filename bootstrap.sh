@@ -9,7 +9,7 @@
 #   1. Install Homebrew
 #   2. Install GNU stow
 #   3. Clone this repo to ~/dotfiles
-#   4. make stow
+#   4. make stow (+ link ~/.claude/skills -> ~/.config/ai/skills)
 #   5. brew bundle install --global
 #   6. Post-install tooling, then macos.sh
 
@@ -55,6 +55,17 @@ cd "$HOME/dotfiles"
 # 4. Stow
 log "Running make stow..."
 make stow
+
+# Claude Code only auto-loads skills from ~/.claude/skills, but the skills
+# themselves live in ~/.config/ai/skills (stowed above). Point one at the
+# other so they load natively, no plugin machinery required.
+if [ -L "$HOME/.claude/skills" ]; then
+    log "~/.claude/skills already linked, skipping"
+else
+    log "Linking ~/.claude/skills -> ~/.config/ai/skills..."
+    mkdir -p "$HOME/.claude"
+    ln -s "$HOME/.config/ai/skills" "$HOME/.claude/skills"
+fi
 
 # 5. Brewfile
 log "Installing brew bundle (this may take a while)..."
