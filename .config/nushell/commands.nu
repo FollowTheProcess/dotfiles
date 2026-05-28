@@ -86,7 +86,6 @@ export def --env --wrapped assume [...args: string] {
   }
 
   let granted_output = $output | lines
-  let granted_status = $env.LAST_EXIT_CODE
 
   # First line is the command
   let command = $granted_output | get --optional 0 | default "" | str trim | split row " "
@@ -126,10 +125,6 @@ export def --env --wrapped assume [...args: string] {
     _ => {
       # most likely no output, so nothing to do
     }
-  }
-
-  if $granted_status != 0 {
-    error make -u {msg: $"command failed with code ($granted_status)"}
   }
 }
 
