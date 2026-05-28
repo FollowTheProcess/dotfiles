@@ -59,12 +59,18 @@ make stow
 # Claude Code only auto-loads skills from ~/.claude/skills, but the skills
 # themselves live in ~/.config/ai/skills (stowed above). Point one at the
 # other so they load natively, no plugin machinery required.
-if [ -L "$HOME/.claude/skills" ]; then
+#
+# Replace anything that isn't already the correct symlink so
+# re-running self-heals the links.
+skills_target="$HOME/.config/ai/skills"
+skills_link="$HOME/.claude/skills"
+mkdir -p "$HOME/.claude"
+if [ "$(readlink "$skills_link" 2>/dev/null || true)" = "$skills_target" ]; then
     log "~/.claude/skills already linked, skipping"
 else
     log "Linking ~/.claude/skills -> ~/.config/ai/skills..."
-    mkdir -p "$HOME/.claude"
-    ln -s "$HOME/.config/ai/skills" "$HOME/.claude/skills"
+    rm -rf "$skills_link"
+    ln -s "$skills_target" "$skills_link"
 fi
 
 # 5. Brewfile
