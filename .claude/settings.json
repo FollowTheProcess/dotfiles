@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(* --version)",
+      "Bash(* -version)",
       "Bash(* --help)",
+      "Bash(* -help)",
       "Bash(allium *)",
       "Bash(go *)",
       "Bash(cargo *)",
@@ -10,6 +12,7 @@
       "Bash(ruff *)",
       "Bash(ty *)",
       "Bash(golangci-lint *)",
+      "Bash(staticcheck *)",
       "Bash(wc *)",
       "Bash(ls *)",
       "Bash(cat *)",
@@ -19,6 +22,7 @@
       "Bash(fd *)",
       "Bash(head *)",
       "Bash(tail *)",
+      "Bash(awk *)",
       "Bash(terraform init *)",
       "Bash(terraform validate *)",
       "Bash(tflint *)",
