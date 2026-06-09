@@ -108,7 +108,7 @@ preset = "qwerty"
 inner.horizontal = 8
 inner.vertical = 8
 outer.left = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 6 }, 6]
-outer.bottom = [{ monitor."U32R59x" = 20 }, { monitor.built-in = 10 }, 10]
+outer.bottom = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 10 }, 10]
 outer.top = [{ monitor."U32R59x" = 42 }, { monitor.built-in = 6 }, 6]
 outer.right = [{ monitor."U32R59x" = 10 }, { monitor.built-in = 6 }, 6]
 
@@ -365,12 +365,12 @@ r = [
   "flatten-workspace-tree",
   "mode main",
   "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_mode_change MODE=main",
-]  # reset layout
+]                                                                                            # reset layout
 f = [
   "layout floating tiling",
   "mode main",
   "exec-and-forget /opt/homebrew/bin/sketchybar --trigger aerospace_mode_change MODE=main",
-]  # Toggle between floating and tiling layout
+]                                                                                            # Toggle between floating and tiling layout
 backspace = [
   "close-all-windows-but-current",
   "mode main",
