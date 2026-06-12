@@ -31,7 +31,7 @@ export def maintenance [] {
     # Homebrew
     info "🍺 Updating and cleaning homebrew packages"
     brew update
-    brew upgrade
+    brew upgrade --yes
     brew bundle install --global --quiet # Sync with .Brewfile
     brew bundle cleanup --global --force --zap --quiet
     brew cleanup --scrub --prune all
