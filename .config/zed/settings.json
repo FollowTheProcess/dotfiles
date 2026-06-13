@@ -33,6 +33,7 @@
     "lua": true,
     "make": true,
     "nu": true,
+    "ruby": true,
     "swift": true,
     "terraform": true,
     "toml": true,
