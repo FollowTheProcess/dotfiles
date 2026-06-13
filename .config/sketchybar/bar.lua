@@ -7,7 +7,7 @@ sbar.bar(
         height = 40,
         blur_radius = 30,
         color = colors.with_alpha(colors.mantle, 0.6),
-        shadow = true,
+        shadow = false,
         sticky = true,
         padding_left = 10,
         padding_right = 10,
