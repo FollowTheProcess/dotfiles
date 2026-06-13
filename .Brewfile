@@ -111,6 +111,8 @@ brew "go"
 brew "gofumpt"
 # Fast linters runner for Go
 brew "golangci-lint"
+# Language server for `golangci-lint`
+brew "golangci-lint-langserver"
 # Go tool to modify struct field tags
 brew "gomodifytags"
 # Graph visualization software from AT&T and Bell Labs
@@ -163,6 +165,8 @@ brew "nushell"
 brew "pandoc"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Documentation server for Go packages
+brew "pkgsite"
 # Modern replacement for ps written in Rust
 brew "procs"
 # Your all-in-one OpenAPI utility
@@ -320,11 +324,9 @@ mas "WhatsApp", id: 310633997
 mas "Xcode", id: 497799835
 go "golang.org/x/perf/cmd/benchstat"
 go "github.com/dkorunic/betteralign/cmd/betteralign"
-go "github.com/nametake/golangci-lint-langserver"
 go "golang.org/x/tools/gopls"
 go "golang.org/x/vuln/cmd/govulncheck"
 go "go.uber.org/nilaway/cmd/nilaway"
-go "golang.org/x/pkgsite/cmd/pkgsite"
 go "golang.org/x/tools/cmd/present"
 go "golang.org/x/tools/cmd/stringer"
 go "github.com/mfridman/tparse"
