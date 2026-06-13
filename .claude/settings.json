@@ -154,7 +154,9 @@
       "Read(**/id_ecdsa)",
       "Read(**/id_dsa)"
     ],
-    "additionalDirectories": ["/Users/tomfleet/Development"]
+    "additionalDirectories": [
+      "/Users/tomfleet/Development"
+    ]
   },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
@@ -175,5 +177,6 @@
     }
   },
   "theme": "dark-ansi",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "skipWorkflowUsageWarning": true
 }
