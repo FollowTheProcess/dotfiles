@@ -311,6 +311,7 @@ cask "yaak"
 # Multiplayer code editor
 cask "zed"
 mas "1Password for Safari", id: 1569813296
+mas "AdGuard Mini", id: 1440147259
 mas "Dropover", id: 1355679052
 mas "JSON Peep", id: 1458969831
 mas "Kagi for Safari", id: 1622835804

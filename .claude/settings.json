@@ -50,6 +50,8 @@
       "Bash(git -C * fetch*)",
       "Bash(git worktree list*)",
       "Bash(git -C * worktree list*)",
+      "Bash(gh run view *)",
+      "Bash(gh run list *)",
       "Bash(obsidian search *)",
       "Bash(obsidian read *)",
       "Bash(defaults read *)",
@@ -154,9 +156,7 @@
       "Read(**/id_ecdsa)",
       "Read(**/id_dsa)"
     ],
-    "additionalDirectories": [
-      "/Users/tomfleet/Development"
-    ]
+    "additionalDirectories": ["/Users/tomfleet/Development"]
   },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
