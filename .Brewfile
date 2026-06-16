@@ -69,6 +69,8 @@ brew "difftastic"
 brew "direnv"
 # Language server for Dockerfiles, Compose files, and Bake files
 brew "docker-language-server"
+# Command-line DNS Client for Humans
+brew "doggo"
 # More intuitive version of du in rust
 brew "dust"
 # Multi-threaded file-tree visualizer and disk usage analyzer
