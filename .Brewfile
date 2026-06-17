@@ -61,6 +61,8 @@ brew "cue"
 brew "curl"
 # Portable devkit for CI/CD pipelines
 brew "dagger"
+# Extract article content and metadata from web pages
+brew "defuddle"
 # Debugger for the Go programming language
 brew "delve"
 # Diff that understands syntax
