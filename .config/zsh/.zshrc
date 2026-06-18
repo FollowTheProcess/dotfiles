@@ -77,7 +77,9 @@ zcompdump="$XDG_CACHE_HOME/zsh/zcompdump"
 if [[ -f $zcompdump ]] && (($(zstat +mtime "$zcompdump") > $(date +%s) - 86400)); then
     compinit -C -d "$zcompdump"
 else
-    compinit -d "$zcompdump"
+    # -i ignores insecure (eg. admin-group-writable Homebrew) dirs instead of
+    # blocking startup on an interactive y/n prompt when the cache goes stale.
+    compinit -i -d "$zcompdump"
 fi
 unset zcompdump
 
