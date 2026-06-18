@@ -4,12 +4,6 @@ gpgconf --launch gpg-agent
 # Starship prompt - must load eagerly so the first prompt renders correctly
 eval "$(starship init zsh)"
 
-# Carapace - completion engine bridge. Loads eagerly because compinit-style
-# state must exist before any completion attempt.
-export CARAPACE_BRIDGES='zsh,bash'
-zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-source <(carapace _carapace)
-
 # Zoxide - smarter cd, hooks chpwd so needs to be active for any directory move
 eval "$(zoxide init zsh --cmd cd)"
 

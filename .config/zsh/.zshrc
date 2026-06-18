@@ -68,6 +68,13 @@ autoload -Uz "$ZDOTDIR/functions"/*(-.N:t)
 # Must come before compinit
 FPATH="$HOMEBREW_PREFIX/share/zsh-completions:$FPATH"
 
+# rustup ships a full _cargo completion in the active toolchain's sysroot.
+# `rustc --print sysroot` survives a default-toolchain channel switch at the
+# cost of one subprocess; it must run before compinit so can't be deferred.
+if (($+commands[rustc])); then
+    fpath=("$(rustc --print sysroot)/share/zsh/site-functions" $fpath)
+fi
+
 # Load completion system
 # compinit runs a security check on every launch, this caches
 # it for 24 hours
