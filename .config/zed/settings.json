@@ -340,16 +340,12 @@
     "default_height": 400,
     "detect_venv": {
       "on": {
-        "activate_script": "nushell",
         "directories": [".venv", "venv"],
       },
     },
     "font_family": "GeistMono Nerd Font Mono",
     "font_size": 12.5,
     "line_height": "standard",
-    "shell": {
-      "program": "/opt/homebrew/bin/nu",
-    },
     "toolbar": {
       "breadcrumbs": false,
     },

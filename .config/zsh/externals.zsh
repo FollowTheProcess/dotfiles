@@ -11,7 +11,7 @@ zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
 # Zoxide - smarter cd, hooks chpwd so needs to be active for any directory move
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # fzf - keybindings (Ctrl-T, Alt-C) and completion. Loads eagerly so the
 # keybinds work in the very first prompt.
