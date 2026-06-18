@@ -1,6 +1,6 @@
 tap "charmbracelet/tap", trusted: true
 tap "common-fate/granted", trusted: true
-tap "felixkratz/formulae", trusted: true
+tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 tap "fluxcd/tap", trusted: true
 tap "followtheprocess/tap", trusted: true
 tap "go-task/tap", trusted: true
@@ -10,9 +10,9 @@ tap "kluctl/tap", trusted: true
 tap "nao1215/tap", trusted: true
 tap "nikitabobko/tap", trusted: true
 tap "olets/tap", trusted: true
-tap "shaunsingh/sfmono-nerd-font-ligaturized", trusted: true
+tap "shaunsingh/sfmono-nerd-font-ligaturized", "https://github.com/shaunsingh/homebrew-SFMono-Nerd-Font-Ligaturized", trusted: true
 tap "taiki-e/tap", trusted: true
-tap "theboredteam/boring-notch", trusted: true
+tap "theboredteam/boring-notch", "https://github.com/TheBoredTeam/homebrew-boring-notch", trusted: true
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # Library for command-line editing
