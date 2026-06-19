@@ -2,7 +2,7 @@
 
 My dotfiles and setup scripts for macOS, managed with [GNU Stow]
 
-![screenshot](./img/screenshot.png)
+![screenshot](https://assets.followtheprocess.codes/projects/dotfiles/screenshot.png)
 
 ## Installation
 
