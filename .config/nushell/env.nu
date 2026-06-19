@@ -69,7 +69,7 @@ def cache-init [binary: string, cached: path, generator: closure] {
 
 # Carapace bridges translate old-school bash/zsh completion scripts into
 # carapace specs - useful coverage for tools that don't ship native specs.
-$env.CARAPACE_BRIDGES = 'zsh,bash'
+$env.CARAPACE_BRIDGES = 'zsh'
 
 cache-init 'starship' ($env.XDG_CACHE_HOME | path join starship init.nu) { starship init nu }
 cache-init 'carapace' ($env.XDG_CACHE_HOME | path join carapace init.nu) { carapace _carapace nushell }

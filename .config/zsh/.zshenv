@@ -58,3 +58,6 @@ export FZF_ALT_C_COMMAND='fd --type=d --hidden --follow --exclude .git'
 # Previews: bat for files (with syntax highlight), eza tree for dirs.
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range=:200 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always --icons=auto {} | head -200'"
+
+# Carapace
+export CARAPACE_BRIDGES="zsh"
