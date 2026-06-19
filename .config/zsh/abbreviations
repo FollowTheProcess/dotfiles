@@ -11,6 +11,7 @@ abbr "gsc"="git switch --create"
 abbr "gaa"="git add --all"
 abbr "gpu"="git push"
 abbr "gl"="git log --oneline"
+abbr "gcm"="git commit -m"
 
 # infrastructure
 abbr "tf"="terraform"
