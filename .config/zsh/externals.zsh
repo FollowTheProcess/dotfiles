@@ -16,8 +16,3 @@ source <(fzf --zsh)
 # binding handles that single keystroke before atuin takes over.
 # Quote the whole command so the `$(atuin init zsh)` subshell is also deferred.
 zsh-defer -c 'eval "$(atuin init zsh)"'
-
-# Mise - tool version manager. The slowest of the activators, so defer it.
-# Anything that needs mise-managed tools right at shell start (rare) would
-# need to wait for the deferred eval to land.
-zsh-defer -c 'eval "$(mise activate zsh)"'
