@@ -10,6 +10,7 @@ behavior = "own"
 key = "667642356C177BC0"
 
 [ui]
+paginate = "never"
 editor = "zed --wait"
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
 
