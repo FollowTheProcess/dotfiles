@@ -10,9 +10,13 @@ behavior = "own"
 key = "667642356C177BC0"
 
 [ui]
+default-command = "log"
 paginate = "never"
 editor = "zed --wait"
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
+
+[git]
+write-change-id-header = true
 
 # Catppuccin Macchiato palette mapped onto jj's default labels.
 [colors]
