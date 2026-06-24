@@ -261,7 +261,7 @@ brew "go-task/tap/go-task"
 brew "hashicorp/tap/terraform"
 # kluctl
 brew "kluctl/tap/kluctl"
-# gup - Update binaries installed by 'go install'
+# Fast manager for Go-installed binaries in $GOBIN: update, export/import, and migrate toolsets across machines
 brew "nao1215/tap/gup"
 # Auto-expanding abbreviations manager for zsh, inspired by fish
 brew "olets/tap/zsh-abbr"
@@ -271,7 +271,7 @@ brew "taiki-e/tap/cargo-llvm-cov"
 cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
-# Not so boring notch That Rocks 🎸🎶 
+# Not so boring notch That Rocks 🎸🎶
 cask "theboredteam/boring-notch/boring-notch"
 # Desktop client for brain.fm
 cask "brainfm"
