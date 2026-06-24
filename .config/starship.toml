@@ -5,6 +5,13 @@ palette = "catppuccin_macchiato"
 [username]
 disabled = true
 
+[directory]
+read_only = " 󰌾"
+
+[directory.substitutions]
+"~/dotfiles" = "󰋜 dotfiles"
+"Development" = "󰲋 dev"
+
 [aws]
 disabled = false
 
