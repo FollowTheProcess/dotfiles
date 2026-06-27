@@ -40,6 +40,10 @@
 [merge]
 	conflictstyle = zdiff3     # 3-way conflict markers with common base
 
+[merge "mergiraf"]
+	name = mergiraf
+	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
+
 [commit]
 	gpgsign = true
 

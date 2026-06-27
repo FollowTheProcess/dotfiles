@@ -161,6 +161,8 @@ brew "marp-cli"
 brew "mas"
 # Create modern online books from Markdown files
 brew "mdbook"
+# Syntax-aware git merge driver
+brew "mergiraf"
 # Run a Kubernetes cluster locally
 brew "minikube"
 # Polyglot runtime manager (asdf rust clone)
@@ -271,7 +273,7 @@ brew "taiki-e/tap/cargo-llvm-cov"
 cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
-# Not so boring notch That Rocks 🎸🎶
+# Not so boring notch That Rocks 🎸🎶 
 cask "theboredteam/boring-notch/boring-notch"
 # Desktop client for brain.fm
 cask "brainfm"

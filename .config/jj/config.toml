@@ -14,9 +14,46 @@ default-command = "log"
 paginate = "never"
 editor = "zed --wait"
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
+merge-editor = "mergiraf"                                        # AST-aware conflict resolution
 
 [git]
 write-change-id-header = true
+# Refuse to push scratch commits: prefix a description with wip:/private: to keep it local
+private-commits = "description(glob:'wip:*') | description(glob:'private:*')"
+
+[templates]
+git_push_bookmark = '"followtheprocess/push-" ++ change_id.short()'  # namespace auto-generated push bookmarks
+
+[revset-aliases]
+# Nearest bookmark at or below a given revision
+'closest_bookmark(to)' = "heads(::to & bookmarks())"
+
+[aliases]
+# Drag the closest bookmark up to the parent of the working copy
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+# Pull trunk and rebase the current stack onto it
+sync = ["rebase", "-d", "trunk()"]
+# Show in-flight work: mutable, non-empty changes
+wip = ["log", "-r", "mutable() & ~empty()"]
+# Discard working-copy changes, keep the empty change
+nuke = ["restore"]
+
+# jj fix streams each file through stdin/stdout, so tools must read stdin and write stdout
+[fix.tools.gofmt]
+command = ["gofmt"]
+patterns = ["glob:'**/*.go'"]
+
+[fix.tools.ruff]
+command = ["ruff", "format", "--stdin-filename=$path", "-"]
+patterns = ["glob:'**/*.py'"]
+
+[fix.tools.rustfmt]
+command = ["rustfmt", "--emit", "stdout"]
+patterns = ["glob:'**/*.rs'"]
+
+[fix.tools.terraform]
+command = ["terraform", "fmt", "-"]
+patterns = ["glob:'**/*.tf'"]
 
 # Catppuccin Macchiato palette mapped onto jj's default labels.
 [colors]
