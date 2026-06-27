@@ -56,6 +56,10 @@ patterns = ["glob:'**/*.rs'"]
 command = ["terraform", "fmt", "-"]
 patterns = ["glob:'**/*.tf'"]
 
+[fix.tools.yamlfmt]
+command = ["yamlfmt", "-in"]
+patterns = ["glob:'**/*.yaml'", "glob:'**/*.yml'"]
+
 # Catppuccin Macchiato palette mapped onto jj's default labels.
 [colors]
 "error" = { fg = "default", bold = true }
