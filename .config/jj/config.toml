@@ -13,8 +13,9 @@ key = "667642356C177BC0"
 default-command = "log"
 paginate = "never"
 editor = "zed --wait"
+# AST-aware diffing and merging
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
-merge-editor = "mergiraf"                                        # AST-aware conflict resolution
+merge-editor = "mergiraf"
 
 [git]
 write-change-id-header = true
