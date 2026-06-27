@@ -9,7 +9,7 @@
 	autocrlf = false           # leave line endings untouched
 	whitespace = error         # flag whitespace errors in diff/apply
 	preloadindex = true        # parallel index preload, faster status
-	fsmonitor = true           # FS monitor daemon, faster status/diff
+	fsmonitor = false          # disabled: caused slow first-call stalls / starship timeouts
 	untrackedCache = true      # cache untracked files (pairs with fsmonitor)
 
 [alias]
