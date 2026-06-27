@@ -5,6 +5,7 @@
 
 [core]
 	excludesfile = ~/.config/git/ignore
+	pager =                    # disable the pager globally
 	autocrlf = false           # leave line endings untouched
 	whitespace = error         # flag whitespace errors in diff/apply
 	preloadindex = true        # parallel index preload, faster status
@@ -41,7 +42,6 @@
 
 [commit]
 	gpgsign = true
-	verbose = true
 
 [tag]
 	gpgsign = true
