@@ -14,7 +14,7 @@ style = "bold sky"
 "Development" = "󰲋 dev"
 
 [git_branch]
-symbol = " "
+symbol = " "
 style = "bold mauve"
 
 [aws]
@@ -43,11 +43,11 @@ style = "bold green"
 symbol = " "
 
 [bun]
-style = "bold peach"
+style = "bold pink"
 symbol = " "
 
 [swift]
-style = "bold peach"
+style = "bold teal"
 symbol = "󰛥 "
 
 [git_status]
