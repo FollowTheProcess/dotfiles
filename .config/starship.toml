@@ -11,7 +11,7 @@ style = "bold sky"
 
 [directory.substitutions]
 "dotfiles" = "󰋜 dotfiles"
-"Development" = "󰲋 dev"
+"Development" = " dev"
 
 [git_branch]
 symbol = " "
