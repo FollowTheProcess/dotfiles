@@ -141,8 +141,8 @@ defaults write com.apple.dock largesize -int 40
 defaults write com.apple.dock orientation -string right
 
 # ***** Mission Control *****
-# Treat all displays as one continuous space
-defaults write com.apple.spaces spans-displays -bool true
+# Paneru needs this
+defaults write com.apple.spaces spans-displays -bool false
 
 # ***** Hot Corners *****
 # Values: 1 = no action, 2 = Mission Control, 3 = Application Windows,

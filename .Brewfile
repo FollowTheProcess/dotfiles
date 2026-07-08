@@ -171,6 +171,8 @@ brew "mise"
 brew "nushell"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
+# Sliding, tiling window manager for MacOS
+brew "paneru"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Documentation server for Go packages
@@ -251,10 +253,8 @@ brew "zsh-fast-syntax-highlighting"
 brew "charmbracelet/tap/freeze"
 # The easiest way to access your cloud.
 brew "common-fate/granted/granted"
-# A window border system for macOS
-brew "felixkratz/formulae/borders",  restart_service: :changed, start_service: true
 # Custom macOS statusbar with shell plugin, interaction and graph support
-brew "felixkratz/formulae/sketchybar",  restart_service: :changed, start_service: true
+brew "felixkratz/formulae/sketchybar"
 # Flux CLI
 brew "fluxcd/tap/flux"
 # A fast, cross-platform build tool inspired by Make, designed for modern workflows.
@@ -273,7 +273,7 @@ brew "taiki-e/tap/cargo-llvm-cov"
 cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
-# Not so boring notch That Rocks 🎸🎶 
+# Not so boring notch That Rocks 🎸🎶
 cask "theboredteam/boring-notch/boring-notch"
 # Desktop client for brain.fm
 cask "brainfm"
