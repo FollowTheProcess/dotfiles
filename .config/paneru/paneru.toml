@@ -3,8 +3,8 @@ focus_follows_mouse = true
 mouse_follows_focus = true
 animation_speed = 20
 preset_column_widths = [0.50, 0.60, 0.70, 0.80, 0.90, 1.00]
-window_resize_cycle = true
-auto_center = false
+window_resize_cycle = false
+auto_center = true
 reap_empty_workspaces = true
 
 [bindings]
