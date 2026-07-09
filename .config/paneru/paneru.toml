@@ -1,3 +1,5 @@
+# https://github.com/karinushka/paneru/blob/main/CONFIGURATION.md
+
 [options]
 focus_follows_mouse = true
 mouse_follows_focus = true
@@ -48,4 +50,18 @@ title = ".*"
 horizontal_padding = 6
 vertical_padding = 0
 width = 0.5
-bindings_passhrough = []
+
+[windows.brainfm]
+# BrainFM is a little floating menu bar type app
+# don't try and tile it
+title = ".*"
+bundle_id = "com.electron.brain.fm"
+floating = true
+
+[windows.settings]
+# Same with the apple system settings, doesn't
+# really tile well and I only want it around
+# for a few seconds to change something normally
+title = ".*"
+bundle_id = "com.apple.systempreferences"
+floating = true
