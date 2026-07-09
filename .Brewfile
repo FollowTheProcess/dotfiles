@@ -256,7 +256,7 @@ brew "common-fate/granted/granted"
 # A window border system for macOS
 brew "felixkratz/formulae/borders",  restart_service: :changed, start_service: true
 # Custom macOS statusbar with shell plugin, interaction and graph support
-brew "felixkratz/formulae/sketchybar",
+brew "felixkratz/formulae/sketchybar"
 # Flux CLI
 brew "fluxcd/tap/flux"
 # A fast, cross-platform build tool inspired by Make, designed for modern workflows.
