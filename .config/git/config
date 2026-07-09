@@ -6,11 +6,9 @@
 [core]
 	excludesfile = ~/.config/git/ignore
 	attributesfile = ~/.config/git/attributes
-	pager =                    # disable the pager globally
 	autocrlf = false           # leave line endings untouched
 	whitespace = error         # flag whitespace errors in diff/apply
 	preloadindex = true        # parallel index preload, faster status
-	fsmonitor = false          # disabled: caused slow first-call stalls / starship timeouts
 	untrackedCache = true      # cache untracked files (pairs with fsmonitor)
 
 [alias]
