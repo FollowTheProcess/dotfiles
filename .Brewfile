@@ -75,6 +75,8 @@ brew "docker-language-server"
 brew "doggo"
 # More intuitive version of du in rust
 brew "dust"
+# Run arbitrary commands when files change
+brew "entr"
 # Multi-threaded file-tree visualizer and disk usage analyzer
 brew "erdtree"
 # Modern, maintained replacement for ls
