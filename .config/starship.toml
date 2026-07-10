@@ -19,6 +19,7 @@ style = "bold mauve"
 
 [aws]
 disabled = false
+symbol = "  "
 style = "bold peach"
 
 [status]
