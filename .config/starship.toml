@@ -51,6 +51,10 @@ symbol = " "
 style = "bold teal"
 symbol = "󰛥 "
 
+[nix_shell]
+style = "bold teal"
+symbol = " "
+
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
 conflicted = "󰘭 ${count}"
