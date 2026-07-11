@@ -81,8 +81,6 @@ brew "entr"
 brew "erdtree"
 # Modern, maintained replacement for ls
 brew "eza"
-# Powerful, lightweight programming language
-brew "lua"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
@@ -153,6 +151,8 @@ brew "kubectx"
 brew "kubernetes-cli"
 # Template-free customization of Kubernetes YAML manifests
 brew "kustomize"
+# Powerful, lightweight programming language
+brew "lua"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Utility for directing compilation
@@ -258,7 +258,7 @@ brew "common-fate/granted/granted"
 # A window border system for macOS
 brew "felixkratz/formulae/borders",  restart_service: :changed, start_service: true
 # Custom macOS statusbar with shell plugin, interaction and graph support
-brew "felixkratz/formulae/sketchybar"
+brew "felixkratz/formulae/sketchybar",  restart_service: :changed, start_service: true
 # Flux CLI
 brew "fluxcd/tap/flux"
 # A fast, cross-platform build tool inspired by Make, designed for modern workflows.
@@ -277,7 +277,7 @@ brew "taiki-e/tap/cargo-llvm-cov"
 cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "nikitabobko/tap/aerospace"
-# Not so boring notch That Rocks 🎸🎶
+# Not so boring notch That Rocks 🎸🎶 
 cask "theboredteam/boring-notch/boring-notch"
 # Desktop client for brain.fm
 cask "brainfm"
