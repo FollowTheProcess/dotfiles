@@ -7,7 +7,7 @@ horizontal_mouse_warp = 1
 animation_speed = 20
 preset_column_widths = [0.50, 0.60, 0.70, 0.80, 0.90, 1.00]
 window_resize_cycle = false
-auto_center = true
+auto_center = false
 reap_empty_workspaces = true
 
 [bindings]
