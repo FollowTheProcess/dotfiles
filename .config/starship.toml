@@ -52,18 +52,17 @@ style = "bold teal"
 symbol = "󰛥 "
 
 [git_status]
-# A thin space (U+2009) separates each group and pads the bracket edges
-format = '([\[ $all_status$ahead_behind\]]($style) )'
-conflicted = "󰘭${count} "
-ahead = "↑${count} "
-behind = "↓${count} "
-diverged = "↕↑${ahead_count} ↓${behind_count} "
-untracked = "󰋗${count} "
-stashed = "󰏋${count} "
-modified = "󰏫${count} "
-staged = "󰐗${count} "
-renamed = "󰓡${count} "
-deleted = "󰩺${count} "
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "󰘭 ${count}"
+ahead = "↑ ${count}"
+behind = "↓ ${count}"
+diverged = "↕↑ ${ahead_count}↓${behind_count}"
+untracked = "󰋗 ${count}"
+stashed = "󰏋 ${count}"
+modified = "󰏫 ${count}"
+staged = "󰐗 ${count}"
+renamed = "󰓡 ${count}"
+deleted = "󰩺 ${count}"
 style = "bold peach"
 
 [git_commit]
