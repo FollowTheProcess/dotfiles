@@ -29,6 +29,16 @@ done 2>/dev/null &
 sudo softwareupdate --schedule ON
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate.plist AutomaticCheckEnabled -bool YES
 
+# ***** Settings > General > About > Name *****
+# ComputerName is the friendly label (spaces/apostrophes fine); HostName and
+# LocalHostName must be hyphen-safe (no spaces, no dots for LocalHostName).
+# scutil writes root-owned system config, so each set still needs sudo even
+# though the timestamp is already warmed above.
+computer_name="onyx"
+sudo scutil --set ComputerName "${computer_name}"
+sudo scutil --set HostName "${computer_name}"
+sudo scutil --set LocalHostName "${computer_name}"
+
 # ***** Settings > Appearance *****
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool false
