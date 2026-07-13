@@ -51,6 +51,8 @@ brew "openblas"
 brew "checkov"
 # Cross-platform make
 brew "cmake"
+# Create and run Linux containers using lightweight virtual machines
+brew "container"
 # CLI-tool for cooking recipes formated using Cooklang
 brew "cookcli"
 # Container Signing
@@ -283,8 +285,6 @@ cask "theboredteam/boring-notch/boring-notch"
 cask "brainfm"
 # Terminal-based AI coding assistant
 cask "claude-code@latest"
-# Create and run Linux containers using lightweight virtual machines
-cask "container"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
 cask "font-geist"
