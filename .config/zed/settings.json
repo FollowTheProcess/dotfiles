@@ -192,6 +192,9 @@
         },
       },
     },
+    "Nix": {
+      "language_servers": ["nixd", "!nil"],
+    },
   },
   "linked_edits": true,
   "lsp": {

@@ -1,13 +1,9 @@
-# home.nix
-#
-# Run `home-manager switch` to apply
+# Home Manager config
+# https://nix-community.github.io/home-manager/options/home-manager/index.html
 
 { config, pkgs, ...}:
 
 {
-  home.username = "tomfleet";
-  home.homeDirectory = "/Users/tomfleet";
-
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -21,6 +17,7 @@
   # User packages
   home.packages = [
     pkgs.nil # Nix LSP
+    pkgs.nixd # Another nix LSP
   ];
 
   # Let home-manager manage itself
