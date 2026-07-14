@@ -51,8 +51,11 @@ WORDCHARS='*?_[]~&;!#$%^(){}<>'
 setopt COMPLETE_IN_WORD
 setopt ALWAYS_TO_END
 
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Homebrew. Prefix is fixed on Apple Silicon, so set env directly rather than
+# `brew shellenv`, which would re-prepend brew ahead of nix. PATH is set in .zprofile.
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_REPOSITORY="/opt/homebrew"
 
 # Custom functions live in $ZDOTDIR/functions/ - one function per file, named
 # after the function itself. Added to fpath and autoloaded below. Glob flags:

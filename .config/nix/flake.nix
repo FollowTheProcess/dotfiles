@@ -5,21 +5,272 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
   let
     configuration = { pkgs, ... }: {
+      # Not everything has a free license
+      nixpkgs.config.allowUnfree = true;
+
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [
           pkgs.vim
+          pkgs.git
+          pkgs.curl
         ];
 
       fonts.packages = [
-        pkgs.nerd-fonts.geist-mono
+        pkgs.geist-font            # Geist + Geist Mono
+        pkgs.nerd-fonts.geist-mono # Nerd-patched Geist Mono for the terminal
+        pkgs.inter
+        pkgs.sketchybar-app-font
       ];
+
+      homebrew = {
+        enable = true;
+
+        onActivation = {
+          autoUpdate = true;
+          upgrade = true;
+          cleanup = "zap"; # remove anything not listed here
+        };
+
+        taps = map (name: { inherit name; trusted = true; }) [
+          "charmbracelet/tap"
+          "common-fate/granted"
+          "felixkratz/formulae"
+          "fluxcd/tap"
+          "followtheprocess/tap"
+          "go-task/tap"
+          "goreleaser/tap"
+          "hashicorp/tap"
+          "kluctl/tap"
+          "nao1215/tap"
+          "nikitabobko/tap"
+          "olets/tap"
+          "taiki-e/tap"
+          "theboredteam/boring-notch"
+        ];
+
+        # TODO: Most/all of these should be in home-manager but this keeps
+        # the build working for now while I'm halfway
+        brews = [
+          "openssl@3"
+          "readline"
+          "sqlite"
+          "xz"
+          "node"
+          "action-docs"
+          "shellcheck"
+          "actionlint"
+          "atuin"
+          "awscli"
+          "bash"
+          "bat"
+          "btop"
+          "carapace"
+          "cargo-nextest"
+          "gcc"
+          "openblas"
+          "checkov"
+          "cmake"
+          "container"
+          "cookcli"
+          "cosign"
+          "cue"
+          "curl"
+          "dagger"
+          "defuddle"
+          "delve"
+          "difftastic"
+          "direnv"
+          "docker-language-server"
+          "doggo"
+          "dust"
+          "entr"
+          "erdtree"
+          "eza"
+          "fastfetch"
+          "fd"
+          "findutils"
+          "usage"
+          "fnox"
+          "fzf"
+          "fzf-tab"
+          "gdbm"
+          "gh"
+          "git"
+          "glow"
+          "gnu-sed"
+          "gnu-tar"
+          "gnupg"
+          "go"
+          "gofumpt"
+          "golangci-lint"
+          "golangci-lint-langserver"
+          "gomodifytags"
+          "graphviz"
+          "gum"
+          "hadolint"
+          "helm"
+          "hugo"
+          "hurl"
+          "hyperfine"
+          "jj"
+          "jq"
+          "just"
+          "k6"
+          "k9s"
+          "ko"
+          "kubectx"
+          "kubernetes-cli"
+          "kustomize"
+          "lua"
+          "luarocks"
+          "make"
+          "marp-cli"
+          "mas"
+          "mdbook"
+          "mergiraf"
+          "minikube"
+          "mise"
+          "nushell"
+          "pandoc"
+          "paneru"
+          "pinentry-mac"
+          "pkgsite"
+          "procs"
+          "redocly-cli"
+          "ripgrep"
+          "ruby"
+          "ruff"
+          "rumdl"
+          "shfmt"
+          "solargraph"
+          "starship"
+          "staticcheck"
+          "stern"
+          "stow"
+          "syft"
+          "television"
+          "terraform-docs"
+          "terraform-ls"
+          "tflint"
+          "tlrc"
+          "tokei"
+          "tombi"
+          "tree"
+          "tree-sitter-cli"
+          "trivy"
+          "typos-cli"
+          "uv"
+          "vhs"
+          "watchexec"
+          "wget"
+          "yamlfmt"
+          "yq"
+          "zig"
+          "zls"
+          "zoxide"
+          "zsh-autosuggestions"
+          "zsh-completions"
+          "zsh-fast-syntax-highlighting"
+          "charmbracelet/tap/freeze"
+          "common-fate/granted/granted"
+          {
+            name = "felixkratz/formulae/borders";
+            restart_service = "changed";
+            start_service = true;
+          }
+          "felixkratz/formulae/sketchybar"
+          "fluxcd/tap/flux"
+          "go-task/tap/go-task"
+          "hashicorp/tap/terraform"
+          "kluctl/tap/kluctl"
+          "nao1215/tap/gup"
+          "olets/tap/zsh-abbr"
+          "taiki-e/tap/cargo-llvm-cov"
+        ];
+
+        casks = [
+          "1password-cli"
+          "nikitabobko/tap/aerospace"
+          "theboredteam/boring-notch/boring-notch"
+          "brainfm"
+          "claude-code@latest"
+          "docker-desktop"
+          "font-sf-mono-nerd-font-ligaturized" # not in nixpkgs (custom tap)
+          "font-sf-pro" # Apple proprietary, not in nixpkgs
+          "ghostty"
+          "followtheprocess/tap/git-rekt"
+          "goreleaser/tap/goreleaser"
+          "followtheprocess/tap/gowc"
+          "obsidian"
+          "raycast"
+          "sf-symbols"
+          "slack"
+          "followtheprocess/tap/spok"
+          "spotify"
+          "followtheprocess/tap/tag"
+          "followtheprocess/tap/txtract"
+          "yaak"
+          "zed"
+        ];
+
+        masApps = {
+          "1Password for Safari" = 1569813296;
+          "AdGuard Mini" = 1440147259;
+          "Dropover" = 1355679052;
+          "JSON Peep" = 1458969831;
+          "Kagi for Safari" = 1622835804;
+          "Keynote" = 361285480;
+          "Noir" = 1592917505;
+          "Numbers" = 361304891;
+          "Pages" = 361309726;
+          "Refined GitHub" = 1519867270;
+          "Things" = 904280696;
+          "WhatsApp" = 310633997;
+          "Xcode" = 497799835;
+        };
+      };
+
+      # Environment for GUI apps (Aqua session), set via `launchctl setenv`.
+      # Replaces the hand-written com.tomfleet.setenv-{path,xdg} launch agents.
+      # macOS doesn't source shell rc files for GUI apps, so PATH/XDG must be set
+      # here too. Keep the PATH order in sync with .zprofile: nix before brew.
+      launchd.user.envVariables =
+        let
+          home = "/Users/tomfleet";
+        in
+        {
+          PATH = pkgs.lib.concatStringsSep ":" [
+            "/run/current-system/sw/bin"        # nix-darwin systemPackages
+            "${home}/.nix-profile/bin"          # nix user profile (once added)
+            "/nix/var/nix/profiles/default/bin" # nix itself
+            "${home}/go/bin"
+            "${home}/.bun/bin"
+            "${home}/.local/bin"
+            "${home}/.cargo/bin"
+            "/opt/homebrew/bin"                 # Homebrew, after nix so nix wins
+            "/opt/homebrew/sbin"
+            "/opt/homebrew/opt/curl/bin"
+            "/opt/homebrew/opt/ruby/bin"
+            "/usr/local/bin"
+            "/usr/bin"
+            "/bin"
+            "/usr/sbin"
+            "/sbin"
+          ];
+
+          XDG_CONFIG_HOME = "${home}/.config";
+          XDG_CACHE_HOME = "${home}/.cache";
+          XDG_DATA_HOME = "${home}/.local/share";
+          XDG_STATE_HOME = "${home}/.local/state";
+        };
 
       # Auto upgrade nix package
       # Maybe uncomment this later
@@ -208,7 +459,20 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."onyx" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [
+        configuration
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            user = "tomfleet";
+            autoMigrate = true;
+            # I'd have to specify every tap as an input, maybe one day
+            # but for now I'm leaving this off
+            # mutableTaps = false;
+          };
+        }
+      ];
     };
   };
 }
