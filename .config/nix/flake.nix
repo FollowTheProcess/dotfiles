@@ -6,9 +6,13 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
   let
     configuration = { pkgs, ... }: {
       # Not everything has a free license
@@ -244,9 +248,10 @@
         in
         {
           PATH = pkgs.lib.concatStringsSep ":" [
-            "/run/current-system/sw/bin"        # nix-darwin systemPackages
-            "${home}/.nix-profile/bin"          # nix user profile
-            "/nix/var/nix/profiles/default/bin" # nix itself
+            "/run/current-system/sw/bin"          # nix-darwin systemPackages
+            "/etc/profiles/per-user/tomfleet/bin" # home-manager user packages
+            "${home}/.nix-profile/bin"            # nix user profile
+            "/nix/var/nix/profiles/default/bin"   # nix itself
             "${home}/go/bin"
             "${home}/.bun/bin"
             "${home}/.local/bin"
@@ -468,7 +473,17 @@
             # mutableTaps = false;
           };
         }
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.users.tomfleet = import ./home.nix;
+        }
       ];
     };
+
+    # Expose the package set, including overlays, for convenience.
+    darwinPackages = self.darwinConfigurations."onyx".pkgs;
   };
 }
