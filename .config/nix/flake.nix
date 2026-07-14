@@ -17,6 +17,9 @@
           pkgs.vim
         ];
 
+      fonts.packages = [
+        pkgs.nerd-fonts.geist-mono
+      ];
 
       # Auto upgrade nix package
       # Maybe uncomment this later
