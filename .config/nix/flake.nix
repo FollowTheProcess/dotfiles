@@ -307,7 +307,7 @@
           AppleTemperatureUnit = "Celsius";
           AppleICUForce24HourTime = true;
 
-          _HIHideMenuBar = true;
+          _HIHideMenuBar = false;
 
           KeyRepeat = 1;
           InitialKeyRepeat = 10;
