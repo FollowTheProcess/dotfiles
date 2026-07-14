@@ -238,10 +238,6 @@
         };
       };
 
-      # Environment for GUI apps (Aqua session), set via `launchctl setenv`.
-      # Replaces the hand-written com.tomfleet.setenv-{path,xdg} launch agents.
-      # macOS doesn't source shell rc files for GUI apps, so PATH/XDG must be set
-      # here too. Keep the PATH order in sync with .zprofile: nix before brew.
       launchd.user.envVariables =
         let
           home = "/Users/tomfleet";
@@ -249,7 +245,7 @@
         {
           PATH = pkgs.lib.concatStringsSep ":" [
             "/run/current-system/sw/bin"        # nix-darwin systemPackages
-            "${home}/.nix-profile/bin"          # nix user profile (once added)
+            "${home}/.nix-profile/bin"          # nix user profile
             "/nix/var/nix/profiles/default/bin" # nix itself
             "${home}/go/bin"
             "${home}/.bun/bin"
