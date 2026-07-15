@@ -27,6 +27,13 @@
         # Not everything has a free license
         nixpkgs.config.allowUnfree = true;
 
+        # Clean up old generations on a schedule
+        nix.gc = {
+          automatic = true;
+          interval = { Day = 7; }; # Every week
+          options = "--delete-older-than 30d";
+        };
+
         # List packages installed in system profile. To search by name, run:
         # $ nix-env -qaP | grep wget
         environment.systemPackages = [
@@ -61,7 +68,6 @@
                 "charmbracelet/tap"
                 "followtheprocess/tap"
                 "nao1215/tap"
-                "olets/tap"
                 "taiki-e/tap"
                 "theboredteam/boring-notch"
               ];
@@ -69,12 +75,8 @@
           # TODO: Most/all of these should be in home-manager but this keeps
           # the build working for now while I'm halfway
           brews = [
-            "zsh-autosuggestions"
-            "zsh-completions"
-            "zsh-fast-syntax-highlighting"
             "charmbracelet/tap/freeze"
             "nao1215/tap/gup"
-            "olets/tap/zsh-abbr"
           ];
 
           # GUI apps don't always play nicely with nix

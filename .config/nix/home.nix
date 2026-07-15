@@ -18,7 +18,6 @@
   home.packages = [
     # pkgs.freeze # This is charmbracelet
     # pkgs.gup # A go thing not on here
-    pkgs.jankyborders
     pkgs.actionlint
     pkgs.awscli2
     pkgs.bash
@@ -59,6 +58,7 @@
     pkgs.hadolint
     pkgs.hugo
     pkgs.hyperfine
+    pkgs.jankyborders
     pkgs.jj
     pkgs.jq
     pkgs.just
@@ -93,6 +93,11 @@
     pkgs.zig
     pkgs.zls
     pkgs.zsh-fzf-tab
+    pkgs.zsh-abbr
+    pkgs.zsh-autosuggestions
+    pkgs.zsh-completions
+    pkgs.zsh-defer
+    pkgs.zsh-fast-syntax-highlighting
   ];
 
   xdg.enable = true;
