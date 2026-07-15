@@ -92,6 +92,7 @@
     pkgs.yq
     pkgs.zig
     pkgs.zls
+    pkgs.zsh-fzf-tab
   ];
 
   xdg.enable = true;
@@ -121,10 +122,13 @@
     "television".source = ../television;
     "tombi".source = ../tombi;
     "uv".source = ../uv;
+    "starship.toml".source = ../starship.toml;
     "yamlfmt".source = ../yamlfmt;
     "zed".source = ../zed;
     "zsh".source = ../zsh;
   };
+
+  xdg.dataFile."zsh/fzf-tab.zsh".source = "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh";
 
   # Programs with config and/or shell integrations to set up
   programs = {

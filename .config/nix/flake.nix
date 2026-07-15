@@ -144,6 +144,22 @@
         # Enable alternative shell support in nix-darwin.
         programs.zsh.enable = true;
 
+        # Disable nix-darwin's compinit in /etc/zshrc. My user .zshrc handles it
+        # with -i (ignore insecure) and a 24-hour cache, avoiding annoying interactive questions
+        programs.zsh.enableCompletion = false;
+
+        # Add nix profile paths to /etc/zshrc so they're available in ALL interactive shells
+        programs.zsh.interactiveShellInit = ''
+          typeset -U path PATH
+          path=(
+            /run/current-system/sw/bin
+            /etc/profiles/per-user/$USER/bin
+            $HOME/.nix-profile/bin
+            /nix/var/nix/profiles/default/bin
+            $path
+          )
+        '';
+
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
 

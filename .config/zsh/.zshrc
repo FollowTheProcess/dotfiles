@@ -143,7 +143,7 @@ source "$ZDOTDIR/aliases.zsh"
 # fzf-tab: replace the default completion menu with an fzf picker.
 # Must be sourced AFTER compinit and BEFORE fast-syntax-highlighting.
 # https://github.com/Aloxaf/fzf-tab
-source "$HOMEBREW_PREFIX/share/fzf-tab/fzf-tab.zsh"
+source "$XDG_DATA_HOME/zsh/fzf-tab.zsh"
 source "$ZDOTDIR/fzf-tab.zsh"
 
 # Externals like starship, atuin, mise etc.
