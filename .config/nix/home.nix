@@ -14,12 +14,144 @@
   # changes in each release.
   home.stateVersion = "26.11";
 
-  # User packages
+  # User packages, config typically in dotfiles
   home.packages = [
-    pkgs.nil # Nix LSP
-    pkgs.nixd # Another nix LSP
+    # pkgs.freeze # This is charmbracelet
+    # pkgs.gup # A go thing not on here
+    pkgs.jankyborders
+    pkgs.actionlint
+    pkgs.awscli2
+    pkgs.bash
+    pkgs.bat
+    pkgs.btop
+    pkgs.carapace
+    pkgs.cargo-nextest
+    pkgs.cmake
+    pkgs.container
+    pkgs.cook-cli
+    pkgs.cosign
+    pkgs.curl
+    pkgs.defuddle
+    pkgs.delve
+    pkgs.difftastic
+    pkgs.docker-language-server
+    pkgs.doggo
+    pkgs.dust
+    pkgs.entr
+    pkgs.eza
+    pkgs.fastfetch
+    pkgs.fd
+    pkgs.findutils
+    pkgs.gcc
+    pkgs.gh
+    pkgs.git
+    pkgs.glow
+    pkgs.gnupg
+    pkgs.gnused
+    pkgs.gnutar
+    pkgs.go
+    pkgs.gofumpt
+    pkgs.golangci-lint
+    pkgs.golangci-lint-langserver
+    pkgs.gomodifytags
+    pkgs.granted
+    pkgs.gum
+    pkgs.hadolint
+    pkgs.hugo
+    pkgs.hyperfine
+    pkgs.jj
+    pkgs.jq
+    pkgs.just
+    pkgs.mdbook
+    pkgs.mergiraf
+    pkgs.mise
+    pkgs.nil
+    pkgs.nixd
+    pkgs.pinentry_mac
+    pkgs.pkgsite
+    pkgs.procs
+    pkgs.ripgrep
+    pkgs.ruff
+    pkgs.shellcheck
+    pkgs.stow
+    pkgs.syft
+    pkgs.television
+    pkgs.terraform
+    pkgs.terraform-docs
+    pkgs.terraform-ls
+    pkgs.tflint
+    pkgs.tlrc
+    pkgs.tokei
+    pkgs.tombi
+    pkgs.trivy
+    pkgs.typos
+    pkgs.usage
+    pkgs.uv
+    pkgs.vhs
+    pkgs.yamlfmt
+    pkgs.yq
+    pkgs.zig
+    pkgs.zls
   ];
 
-  # Let home-manager manage itself
-  programs.home-manager.enable = true;
+  xdg.enable = true;
+
+  # Dotfile configs linked from this repo
+  # Note: atuin, direnv, starship managed via programs.* for shell integration
+  xdg.configFile = {
+    "aerospace".source = ../aerospace;
+    "ai".source = ../ai;
+    "atuin".source = ../atuin;
+    "bat".source = ../bat;
+    "borders".source = ../borders;
+    "btop".source = ../btop;
+    "copier".source = ../copier;
+    "direnv".source = ../direnv;
+    "gh".source = ../gh;
+    "ghostty".source = ../ghostty;
+    "git".source = ../git;
+    "glow".source = ../glow;
+    "jj".source = ../jj;
+    "k9s".source = ../k9s;
+    "ls-colors".source = ../ls-colors;
+    "nushell".source = ../nushell;
+    "paneru".source = ../paneru;
+    "ruff".source = ../ruff;
+    "sketchybar".source = ../sketchybar;
+    "television".source = ../television;
+    "tombi".source = ../tombi;
+    "uv".source = ../uv;
+    "yamlfmt".source = ../yamlfmt;
+    "zed".source = ../zed;
+    "zsh".source = ../zsh;
+  };
+
+  # Programs with config and/or shell integrations to set up
+  programs = {
+    # Let home-manager manage itself
+    home-manager.enable = true;
+    atuin.enable = true;
+    direnv.enable = true;
+    starship.enable = true;
+    zoxide.enable = true;
+    fzf.enable = true;
+    # TODO: zsh can be managed entirely from here but a few things to do
+    # first, for now we rely on the existing dotfiles
+    # zsh = {
+    #   enable = true;
+    #   autosuggestion.enable = true;
+    #   syntaxHighlighting.enable = true;
+    # };
+  };
+
+  services.paneru.enable = true;
+
+  launchd.agents.jankyborders = {
+    enable = true;
+    config = {
+      ProgramArguments = [ "${pkgs.jankyborders}/bin/borders" ];
+      RunAtLoad = true;
+      KeepAlive = true;
+    };
+  };
 }

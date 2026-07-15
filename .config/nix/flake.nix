@@ -10,6 +10,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    paneru.url = "github:karinushka/paneru";
   };
 
   outputs =
@@ -19,6 +20,7 @@
       nixpkgs,
       nix-homebrew,
       home-manager,
+      paneru,
     }:
     let
       configuration = { pkgs, ... }: {
@@ -57,16 +59,8 @@
               })
               [
                 "charmbracelet/tap"
-                "common-fate/granted"
-                "felixkratz/formulae"
-                "fluxcd/tap"
                 "followtheprocess/tap"
-                "go-task/tap"
-                "goreleaser/tap"
-                "hashicorp/tap"
-                "kluctl/tap"
                 "nao1215/tap"
-                "nikitabobko/tap"
                 "olets/tap"
                 "taiki-e/tap"
                 "theboredteam/boring-notch"
@@ -75,159 +69,26 @@
           # TODO: Most/all of these should be in home-manager but this keeps
           # the build working for now while I'm halfway
           brews = [
-            "openssl@3"
-            "readline"
-            "sqlite"
-            "xz"
-            "node"
-            "action-docs"
-            "shellcheck"
-            "actionlint"
-            "atuin"
-            "awscli"
-            "bash"
-            "bat"
-            "btop"
-            "carapace"
-            "cargo-nextest"
-            "gcc"
-            "openblas"
-            "checkov"
-            "cmake"
-            "container"
-            "cookcli"
-            "cosign"
-            "cue"
-            "curl"
-            "dagger"
-            "defuddle"
-            "delve"
-            "difftastic"
-            "direnv"
-            "docker-language-server"
-            "doggo"
-            "dust"
-            "entr"
-            "erdtree"
-            "eza"
-            "fastfetch"
-            "fd"
-            "findutils"
-            "usage"
-            "fnox"
-            "fzf"
-            "fzf-tab"
-            "gdbm"
-            "gh"
-            "git"
-            "glow"
-            "gnu-sed"
-            "gnu-tar"
-            "gnupg"
-            "go"
-            "gofumpt"
-            "golangci-lint"
-            "golangci-lint-langserver"
-            "gomodifytags"
-            "graphviz"
-            "gum"
-            "hadolint"
-            "helm"
-            "hugo"
-            "hurl"
-            "hyperfine"
-            "jj"
-            "jq"
-            "just"
-            "k6"
-            "k9s"
-            "ko"
-            "kubectx"
-            "kubernetes-cli"
-            "kustomize"
-            "lua"
-            "luarocks"
-            "make"
-            "marp-cli"
-            "mas"
-            "mdbook"
-            "mergiraf"
-            "minikube"
-            "mise"
-            "nushell"
-            "pandoc"
-            "paneru"
-            "pinentry-mac"
-            "pkgsite"
-            "procs"
-            "redocly-cli"
-            "ripgrep"
-            "ruby"
-            "ruff"
-            "rumdl"
-            "shfmt"
-            "solargraph"
-            "starship"
-            "staticcheck"
-            "stern"
-            "stow"
-            "syft"
-            "television"
-            "terraform-docs"
-            "terraform-ls"
-            "tflint"
-            "tlrc"
-            "tokei"
-            "tombi"
-            "tree"
-            "tree-sitter-cli"
-            "trivy"
-            "typos-cli"
-            "uv"
-            "vhs"
-            "watchexec"
-            "wget"
-            "yamlfmt"
-            "yq"
-            "zig"
-            "zls"
-            "zoxide"
             "zsh-autosuggestions"
             "zsh-completions"
             "zsh-fast-syntax-highlighting"
             "charmbracelet/tap/freeze"
-            "common-fate/granted/granted"
-            {
-              name = "felixkratz/formulae/borders";
-              restart_service = "changed";
-              start_service = true;
-            }
-            "felixkratz/formulae/sketchybar"
-            "fluxcd/tap/flux"
-            "go-task/tap/go-task"
-            "hashicorp/tap/terraform"
-            "kluctl/tap/kluctl"
             "nao1215/tap/gup"
             "olets/tap/zsh-abbr"
-            "taiki-e/tap/cargo-llvm-cov"
           ];
 
+          # GUI apps don't always play nicely with nix
           casks = [
             "1password-cli"
-            "nikitabobko/tap/aerospace"
             "theboredteam/boring-notch/boring-notch"
             "brainfm"
             "claude-code@latest"
             "docker-desktop"
-            "font-sf-mono-nerd-font-ligaturized" # not in nixpkgs (custom tap)
-            "font-sf-pro" # Apple proprietary, not in nixpkgs
             "ghostty"
             "followtheprocess/tap/git-rekt"
-            "goreleaser/tap/goreleaser"
             "followtheprocess/tap/gowc"
             "obsidian"
             "raycast"
-            "sf-symbols"
             "slack"
             "followtheprocess/tap/spok"
             "spotify"
@@ -237,21 +98,9 @@
             "zed"
           ];
 
-          masApps = {
-            "1Password for Safari" = 1569813296;
-            "AdGuard Mini" = 1440147259;
-            "Dropover" = 1355679052;
-            "JSON Peep" = 1458969831;
-            "Kagi for Safari" = 1622835804;
-            "Keynote" = 361285480;
-            "Noir" = 1592917505;
-            "Numbers" = 361304891;
-            "Pages" = 361309726;
-            "Refined GitHub" = 1519867270;
-            "Things" = 904280696;
-            "WhatsApp" = 310633997;
-            "Xcode" = 497799835;
-          };
+          # masApps omitted: `mas` cannot install under sudo (no App Store session).
+          # These apps are pre-installed manually and left unmanaged by nix.
+          masApps = {};
         };
 
         launchd.user.envVariables =
@@ -498,6 +347,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.tomfleet = import ./home.nix;
+            home-manager.sharedModules = [ paneru.homeModules.paneru ];
           }
         ];
       };

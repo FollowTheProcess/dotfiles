@@ -2,7 +2,7 @@
 gpgconf --launch gpg-agent
 
 # Starship prompt - must load eagerly so the first prompt renders correctly
-eval "$(starship init zsh)"
+command -v starship &>/dev/null && eval "$(starship init zsh)"
 
 # Zoxide - smarter cd, hooks chpwd so needs to be active for any directory move
 eval "$(zoxide init zsh --cmd cd)"
