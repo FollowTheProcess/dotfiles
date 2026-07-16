@@ -9,7 +9,6 @@
 
   xdg.configFile = {
     "aerospace".source = dotfiles + "/.config/aerospace";
-    "atuin".source = dotfiles + "/.config/atuin";
     "bat".source = dotfiles + "/.config/bat";
     "btop".source = dotfiles + "/.config/btop";
     "copier".source = dotfiles + "/.config/copier";
