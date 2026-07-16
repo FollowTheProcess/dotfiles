@@ -13,7 +13,6 @@
     actionlint
     awscli2
     bash
-    btop
     carapace
     cargo-nextest
     cmake

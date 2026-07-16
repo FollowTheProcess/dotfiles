@@ -7,8 +7,6 @@
   xdg.enable = true;
 
   xdg.configFile = {
-    "aerospace".source = dotfiles + "/.config/aerospace";
-    "btop".source = dotfiles + "/.config/btop";
     "copier".source = dotfiles + "/.config/copier";
     "direnv".source = dotfiles + "/.config/direnv";
     "gh".source = dotfiles + "/.config/gh";
