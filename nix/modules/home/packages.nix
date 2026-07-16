@@ -1,5 +1,13 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    (fenix.stable.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
+    fenix.rust-analyzer
     _1password-cli
     actionlint
     awscli2
@@ -56,7 +64,6 @@
     ripgrep
     ruff
     shellcheck
-    stow
     syft
     television
     terraform

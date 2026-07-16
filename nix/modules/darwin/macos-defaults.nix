@@ -151,4 +151,6 @@
       "com.apple.SoftwareUpdate".AutomaticCheckEnabled = true;
     };
   };
+
+  system.startup.chime = false;
 }

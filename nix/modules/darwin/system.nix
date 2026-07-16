@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   user = "tomfleet";
   home = "/Users/${user}";
 in
 {
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ inputs.fenix.overlays.default ];
 
   nix.gc = {
     automatic = true;

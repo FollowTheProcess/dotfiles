@@ -6,7 +6,8 @@
 - [ ] What other system settings can I do? Wallpapers?
 - [ ] Delete anything I don't now need
 - [x] Symlink AGENTS and CLAUDE with nix
-- [ ] How can I do the `bootstrap.sh` tasks declaratively
-- [ ] `.ssh` config with nix
+- [x] How can I do the `bootstrap.sh` tasks declaratively
+- [x] `.ssh` config with nix
 - [x] mise task to update `flake.lock`
 - [ ] Wire up `maintenance` to do flake update and rebuild
+- [ ] Move skills out of here into their own repo set up as a marketplace
