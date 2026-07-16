@@ -13,7 +13,6 @@
     actionlint
     awscli2
     bash
-    bat
     btop
     carapace
     cargo-nextest

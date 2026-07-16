@@ -1,6 +1,5 @@
 {
   dotfiles,
-  pkgs,
   lib,
   ...
 }:
@@ -9,7 +8,6 @@
 
   xdg.configFile = {
     "aerospace".source = dotfiles + "/.config/aerospace";
-    "bat".source = dotfiles + "/.config/bat";
     "btop".source = dotfiles + "/.config/btop";
     "copier".source = dotfiles + "/.config/copier";
     "direnv".source = dotfiles + "/.config/direnv";
@@ -40,9 +38,5 @@
 
   home.activation.createDev = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p $HOME/Development
-  '';
-
-  home.activation.batCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ${pkgs.bat}/bin/bat cache --build
   '';
 }
