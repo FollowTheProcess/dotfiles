@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home.packages = with pkgs; [
     (fenix.stable.withComponents [
       "cargo"
@@ -8,6 +8,7 @@
       "rustfmt"
     ])
     fenix.rust-analyzer
+    inputs.zsh-patina.packages.${pkgs.stdenv.hostPlatform.system}.default
     _1password-cli
     actionlint
     awscli2

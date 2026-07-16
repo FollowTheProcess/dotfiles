@@ -1,6 +1,9 @@
 # Interactive shell config sourced by home-manager as programs.zsh.initContent.
 # Most zsh config now lives in nix (nix/modules/home/programs/zsh.nix):
 
+# https://github.com/michel-kraemer/zsh-patina
+eval "$(zsh-patina activate)"
+
 # zmv
 autoload zmv
 

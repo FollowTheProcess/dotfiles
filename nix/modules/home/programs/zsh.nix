@@ -136,11 +136,6 @@
       highlight = "fg=#6e738d"; # catppuccin macchiato overlay0
     };
 
-    fastSyntaxHighlighting = {
-      enable = true;
-      theme = "${dotfiles}/.config/zsh/catppuccin-macchiato.ini";
-    };
-
     zsh-abbr = {
       enable = true;
       abbreviations = {

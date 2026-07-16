@@ -213,7 +213,8 @@
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",
-        "paneru": "paneru"
+        "paneru": "paneru",
+        "zsh-patina": "zsh-patina"
       }
     },
     "rust-analyzer-src": {
@@ -230,6 +231,26 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "zsh-patina": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784220934,
+        "narHash": "sha256-rhqOnzt4+ZFluXX6zjsn18utPeHCN1dB0Z1RTOKgcTc=",
+        "owner": "michel-kraemer",
+        "repo": "zsh-patina",
+        "rev": "8ebbecae0515f9f77ced743153b28a0989253e3c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "michel-kraemer",
+        "repo": "zsh-patina",
         "type": "github"
       }
     }

@@ -30,6 +30,7 @@
     "starship.toml".source = dotfiles + "/.config/starship.toml";
     "yamlfmt".source = dotfiles + "/.config/yamlfmt";
     "zed".source = dotfiles + "/.config/zed";
+    "zsh-patina".source = dotfiles + "/.config/zsh-patina";
   };
 
   home.file = {
