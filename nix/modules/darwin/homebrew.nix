@@ -8,15 +8,19 @@
       cleanup = "zap";
     };
 
-    taps = map
-      (name: { inherit name; trusted = true; })
-      [
-        "charmbracelet/tap"
-        "followtheprocess/tap"
-        "nao1215/tap"
-        "taiki-e/tap"
-        "theboredteam/boring-notch"
-      ];
+    taps =
+      map
+        (name: {
+          inherit name;
+          trusted = true;
+        })
+        [
+          "charmbracelet/tap"
+          "followtheprocess/tap"
+          "nao1215/tap"
+          "taiki-e/tap"
+          "theboredteam/boring-notch"
+        ];
 
     brews = [
       "charmbracelet/tap/freeze"

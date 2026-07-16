@@ -24,7 +24,7 @@
       ...
     }:
     {
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
 
       darwinConfigurations."onyx" = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit self inputs; };
@@ -42,7 +42,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; dotfiles = ./.; };
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              dotfiles = ./.;
+            };
             home-manager.users.tomfleet = import ./nix/hosts/onyx/home.nix;
             home-manager.sharedModules = [ paneru.homeModules.paneru ];
           }
