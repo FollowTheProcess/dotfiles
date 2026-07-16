@@ -1,0 +1,32 @@
+{ dotfiles, pkgs, ... }: {
+  xdg.enable = true;
+
+  xdg.configFile = {
+    "aerospace".source = dotfiles + "/.config/aerospace";
+    "ai".source = dotfiles + "/.config/ai";
+    "atuin".source = dotfiles + "/.config/atuin";
+    "bat".source = dotfiles + "/.config/bat";
+    "btop".source = dotfiles + "/.config/btop";
+    "copier".source = dotfiles + "/.config/copier";
+    "direnv".source = dotfiles + "/.config/direnv";
+    "gh".source = dotfiles + "/.config/gh";
+    "ghostty".source = dotfiles + "/.config/ghostty";
+    "git".source = dotfiles + "/.config/git";
+    "glow".source = dotfiles + "/.config/glow";
+    "jj".source = dotfiles + "/.config/jj";
+    "k9s".source = dotfiles + "/.config/k9s";
+    "ls-colors".source = dotfiles + "/.config/ls-colors";
+    "nushell".source = dotfiles + "/.config/nushell";
+    "paneru".source = dotfiles + "/.config/paneru";
+    "ruff".source = dotfiles + "/.config/ruff";
+    "sketchybar".source = dotfiles + "/.config/sketchybar";
+    "television".source = dotfiles + "/.config/television";
+    "tombi".source = dotfiles + "/.config/tombi";
+    "uv".source = dotfiles + "/.config/uv";
+    "starship.toml".source = dotfiles + "/.config/starship.toml";
+    "yamlfmt".source = dotfiles + "/.config/yamlfmt";
+    "zed".source = dotfiles + "/.config/zed";
+  };
+
+  xdg.dataFile."zsh/fzf-tab.zsh".source = "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh";
+}
