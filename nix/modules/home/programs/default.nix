@@ -4,6 +4,7 @@
     ./direnv.nix
     ./eza.nix
     ./fzf.nix
+    ./gpg.nix
     ./ssh.nix
     ./starship.nix
     ./zoxide.nix

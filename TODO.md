@@ -11,3 +11,4 @@
 - [x] mise task to update `flake.lock`
 - [ ] Wire up `maintenance` to do flake update and rebuild
 - [ ] Move skills out of here into their own repo set up as a marketplace
+- [ ] Try https://github.com/michel-kraemer/zsh-patina

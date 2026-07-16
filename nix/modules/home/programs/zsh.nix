@@ -1,11 +1,14 @@
-{ config, dotfiles, pkgs, ... }: {
-  # Extra bin dirs prepended to PATH. nix-darwin re-prepends the nix profile
-  # paths afterwards (in /etc/zshrc), so a nix tool still wins over a same-named
-  # tool here. Covers imperatively-installed tools (cargo/go/bun/uv) and the
-  # Homebrew CLIs (claude, freeze, gup) that nix doesn't provide.
+{
+  config,
+  dotfiles,
+  lib,
+  pkgs,
+  ...
+}:
+{
   home.sessionPath = [
-    "$HOME/go/bin"     # go install (GOBIN)
-    "$HOME/.bun/bin"   # bun
+    "$HOME/go/bin" # go install (GOBIN)
+    "$HOME/.bun/bin" # bun
     "$HOME/.local/bin" # uv, pipx, misc
     "$HOME/.cargo/bin" # cargo install
     "/opt/homebrew/bin"
@@ -16,11 +19,36 @@
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
     enableCompletion = true;
-    # -u skips compinit's insecure-directory check (e.g. group-writable
-    # /opt/homebrew/share) so it never prompts on startup.
-    completionInit = "autoload -U compinit && compinit -u";
-    envExtra = builtins.readFile (dotfiles + "/.config/zsh/.zshenv");
-    initContent = builtins.readFile (dotfiles + "/.config/zsh/.zshrc");
+    # Runs before plugins (fzf-tab) are sourced, so completion is ready for them.
+    completionInit = ''
+      # Dirs compinit and history write to, created on a fresh machine.
+      [[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
+      [[ -d $XDG_STATE_HOME/zsh ]] || mkdir -p "$XDG_STATE_HOME/zsh"
+
+      # Cache the compinit security scan + dump for 24h instead of rebuilding it
+      # on every launch. The daily refresh still picks up newly installed
+      # completions (e.g. after a nix rebuild) without a manual dump delete.
+      autoload -Uz compinit
+      zmodload -F zsh/stat b:zstat
+      zcompdump="$XDG_CACHE_HOME/zsh/zcompdump"
+      if [[ -f $zcompdump ]] && (($(zstat +mtime "$zcompdump") > $(date +%s) - 86400)); then
+          compinit -C -d "$zcompdump"
+      else
+          # -i ignores insecure (eg. group-writable Homebrew) dirs instead of
+          # blocking startup on a y/n prompt when the cache goes stale.
+          compinit -i -d "$zcompdump"
+      fi
+      unset zcompdump
+
+      # complist for completion-list keybindings; fzf-tab provides the menu UI.
+      zmodload zsh/complist
+    '';
+
+    # Some extra .zshrc stuff that doesn't nicely go in here
+    initContent = lib.mkMerge [
+      (builtins.readFile (dotfiles + "/.config/zsh/.zshrc"))
+      (builtins.readFile (dotfiles + "/.config/zsh/fzf-tab.zsh"))
+    ];
 
     history = {
       path = "${config.xdg.stateHome}/zsh/history";
@@ -38,12 +66,26 @@
     autocd = true;
 
     setOptions = [
-      "AUTO_PUSHD" "PUSHD_IGNORE_DUPS" "PUSHD_SILENT" "NO_BEEP"
-      "NUMERIC_GLOB_SORT" "EXTENDED_GLOB" "INTERACTIVE_COMMENTS"
-      "GLOB_DOTS" "MULTIOS" "LONG_LIST_JOBS" "NOTIFY" "NO_FLOW_CONTROL"
-      "RC_QUOTES" "COMPLETE_IN_WORD" "ALWAYS_TO_END"
-      "HIST_SAVE_NO_DUPS" "HIST_FIND_NO_DUPS" "HIST_REDUCE_BLANKS"
-      "HIST_VERIFY" "INC_APPEND_HISTORY"
+      "AUTO_PUSHD"
+      "PUSHD_IGNORE_DUPS"
+      "PUSHD_SILENT"
+      "NO_BEEP"
+      "NUMERIC_GLOB_SORT"
+      "EXTENDED_GLOB"
+      "INTERACTIVE_COMMENTS"
+      "GLOB_DOTS"
+      "MULTIOS"
+      "LONG_LIST_JOBS"
+      "NOTIFY"
+      "NO_FLOW_CONTROL"
+      "RC_QUOTES"
+      "COMPLETE_IN_WORD"
+      "ALWAYS_TO_END"
+      "HIST_SAVE_NO_DUPS"
+      "HIST_FIND_NO_DUPS"
+      "HIST_REDUCE_BLANKS"
+      "HIST_VERIFY"
+      "INC_APPEND_HISTORY"
     ];
 
     sessionVariables = {
@@ -52,7 +94,6 @@
       GRANTED_ALIAS_CONFIGURED = "true";
       MANPAGER = "sh -c 'col -bx | bat -l man -p'";
       MANROFFOPT = "-c";
-      GPG_TTY = "$TTY";
       PIP_REQUIRE_VIRTUALENV = "true";
       PYTHONUTF8 = "1";
       VIRTUALENV_PROMPT = ".venv";
@@ -82,15 +123,22 @@
       tar = "gtar";
     };
 
+    plugins = [
+      {
+        name = "fzf-tab";
+        src = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
+      }
+    ];
+
     autosuggestion = {
       enable = true;
-      highlight = "fg=#6e738d";  # catppuccin macchiato overlay0
+      highlight = "fg=#6e738d"; # catppuccin macchiato overlay0
     };
 
     fastSyntaxHighlighting = {
       enable = true;
-      # Nix evaluates config.xdg.configHome to /Users/tomfleet/.config at build time
-      theme = "${config.xdg.configHome}/zsh/catppuccin-macchiato.ini";
+      theme = "${dotfiles}/.config/zsh/catppuccin-macchiato.ini";
     };
 
     zsh-abbr = {
@@ -109,5 +157,18 @@
         ts = "tree-sitter";
       };
     };
+
+    envExtra = ''
+      export LS_COLORS="$(<"$XDG_CONFIG_HOME/ls-colors/catppuccin-macchiato")"
+    '';
+
+    # Custom functions, one per file in .config/zsh/functions, globbed.
+    siteFunctions =
+      let
+        fnDir = dotfiles + "/.config/zsh/functions";
+        entries = builtins.readDir fnDir;
+        names = builtins.filter (n: entries.${n} == "regular") (builtins.attrNames entries);
+      in
+      lib.genAttrs names (name: builtins.readFile (fnDir + "/${name}"));
   };
 }

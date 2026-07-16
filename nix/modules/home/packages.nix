@@ -58,7 +58,6 @@
     mise
     nil
     nixd
-    pinentry_mac
     pkgsite
     procs
     ripgrep
@@ -84,11 +83,6 @@
     zig
     zls
     zsh
-    zsh-fzf-tab
-    zsh-abbr
-    zsh-autosuggestions
     zsh-completions
-    zsh-defer
-    zsh-fast-syntax-highlighting
   ];
 }
