@@ -92,6 +92,7 @@
     pkgs.yq
     pkgs.zig
     pkgs.zls
+    pkgs.zsh
     pkgs.zsh-fzf-tab
     pkgs.zsh-abbr
     pkgs.zsh-autosuggestions
@@ -109,7 +110,6 @@
     "ai".source = ../ai;
     "atuin".source = ../atuin;
     "bat".source = ../bat;
-    "borders".source = ../borders;
     "btop".source = ../btop;
     "copier".source = ../copier;
     "direnv".source = ../direnv;
@@ -130,7 +130,6 @@
     "starship.toml".source = ../starship.toml;
     "yamlfmt".source = ../yamlfmt;
     "zed".source = ../zed;
-    "zsh".source = ../zsh;
   };
 
   xdg.dataFile."zsh/fzf-tab.zsh".source = "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh";
@@ -142,15 +141,27 @@
     atuin.enable = true;
     direnv.enable = true;
     starship.enable = true;
-    zoxide.enable = true;
-    fzf.enable = true;
-    # TODO: zsh can be managed entirely from here but a few things to do
-    # first, for now we rely on the existing dotfiles
-    # zsh = {
-    #   enable = true;
-    #   autosuggestion.enable = true;
-    #   syntaxHighlighting.enable = true;
-    # };
+    eza = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = ["--cmd" "cd"];
+    };
+    fzf = {
+      enable = true;
+      # Atuin handles history
+      historyWidget.command = "";
+    };
+    # TODO: Move this to it's own module
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      fastSyntaxHighlighting.enable = true;
+    };
   };
 
   services.paneru.enable = true;
@@ -158,7 +169,13 @@
   launchd.agents.jankyborders = {
     enable = true;
     config = {
-      ProgramArguments = [ "${pkgs.jankyborders}/bin/borders" ];
+      ProgramArguments = [
+        "${pkgs.jankyborders}/bin/borders"
+        "style=round"
+        "width=3.0"
+        "hidpi=on"
+        "active_color=0xffc6a0f6"
+      ];
       RunAtLoad = true;
       KeepAlive = true;
     };
