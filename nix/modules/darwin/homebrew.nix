@@ -28,7 +28,6 @@
     ];
 
     casks = [
-      "1password-cli"
       "theboredteam/boring-notch/boring-notch"
       "brainfm"
       "claude-code@latest"

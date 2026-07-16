@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    _1password-cli
     actionlint
     awscli2
     bash
