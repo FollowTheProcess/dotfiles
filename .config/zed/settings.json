@@ -198,6 +198,11 @@
   },
   "linked_edits": true,
   "lsp": {
+    "nixd": {
+      "binary": {
+        "path": "/etc/profiles/per-user/tomfleet/bin/nixd",
+      },
+    },
     "golangci-lint": {
       "initialization_options": {
         "command": [

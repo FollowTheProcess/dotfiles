@@ -33,7 +33,7 @@
   };
 
   home.file = {
-    ".claude".source = dotfiles + "/.claude";
+    ".claude/settings.json".source = dotfiles + "/.claude/settings.json";
     "AGENTS.md".source = dotfiles + "/AGENTS.md";
     "CLAUDE.md".source = dotfiles + "/CLAUDE.md";
   };
