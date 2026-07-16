@@ -1,0 +1,5 @@
+[tasks.fmt]
+run = "nix fmt"
+
+[tasks.lint]
+run = "nix flake check --no-build"

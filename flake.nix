@@ -24,6 +24,8 @@
       ...
     }:
     {
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+
       darwinConfigurations."onyx" = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit self inputs; };
         modules = [
@@ -47,6 +49,5 @@
         ];
       };
 
-      darwinPackages = self.darwinConfigurations."onyx".pkgs;
     };
 }
