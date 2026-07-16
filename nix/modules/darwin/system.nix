@@ -1,4 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  user = "tomfleet";
+  home = "/Users/${user}";
+in
+{
   nixpkgs.config.allowUnfree = true;
 
   nix.gc = {
@@ -19,39 +24,34 @@
     pkgs.geist-font
     pkgs.nerd-fonts.geist-mono
     pkgs.inter
-    pkgs.sketchybar-app-font
   ];
 
-  launchd.user.envVariables =
-    let
-      home = "/Users/tomfleet";
-    in
-    {
-      PATH = pkgs.lib.concatStringsSep ":" [
-        "/run/current-system/sw/bin"
-        "/etc/profiles/per-user/tomfleet/bin"
-        "${home}/.nix-profile/bin"
-        "/nix/var/nix/profiles/default/bin"
-        "${home}/go/bin"
-        "${home}/.bun/bin"
-        "${home}/.local/bin"
-        "${home}/.cargo/bin"
-        "/opt/homebrew/bin"
-        "/opt/homebrew/sbin"
-        "/opt/homebrew/opt/curl/bin"
-        "/opt/homebrew/opt/ruby/bin"
-        "/usr/local/bin"
-        "/usr/bin"
-        "/bin"
-        "/usr/sbin"
-        "/sbin"
-      ];
+  launchd.user.envVariables = {
+    PATH = pkgs.lib.concatStringsSep ":" [
+      "/run/current-system/sw/bin"
+      "/etc/profiles/per-user/${user}/bin"
+      "${home}/.nix-profile/bin"
+      "/nix/var/nix/profiles/default/bin"
+      "${home}/go/bin"
+      "${home}/.bun/bin"
+      "${home}/.local/bin"
+      "${home}/.cargo/bin"
+      "/opt/homebrew/bin"
+      "/opt/homebrew/sbin"
+      "/opt/homebrew/opt/curl/bin"
+      "/opt/homebrew/opt/ruby/bin"
+      "/usr/local/bin"
+      "/usr/bin"
+      "/bin"
+      "/usr/sbin"
+      "/sbin"
+    ];
 
-      XDG_CONFIG_HOME = "${home}/.config";
-      XDG_CACHE_HOME = "${home}/.cache";
-      XDG_DATA_HOME = "${home}/.local/share";
-      XDG_STATE_HOME = "${home}/.local/state";
-    };
+    XDG_CONFIG_HOME = "${home}/.config";
+    XDG_CACHE_HOME = "${home}/.cache";
+    XDG_DATA_HOME = "${home}/.local/share";
+    XDG_STATE_HOME = "${home}/.local/state";
+  };
 
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -74,10 +74,10 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  system.primaryUser = "tomfleet";
+  system.primaryUser = user;
 
-  users.users.tomfleet = {
-    name = "tomfleet";
-    home = "/Users/tomfleet";
+  users.users."${user}" = {
+    name = user;
+    home = home;
   };
 }

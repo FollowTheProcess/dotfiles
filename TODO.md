@@ -1,0 +1,11 @@
+- [ ] Set up zsh properly in nix (aliases, abbreviations etc.) use dotfiles as a guide
+- [ ] See what else I can move into nix from .config
+- [ ] Can we reliably install ghostty and claude (and other brew casks)
+- [ ] For all my homebrew tap clis, can I have a flake for each and install that way?
+- [ ] What other system settings can I do? Wallpapers?
+- [ ] Delete anything I don't now need
+- [ ] Symlink AGENTS and CLAUDE with nix
+- [ ] How can I do the `bootstrap.sh` tasks declaratively
+- [ ] `.ssh` config with nix
+- [x] mise task to update `flake.lock`
+- [ ] Wire up `maintenance` to do flake update and rebuild
