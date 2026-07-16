@@ -1,14 +1,17 @@
 { ... }: {
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
+      "*" = {
+        AddKeysToAgent = "yes";
+      };
       "tangled.org" = {
-        hostname = "tangled.org";
-        user = "git";
-        identityFile = "~/.ssh/tangled";
-        addressFamily = "inet";
+        HostName = "tangled.org";
+        User = "git";
+        IdentityFile = "~/.ssh/tangled";
+        AddressFamily = "inet";
       };
     };
   };
