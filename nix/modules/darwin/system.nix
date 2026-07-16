@@ -21,6 +21,8 @@ in
     pkgs.curl
   ];
 
+  environment.pathsToLink = [ "/share/zsh" ];
+
   fonts.packages = [
     pkgs.geist-font
     pkgs.nerd-fonts.geist-mono
@@ -39,8 +41,6 @@ in
       "${home}/.cargo/bin"
       "/opt/homebrew/bin"
       "/opt/homebrew/sbin"
-      "/opt/homebrew/opt/curl/bin"
-      "/opt/homebrew/opt/ruby/bin"
       "/usr/local/bin"
       "/usr/bin"
       "/bin"

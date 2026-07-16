@@ -62,6 +62,7 @@
     pkgsite
     procs
     ripgrep
+    ruby
     ruff
     shellcheck
     syft
