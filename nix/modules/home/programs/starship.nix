@@ -29,13 +29,13 @@ in
       };
 
       git_branch = {
-        symbol = " ";
+        symbol = "";
         style = "bold mauve";
       };
 
       aws = {
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
         style = "bold peach";
       };
 
@@ -52,22 +52,22 @@ in
 
       python = {
         style = "bold yellow";
-        symbol = " ";
+        symbol = " ";
       };
 
       golang = {
         style = "bold sapphire";
-        symbol = " ";
+        symbol = " ";
       };
 
       nodejs = {
         style = "bold green";
-        symbol = " ";
+        symbol = " ";
       };
 
       bun = {
         style = "bold pink";
-        symbol = " ";
+        symbol = "";
       };
 
       swift = {
@@ -77,7 +77,7 @@ in
 
       nix_shell = {
         style = "bold teal";
-        symbol = " ";
+        symbol = " ";
       };
 
       git_status = {
