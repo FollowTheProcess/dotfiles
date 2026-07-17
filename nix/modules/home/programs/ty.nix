@@ -1,0 +1,5 @@
+{ ... }: {
+  programs.ty = {
+    enable = true;
+  };
+}

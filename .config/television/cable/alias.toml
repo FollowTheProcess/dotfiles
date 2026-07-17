@@ -1,7 +1,0 @@
-[metadata]
-name = "alias"
-description = "A channel to select from shell aliases"
-
-[source]
-command = 'scope aliases | each { |a| $"($a.name)=($a.expansion)" }'
-output = "{split:=:0}"

@@ -1,5 +1,5 @@
 - [x] Set up zsh properly in nix (aliases, abbreviations etc.) use dotfiles as a guide
-- [ ] See what else I can move into nix from .config
+- [x] See what else I can move into nix from .config
 - [x] Can we reliably install ghostty and claude (and other brew casks)
       Ghostty yes, other UI casks not really
 - [ ] For all my homebrew tap clis, can I have a flake for each and install that way?
@@ -12,3 +12,4 @@
 - [ ] Wire up `maintenance` to do flake update and rebuild
 - [ ] Move skills out of here into their own repo set up as a marketplace
 - [x] Try https://github.com/michel-kraemer/zsh-patina
+- [ ] Manage awscli, ghostty, difftastic, fastfetch in programs

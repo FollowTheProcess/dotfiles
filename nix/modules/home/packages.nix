@@ -28,7 +28,6 @@
     entr
     eza
     fastfetch
-    fd
     findutils
     gcc
     git
@@ -57,7 +56,6 @@
     ruby
     shellcheck
     syft
-    television
     terraform
     terraform-docs
     terraform-ls
@@ -68,7 +66,6 @@
     trivy
     typos
     usage
-    uv
     vhs
     yamlfmt
     yq

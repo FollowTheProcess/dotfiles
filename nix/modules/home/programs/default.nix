@@ -3,8 +3,8 @@
     ./atuin.nix
     ./bat.nix
     ./btop.nix
-    ./direnv.nix
     ./carapace.nix
+    ./direnv.nix
     ./eza.nix
     ./fzf.nix
     ./gh.nix
@@ -12,14 +12,18 @@
     ./gpg.nix
     ./granted.nix
     ./k9s.nix
-    ./ssh.nix
-    ./starship.nix
-    ./zoxide.nix
-    ./zsh.nix
     ./mergiraf.nix
     ./mise.nix
     ./ripgrep.nix
     ./ruff.nix
+    ./ssh.nix
+    ./starship.nix
+    ./television.nix
+    ./ty.nix
+    ./uv.nix
+    ./zoxide.nix
+    ./zsh.nix
+    ./fd.nix
   ];
 
   # Let home-manager manage itself, not worth it's own file

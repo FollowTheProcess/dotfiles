@@ -15,9 +15,7 @@
     "ls-colors".source = dotfiles + "/.config/ls-colors";
     "nushell".source = dotfiles + "/.config/nushell";
     "paneru".source = dotfiles + "/.config/paneru";
-    "television".source = dotfiles + "/.config/television";
     "tombi".source = dotfiles + "/.config/tombi";
-    "uv".source = dotfiles + "/.config/uv";
     "yamlfmt".source = dotfiles + "/.config/yamlfmt";
     "zed".source = dotfiles + "/.config/zed";
     "zsh-patina".source = dotfiles + "/.config/zsh-patina";
