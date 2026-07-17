@@ -13,7 +13,6 @@
     actionlint
     awscli2
     bash
-    carapace
     cargo-nextest
     cmake
     container
@@ -32,7 +31,6 @@
     fd
     findutils
     gcc
-    gh
     git
     glow
     gnupg

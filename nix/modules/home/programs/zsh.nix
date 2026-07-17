@@ -153,8 +153,10 @@
       };
     };
 
+    # .zshenv is sourced before launchd's XDG_CONFIG_HOME is guaranteed, so bake
+    # the absolute path in at build time rather than relying on the runtime var.
     envExtra = ''
-      export LS_COLORS="$(<"$XDG_CONFIG_HOME/ls-colors/catppuccin-macchiato")"
+      export LS_COLORS="$(<"${config.xdg.configHome}/ls-colors/catppuccin-macchiato")"
     '';
 
     # Custom functions, one per file in .config/zsh/functions, globbed.

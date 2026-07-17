@@ -8,8 +8,6 @@
 
   xdg.configFile = {
     "copier".source = dotfiles + "/.config/copier";
-    "direnv".source = dotfiles + "/.config/direnv";
-    "gh".source = dotfiles + "/.config/gh";
     "ghostty".source = dotfiles + "/.config/ghostty";
     "git".source = dotfiles + "/.config/git";
     "glow".source = dotfiles + "/.config/glow";
