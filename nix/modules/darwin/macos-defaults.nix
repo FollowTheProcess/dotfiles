@@ -1,4 +1,8 @@
-{ ... }: {
+{ config, ... }:
+let
+  homeDir = config.users.users.${config.system.primaryUser}.home;
+in
+{
   system.defaults = {
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";
@@ -53,7 +57,7 @@
         "/Applications/1Password.app"
         "/Applications/Obsidian.app"
         "/Applications/Things3.app"
-        "/Applications/Ghostty.app"
+        "${homeDir}/Applications/Home Manager Apps/Ghostty.app"
         "/Applications/Zed.app"
         "/System/Applications/System Settings.app"
       ];
