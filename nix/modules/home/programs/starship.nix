@@ -29,7 +29,7 @@ in
       };
 
       git_branch = {
-        symbol = "";
+        symbol = " ";
         style = "bold mauve";
       };
 
@@ -67,7 +67,7 @@ in
 
       bun = {
         style = "bold pink";
-        symbol = "";
+        symbol = " ";
       };
 
       swift = {
