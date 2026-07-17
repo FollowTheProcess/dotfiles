@@ -51,6 +51,7 @@
     mdbook
     nil
     nixd
+    nurl
     pkgsite
     procs
     ruby

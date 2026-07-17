@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+  # to update: nurl https://github.com/catppuccin/btop
   catppuccin-btop = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "btop";

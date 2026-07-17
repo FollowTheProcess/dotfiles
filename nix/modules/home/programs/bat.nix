@@ -6,6 +6,7 @@
     };
     themes = {
       "Catppuccin Macchiato" = {
+        # to update: nurl https://github.com/catppuccin/bat
         src = pkgs.fetchFromGitHub {
           owner = "catppuccin";
           repo = "bat";
