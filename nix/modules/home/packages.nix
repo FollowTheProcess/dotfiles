@@ -49,15 +49,11 @@
     jq
     just
     mdbook
-    mergiraf
-    mise
     nil
     nixd
     pkgsite
     procs
-    ripgrep
     ruby
-    ruff
     shellcheck
     syft
     television

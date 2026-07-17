@@ -16,6 +16,10 @@
     ./starship.nix
     ./zoxide.nix
     ./zsh.nix
+    ./mergiraf.nix
+    ./mise.nix
+    ./ripgrep.nix
+    ./ruff.nix
   ];
 
   # Let home-manager manage itself, not worth it's own file
