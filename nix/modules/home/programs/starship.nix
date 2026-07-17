@@ -24,7 +24,7 @@ in
         style = "bold sky";
         substitutions = {
           "dotfiles" = "󰋜 dotfiles";
-          "Development" = " dev";
+          "Development" = " dev";
         };
       };
 
