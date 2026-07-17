@@ -4,17 +4,21 @@
     ./bat.nix
     ./btop.nix
     ./carapace.nix
+    ./difftastic.nix
     ./direnv.nix
     ./eza.nix
     ./fd.nix
     ./fzf.nix
     ./gh.nix
-    ./git.nix
     ./ghostty.nix
+    ./git.nix
     ./go.nix
     ./gpg.nix
     ./granted.nix
+    ./jq.nix
+    ./jujutsu.nix
     ./k9s.nix
+    ./kubecolor.nix
     ./mergiraf.nix
     ./mise.nix
     ./ripgrep.nix

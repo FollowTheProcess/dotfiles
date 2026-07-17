@@ -19,7 +19,6 @@
     curl
     defuddle
     delve
-    difftastic
     docker-language-server
     doggo
     dust
@@ -44,9 +43,8 @@
     hyperfine
     inputs.zsh-patina.packages.${pkgs.stdenv.hostPlatform.system}.default
     jankyborders
-    jj
-    jq
     just
+    kubectl
     mdbook
     nil
     nixd

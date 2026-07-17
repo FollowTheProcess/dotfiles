@@ -5,11 +5,11 @@
 }:
 {
   xdg.enable = true;
+  home.preferXdgDirectories = true;
 
   xdg.configFile = {
     "copier".source = dotfiles + "/.config/copier";
     "glow".source = dotfiles + "/.config/glow";
-    "jj".source = dotfiles + "/.config/jj";
     "ls-colors".source = dotfiles + "/.config/ls-colors";
     "paneru".source = dotfiles + "/.config/paneru";
     "tombi".source = dotfiles + "/.config/tombi";

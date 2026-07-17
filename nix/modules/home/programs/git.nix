@@ -66,7 +66,6 @@
       receive.fsckObjects = true; # integrity check on push receive
 
       diff = {
-        external = "difft"; # use difftastic as the differ
         algorithm = "histogram"; # better rename/move detection than default
         colorMoved = "plain"; # distinguish moved lines from add/delete
         mnemonicPrefix = true; # i/ w/ c/ prefixes instead of a/ b/
