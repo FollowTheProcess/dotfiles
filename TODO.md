@@ -4,7 +4,7 @@
       Ghostty yes, other UI casks not really
 - [ ] For all my homebrew tap clis, can I have a flake for each and install that way?
 - [x] What other system settings can I do?
-- [ ] Delete anything I don't now need
+- [x] Delete anything I don't now need
 - [x] Symlink AGENTS and CLAUDE with nix
 - [x] How can I do the `bootstrap.sh` tasks declaratively
 - [x] `.ssh` config with nix
@@ -12,4 +12,4 @@
 - [ ] Wire up `maintenance` to do flake update and rebuild
 - [ ] Move skills out of here into their own repo set up as a marketplace
 - [x] Try https://github.com/michel-kraemer/zsh-patina
-- [ ] Manage awscli, ghostty, difftastic, fastfetch in programs
+- [x] Manage awscli, ghostty, difftastic, fastfetch in programs
