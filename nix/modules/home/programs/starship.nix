@@ -131,7 +131,11 @@ in
       custom.jj = {
         description = "The current jj status";
         when = "while ! test -d .jj; do test $PWD = / && exit 1; cd -P ..; done; exit 0";
-        shell = [ "sh" "--norc" "--noprofile" ];
+        shell = [
+          "sh"
+          "--norc"
+          "--noprofile"
+        ];
         symbol = "🥋 ";
         require_repo = true;
         command = ''

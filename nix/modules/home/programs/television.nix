@@ -45,7 +45,10 @@ in
         metadata = {
           name = "dev";
           description = "Find git repositories under ~/Development";
-          requirements = [ "fd" "bat" ];
+          requirements = [
+            "fd"
+            "bat"
+          ];
         };
         source.command = "fd -H -t d -g '.git' ~/Development -x echo {//}";
         preview.command = "sh -c 'bat -n --color=always \"{}/README.md\" 2>/dev/null || ls -la \"{}\"'";
@@ -63,7 +66,10 @@ in
           description = "A channel to select from directories";
           requirements = [ "fd" ];
         };
-        source.command = [ "fd -t d" "fd -t d --hidden" ];
+        source.command = [
+          "fd -t d"
+          "fd -t d --hidden"
+        ];
         preview.command = "^ls -la --color=always '{}'";
         keybindings.shortcut = "f2";
       };
@@ -72,7 +78,10 @@ in
         metadata = {
           name = "downloads";
           description = "Browse recent files in Downloads folder";
-          requirements = [ "fd" "bat" ];
+          requirements = [
+            "fd"
+            "bat"
+          ];
         };
         source.command = "sh -c 'fd -t f . ~/Downloads 2>/dev/null | head -200'";
         preview = {
@@ -127,7 +136,10 @@ in
         metadata = {
           name = "files";
           description = "A channel to select files and directories";
-          requirements = [ "fd" "bat" ];
+          requirements = [
+            "fd"
+            "bat"
+          ];
         };
         source.command = [ "fd --type file --hidden --ignore --exclude '.git'" ];
         preview.command = "bat -n --color=always '{}'";
@@ -177,7 +189,10 @@ in
         metadata = {
           name = "procs";
           description = "A channel to find and manage running processes";
-          requirements = [ "ps" "awk" ];
+          requirements = [
+            "ps"
+            "awk"
+          ];
         };
         source = {
           command = "ps -e -o pid=,ucomm= | awk '{print $1, $2}'";
@@ -197,7 +212,10 @@ in
         metadata = {
           name = "text";
           description = "A channel to find and select text from files";
-          requirements = [ "rg" "bat" ];
+          requirements = [
+            "rg"
+            "bat"
+          ];
         };
         source = {
           command = "rg . --no-heading --line-number";

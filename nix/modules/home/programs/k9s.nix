@@ -21,14 +21,14 @@ in
       catppuccin-macchiato-transparent = "${catppuccin-k9s}/dist/catppuccin-macchiato-transparent.yaml";
     };
     aliases = {
-      dp =  "deployments";
-      sec =  "v1/secrets";
-      jo =  "jobs";
-      cr =  "clusterroles";
-      crb =  "clusterrolebindings";
-      ro =  "roles";
-      rb =  "rolebindings";
-      np =  "networkpolicies";
+      dp = "deployments";
+      sec = "v1/secrets";
+      jo = "jobs";
+      cr = "clusterroles";
+      crb = "clusterrolebindings";
+      ro = "roles";
+      rb = "rolebindings";
+      np = "networkpolicies";
     };
   };
 }

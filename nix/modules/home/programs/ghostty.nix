@@ -16,7 +16,11 @@
       clipboard-write = "allow";
       cursor-style = "bar";
       font-family = "GeistMono Nerd Font";
-      font-feature = [ "calt" "dlig" "liga" ];
+      font-feature = [
+        "calt"
+        "dlig"
+        "liga"
+      ];
       font-size = 12.5;
       font-style = "Regular";
       theme = "catppuccin-macchiato";

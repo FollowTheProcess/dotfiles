@@ -30,7 +30,6 @@
     findutils
     gcc
     ghostty-bin
-    git
     glow
     gnupg
     gnused

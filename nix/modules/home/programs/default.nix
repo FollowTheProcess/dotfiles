@@ -9,6 +9,7 @@
     ./fd.nix
     ./fzf.nix
     ./gh.nix
+    ./git.nix
     ./ghostty.nix
     ./go.nix
     ./gpg.nix
