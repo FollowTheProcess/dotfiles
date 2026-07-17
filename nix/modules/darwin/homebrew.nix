@@ -32,7 +32,6 @@
       "brainfm"
       "claude-code@latest"
       "docker-desktop"
-      "ghostty"
       "followtheprocess/tap/git-rekt"
       "followtheprocess/tap/gowc"
       "obsidian"
@@ -42,7 +41,6 @@
       "spotify"
       "followtheprocess/tap/tag"
       "followtheprocess/tap/txtract"
-      "yaak"
       "zed"
     ];
 

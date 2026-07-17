@@ -6,8 +6,10 @@
     ./carapace.nix
     ./direnv.nix
     ./eza.nix
+    ./fd.nix
     ./fzf.nix
     ./gh.nix
+    ./ghostty.nix
     ./go.nix
     ./gpg.nix
     ./granted.nix
@@ -23,7 +25,6 @@
     ./uv.nix
     ./zoxide.nix
     ./zsh.nix
-    ./fd.nix
   ];
 
   # Let home-manager manage itself, not worth it's own file

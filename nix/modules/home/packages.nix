@@ -7,8 +7,6 @@
       "rustc"
       "rustfmt"
     ])
-    fenix.rust-analyzer
-    inputs.zsh-patina.packages.${pkgs.stdenv.hostPlatform.system}.default
     _1password-cli
     actionlint
     awscli2
@@ -28,8 +26,10 @@
     entr
     eza
     fastfetch
+    fenix.rust-analyzer
     findutils
     gcc
+    ghostty-bin
     git
     glow
     gnupg
@@ -43,6 +43,7 @@
     hadolint
     hugo
     hyperfine
+    inputs.zsh-patina.packages.${pkgs.stdenv.hostPlatform.system}.default
     jankyborders
     jj
     jq
