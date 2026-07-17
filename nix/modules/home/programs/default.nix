@@ -8,12 +8,16 @@
     ./eza.nix
     ./fzf.nix
     ./gh.nix
+    ./go.nix
     ./gpg.nix
+    ./granted.nix
+    ./k9s.nix
     ./ssh.nix
     ./starship.nix
     ./zoxide.nix
     ./zsh.nix
   ];
 
+  # Let home-manager manage itself, not worth it's own file
   programs.home-manager.enable = true;
 }

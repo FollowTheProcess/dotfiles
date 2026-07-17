@@ -108,7 +108,6 @@
     };
 
     shellAliases = {
-      assume = "source ${pkgs.granted}/bin/assume";
       cat = "bat --paging=never";
       find = "gfind";
       make = "gmake";

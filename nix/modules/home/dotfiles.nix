@@ -12,7 +12,6 @@
     "git".source = dotfiles + "/.config/git";
     "glow".source = dotfiles + "/.config/glow";
     "jj".source = dotfiles + "/.config/jj";
-    "k9s".source = dotfiles + "/.config/k9s";
     "ls-colors".source = dotfiles + "/.config/ls-colors";
     "nushell".source = dotfiles + "/.config/nushell";
     "paneru".source = dotfiles + "/.config/paneru";

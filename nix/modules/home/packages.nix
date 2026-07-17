@@ -36,12 +36,10 @@
     gnupg
     gnused
     gnutar
-    go
     gofumpt
     golangci-lint
     golangci-lint-langserver
     gomodifytags
-    granted
     gum
     hadolint
     hugo
