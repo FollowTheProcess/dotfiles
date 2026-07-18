@@ -11,9 +11,6 @@ let
 in
 {
   programs.fastfetch.enable = true;
-  xdg.configFile = {
-    "fastfetch/config.jsonc".source = "${catppuccin-fastfetch}/themes/${flavor}/config.jsonc";
-    "fastfetch/logo/catppuccin_logo.png".source =
-      "${catppuccin-fastfetch}/assets/logo/catppuccin_logo.png";
-  };
+  xdg.configFile."fastfetch/config.jsonc".source =
+    "${catppuccin-fastfetch}/themes/${flavor}/config.jsonc";
 }
