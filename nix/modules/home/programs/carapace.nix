@@ -1,4 +1,6 @@
 { ... }: {
-  programs.carapace.enable = true;
-  programs.carapace.enableZshIntegration = true;
+  programs.carapace = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

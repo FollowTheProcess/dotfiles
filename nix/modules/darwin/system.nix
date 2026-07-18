@@ -23,11 +23,14 @@ in
 
   environment.pathsToLink = [ "/share/zsh" ];
 
-  fonts.packages = [
-    pkgs.geist-font
-    pkgs.nerd-fonts.geist-mono
-    pkgs.inter
-  ];
+  fonts = {
+    fontconfig.enable = true;
+    packages = [
+      pkgs.geist-font
+      pkgs.nerd-fonts.geist-mono
+      pkgs.inter
+    ];
+  };
 
   launchd.user.envVariables = {
     PATH = pkgs.lib.concatStringsSep ":" [

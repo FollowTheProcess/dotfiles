@@ -13,3 +13,5 @@
 - [ ] Move skills out of here into their own repo set up as a marketplace
 - [x] Try https://github.com/michel-kraemer/zsh-patina
 - [x] Manage awscli, ghostty, difftastic, fastfetch in programs
+- [ ] How to set up AWS CLI with granted credential helper
+- [ ] Learn how to make flakes for packages I want to distribute, also devShells etc.
