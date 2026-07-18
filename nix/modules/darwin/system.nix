@@ -10,10 +10,14 @@ in
   nix.gc = {
     automatic = true;
     interval = {
-      Day = 7;
+      Weekday = 0;
+      Hour = 3;
+      Minute = 0;
     };
     options = "--delete-older-than 30d";
   };
+
+  nix.optimise.automatic = true;
 
   environment.systemPackages = [
     pkgs.vim

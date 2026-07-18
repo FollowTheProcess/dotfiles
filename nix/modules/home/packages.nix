@@ -9,7 +9,6 @@
     ])
     _1password-cli
     actionlint
-    awscli2
     bash
     cargo-nextest
     cmake
