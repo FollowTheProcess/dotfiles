@@ -1,7 +1,7 @@
 { config, ... }: {
   programs.ghostty = {
     enable = true;
-    # The actual package is ghostty-bin (packages.nix)
+    # The actual package is ghostty-bin
     # see https://ghostty.org/docs/install/binary#nix-(macos-binary)
     #
     # This lets me manage ghostty's config with nix but not

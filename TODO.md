@@ -17,4 +17,5 @@
 - [ ] Learn how to make flakes for packages I want to distribute, also devShells etc.
 - [ ] Add devenv as a program
 - [ ] Look at sops nix for secrets (Github PAT, SSH keys, GPG etc.)
-- [ ] Proper multi-host architecture so I can manage my work laptop too
+- [x] Proper multi-host architecture so I can manage my work laptop too
+- [ ] Investigate how to make `nix flake update` also bump the catppuccin theme repos (if it's possible)

@@ -1,7 +1,30 @@
 # dotfiles
 
-My system setup for macOS, powered by [nix], [nix-darwin] and [home-manager] ❄️
+My personal system setup for macOS, powered by [nix], [nix-darwin] and [home-manager] ❄️
 
 ## Installation
 
-idk yet 🤷🏻‍♂️
+On a fresh mac:
+
+1. Install [nix] using the [Community Installer]:
+
+```bash
+curl -sSfL https://artifacts.nixos.org/nix-installer | sh -s -- install --enable-flakes
+```
+
+2. Get this repo:
+
+```bash
+git clone https://github.com/FollowTheProcess/dotfiles.git ~/dotfiles
+```
+
+3. Let nix do it's thing:
+
+```bash
+nix run nix-darwin -- switch --flake ~/dotfiles#onyx
+```
+
+[nix]: https://nixos.org
+[nix-darwin]: https://github.com/nix-darwin/nix-darwin#readme
+[home-manager]: https://nix-community.github.io/home-manager/
+[Community Installer]: https://github.com/NixOS/nix-installer

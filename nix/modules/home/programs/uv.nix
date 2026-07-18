@@ -17,9 +17,6 @@
     };
     tool = {
       packages = [
-        "aws-sam-cli"
-        "copier"
-        "httpie"
         "nox"
       ];
       prune = true;

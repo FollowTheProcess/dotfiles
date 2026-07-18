@@ -1,20 +1,12 @@
+# Common packages I want installed regardless of host
 { pkgs, inputs, ... }: {
   home.packages = with pkgs; [
-    (fenix.stable.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-    ])
     _1password-cli
-    actionlint
+    aws-sam-cli
     bash
-    cargo-nextest
-    cmake
+    betteralign
     container
-    cook-cli
-    cosign
+    copier
     curl
     defuddle
     delve
@@ -23,11 +15,9 @@
     dust
     entr
     eza
-    fenix.rust-analyzer
     findutils
     gcc
     ghostty-bin
-    glow
     gnupg
     gnused
     gnutar
@@ -35,23 +25,23 @@
     golangci-lint
     golangci-lint-langserver
     gomodifytags
+    goperf
+    gopls
+    gotools
+    govulncheck
     gum
     hadolint
-    hugo
+    httpie
     hyperfine
     inputs.zsh-patina.packages.${pkgs.stdenv.hostPlatform.system}.default
     jankyborders
-    just
-    kubectl
-    mdbook
     nil
+    nilaway
     nixd
     nurl
     pkgsite
     procs
-    ruby
     shellcheck
-    syft
     terraform
     terraform-docs
     terraform-ls
@@ -59,15 +49,11 @@
     tlrc
     tokei
     tombi
+    tparse
     trivy
     typos
-    usage
-    vhs
     yamlfmt
     yq
-    zig
-    zls
-    zsh
     zsh-completions
   ];
 }

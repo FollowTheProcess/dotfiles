@@ -13,6 +13,7 @@
     "zsh-patina".source = dotfiles + "/.config/zsh-patina";
   };
 
+  # TODO: Manage claude and all the settings, agents etc. in nix
   home.file = {
     ".claude/settings.json".source = dotfiles + "/.claude/settings.json";
     "AGENTS.md".source = dotfiles + "/AGENTS.md";

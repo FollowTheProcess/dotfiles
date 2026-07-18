@@ -16,4 +16,12 @@
       description = "GPG key ID for signing commits and tags";
     };
   };
+
+  options.my.go = {
+    private = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "Module path prefixes for GOPRIVATE.";
+    };
+  };
 }
