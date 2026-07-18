@@ -23,7 +23,6 @@
     dust
     entr
     eza
-    fastfetch
     fenix.rust-analyzer
     findutils
     gcc

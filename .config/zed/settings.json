@@ -194,6 +194,7 @@
     },
     "Nix": {
       "language_servers": ["nixd", "!nil"],
+      "semantic_tokens": "off",
     },
   },
   "linked_edits": true,
