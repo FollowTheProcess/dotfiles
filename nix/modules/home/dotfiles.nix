@@ -3,7 +3,6 @@
   home.preferXdgDirectories = true;
 
   xdg.configFile = {
-    "ls-colors".source = dotfiles + "/.config/ls-colors";
     "zed".source = dotfiles + "/.config/zed";
   };
 

@@ -26,10 +26,6 @@ zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 zstyle ':completion:*:warnings' format '%F{red}-- no matches --%f'
 zstyle ':completion:*:messages' format '%F{purple}-- %d --%f'
 
-# Colorise filename completions to match $LS_COLORS
-# shellcheck disable=SC2296 # zsh-only parameter expansion flag, not bash
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
 # Include dotfiles in completion matches by default
 _comp_options+=(globdots)
 
