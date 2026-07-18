@@ -138,6 +138,7 @@
     zsh-abbr = {
       enable = true;
       abbreviations = {
+        ff = "fastfetch";
         gs = "git switch";
         gsc = "git switch --create";
         gaa = "git add --all";
