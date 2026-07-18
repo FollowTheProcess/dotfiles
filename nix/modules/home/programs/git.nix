@@ -1,4 +1,5 @@
 {
+  config,
   dotfiles,
   lib,
   ...
@@ -11,7 +12,7 @@
 
     signing = {
       format = "openpgp";
-      key = "667642356C177BC0";
+      key = config.my.git.signingKey;
       signByDefault = true; # commit.gpgsign + tag.gpgsign
     };
 
@@ -21,8 +22,8 @@
 
     settings = {
       user = {
-        name = "Tom Fleet";
-        email = "me@followtheprocess.codes";
+        name = config.my.git.user;
+        email = config.my.git.email;
       };
 
       core = {

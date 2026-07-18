@@ -38,35 +38,62 @@
       paneru,
       ...
     }:
+    let
+      mkDarwin =
+        { host, settings }:
+        nix-darwin.lib.darwinSystem {
+          specialArgs = {
+            inherit
+              self
+              inputs
+              host
+              settings
+              ;
+          };
+          modules = [
+            ./nix/hosts/${host}/default.nix
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enable = true;
+                user = settings.username;
+                autoMigrate = true;
+              };
+            }
+            home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+                extraSpecialArgs = {
+                  inherit inputs settings;
+                  dotfiles = ./.;
+                };
+                users.${settings.username} = import ./nix/hosts/${host}/home.nix;
+                sharedModules = [
+                  paneru.homeModules.paneru
+                  ./nix/modules/home/options.nix
+                ];
+              };
+            }
+          ];
+        };
+    in
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
 
-      darwinConfigurations."onyx" = nix-darwin.lib.darwinSystem {
-        specialArgs = { inherit self inputs; };
-        modules = [
-          ./nix/hosts/onyx/default.nix
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              user = "tomfleet";
-              autoMigrate = true;
-            };
-          }
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              dotfiles = ./.;
-            };
-            home-manager.users.tomfleet = import ./nix/hosts/onyx/home.nix;
-            home-manager.sharedModules = [ paneru.homeModules.paneru ];
-          }
-        ];
+      # Personal Laptop
+      darwinConfigurations."onyx" = mkDarwin {
+        host = "onyx";
+        settings.username = "tomfleet";
       };
 
+      # Work
+      # TODO: Fill in the real host name in place of "work"
+      darwinConfigurations."work" = mkDarwin {
+        host = "work";
+        settings.username = "tomfleet";
+      };
     };
 }

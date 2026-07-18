@@ -9,9 +9,12 @@
 - [x] How can I do the `bootstrap.sh` tasks declaratively
 - [x] `.ssh` config with nix
 - [x] mise task to update `flake.lock`
-- [ ] Wire up `maintenance` to do flake update and rebuild
+- [ ] Wire up `maintenance` to do flake update and rebuild. Is this even needed actually?
 - [ ] Move skills out of here into their own repo set up as a marketplace
 - [x] Try https://github.com/michel-kraemer/zsh-patina
 - [x] Manage awscli, ghostty, difftastic, fastfetch in programs
-- [ ] How to set up AWS CLI with granted credential helper
+- [x] How to set up AWS CLI with granted credential helper
 - [ ] Learn how to make flakes for packages I want to distribute, also devShells etc.
+- [ ] Add devenv as a program
+- [ ] Look at sops nix for secrets (Github PAT, SSH keys, GPG etc.)
+- [ ] Proper multi-host architecture so I can manage my work laptop too

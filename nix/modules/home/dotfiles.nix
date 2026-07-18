@@ -1,9 +1,4 @@
-{
-  dotfiles,
-  lib,
-  ...
-}:
-{
+{ dotfiles, lib, ... }: {
   xdg.enable = true;
   home.preferXdgDirectories = true;
 

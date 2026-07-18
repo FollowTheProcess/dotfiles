@@ -15,6 +15,5 @@ in
     enableZshIntegration = true;
   };
 
-  xdg.configFile."kubecolor.yaml".source =
-    "${catppuccin-kubecolor}/catppuccin-macchiato.yaml";
+  xdg.configFile."kubecolor.yaml".source = "${catppuccin-kubecolor}/catppuccin-macchiato.yaml";
 }

@@ -1,17 +1,16 @@
-{ ... }:
-{
+{ config, ... }: {
   programs.jujutsu = {
     enable = true;
     settings = {
       user = {
-        name = "Tom Fleet";
-        email = "me@followtheprocess.codes";
+        name = config.my.git.user;
+        email = config.my.git.email;
       };
 
       signing = {
         backend = "gpg";
         behavior = "own";
-        key = "667642356C177BC0";
+        key = config.my.git.signingKey;
       };
 
       ui = {

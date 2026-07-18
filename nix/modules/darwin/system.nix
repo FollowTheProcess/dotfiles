@@ -28,9 +28,9 @@ in
   environment.pathsToLink = [ "/share/zsh" ];
 
   fonts.packages = [
-      pkgs.geist-font
-      pkgs.nerd-fonts.geist-mono
-      pkgs.inter
+    pkgs.geist-font
+    pkgs.nerd-fonts.geist-mono
+    pkgs.inter
   ];
 
   launchd.user.envVariables = {
