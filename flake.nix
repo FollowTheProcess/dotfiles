@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,6 +43,11 @@
       ...
     }:
     let
+      treefmtEval = inputs.treefmt-nix.lib.evalModule nixpkgs.legacyPackages.aarch64-darwin {
+        projectRootFile = "flake.nix";
+        programs.nixfmt.enable = true;
+      };
+
       mkDarwin =
         { host, settings }:
         nix-darwin.lib.darwinSystem {
@@ -81,7 +90,8 @@
         };
     in
     {
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
+      formatter.aarch64-darwin = treefmtEval.config.build.wrapper;
+      checks.aarch64-darwin.treefmt = treefmtEval.config.build.check self;
 
       # Personal Laptop
       darwinConfigurations."onyx" = mkDarwin {

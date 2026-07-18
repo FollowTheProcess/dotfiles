@@ -4,7 +4,7 @@ run = "nix fmt"
 
 [tasks.lint]
 description = "Check the nix flake"
-run = "nix flake check --no-build"
+run = "nix flake check"
 
 [tasks.update]
 description = "Update flake.lock"
