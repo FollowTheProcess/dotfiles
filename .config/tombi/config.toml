@@ -1,7 +1,0 @@
-[files]
-respect-ignore-files = true
-
-[format]
-[format.rules]
-key-value-equals-sign-alignment = false
-trailing-comment-alignment      = true

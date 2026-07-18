@@ -3,14 +3,8 @@
   home.preferXdgDirectories = true;
 
   xdg.configFile = {
-    "copier".source = dotfiles + "/.config/copier";
-    "glow".source = dotfiles + "/.config/glow";
     "ls-colors".source = dotfiles + "/.config/ls-colors";
-    "paneru".source = dotfiles + "/.config/paneru";
-    "tombi".source = dotfiles + "/.config/tombi";
-    "yamlfmt".source = dotfiles + "/.config/yamlfmt";
     "zed".source = dotfiles + "/.config/zed";
-    "zsh-patina".source = dotfiles + "/.config/zsh-patina";
   };
 
   # TODO: Manage claude and all the settings, agents etc. in nix

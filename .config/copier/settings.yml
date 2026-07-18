@@ -1,7 +1,0 @@
-defaults:
-  github_username: FollowTheProcess
-  author_name: Tom Fleet
-  author_email: me@followtheprocess.codes
-trust:
-  - https://github.com/FollowTheProcess/
-  - ~/Development
