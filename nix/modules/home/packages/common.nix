@@ -27,6 +27,7 @@
     gomodifytags
     goperf
     gopls
+    goreleaser
     gotools
     govulncheck
     gum
