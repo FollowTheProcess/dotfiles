@@ -216,11 +216,16 @@
         "code-simplifier@claude-plugins-official" = true;
         "claude-md-management@claude-plugins-official" = true;
         "obsidian@obsidian-skills" = true;
+        "skills@followtheprocess" = true;
       };
       extraKnownMarketplaces = {
         obsidian-skills.source = {
           source = "github";
           repo = "kepano/obsidian-skills";
+        };
+        followtheprocess.source = {
+          source = "github";
+          repo = "FollowTheProcess/skills";
         };
       };
     };
