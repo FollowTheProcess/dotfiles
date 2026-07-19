@@ -6,9 +6,11 @@
     ../../modules/darwin/macos-defaults.nix
   ];
 
-  networking.computerName = host;
-  networking.hostName = host;
-  networking.localHostName = host;
+  networking = {
+    computerName = host;
+    hostName = host;
+    localHostName = host;
+  };
 
   system.configurationRevision = self.rev or self.dirtyRev or null;
 }

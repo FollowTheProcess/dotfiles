@@ -22,6 +22,7 @@
 - [ ] Look at sops nix for secrets (Github PAT, SSH keys, GPG etc.)
 - [x] Proper multi-host architecture so I can manage my work laptop too
 - [ ] Investigate how to make `nix flake update` also bump the catppuccin theme repos (if it's possible)
+- [ ] See if this "dendritic" thing is worth it, maybe migrate
 
 ## Secrets
 

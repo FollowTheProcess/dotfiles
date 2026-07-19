@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   programs.ruff = {
     enable = true;
     settings = {

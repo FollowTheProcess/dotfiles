@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   programs.npm = {
     enable = true;
     settings = {

@@ -4,20 +4,26 @@ let
   home = "/Users/${user}";
 in
 {
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [ inputs.fenix.overlays.default ];
-
-  nix.gc = {
-    automatic = true;
-    interval = {
-      Weekday = 0;
-      Hour = 3;
-      Minute = 0;
-    };
-    options = "--delete-older-than 30d";
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [ inputs.fenix.overlays.default ];
+    hostPlatform = "aarch64-darwin";
   };
 
-  nix.optimise.automatic = true;
+  nix = {
+    gc = {
+      automatic = true;
+      interval = {
+        Weekday = 0;
+        Hour = 3;
+        Minute = 0;
+      };
+      options = "--delete-older-than 30d";
+    };
+
+    optimise.automatic = true;
+    settings.experimental-features = "nix-command flakes";
+  };
 
   environment.systemPackages = [
     pkgs.vim
@@ -58,24 +64,23 @@ in
     XDG_STATE_HOME = "${home}/.local/state";
   };
 
-  nix.settings.experimental-features = "nix-command flakes";
-
-  programs.zsh.enable = true;
-  programs.zsh.enableCompletion = false;
-  programs.zsh.interactiveShellInit = ''
-    typeset -U path PATH
-    path=(
-      /run/current-system/sw/bin
-      /etc/profiles/per-user/$USER/bin
-      $HOME/.nix-profile/bin
-      /nix/var/nix/profiles/default/bin
-      $path
-    )
-  '';
+  # System zsh, different to home-manager/user zsh in programs/zsh
+  programs.zsh = {
+    enable = true;
+    enableCompletion = false;
+    interactiveShellInit = ''
+      typeset -U path PATH
+      path=(
+        /run/current-system/sw/bin
+        /etc/profiles/per-user/$USER/bin
+        $HOME/.nix-profile/bin
+        /nix/var/nix/profiles/default/bin
+        $path
+      )
+    '';
+  };
 
   system.stateVersion = 6;
-
-  nixpkgs.hostPlatform = "aarch64-darwin";
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
@@ -83,6 +88,6 @@ in
 
   users.users."${user}" = {
     name = user;
-    home = home;
+    inherit home;
   };
 }
