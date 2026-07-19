@@ -28,19 +28,20 @@ _: {
     ];
 
     casks = [
-      "theboredteam/boring-notch/boring-notch"
+      "1password"
       "brainfm"
       "claude-code@latest"
       "docker-desktop"
       "followtheprocess/tap/git-rekt"
       "followtheprocess/tap/gowc"
+      "followtheprocess/tap/spok"
+      "followtheprocess/tap/tag"
+      "followtheprocess/tap/txtract"
       "obsidian"
       "raycast"
       "slack"
-      "followtheprocess/tap/spok"
       "spotify"
-      "followtheprocess/tap/tag"
-      "followtheprocess/tap/txtract"
+      "theboredteam/boring-notch/boring-notch"
       "zed"
     ];
 

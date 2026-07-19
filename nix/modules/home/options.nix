@@ -13,7 +13,25 @@
 
     signingKey = lib.mkOption {
       type = lib.types.str;
-      description = "GPG key ID for signing commits and tags";
+      description = "SSH public key used to sign commits and tags (op-ssh-sign matches it against the 1Password vault).";
+    };
+
+    signingKeyOverrides = lib.mkOption {
+      type = lib.types.attrsOf lib.types.str;
+      default = { };
+      description = "Per-forge signing overrides: git conditional-include condition -> SSH public key.";
+    };
+
+    allowedSigners = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "SSH public keys trusted to verify signatures";
+    };
+
+    allowedSignersFile = lib.mkOption {
+      type = lib.types.path;
+      internal = true;
+      description = "Generated allowed_signers file";
     };
   };
 

@@ -2,7 +2,6 @@
 { pkgs, inputs, ... }: {
   home.packages = with pkgs; [
     _1password-cli
-    age
     aws-sam-cli
     bash
     betteralign
@@ -19,7 +18,6 @@
     findutils
     gcc
     ghostty-bin
-    gnupg
     gnused
     gnutar
     gofumpt
@@ -45,7 +43,6 @@
     pkgsite
     procs
     shellcheck
-    sops
     statix
     terraform
     terraform-docs

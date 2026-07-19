@@ -1,4 +1,9 @@
-{ ... }: {
+_:
+let
+  githubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuOASBQpM3Ea8fX5chaztxYpbU4tqoN/pqwyjNdyWXo me@followtheprocess.codes";
+  tangledKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBh2ujFLCCALVuSvINR8t00EV/BneIypxLN+29yR8lo5 me@followtheprocess.codes";
+in
+{
   imports = [
     ../../modules/home/packages/common.nix
     ../../modules/home/packages/onyx.nix
@@ -11,6 +16,15 @@
 
   my.git = {
     email = "me@followtheprocess.codes";
-    signingKey = "667642356C177BC0";
+
+    # GitHub is the default, tangled remotes sign with its own key.
+    signingKey = githubKey;
+    signingKeyOverrides."hasconfig:remote.*.url:git@tangled.org:**" = tangledKey;
+
+    # Both keys trusted so signatures verify whichever forge signed.
+    allowedSigners = [
+      githubKey
+      tangledKey
+    ];
   };
 }

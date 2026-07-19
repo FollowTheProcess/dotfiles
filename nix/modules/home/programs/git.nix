@@ -2,19 +2,32 @@
   config,
   dotfiles,
   lib,
+  pkgs,
   ...
 }:
 {
+  my.git.allowedSignersFile = pkgs.writeText "allowed_signers" (
+    lib.concatMapStringsSep "\n" (key: "${config.my.git.email} ${key}") config.my.git.allowedSigners
+  );
+
   programs.git = {
     enable = true;
     maintenance.enable = true;
     lfs.enable = true;
 
     signing = {
-      format = "openpgp";
+      format = "ssh";
       key = config.my.git.signingKey;
-      signByDefault = true; # commit.gpgsign + tag.gpgsign
+      signByDefault = true;
+      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
     };
+
+    # Default signing key is GitHub; per-forge overrides (e.g. tangled) are set
+    # per host and matched on the remote URL. See my.git.signingKeyOverrides.
+    includes = lib.mapAttrsToList (condition: key: {
+      inherit condition;
+      contents.user.signingKey = key;
+    }) config.my.git.signingKeyOverrides;
 
     ignores = lib.splitString "\n" (builtins.readFile (dotfiles + "/.config/git/ignore"));
 
@@ -113,6 +126,8 @@
           plain = "blue";
         };
       };
+
+      gpg.ssh.allowedSignersFile = toString config.my.git.allowedSignersFile;
 
       # Rewrite ssh to https
       url = {

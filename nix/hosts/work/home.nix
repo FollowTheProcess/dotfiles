@@ -1,4 +1,9 @@
-{ ... }: {
+_:
+let
+  # TODO: Replace with the work GitLab signing public key (ssh-ed25519 AAAA...).
+  gitlabKey = "PLACEHOLDER";
+in
+{
   imports = [
     ../../modules/home/packages/common.nix
     ../../modules/home/packages/work.nix
@@ -12,8 +17,8 @@
 
   my.git = {
     email = "tfleet@newstore.com";
-    # TODO: Replace with actual work GPG key
-    signingKey = "PLACEHOLDER";
+    signingKey = gitlabKey;
+    allowedSigners = [ gitlabKey ];
   };
 
   my.go.private = [ "gitlab.com/newstore/*" ];

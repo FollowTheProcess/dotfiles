@@ -5,12 +5,11 @@
 
     settings = {
       "*" = {
-        AddKeysToAgent = "yes";
+        IdentityAgent = "${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
       };
       "tangled.org" = {
         HostName = "tangled.org";
         User = "git";
-        IdentityFile = "${config.home.homeDirectory}/.ssh/tangled";
         AddressFamily = "inet";
       };
     };

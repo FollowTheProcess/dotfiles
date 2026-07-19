@@ -7,10 +7,16 @@
         email = config.my.git.email;
       };
 
+      # TODO: No mechanism of conditionally signing tangled with it's key here
+      # should I just converge on a single signing key across forges?
       signing = {
-        backend = "gpg";
+        backend = "ssh";
         behavior = "own";
         key = config.my.git.signingKey;
+        backends.ssh = {
+          program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+          "allowed-signers" = toString config.my.git.allowedSignersFile;
+        };
       };
 
       ui = {
