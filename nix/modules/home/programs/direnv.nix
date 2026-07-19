@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
@@ -9,7 +9,7 @@
         load_dotenv = true; # Allow .env as well as .envrc
         strict_env = true;
       };
-      whitelist.prefix = [ "~/Development" ]; # Trust anything under here
+      whitelist.prefix = [ "${config.home.homeDirectory}/Development" ]; # Trust anything under here
     };
   };
 }

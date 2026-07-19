@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   yamlFormat = pkgs.formats.yaml { };
 in
@@ -12,7 +12,7 @@ in
     };
     trust = [
       "https://github.com/FollowTheProcess/"
-      "~/Development"
+      "${config.home.homeDirectory}/Development"
     ];
   };
 }

@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
@@ -10,7 +10,7 @@
       "tangled.org" = {
         HostName = "tangled.org";
         User = "git";
-        IdentityFile = "~/.ssh/tangled";
+        IdentityFile = "${config.home.homeDirectory}/.ssh/tangled";
         AddressFamily = "inet";
       };
     };

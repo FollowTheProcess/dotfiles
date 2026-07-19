@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -38,19 +39,19 @@ in
           command = "tv '{}'";
           mode = "execute";
         };
-        preview.command = "bat -n --color=always ~/.config/television/cable/'{}'.toml";
+        preview.command = "bat -n --color=always ${config.home.homeDirecory}/.config/television/cable/'{}'.toml";
       };
 
       dev = {
         metadata = {
           name = "dev";
-          description = "Find git repositories under ~/Development";
+          description = "Find git repositories under ${config.home.homeDirecory}/Development";
           requirements = [
             "fd"
             "bat"
           ];
         };
-        source.command = "fd -H -t d -g '.git' ~/Development -x echo {//}";
+        source.command = "fd -H -t d -g '.git' ${config.home.homeDirecory}/Development -x echo {//}";
         preview.command = "sh -c 'bat -n --color=always \"{}/README.md\" 2>/dev/null || ls -la \"{}\"'";
         keybindings.enter = "actions:open";
         actions.open = {
@@ -83,7 +84,7 @@ in
             "bat"
           ];
         };
-        source.command = "sh -c 'fd -t f . ~/Downloads 2>/dev/null | head -200'";
+        source.command = "sh -c 'fd -t f . ${config.home.homeDirecory}/Downloads 2>/dev/null | head -200'";
         preview = {
           command = "sh -c 'bat -n --color=always \"{}\" 2>/dev/null || file \"{}\"'";
           env.BAT_THEME = "ansi";
