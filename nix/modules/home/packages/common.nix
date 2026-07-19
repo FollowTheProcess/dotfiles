@@ -2,6 +2,7 @@
 { pkgs, inputs, ... }: {
   home.packages = with pkgs; [
     _1password-cli
+    age
     aws-sam-cli
     bash
     betteralign
@@ -36,6 +37,7 @@
     hyperfine
     inputs.zsh-patina.packages.${pkgs.stdenv.hostPlatform.system}.default
     jankyborders
+    manix
     nil
     nilaway
     nixd
@@ -43,6 +45,7 @@
     pkgsite
     procs
     shellcheck
+    statix
     terraform
     terraform-docs
     terraform-ls
