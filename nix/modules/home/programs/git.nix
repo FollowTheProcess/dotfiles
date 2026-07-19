@@ -22,13 +22,6 @@
       signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
     };
 
-    # Default signing key is GitHub; per-forge overrides (e.g. tangled) are set
-    # per host and matched on the remote URL. See my.git.signingKeyOverrides.
-    includes = lib.mapAttrsToList (condition: key: {
-      inherit condition;
-      contents.user.signingKey = key;
-    }) config.my.git.signingKeyOverrides;
-
     ignores = lib.splitString "\n" (builtins.readFile (dotfiles + "/.config/git/ignore"));
 
     attributes = [ "* text=auto" ];

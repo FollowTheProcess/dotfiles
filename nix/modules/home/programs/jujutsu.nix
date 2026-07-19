@@ -7,8 +7,6 @@
         email = config.my.git.email;
       };
 
-      # TODO: No mechanism of conditionally signing tangled with it's key here
-      # should I just converge on a single signing key across forges?
       signing = {
         backend = "ssh";
         behavior = "own";

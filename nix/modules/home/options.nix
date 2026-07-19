@@ -16,12 +16,6 @@
       description = "SSH public key used to sign commits and tags (op-ssh-sign matches it against the 1Password vault).";
     };
 
-    signingKeyOverrides = lib.mkOption {
-      type = lib.types.attrsOf lib.types.str;
-      default = { };
-      description = "Per-forge signing overrides: git conditional-include condition -> SSH public key.";
-    };
-
     allowedSigners = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [ ];

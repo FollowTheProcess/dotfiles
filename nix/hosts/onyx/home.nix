@@ -1,7 +1,8 @@
 _:
 let
-  githubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuOASBQpM3Ea8fX5chaztxYpbU4tqoN/pqwyjNdyWXo me@followtheprocess.codes";
-  tangledKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBh2ujFLCCALVuSvINR8t00EV/BneIypxLN+29yR8lo5 me@followtheprocess.codes";
+  # One key signs every forge; registered on both GitHub and tangled so
+  # mirrored commits verify on each.
+  sshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuOASBQpM3Ea8fX5chaztxYpbU4tqoN/pqwyjNdyWXo me@followtheprocess.codes";
 in
 {
   imports = [
@@ -16,15 +17,7 @@ in
 
   my.git = {
     email = "me@followtheprocess.codes";
-
-    # GitHub is the default, tangled remotes sign with its own key.
-    signingKey = githubKey;
-    signingKeyOverrides."hasconfig:remote.*.url:git@tangled.org:**" = tangledKey;
-
-    # Both keys trusted so signatures verify whichever forge signed.
-    allowedSigners = [
-      githubKey
-      tangledKey
-    ];
+    signingKey = sshKey;
+    allowedSigners = [ sshKey ];
   };
 }
