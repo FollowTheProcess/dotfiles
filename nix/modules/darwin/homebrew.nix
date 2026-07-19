@@ -30,7 +30,6 @@ _: {
     casks = [
       "1password"
       "brainfm"
-      "claude-code@latest"
       "docker-desktop"
       "followtheprocess/tap/git-rekt"
       "followtheprocess/tap/gowc"
