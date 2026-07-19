@@ -74,6 +74,14 @@
           bundle_id = "com.apple.systempreferences";
           floating = true;
         };
+
+        # The Touch ID / SSH auth prompt gets tiled and can slide off-screen,
+        # float 1Password so the popup stays centred and reachable.
+        onepassword = {
+          title = ".*";
+          bundle_id = "com.1password.1password";
+          floating = true;
+        };
       };
     };
   };
