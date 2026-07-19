@@ -1,2 +1,2 @@
 # `mkcd <dir>` - mkdir -p the path then cd into it. Handy for new project folders.
-mkdir -p -- "$1" && cd -P -- "$1" || return
+mkdir -p -- "$1" && builtin cd -P -- "$1" || return
