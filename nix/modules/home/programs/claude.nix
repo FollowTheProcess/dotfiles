@@ -111,10 +111,7 @@
           "Grep"
           "Glob"
           "Read"
-          "Skill(go)"
-          "Skill(python)"
-          "Skill(terraform)"
-          "Skill(tests)"
+          "Skill(followtheprocess:*)"
           "Skill(superpowers:*)"
           "Skill(code-review:*)"
           "Skill(obsidian:*)"
@@ -216,14 +213,14 @@
         "code-simplifier@claude-plugins-official" = true;
         "claude-md-management@claude-plugins-official" = true;
         "obsidian@obsidian-skills" = true;
-        "skills@followtheprocess" = true;
+        "followtheprocess@skills" = true;
       };
       extraKnownMarketplaces = {
         obsidian-skills.source = {
           source = "github";
           repo = "kepano/obsidian-skills";
         };
-        followtheprocess.source = {
+        skills.source = {
           source = "github";
           repo = "FollowTheProcess/skills";
         };
