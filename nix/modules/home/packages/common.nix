@@ -45,6 +45,7 @@
     pkgsite
     procs
     shellcheck
+    sops
     statix
     terraform
     terraform-docs
