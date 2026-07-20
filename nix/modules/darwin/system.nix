@@ -23,6 +23,21 @@ in
 
     optimise.automatic = true;
     settings.experimental-features = "nix-command flakes";
+
+    # A manually created permissionless GitHub access token,
+    # here purely to avoid rate limits. I could nixify this
+    # with sops-nix or something but for one token that's not
+    # always needed so is probably not worth it
+    #
+    # The token needs to be readable by both me and root:
+    #
+    # sudo install -m 600 -o tomfleet -g staff /dev/null /etc/nix/access-tokens.conf
+    # tee /etc/nix/access-tokens.conf <<'EOF'
+    # access-tokens = github.com=XXXX
+    # EOF
+    extraOptions = ''
+      !include /etc/nix/access-tokens.conf
+    '';
   };
 
   environment.systemPackages = [
