@@ -204,7 +204,7 @@
           "Read(**/id_ecdsa)"
           "Read(**/id_dsa)"
         ];
-        additionalDirectories = [ "/Users/tomfleet/Development" ];
+        additionalDirectories = [ "${config.home.homeDirectory}/Development" ];
         disableBypassPermissionsMode = "disable";
       };
       enabledPlugins = {
