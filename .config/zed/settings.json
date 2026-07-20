@@ -205,9 +205,15 @@
       },
     },
     "golangci-lint": {
+      "binary": {
+        "path": "/etc/profiles/per-user/tomfleet/bin/golangci-lint-langserver",
+        "env": {
+          "PATH": "/etc/profiles/per-user/tomfleet/bin:/run/current-system/sw/bin:/Users/tomfleet/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/bin:/bin",
+        },
+      },
       "initialization_options": {
         "command": [
-          "golangci-lint",
+          "/etc/profiles/per-user/tomfleet/bin/golangci-lint",
           "run",
           "--output.json.path=stdout",
           "--show-stats=false",
@@ -215,6 +221,12 @@
       },
     },
     "gopls": {
+      "binary": {
+        "path": "/etc/profiles/per-user/tomfleet/bin/gopls",
+        "env": {
+          "PATH": "/etc/profiles/per-user/tomfleet/bin:/run/current-system/sw/bin:/Users/tomfleet/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/bin:/bin",
+        },
+      },
       "initialization_options": {
         "formatting.gofumpt": true,
         "formatting.newGoFileHeader": true,

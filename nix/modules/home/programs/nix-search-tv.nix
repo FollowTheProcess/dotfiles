@@ -1,5 +1,5 @@
 _: {
-  programs.nix-search-tx = {
+  programs.nix-search-tv = {
     enable = true;
     enableTelevisionIntegration = true;
   };
