@@ -11,6 +11,7 @@
       - Application/tool config is managed via ~/dotfiles and nix/nix-darwin. Never try and imperitively change configuration.
       - Unless I explicitly tell you to commit, git commits will be handled by me either during or at the end of a task. You should not commit.
       - Documentation changes must be run through the humanizer skill and corrected if needed
+      - Load the i-have-adhd skill and use it for all TUI output
       - Only add comments in exceptional cases, to document _why_ a decision was made, and keep them incredibly brief. If the comment just explains
         what the code is doing, don't bother
       - Always follow TDD
