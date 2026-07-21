@@ -8,7 +8,7 @@ in
   imports = [
     ../../modules/home/packages/common.nix
     ../../modules/home/packages/onyx.nix
-    ../../modules/home/dotfiles.nix
+    ../../modules/home/xdg.nix
     ../../modules/home/programs
     ../../modules/home/services.nix
   ];

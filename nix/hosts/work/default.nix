@@ -3,7 +3,8 @@
   imports = [
     ../../modules/darwin/system.nix
     ../../modules/darwin/homebrew.nix
-    ../../modules/darwin/macos-defaults.nix
+    ../../modules/darwin/macos.nix
+    ../../modules/darwin/zed-cli.nix
   ];
 
   networking = {

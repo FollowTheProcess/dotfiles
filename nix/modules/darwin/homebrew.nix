@@ -41,7 +41,6 @@ _: {
       "slack"
       "spotify"
       "theboredteam/boring-notch/boring-notch"
-      "zed"
     ];
 
     masApps = { };

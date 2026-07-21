@@ -58,7 +58,7 @@ in
         "/Applications/Obsidian.app"
         "/Applications/Things3.app"
         "${homeDir}/Applications/Home Manager Apps/Ghostty.app"
-        "/Applications/Zed.app"
+        "${homeDir}/Applications/Home Manager Apps/Zed.app"
         "/System/Applications/System Settings.app"
       ];
 

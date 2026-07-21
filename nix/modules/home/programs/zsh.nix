@@ -89,8 +89,6 @@
     ];
 
     sessionVariables = {
-      EDITOR = "zed --wait";
-      VISUAL = "zed --wait";
       GRANTED_ALIAS_CONFIGURED = "true";
       MANPAGER = "sh -c 'col -bx | bat -l man -p'";
       MANROFFOPT = "-c";
@@ -120,6 +118,7 @@
       ps = "procs";
       xargs = "gxargs";
       tar = "gtar";
+      zed = "zeditor"; # nix/modules/home/programs/zed.nix installs zed as "zeditor"
     };
 
     plugins = [

@@ -1,5 +1,4 @@
 {
-  dotfiles,
   config,
   lib,
   ...
@@ -12,9 +11,4 @@
       mkdir -p ${config.home.homeDirectory}/Development
     '';
   };
-
-  xdg.configFile = {
-    "zed".source = dotfiles + "/.config/zed";
-  };
-
 }

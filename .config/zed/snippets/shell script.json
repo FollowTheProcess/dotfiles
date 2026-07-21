@@ -1,7 +1,0 @@
-{
-  "shebang": {
-    "prefix": "shebang",
-    "description": "Inserts a shebang line",
-    "body": ["#!/usr/bin/env bash\n\n$0"],
-  },
-}

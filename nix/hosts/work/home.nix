@@ -7,7 +7,7 @@ in
   imports = [
     ../../modules/home/packages/common.nix
     ../../modules/home/packages/work.nix
-    ../../modules/home/dotfiles.nix
+    ../../modules/home/xdg.nix
     ../../modules/home/programs
     ../../modules/home/programs/work
     ../../modules/home/services.nix
