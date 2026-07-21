@@ -53,6 +53,7 @@
       includeCoAuthoredBy = false;
       skipWorkflowUsageWarning = true;
       skipAutoPermissionPrompt = true;
+      disableClaudeAiConnectors = true;
       permissions = {
         allow = [
           "Bash(* --version)"
