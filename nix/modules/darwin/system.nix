@@ -88,13 +88,15 @@ in
     enableCompletion = false;
     interactiveShellInit = ''
       typeset -U path PATH
-      path=(
-        /run/current-system/sw/bin
-        /etc/profiles/per-user/$USER/bin
-        $HOME/.nix-profile/bin
-        /nix/var/nix/profiles/default/bin
-        $path
-      )
+      if [[ -z "$IN_NIX_SHELL" ]]; then
+        path=(
+          /run/current-system/sw/bin
+          /etc/profiles/per-user/${user}/bin
+          ${home}/.nix-profile/bin
+          /nix/var/nix/profiles/default/bin
+          $path
+        )
+      fi
     '';
   };
 
