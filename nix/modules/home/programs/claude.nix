@@ -115,6 +115,8 @@
           "Skill(superpowers:*)"
           "Skill(code-review:*)"
           "Skill(obsidian:*)"
+          "Skill(i-have-adhd:*)"
+          "Skill(humanizer:*)"
           "Skill(simplify)"
           "Skill(fewer-permission-prompts)"
           "Skill(review)"
@@ -211,9 +213,10 @@
         "superpowers@claude-plugins-official" = true;
         "code-review@claude-plugins-official" = true;
         "code-simplifier@claude-plugins-official" = true;
-        "claude-md-management@claude-plugins-official" = true;
         "obsidian@obsidian-skills" = true;
         "followtheprocess@skills" = true;
+        "i-have-adhd@i-have-adhd" = true;
+        "humanizer@humanizer" = true;
       };
       extraKnownMarketplaces = {
         obsidian-skills.source = {
@@ -223,6 +226,14 @@
         skills.source = {
           source = "github";
           repo = "FollowTheProcess/skills";
+        };
+        i-have-adhd.source = {
+          source = "github";
+          repo = "ayghri/i-have-adhd";
+        };
+        humanizer.source = {
+          source = "github";
+          repo = "blader/humanizer";
         };
       };
     };
