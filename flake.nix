@@ -76,7 +76,7 @@
                 useUserPackages = true;
                 backupFileExtension = "backup";
                 extraSpecialArgs = {
-                  inherit inputs settings;
+                  inherit inputs settings host;
                   dotfiles = ./.;
                 };
                 users.${settings.username} = import ./nix/hosts/${host}/home.nix;
