@@ -2,7 +2,8 @@
 {
   imports = [
     ../../modules/darwin/system.nix
-    ../../modules/darwin/homebrew.nix
+    ../../modules/darwin/homebrew/common.nix
+    ../../modules/darwin/homebrew/onyx.nix
     ../../modules/darwin/macos.nix
     ../../modules/darwin/zed-cli.nix
   ];

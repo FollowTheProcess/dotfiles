@@ -7,4 +7,4 @@
 - [ ] Learn how to make flakes for packages I want to distribute, also devShells etc.
 - [ ] Investigate how to make `nix flake update` also bump the catppuccin theme repos (if it's possible)
 - [ ] See if this "dendritic" thing is worth it, maybe migrate
-- [ ] Port my Zed directory into nix so we can resolve binary paths properly, bored of playing PATH games
+- [x] Port my Zed directory into nix so we can resolve binary paths properly, bored of playing PATH games

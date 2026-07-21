@@ -7,26 +7,17 @@ _: {
       upgrade = true;
       cleanup = "zap";
     };
-
-    taps =
-      map
-        (name: {
-          inherit name;
-          trusted = true;
-        })
-        [
-          "charmbracelet/tap"
-          "followtheprocess/tap"
-          "nao1215/tap"
-          "taiki-e/tap"
-          "theboredteam/boring-notch"
-        ];
-
-    brews = [
-      "charmbracelet/tap/freeze"
-      "nao1215/tap/gup"
+    # TODO: When I have flakes for my personal projects I can drop my tap
+    taps = [
+      {
+        name = "followtheprocess/tap";
+        trusted = true;
+      }
+      {
+        name = "theboredteam/boring-notch";
+        trusted = true;
+      }
     ];
-
     casks = [
       "1password"
       "brainfm"
@@ -42,7 +33,5 @@ _: {
       "spotify"
       "theboredteam/boring-notch/boring-notch"
     ];
-
-    masApps = { };
   };
 }
