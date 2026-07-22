@@ -1,19 +1,12 @@
 {
   config,
   lib,
+  inputs,
   pkgs,
   host,
   ...
 }:
 let
-  catppuccin-zed = pkgs.fetchFromGitHub {
-    # to update: nurl https://github.com/catppuccin/zed
-    owner = "catppuccin";
-    repo = "zed";
-    rev = "b54cb81708d06912d50e6bb9fd2fd2103b9dda25";
-    hash = "sha256-+SO9W98LQbG6Oz5YStzdgYpVgT77pGZHaTsH3HhZr60=";
-  };
-
   # Zed has no $LINE_COMMENT placeholder, so generate a per-language TODO snippet
   lineComment = {
     go = "//";
@@ -93,7 +86,7 @@ in
       yamlfmt
     ];
     themes = {
-      "catppuccin-no-italics-mauve" = "${catppuccin-zed}/themes/catppuccin-no-italics-mauve.json";
+      "catppuccin-no-italics-mauve" = "${inputs.catppuccin-zed}/themes/catppuccin-no-italics-mauve.json";
     };
     userKeymaps = [
       {

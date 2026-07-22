@@ -1,13 +1,4 @@
-{ pkgs, ... }:
-let
-  # to update: nurl https://github.com/catppuccin/btop
-  catppuccin-btop = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "btop";
-    rev = "f437574b600f1c6d932627050b15ff5153b58fa3";
-    hash = "sha256-mEGZwScVPWGu+Vbtddc/sJ+mNdD2kKienGZVUcTSl+c=";
-  };
-in
+{ inputs, ... }:
 {
   programs.btop = {
     enable = true;
@@ -16,7 +7,7 @@ in
       theme_background = false;
     };
     themes = {
-      catppuccin_macchiato = builtins.readFile "${catppuccin-btop}/themes/catppuccin_macchiato.theme";
+      catppuccin_macchiato = builtins.readFile "${inputs.catppuccin-btop}/themes/catppuccin_macchiato.theme";
     };
   };
 }

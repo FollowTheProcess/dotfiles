@@ -1,13 +1,4 @@
-{ pkgs, ... }:
-let
-  # to update: nurl https://github.com/catppuccin/k9s
-  catppuccin-k9s = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "k9s";
-    rev = "fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4";
-    hash = "sha256-9h+jyEO4w0OnzeEKQXJbg9dvvWGZYQAO4MbgDn6QRzM=";
-  };
-in
+{ inputs, ... }:
 {
   programs.k9s = {
     enable = true;
@@ -18,7 +9,7 @@ in
       };
     };
     skins = {
-      catppuccin-macchiato-transparent = "${catppuccin-k9s}/dist/catppuccin-macchiato-transparent.yaml";
+      catppuccin-macchiato-transparent = "${inputs.catppuccin-k9s}/dist/catppuccin-macchiato-transparent.yaml";
     };
     aliases = {
       dp = "deployments";

@@ -17,6 +17,166 @@
         "type": "github"
       }
     },
+    "catppuccin-bat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751237777,
+        "narHash": "sha256-lJapSgRVENTrbmpVyn+UQabC9fpV1G1e+CdlJ090uvg=",
+        "owner": "catppuccin",
+        "repo": "bat",
+        "rev": "6810349b28055dce54076712fc05fc68da4b8ec0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "bat",
+        "type": "github"
+      }
+    },
+    "catppuccin-btop": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727050041,
+        "narHash": "sha256-mEGZwScVPWGu+Vbtddc/sJ+mNdD2kKienGZVUcTSl+c=",
+        "owner": "catppuccin",
+        "repo": "btop",
+        "rev": "f437574b600f1c6d932627050b15ff5153b58fa3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "btop",
+        "type": "github"
+      }
+    },
+    "catppuccin-eza": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756880706,
+        "narHash": "sha256-Q+C07IReQQBO5xYuFiFbS1wjmO4gdt/wIJWHNwIizSc=",
+        "owner": "catppuccin",
+        "repo": "eza",
+        "rev": "70f805f6cc27fa5b91750b75afb4296a0ec7fec9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "eza",
+        "type": "github"
+      }
+    },
+    "catppuccin-fastfetch": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1749438177,
+        "narHash": "sha256-XS9sS4k1VGh5NHuRBxrrme+Bi42nomA7sp+EhrVlBmY=",
+        "owner": "Nukecraft5419",
+        "repo": "fastfetch",
+        "rev": "0e014dd34461c741a12778ce68e29cd184ff3be6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Nukecraft5419",
+        "repo": "fastfetch",
+        "type": "github"
+      }
+    },
+    "catppuccin-glamour": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746223316,
+        "narHash": "sha256-SI/COnVFdKltMRqeqLTbR/Rh0xUJcWSqiX/YlR221eo=",
+        "owner": "catppuccin",
+        "repo": "glamour",
+        "rev": "00c97fa3823d272d9d041d5d872ae6335555a776",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "glamour",
+        "type": "github"
+      }
+    },
+    "catppuccin-k9s": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721498876,
+        "narHash": "sha256-9h+jyEO4w0OnzeEKQXJbg9dvvWGZYQAO4MbgDn6QRzM=",
+        "owner": "catppuccin",
+        "repo": "k9s",
+        "rev": "fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "k9s",
+        "type": "github"
+      }
+    },
+    "catppuccin-kubecolor": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716584037,
+        "narHash": "sha256-gTneUh6yMcH6dVKrH00G61a+apasu9tiMyYjvNdOiOw=",
+        "owner": "vkhitrin",
+        "repo": "kubecolor-catppuccin",
+        "rev": "1d4c2888f7de077e1a837a914a1824873d16762d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vkhitrin",
+        "repo": "kubecolor-catppuccin",
+        "type": "github"
+      }
+    },
+    "catppuccin-starship": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754058577,
+        "narHash": "sha256-FLHjbClpTqaK4n2qmepCPkb8rocaAo3qeV4Zp1hia0g=",
+        "owner": "catppuccin",
+        "repo": "starship",
+        "rev": "5906cc369dd8207e063c0e6e2d27bd0c0b567cb8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "starship",
+        "type": "github"
+      }
+    },
+    "catppuccin-television": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754277557,
+        "narHash": "sha256-83C03FX2vb5UHq5sbad8XLoF/2EfX0NC+fUA0Xi60fw=",
+        "owner": "catppuccin",
+        "repo": "television",
+        "rev": "4d9cfc97b0a5a6a2854c9e5f6f8fdae6a9343232",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "television",
+        "type": "github"
+      }
+    },
+    "catppuccin-zed": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769189300,
+        "narHash": "sha256-+SO9W98LQbG6Oz5YStzdgYpVgT77pGZHaTsH3HhZr60=",
+        "owner": "catppuccin",
+        "repo": "zed",
+        "rev": "b54cb81708d06912d50e6bb9fd2fd2103b9dda25",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "zed",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -25,11 +185,11 @@
         "rust-analyzer-src": "rust-analyzer-src"
       },
       "locked": {
-        "lastModified": 1784622960,
-        "narHash": "sha256-j/1L7vq6oNZVz/snuOxneFHUzde12ArP8wCMpLRkujw=",
+        "lastModified": 1784709340,
+        "narHash": "sha256-qsmQMPL+qInjXfdjX0RquObSKcs5h/4D63IWH9j4+Ro=",
         "owner": "nix-community",
         "repo": "fenix",
-        "rev": "c9b21541e30ed4453dfa026820b57eefe17d7f25",
+        "rev": "fa09e6473a0dfd673e6cb9a37741aec513b4bb2a",
         "type": "github"
       },
       "original": {
@@ -63,11 +223,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784690067,
-        "narHash": "sha256-t86pRs7IPs3RTMPueWvvdcxyTFrctHAv2Jl7jnjsSf8=",
+        "lastModified": 1784725727,
+        "narHash": "sha256-J5+C9wsO0lhDyUalQzfplDbRjyHDYeEH5+9sdyXtwa8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6d8d61567802997f9ec3086b2a837e3ef31fac16",
+        "rev": "041a999e8c1c5b731913855909e68d30ca69b8e0",
         "type": "github"
       },
       "original": {
@@ -208,6 +368,16 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-bat": "catppuccin-bat",
+        "catppuccin-btop": "catppuccin-btop",
+        "catppuccin-eza": "catppuccin-eza",
+        "catppuccin-fastfetch": "catppuccin-fastfetch",
+        "catppuccin-glamour": "catppuccin-glamour",
+        "catppuccin-k9s": "catppuccin-k9s",
+        "catppuccin-kubecolor": "catppuccin-kubecolor",
+        "catppuccin-starship": "catppuccin-starship",
+        "catppuccin-television": "catppuccin-television",
+        "catppuccin-zed": "catppuccin-zed",
         "fenix": "fenix",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
@@ -221,11 +391,11 @@
     "rust-analyzer-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1784568416,
-        "narHash": "sha256-edHcabLC6XRa5wG1UgUwcdIk8669SUD06JZYtplDdgE=",
+        "lastModified": 1784667699,
+        "narHash": "sha256-853teJQOgTTKRfNxcIJ53ziJOGNeg3c74PvQl5l61Jc=",
         "owner": "rust-lang",
         "repo": "rust-analyzer",
-        "rev": "0069617d8971879f47679f559fd6a103f029ce9e",
+        "rev": "1174734d9c6453d13d2b5e3d578512c579ca37f1",
         "type": "github"
       },
       "original": {
@@ -262,11 +432,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784390509,
-        "narHash": "sha256-ME9JvEG30k4BO9fw3rbo/f6dzDfhkD8crN/qDk1NH/E=",
+        "lastModified": 1784731649,
+        "narHash": "sha256-RHikS+8bsCJnJfEr8BbgNzxjANI08cH/Ib4hx4NqDVU=",
         "owner": "michel-kraemer",
         "repo": "zsh-patina",
-        "rev": "96eb9dc30bf3657f7f70e46ea4be3c120c6a1a1c",
+        "rev": "bda9d1e3573166494efcfcfb75e119e442f2fcd1",
         "type": "github"
       },
       "original": {

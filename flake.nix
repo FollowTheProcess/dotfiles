@@ -2,9 +2,52 @@
   description = "My macOS system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
+    catppuccin-bat = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
+    catppuccin-btop = {
+      url = "github:catppuccin/btop";
+      flake = false;
+    };
+    catppuccin-eza = {
+      url = "github:catppuccin/eza";
+      flake = false;
+    };
+    catppuccin-fastfetch = {
+      url = "github:Nukecraft5419/fastfetch";
+      flake = false;
+    };
+    catppuccin-glamour = {
+      url = "github:catppuccin/glamour";
+      flake = false;
+    };
+    catppuccin-k9s = {
+      url = "github:catppuccin/k9s";
+      flake = false;
+    };
+    catppuccin-kubecolor = {
+      url = "github:vkhitrin/kubecolor-catppuccin";
+      flake = false;
+    };
+    catppuccin-starship = {
+      url = "github:catppuccin/starship";
+      flake = false;
+    };
+    catppuccin-television = {
+      url = "github:catppuccin/television";
+      flake = false;
+    };
+    catppuccin-zed = {
+      url = "github:catppuccin/zed";
+      flake = false;
+    };
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
@@ -14,16 +57,13 @@
     nix-homebrew = {
       url = "github:zhaofengli/nix-homebrew";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     paneru = {
       url = "github:karinushka/paneru";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fenix = {
-      url = "github:nix-community/fenix";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zsh-patina = {
@@ -45,7 +85,11 @@
     let
       treefmtEval = inputs.treefmt-nix.lib.evalModule nixpkgs.legacyPackages.aarch64-darwin {
         projectRootFile = "flake.nix";
-        programs.nixfmt.enable = true;
+        programs = {
+          nixfmt.enable = true;
+          statix.enable = true;
+          deadnix.enable = true;
+        };
       };
 
       mkDarwin =

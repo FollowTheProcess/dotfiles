@@ -1,17 +1,8 @@
 {
   config,
-  pkgs,
+  inputs,
   ...
 }:
-let
-  # to update: nurl https://github.com/catppuccin/television
-  catppuccin-television = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "television";
-    rev = "4d9cfc97b0a5a6a2854c9e5f6f8fdae6a9343232";
-    hash = "sha256-83C03FX2vb5UHq5sbad8XLoF/2EfX0NC+fUA0Xi60fw=";
-  };
-in
 {
   programs.television = {
     enable = true;
@@ -19,11 +10,11 @@ in
 
     settings = {
       default_channel = "dev";
-      ui.theme = "catppuccin-macchiato.toml";
+      ui.theme = "catppuccin-macchiato-mauve.toml";
     };
 
-    themes.catppuccin-macchiato = builtins.readFile (
-      catppuccin-television + "/themes/catppuccin-macchiato-mauve.toml"
+    themes.catppuccin-macchiato-mauve = builtins.readFile (
+      inputs.catppuccin-television + "/themes/catppuccin-macchiato-mauve.toml"
     );
 
     channels = {
