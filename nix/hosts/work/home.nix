@@ -11,6 +11,7 @@ in
     ../../modules/home/programs
     ../../modules/home/programs/work
     ../../modules/home/services.nix
+    ../../modules/home/catppuccin.nix
   ];
 
   home.stateVersion = "26.11";

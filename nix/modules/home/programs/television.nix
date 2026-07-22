@@ -1,8 +1,4 @@
-{
-  config,
-  inputs,
-  ...
-}:
+{ config, ... }:
 {
   programs.television = {
     enable = true;
@@ -10,12 +6,7 @@
 
     settings = {
       default_channel = "dev";
-      ui.theme = "catppuccin-macchiato-mauve.toml";
     };
-
-    themes.catppuccin-macchiato-mauve = builtins.readFile (
-      inputs.catppuccin-television + "/themes/catppuccin-macchiato-mauve.toml"
-    );
 
     channels = {
       channels = {

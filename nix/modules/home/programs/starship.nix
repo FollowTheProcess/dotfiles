@@ -1,15 +1,8 @@
-{ inputs, ... }:
-let
-  # themes/macchiato.toml is just the [palettes.catppuccin_macchiato] table
-  macchiato = fromTOML (builtins.readFile "${inputs.catppuccin-starship}/themes/macchiato.toml");
-in
-{
+_: {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
     settings = {
-      palette = "catppuccin_macchiato";
-
       username.disabled = true;
 
       directory = {
@@ -152,9 +145,6 @@ in
           '
         '';
       };
-
-      # palette table pulled from catppuccin/starship
-      inherit (macchiato) palettes;
     };
   };
 }

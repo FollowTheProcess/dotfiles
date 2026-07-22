@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   pkgs,
   host,
   ...
@@ -35,12 +34,14 @@ in
     lang: token: lib.nameValuePair "zed/snippets/${lang}.json" { text = todoSnippet token; }
   ) lineComment;
 
+  catppuccin.zed = {
+    icons.enable = true;
+  };
+
   programs.zed-editor = {
     enable = true;
     defaultEditor = true;
     extensions = [
-      "catppuccin"
-      "catppuccin-icons"
       "comment"
       "cooklang"
       "dockerfile"
@@ -85,9 +86,6 @@ in
       uv
       yamlfmt
     ];
-    themes = {
-      "catppuccin-no-italics-mauve" = "${inputs.catppuccin-zed}/themes/catppuccin-no-italics-mauve.json";
-    };
     userKeymaps = [
       {
         context = "Workspace || Editor";
@@ -304,7 +302,6 @@ in
           enabled = true;
         };
       };
-      icon_theme = "Catppuccin Macchiato";
       inlay_hints = {
         enabled = false;
       };
@@ -545,7 +542,6 @@ in
           breadcrumbs = false;
         };
       };
-      theme = "Catppuccin Macchiato - No Italics";
       title_bar = {
         show_branch_status_icon = true;
       };

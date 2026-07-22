@@ -1,4 +1,4 @@
-{ config, inputs, ... }: {
+{ config, ... }: {
   programs.ghostty = {
     enable = true;
     # The actual package is ghostty-bin
@@ -23,7 +23,6 @@
       ];
       font-size = 12.5;
       font-style = "Regular";
-      theme = "${inputs.catppuccin-ghostty}/themes/catppuccin-macchiato.conf";
       macos-titlebar-style = "tabs";
       quit-after-last-window-closed = true;
       shell-integration-features = true;

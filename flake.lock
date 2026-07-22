@@ -17,51 +17,23 @@
         "type": "github"
       }
     },
-    "catppuccin-bat": {
-      "flake": false,
+    "catppuccin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1751237777,
-        "narHash": "sha256-lJapSgRVENTrbmpVyn+UQabC9fpV1G1e+CdlJ090uvg=",
+        "lastModified": 1784366307,
+        "narHash": "sha256-VKatYOZwLQ+MuNkWH6/gZYxrNeSK1Mqb7mC0H1WSu+M=",
         "owner": "catppuccin",
-        "repo": "bat",
-        "rev": "6810349b28055dce54076712fc05fc68da4b8ec0",
+        "repo": "nix",
+        "rev": "673f730d0fc8db3468c51575f1d3d777cc55e51f",
         "type": "github"
       },
       "original": {
         "owner": "catppuccin",
-        "repo": "bat",
-        "type": "github"
-      }
-    },
-    "catppuccin-btop": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1727050041,
-        "narHash": "sha256-mEGZwScVPWGu+Vbtddc/sJ+mNdD2kKienGZVUcTSl+c=",
-        "owner": "catppuccin",
-        "repo": "btop",
-        "rev": "f437574b600f1c6d932627050b15ff5153b58fa3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "btop",
-        "type": "github"
-      }
-    },
-    "catppuccin-eza": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1756880706,
-        "narHash": "sha256-Q+C07IReQQBO5xYuFiFbS1wjmO4gdt/wIJWHNwIizSc=",
-        "owner": "catppuccin",
-        "repo": "eza",
-        "rev": "70f805f6cc27fa5b91750b75afb4296a0ec7fec9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "eza",
+        "repo": "nix",
         "type": "github"
       }
     },
@@ -81,54 +53,6 @@
         "type": "github"
       }
     },
-    "catppuccin-ghostty": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1767812061,
-        "narHash": "sha256-Y6RFften1/6+1xdhIzEh/E7FBJTwY5a8NH4301HbgOM=",
-        "owner": "catppuccin",
-        "repo": "ghostty",
-        "rev": "5a58926563ddacbde4a12b4a347464c2c6945393",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "ghostty",
-        "type": "github"
-      }
-    },
-    "catppuccin-glamour": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1746223316,
-        "narHash": "sha256-SI/COnVFdKltMRqeqLTbR/Rh0xUJcWSqiX/YlR221eo=",
-        "owner": "catppuccin",
-        "repo": "glamour",
-        "rev": "00c97fa3823d272d9d041d5d872ae6335555a776",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "glamour",
-        "type": "github"
-      }
-    },
-    "catppuccin-k9s": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1721498876,
-        "narHash": "sha256-9h+jyEO4w0OnzeEKQXJbg9dvvWGZYQAO4MbgDn6QRzM=",
-        "owner": "catppuccin",
-        "repo": "k9s",
-        "rev": "fdbec82284744a1fc2eb3e2d24cb92ef87ffb8b4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "k9s",
-        "type": "github"
-      }
-    },
     "catppuccin-kubecolor": {
       "flake": false,
       "locked": {
@@ -142,54 +66,6 @@
       "original": {
         "owner": "vkhitrin",
         "repo": "kubecolor-catppuccin",
-        "type": "github"
-      }
-    },
-    "catppuccin-starship": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1754058577,
-        "narHash": "sha256-FLHjbClpTqaK4n2qmepCPkb8rocaAo3qeV4Zp1hia0g=",
-        "owner": "catppuccin",
-        "repo": "starship",
-        "rev": "5906cc369dd8207e063c0e6e2d27bd0c0b567cb8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "starship",
-        "type": "github"
-      }
-    },
-    "catppuccin-television": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1754277557,
-        "narHash": "sha256-83C03FX2vb5UHq5sbad8XLoF/2EfX0NC+fUA0Xi60fw=",
-        "owner": "catppuccin",
-        "repo": "television",
-        "rev": "4d9cfc97b0a5a6a2854c9e5f6f8fdae6a9343232",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "television",
-        "type": "github"
-      }
-    },
-    "catppuccin-zed": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1769189300,
-        "narHash": "sha256-+SO9W98LQbG6Oz5YStzdgYpVgT77pGZHaTsH3HhZr60=",
-        "owner": "catppuccin",
-        "repo": "zed",
-        "rev": "b54cb81708d06912d50e6bb9fd2fd2103b9dda25",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "zed",
         "type": "github"
       }
     },
@@ -331,17 +207,14 @@
     "nixpkgs": {
       "locked": {
         "lastModified": 1784555310,
-        "narHash": "sha256-/FCliTPgiuV1owejZFNx3Ch9irdvkOfOFl+HHZ+DrtM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
+        "narHash": "sha256-x8Suc10wDlysPVmLWoyifgL7p2wDoQbqRXU5r+qiTgo=",
         "rev": "421eebfd0ec7bccd4abe826ce62d7e6e83129493",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1038038.421eebfd0ec7/nixexprs.tar.xz"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz"
       }
     },
     "nixpkgs-lib": {
@@ -384,17 +257,9 @@
     },
     "root": {
       "inputs": {
-        "catppuccin-bat": "catppuccin-bat",
-        "catppuccin-btop": "catppuccin-btop",
-        "catppuccin-eza": "catppuccin-eza",
+        "catppuccin": "catppuccin",
         "catppuccin-fastfetch": "catppuccin-fastfetch",
-        "catppuccin-ghostty": "catppuccin-ghostty",
-        "catppuccin-glamour": "catppuccin-glamour",
-        "catppuccin-k9s": "catppuccin-k9s",
         "catppuccin-kubecolor": "catppuccin-kubecolor",
-        "catppuccin-starship": "catppuccin-starship",
-        "catppuccin-television": "catppuccin-television",
-        "catppuccin-zed": "catppuccin-zed",
         "fenix": "fenix",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",

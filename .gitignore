@@ -69,3 +69,4 @@ Temporary Items
 .claude/*
 !.claude/skills/
 !.claude/settings.json
+result/

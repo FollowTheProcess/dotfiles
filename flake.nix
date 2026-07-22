@@ -2,48 +2,16 @@
   description = "My macOS system flake";
 
   inputs = {
-    catppuccin-bat = {
-      url = "github:catppuccin/bat";
-      flake = false;
-    };
-    catppuccin-btop = {
-      url = "github:catppuccin/btop";
-      flake = false;
-    };
-    catppuccin-eza = {
-      url = "github:catppuccin/eza";
-      flake = false;
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin-fastfetch = {
       url = "github:Nukecraft5419/fastfetch";
       flake = false;
     };
-    catppuccin-ghostty = {
-      url = "github:catppuccin/ghostty";
-      flake = false;
-    };
-    catppuccin-glamour = {
-      url = "github:catppuccin/glamour";
-      flake = false;
-    };
-    catppuccin-k9s = {
-      url = "github:catppuccin/k9s";
-      flake = false;
-    };
     catppuccin-kubecolor = {
       url = "github:vkhitrin/kubecolor-catppuccin";
-      flake = false;
-    };
-    catppuccin-starship = {
-      url = "github:catppuccin/starship";
-      flake = false;
-    };
-    catppuccin-television = {
-      url = "github:catppuccin/television";
-      flake = false;
-    };
-    catppuccin-zed = {
-      url = "github:catppuccin/zed";
       flake = false;
     };
     fenix = {
@@ -61,7 +29,7 @@
     nix-homebrew = {
       url = "github:zhaofengli/nix-homebrew";
     };
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     paneru = {
       url = "github:karinushka/paneru";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -84,6 +52,7 @@
       nix-homebrew,
       home-manager,
       paneru,
+      catppuccin,
       ...
     }:
     let
@@ -130,6 +99,7 @@
                 users.${settings.username} = import ./nix/hosts/${host}/home.nix;
                 sharedModules = [
                   paneru.homeModules.paneru
+                  catppuccin.homeModules.catppuccin
                   ./nix/modules/home/options.nix
                 ];
               };
