@@ -372,10 +372,6 @@ in
       linked_edits = true;
       lsp = {
         nixd = {
-          # TODO: Once https://github.com/raycast/extensions/pull/29611 lands we shouldn't need to hardcode the path
-          binary = {
-            path = "/etc/profiles/per-user/tomfleet/bin/nixd";
-          };
           settings = {
             nixpkgs = {
               expr = ''import (builtins.getFlake "${config.home.homeDirectory}/dotfiles").inputs.nixpkgs { }'';

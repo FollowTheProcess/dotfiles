@@ -1,5 +1,18 @@
 _: {
-  homebrew.casks = [
-    # Work only casks go here
-  ];
+  homebrew = {
+    taps = [
+      {
+        name = "score-spec/tap";
+        trusted = true;
+      }
+    ];
+    brews = [
+      "mockery"
+      "score-k8s"
+    ];
+    casks = [
+      "helium-browser"
+      "tuple"
+    ];
+  };
 }

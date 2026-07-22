@@ -18,6 +18,10 @@
       url = "github:Nukecraft5419/fastfetch";
       flake = false;
     };
+    catppuccin-ghostty = {
+      url = "github:catppuccin/ghostty";
+      flake = false;
+    };
     catppuccin-glamour = {
       url = "github:catppuccin/glamour";
       flake = false;

@@ -81,6 +81,22 @@
         "type": "github"
       }
     },
+    "catppuccin-ghostty": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767812061,
+        "narHash": "sha256-Y6RFften1/6+1xdhIzEh/E7FBJTwY5a8NH4301HbgOM=",
+        "owner": "catppuccin",
+        "repo": "ghostty",
+        "rev": "5a58926563ddacbde4a12b4a347464c2c6945393",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "ghostty",
+        "type": "github"
+      }
+    },
     "catppuccin-glamour": {
       "flake": false,
       "locked": {
@@ -372,6 +388,7 @@
         "catppuccin-btop": "catppuccin-btop",
         "catppuccin-eza": "catppuccin-eza",
         "catppuccin-fastfetch": "catppuccin-fastfetch",
+        "catppuccin-ghostty": "catppuccin-ghostty",
         "catppuccin-glamour": "catppuccin-glamour",
         "catppuccin-k9s": "catppuccin-k9s",
         "catppuccin-kubecolor": "catppuccin-kubecolor",

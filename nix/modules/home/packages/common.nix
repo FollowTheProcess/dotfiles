@@ -43,6 +43,7 @@
     pkgsite
     procs
     shellcheck
+    shfmt
     statix
     terraform
     terraform-docs
@@ -52,7 +53,6 @@
     tokei
     tombi
     tparse
-    trivy
     typos
     yamlfmt
     yq
