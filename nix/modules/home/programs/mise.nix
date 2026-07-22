@@ -1,7 +1,7 @@
 { config, ... }: {
   programs.mise = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = false; # Messes with PATH in `nix develop` shells
     globalConfig = {
       settings = {
         color_theme = "catppuccin";
