@@ -35,6 +35,9 @@
         window_fullwidth = "ctrl + alt - '";
         window_manage = "ctrl + alt - ;";
 
+        window_balance = "ctrl + alt - b";
+        window_snap = "ctrl + alt - \\";
+
         window_nextdisplay = "cmd + ctrl + alt - ]";
 
         quit = "ctrl + alt - q";
