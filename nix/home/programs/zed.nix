@@ -184,7 +184,8 @@
           auto_signature_help = true;
           autosave = "on_focus_change";
           base_keymap = "VSCode";
-          buffer_font_family = "GeistMono Nerd Font";
+          buffer_font_family = "Geist Mono";
+          buffer_font_fallbacks = [ "GeistMono Nerd Font" ];
           buffer_font_size = 12.5;
           buffer_line_height = "comfortable";
           colorize_brackets = false;
