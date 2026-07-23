@@ -9,7 +9,7 @@
       ];
       brews = [
         "mockery"
-        "score-k8s"
+        "score-spec/tap/score-k8s"
       ];
       casks = [
         "helium-browser"
