@@ -6,5 +6,5 @@
 - [ ] For all my homebrew tap clis, can I have a flake for each and install that way?
 - [x] Learn how to make flakes for packages I want to distribute, also devShells etc.
 - [x] Investigate how to make `nix flake update` also bump the catppuccin theme repos (if it's possible)
-- [ ] See if this "dendritic" thing is worth it, maybe migrate
+- [x] See if this "dendritic" thing is worth it, maybe migrate (https://github.com/Doc-Steve/dendritic-design-with-flake-parts)
 - [x] Port my Zed directory into nix so we can resolve binary paths properly, bored of playing PATH games

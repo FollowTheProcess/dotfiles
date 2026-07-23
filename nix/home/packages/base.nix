@@ -1,0 +1,60 @@
+# Common packages I want installed regardless of host
+{ inputs, ... }: {
+  flake.modules.homeManager.base = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      _1password-cli
+      aws-sam-cli
+      bash
+      betteralign
+      copier
+      curl
+      defuddle
+      delve
+      docker-language-server
+      doggo
+      dust
+      entr
+      eza
+      findutils
+      gcc
+      gnused
+      gnutar
+      gofumpt
+      golangci-lint
+      golangci-lint-langserver
+      gomodifytags
+      goperf
+      gopls
+      goreleaser
+      gotools
+      govulncheck
+      gum
+      hadolint
+      httpie
+      hyperfine
+      inputs.zsh-patina.packages.${pkgs.stdenv.hostPlatform.system}.default
+      manix
+      nil
+      nilaway
+      nixd
+      nurl
+      pkgsite
+      procs
+      shellcheck
+      shfmt
+      statix
+      terraform
+      terraform-docs
+      terraform-ls
+      tflint
+      tlrc
+      tokei
+      tombi
+      tparse
+      typos
+      yamlfmt
+      yq
+      zsh-completions
+    ];
+  };
+}
