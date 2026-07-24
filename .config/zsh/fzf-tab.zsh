@@ -16,6 +16,8 @@ zstyle ':fzf-tab:*' switch-group '<' '>'
 # requiring a fresh Tab press.
 zstyle ':fzf-tab:*' continuous-trigger 'tab'
 
+zstyle ':fzf-tab:*' query-string prefix
+
 # Use tmux popup if inside tmux, else inline fzf. The popup feels much nicer.
 zstyle ':fzf-tab:*' fzf-command fzf
 
@@ -27,12 +29,15 @@ zstyle ':fzf-tab:*' fzf-flags --preview-window=noinfo
 
 # Preview pane: bat for files, eza tree for directories.
 zstyle ':fzf-tab:complete:*:*' fzf-preview '
-    if [[ -d $realpath ]]; then
-        eza --tree --color=always --icons=auto --level=2 -- $realpath 2>/dev/null | head -200
-    elif [[ -f $realpath ]]; then
-        bat --paging=never --color=always --style=numbers --line-range=:200 -- $realpath 2>/dev/null
+    local target=${realpath:-$word}
+    target=${target/#\~/$HOME}
+    target=${target%% }
+    if [[ -d $target ]]; then
+        eza --tree --color=always --icons=auto --level=2 -- $target 2>/dev/null | head -200
+    elif [[ -f $target ]]; then
+        bat --paging=never --color=always --style=numbers --line-range=:200 -- $target 2>/dev/null
     else
-        echo $realpath
+        echo "$target"
     fi'
 
 # Environment variables: show the value.
