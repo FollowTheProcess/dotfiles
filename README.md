@@ -9,7 +9,7 @@ On a fresh mac:
 1. Install [nix] using the [Community Installer]:
 
 ```bash
-curl -sSfL https://artifacts.nixos.org/nix-installer | sh -s -- install --enable-flakes
+curl -sSfL https://artifacts.nixos.org/nix-installer | sh -s -- install --enable-flakes --logger pretty
 ```
 
 2. Get this repo:
