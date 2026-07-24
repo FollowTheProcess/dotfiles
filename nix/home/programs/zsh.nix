@@ -48,7 +48,7 @@
 
         # Some extra .zshrc stuff that doesn't nicely go in here
         initContent = lib.mkMerge [
-          (builtins.readFile (inputs.self + "/.config/zsh/.zshrc"))
+          (builtins.readFile (inputs.self + "/.config/zsh/interactive.zsh"))
           (builtins.readFile (inputs.self + "/.config/zsh/fzf-tab.zsh"))
         ];
 

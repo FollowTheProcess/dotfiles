@@ -1,5 +1,5 @@
 # Interactive shell config sourced by home-manager as programs.zsh.initContent.
-# Most zsh config now lives in nix (nix/modules/home/programs/zsh.nix):
+# Most zsh config now lives in nix (nix/home/programs/zsh.nix):
 
 # https://github.com/michel-kraemer/zsh-patina
 eval "$(zsh-patina activate)"
@@ -22,17 +22,9 @@ zstyle ':completion:*' matcher-list \
 
 # Group matches by type and label each group so completions are easier to scan
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*:descriptions' format '-- %d --'
 zstyle ':completion:*:warnings' format '%F{red}-- no matches --%f'
 zstyle ':completion:*:messages' format '%F{purple}-- %d --%f'
-
-# Include dotfiles in completion matches by default
-_comp_options+=(globdots)
-
-# Richer process completion for `kill` (PID + user + command, colorised PIDs)
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=01;34=0=01'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,user,comm -w'
-zstyle ':completion:*:kill:*' force-list always
 
 # Cache slow completions (eg. apt, brew search) to disk
 zstyle ':completion:*' use-cache yes
