@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.base = _: {
+  flake.modules.homeManager.base = {
     programs.fzf = {
       enable = true;
 
@@ -25,6 +25,9 @@
         "--layout=reverse"
         "--border=rounded"
         "--info=inline"
+        # Override the catppuccin theme's solid bg with the terminal default,
+        # so fzf inherits the terminal's transparency.
+        "--color=bg:-1,bg+:-1"
       ];
     };
   };

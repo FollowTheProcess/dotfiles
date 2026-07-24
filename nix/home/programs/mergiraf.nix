@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.base = _: {
+  flake.modules.homeManager.base = {
     programs.mergiraf = {
       enable = true;
       enableGitIntegration = true;

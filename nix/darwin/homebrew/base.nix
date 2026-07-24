@@ -19,6 +19,7 @@
           trusted = true;
         }
       ];
+      # TODO: Try masApps again
       casks = [
         "1password"
         "brainfm"
@@ -33,6 +34,7 @@
         "slack"
         "spotify"
         "theboredteam/boring-notch/boring-notch"
+        "logi-options+"
       ];
     };
   };

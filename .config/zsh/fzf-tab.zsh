@@ -5,6 +5,10 @@
 # default `menu select` active causes a brief flicker on Tab.
 zstyle ':completion:*' menu no
 
+# home-manager sources `fzf --zsh` after the fzf-tab plugin, and fzf's
+# integration rebinds Tab to its own `fzf-completion`. Reclaim Tab for fzf-tab.
+enable-fzf-tab
+
 # Switch between completion groups with `<` and `>` (eg. files vs branches).
 zstyle ':fzf-tab:*' switch-group '<' '>'
 

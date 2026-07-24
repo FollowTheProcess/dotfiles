@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake.modules.homeManager.base =
-    _:
+
     let
       flavor = "Catppuccin-Macchiato";
     in

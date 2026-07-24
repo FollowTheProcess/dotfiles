@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.base = _: {
+  flake.modules.homeManager.base = {
     # There is no official Catppuccin port for jq, so this is a best effort
     programs.jq = {
       enable = true;

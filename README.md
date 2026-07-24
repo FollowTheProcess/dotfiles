@@ -6,13 +6,19 @@ My personal system setup for macOS, powered by [nix], [nix-darwin] and [home-man
 
 On a fresh mac:
 
-1. Install [nix] using the [Community Installer]:
+1. Install git (on a _fresh_ mac it won't exist)
+
+```bash
+xcode-select --install
+```
+
+2. Install [nix] using the [Community Installer]:
 
 ```bash
 curl -sSfL https://artifacts.nixos.org/nix-installer | sh -s -- install --enable-flakes --logger pretty
 ```
 
-2. Get this repo:
+3. Get this repo:
 
 ```bash
 git clone https://github.com/FollowTheProcess/dotfiles.git ~/dotfiles
@@ -28,6 +34,11 @@ nix run nix-darwin -- switch --flake ~/dotfiles#onyx
 > The setup is entirely self-contained, but can sometimes run into GitHub rate limits (fresh builds after a `nix flake update` for example). In which
 > case, a simple, permission-less GitHub Personal Access Token should be provisioned in `/etc/nix/access-tokens.conf`:
 > `access-tokens = github.com=TOKEN_HERE`. It doesn't break anything if it's not present, just gets around rate limits if they happen
+
+## Follow Ups
+
+- App store apps aren't declared in here, the brew/mas integration just seems a bit flaky
+- Set up the SSH agent in 1Password (Settings > Developer > Use SSH Agent)
 
 [nix]: https://nixos.org
 [nix-darwin]: https://github.com/nix-darwin/nix-darwin#readme
