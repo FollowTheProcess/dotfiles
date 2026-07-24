@@ -4,18 +4,20 @@ let
   sshKey = "PLACEHOLDER";
 in
 {
-  flake.darwinConfigurations.work = inputs.nix-darwin.lib.darwinSystem {
-    modules = [ inputs.self.modules.darwin.work ];
-  };
+  flake.darwinConfigurations =
+    let
+      system = inputs.nix-darwin.lib.darwinSystem {
+        modules = [ inputs.self.modules.darwin.work ];
+      };
+    in
+    {
+      work = system;
+      # TODO: replace with `scutil --get LocalHostName` so bare `darwin-rebuild --flake .` resolves
+      JAMF_HOSTNAME_PLACEHOLDER = system;
+    };
 
   flake.modules.darwin.work = {
     imports = [ inputs.self.modules.darwin.base ];
-
-    networking = {
-      computerName = "work";
-      hostName = "work";
-      localHostName = "work";
-    };
 
     system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 
