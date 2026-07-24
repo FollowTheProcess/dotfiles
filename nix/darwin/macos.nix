@@ -18,7 +18,7 @@
           _HIHideMenuBar = false;
 
           KeyRepeat = 1;
-          InitialKeyRepeat = 10;
+          InitialKeyRepeat = 8;
           ApplePressAndHoldEnabled = false;
           AppleKeyboardUIMode = 3;
 
