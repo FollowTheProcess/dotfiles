@@ -8,3 +8,4 @@
 - [x] Investigate how to make `nix flake update` also bump the catppuccin theme repos (if it's possible)
 - [x] See if this "dendritic" thing is worth it, maybe migrate (https://github.com/Doc-Steve/dendritic-design-with-flake-parts)
 - [x] Port my Zed directory into nix so we can resolve binary paths properly, bored of playing PATH games
+- [ ] Refactor to be more "feature" based e.g. instead of packages/programs installing kubectl, k9s, stern etc. Have a "kubernetes" feature that enables all of them
