@@ -1,5 +1,5 @@
 # Common packages I want installed regardless of host
-{ inputs, ... }: {
+_: {
   flake.modules.homeManager.base = { pkgs, ... }: {
     home.packages = with pkgs; [
       _1password-cli
@@ -32,7 +32,7 @@
       hadolint
       httpie
       hyperfine
-      inputs.zsh-patina.packages.${pkgs.stdenv.hostPlatform.system}.default
+      zsh-patina
       manix
       nil
       nilaway
