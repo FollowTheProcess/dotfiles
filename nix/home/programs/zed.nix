@@ -364,7 +364,7 @@
             "Nix" = {
               language_servers = [
                 "nixd"
-                "!nil"
+                "nil"
               ];
               semantic_tokens = "off";
             };
