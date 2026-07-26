@@ -1,6 +1,6 @@
 {
   flake.modules.darwin.base =
-    { config, ... }:
+    { config, pkgs, ... }:
     let
       homeDir = config.users.users.${config.system.primaryUser}.home;
     in
@@ -60,7 +60,7 @@
             "/Applications/Obsidian.app"
             "/Applications/Things3.app"
             "${homeDir}/Applications/Home Manager Apps/Ghostty.app"
-            "${homeDir}/Applications/Home Manager Apps/Zed.app"
+            "${pkgs.zed-editor}/Applications/Zed.app"
             "/System/Applications/System Settings.app"
           ];
 
