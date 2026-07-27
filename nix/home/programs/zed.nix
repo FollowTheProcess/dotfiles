@@ -36,6 +36,7 @@
 
       catppuccin.zed = {
         icons.enable = true;
+        italics = false;
       };
 
       programs.zed-editor = {
