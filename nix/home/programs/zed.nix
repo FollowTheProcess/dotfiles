@@ -1,10 +1,8 @@
 {
   flake.modules.homeManager.base =
     {
-      config,
       lib,
       pkgs,
-      osConfig,
       ...
     }:
     let
@@ -371,21 +369,6 @@
           };
           linked_edits = true;
           lsp = {
-            nixd = {
-              settings = {
-                nixpkgs = {
-                  expr = ''import (builtins.getFlake "${config.home.homeDirectory}/dotfiles").inputs.nixpkgs { }'';
-                };
-                options = {
-                  nix-darwin = {
-                    expr = ''(builtins.getFlake "${config.home.homeDirectory}/dotfiles").darwinConfigurations.${osConfig.networking.hostName}.options'';
-                  };
-                  home-manager = {
-                    expr = ''(builtins.getFlake "${config.home.homeDirectory}/dotfiles").darwinConfigurations.${osConfig.networking.hostName}.options.home-manager.users.type.getSubOptions [ ]'';
-                  };
-                };
-              };
-            };
             golangci-lint = {
               initialization_options = {
                 command = [

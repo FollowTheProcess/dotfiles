@@ -109,17 +109,12 @@
 
         shellAliases = {
           cat = "bat --paging=never";
-          find = "gfind";
-          make = "gmake";
-          sed = "gsed";
           ls = "eza --icons=auto --group-directories-first";
           ll = "eza --icons=auto --group-directories-first --long --git";
           la = "eza --icons=auto --group-directories-first --long --git --all";
           tree = "eza --tree --icons=auto";
           du = "dust";
           ps = "procs";
-          xargs = "gxargs";
-          tar = "gtar";
           zed = "zeditor"; # nix/modules/home/programs/zed.nix installs zed as "zeditor"
         };
 

@@ -28,7 +28,13 @@
         nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
         optimise.automatic = true;
-        settings.experimental-features = "nix-command flakes";
+        settings = {
+          experimental-features = "nix-command flakes";
+          max-jobs = "auto";
+          # Always attempt to find binary caches for derivations
+          # can help speed up builds
+          always-allow-substitutes = true;
+        };
 
         # A manually created permissionless GitHub access token,
         # here purely to avoid rate limits. I could nixify this
