@@ -1,7 +1,6 @@
 { inputs, ... }:
 let
-  # TODO: Fill in the real work public key and hostname
-  sshKey = "PLACEHOLDER";
+  sshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF4lQztcBMPRZQ2t7Oa8Cg/u2yYbeBkc0IkUB2CzUURy tfleet@newstore.com";
 in
 {
   flake.darwinConfigurations =
@@ -11,9 +10,10 @@ in
       };
     in
     {
+      # Point the literal "work" at this config, but also the
+      # silly random host name
       work = system;
-      # TODO: replace with `scutil --get LocalHostName` so bare `darwin-rebuild --flake .` resolves
-      JAMF_HOSTNAME_PLACEHOLDER = system;
+      J631G9XYWT = system;
     };
 
   flake.modules.darwin.work = {

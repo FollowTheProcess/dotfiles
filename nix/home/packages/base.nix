@@ -32,7 +32,7 @@ _: {
       hadolint
       httpie
       hyperfine
-      zsh-patina
+      lefthook
       manix
       nil
       nilaway
@@ -55,6 +55,7 @@ _: {
       yamlfmt
       yq
       zsh-completions
+      zsh-patina
     ];
   };
 }
