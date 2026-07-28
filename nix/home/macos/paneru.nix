@@ -19,7 +19,7 @@
             1.00
           ];
           window_resize_cycle = false;
-          auto_center = false;
+          auto_center = true;
           reap_empty_workspaces = true;
         };
 
