@@ -7,6 +7,7 @@
       bruno-cli
       fluxcd
       glab
+      gotestsum
       k6
       kubectl
       kubectx
