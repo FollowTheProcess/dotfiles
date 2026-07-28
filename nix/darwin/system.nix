@@ -34,6 +34,10 @@
           # Always attempt to find binary caches for derivations
           # can help speed up builds
           always-allow-substitutes = true;
+          trusted-users = [
+            "root"
+            user
+          ];
         };
 
         # A manually created permissionless GitHub access token,

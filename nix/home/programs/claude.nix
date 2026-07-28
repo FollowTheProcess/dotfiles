@@ -51,6 +51,9 @@
         theme = "dark-ansi";
         tui = "fullscreen";
         includeCoAuthoredBy = false;
+        env = {
+          ENABLE_LSP_TOOL = "1";
+        };
         skipWorkflowUsageWarning = true;
         skipAutoPermissionPrompt = true;
         disableClaudeAiConnectors = true;
