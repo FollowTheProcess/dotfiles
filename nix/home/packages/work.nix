@@ -7,6 +7,7 @@
       bruno-cli
       fluxcd
       glab
+      go-mockery_2
       gotestsum
       k6
       kubectl

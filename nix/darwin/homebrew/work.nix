@@ -8,7 +8,6 @@
         }
       ];
       brews = [
-        "mockery"
         "score-spec/tap/score-k8s"
       ];
       casks = [

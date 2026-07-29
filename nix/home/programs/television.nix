@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.base =
-    { config, ... }:
+    { config, lib, ... }:
     {
       programs.television = {
         enable = true;
@@ -169,6 +169,45 @@
             };
             preview.command = "git show -p --stat --pretty=fuller --color=always '{0}'";
           };
+
+          nix =
+            let
+              nix-search-tv = lib.getExe config.programs.nix-search-tv.package;
+            in
+            {
+              metadata = {
+                name = "nix";
+                description = "Search nix options and packages";
+              };
+              source.command = "${nix-search-tv} print";
+              preview.command = ''${nix-search-tv} preview "{}"'';
+              keybindings = {
+                alt-r = "actions:run";
+                alt-i = "actions:shell";
+                alt-s = "actions:source";
+                alt-o = "actions:homepage";
+              };
+              actions.run = {
+                description = "Run the package";
+                command = ''nix run {replace:s/\/ /#/g}'';
+                mode = "execute";
+              };
+              actions.shell = {
+                description = "Enter new nix shell with this package";
+                command = ''nix shell {replace:s/\/ /#/g}'';
+                mode = "execute";
+              };
+              actions.source = {
+                description = "Open link to source code";
+                command = "${nix-search-tv} source '{}' | xargs open";
+                mode = "execute";
+              };
+              actions.homepage = {
+                description = "Open link to homepage";
+                command = "${nix-search-tv} homepage '{}' | xargs open";
+                mode = "execute";
+              };
+            };
 
           procs = {
             metadata = {
