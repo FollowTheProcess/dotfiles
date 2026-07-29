@@ -40,7 +40,6 @@ _: {
       nurl
       pkgsite
       procs
-      secretspec
       shellcheck
       shfmt
       statix
