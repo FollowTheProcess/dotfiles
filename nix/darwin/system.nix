@@ -122,6 +122,7 @@
       users.users."${user}" = {
         name = user;
         inherit home;
+        shell = pkgs.zsh;
       };
     };
 }
