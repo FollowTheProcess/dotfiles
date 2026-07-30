@@ -143,7 +143,6 @@
             gl = "git log --oneline";
             gcm = "git commit -m";
             tf = "terraform";
-            tg = "terragrunt";
             k = "kubectl";
             build = "pyproject-build --installer=uv";
             ts = "tree-sitter";
