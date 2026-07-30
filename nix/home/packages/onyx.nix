@@ -16,7 +16,7 @@
       fenix.rust-analyzer
       glow
       hugo
-      inputs.tg.packages.${pkgs.system}.default
+      inputs.tg.packages.${pkgs.stdenv.hostPlatform.system}.default
       mdbook
       mdbook-admonish
       syft
