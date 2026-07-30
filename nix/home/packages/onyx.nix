@@ -1,5 +1,5 @@
 # Packages for my personal mac (in addition to base)
-{
+{ inputs, ... }: {
   flake.modules.homeManager.onyx = { pkgs, ... }: {
     home.packages = with pkgs; [
       (fenix.stable.withComponents [
@@ -16,6 +16,7 @@
       fenix.rust-analyzer
       glow
       hugo
+      inputs.tg.packages.${pkgs.system}.default
       mdbook
       mdbook-admonish
       syft
