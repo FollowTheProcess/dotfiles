@@ -51,6 +51,7 @@
           "golangci-lint"
           "html"
           "http"
+          "just"
           "make"
           "nix"
           "terraform"
@@ -69,6 +70,8 @@
             "rustfmt"
           ])
           docker-language-server
+          fenix.rust-analyzer
+          gnumake
           go
           gofumpt
           golangci-lint
@@ -76,6 +79,8 @@
           gomodifytags
           gopls
           hadolint
+          just
+          just-lsp
           nil
           nixd
           ruff

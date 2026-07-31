@@ -17,8 +17,10 @@ _: {
       eza
       findutils
       gcc
+      gnumake
       gnused
       gnutar
+      go-task
       gofumpt
       golangci-lint
       golangci-lint-langserver
@@ -32,6 +34,7 @@ _: {
       hadolint
       httpie
       hyperfine
+      just
       lefthook
       manix
       nil
