@@ -12,8 +12,8 @@
         - Application/tool config is managed via ~/dotfiles and nix/nix-darwin. Never try and imperitively change configuration.
         - Unless I explicitly tell you to commit, git commits will be handled by me either during or at the end of a task. You should not commit.
         - Documentation changes must be run through the humanizer skill and corrected if needed
-        - Only add comments in exceptional cases, to document _why_ a decision was made, and keep them incredibly brief. If the comment just explains
-          what the code is doing, don't bother
+        - Add comments only when absolutely necessary for understanding
+        - All communication with me should follow the rules and language of ASD-STE100
         - Always follow TDD
         - Think deeply and understand the full context
         - If you're unsure: ask me
