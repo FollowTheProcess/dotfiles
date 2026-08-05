@@ -11,6 +11,7 @@
       ])
       actionlint
       cargo-nextest
+      charm-freeze
       cook-cli
       cosign
       fenix.rust-analyzer
