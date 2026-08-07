@@ -83,6 +83,7 @@
           just-lsp
           nil
           nixd
+          nixfmt
           ruff
           shellcheck
           terraform
@@ -366,11 +367,8 @@
               };
             };
             "Nix" = {
-              language_servers = [
-                "nixd"
-                "nil"
-              ];
-              semantic_tokens = "off";
+              language_servers = [ "nixd" ];
+              semantic_tokens = "combined";
             };
           };
           linked_edits = true;
@@ -408,6 +406,12 @@
                 "ui.diagnostic.vulncheck" = "Imports";
                 "ui.documentation.hoverKind" = "FullDocumentation";
                 "ui.navigation.symbolScope" = "workspace";
+              };
+            };
+            nixd = {
+              settings = {
+                nixpkgs.expr = "import <nixpkgs> { }";
+                formatting.command = [ "nixfmt" ];
               };
             };
             rust-analyzer = {

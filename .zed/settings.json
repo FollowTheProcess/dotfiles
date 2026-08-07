@@ -1,0 +1,22 @@
+{
+  "lsp": {
+    "nixd": {
+      "settings": {
+        "nixpkgs": {
+          "expr": "import <nixpkgs> { }",
+        },
+        "formatting": {
+          "command": ["nixfmt"],
+        },
+        "options": {
+          "darwin": {
+            "expr": "(builtins.getFlake \"git+file:///Users/tomfleet/dotfiles\").darwinConfigurations.onyx.options",
+          },
+          "home-manager": {
+            "expr": "(builtins.getFlake \"git+file:///Users/tomfleet/dotfiles\").darwinConfigurations.onyx.options.home-manager.users.type.getSubOptions [ ]",
+          },
+        },
+      },
+    },
+  },
+}
