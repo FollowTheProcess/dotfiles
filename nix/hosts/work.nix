@@ -24,7 +24,6 @@ in
     # Endpoint protection intercepts TLS with a MITM CA to scan for
     # supply chain vulnerabilities. This setting covers nix fetches
     nix.settings = {
-      experimental-features = [ "configurable-impure-env" ];
       impure-env = [ "NIX_SSL_CERT_FILE=/etc/nix/aikido-bundle.crt" ];
     };
 

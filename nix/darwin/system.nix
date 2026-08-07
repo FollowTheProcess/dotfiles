@@ -29,7 +29,7 @@
 
         optimise.automatic = true;
         settings = {
-          experimental-features = "nix-command flakes";
+          experimental-features = "nix-command flakes configurable-impure-env";
           max-jobs = "auto";
           # Always attempt to find binary caches for derivations
           # can help speed up builds
