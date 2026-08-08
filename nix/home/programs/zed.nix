@@ -28,6 +28,38 @@
             body = "${token} TODO: $0";
           };
         };
+      cfnTags =
+        lib.concatMap
+          (
+            tag:
+            map (kind: "!${tag} ${kind}") [
+              "scalar"
+              "mapping"
+              "sequence"
+            ]
+          )
+          [
+            "And"
+            "Base64"
+            "Cidr"
+            "Condition"
+            "Equals"
+            "FindInMap"
+            "GetAZs"
+            "GetAtt"
+            "If"
+            "ImportValue"
+            "Join"
+            "Length"
+            "Not"
+            "Or"
+            "Ref"
+            "Select"
+            "Split"
+            "Sub"
+            "ToJsonString"
+            "Transform"
+          ];
     in
     {
       xdg.configFile = lib.mapAttrs' (
@@ -445,59 +477,7 @@
                   schemas = {
                     "https://raw.githubusercontent.com/score-spec/spec/main/score-v1b1.json" = "**/score.yaml";
                   };
-                  customTags = [
-                    "!And scalar"
-                    "!And mapping"
-                    "!And sequence"
-                    "!If scalar"
-                    "!If mapping"
-                    "!If sequence"
-                    "!Not scalar"
-                    "!Not mapping"
-                    "!Not sequence"
-                    "!Equals scalar"
-                    "!Equals mapping"
-                    "!Equals sequence"
-                    "!Or scalar"
-                    "!Or mapping"
-                    "!Or sequence"
-                    "!FindInMap scalar"
-                    "!FindInMap mapping"
-                    "!FindInMap sequence"
-                    "!Base64 scalar"
-                    "!Base64 mapping"
-                    "!Base64 sequence"
-                    "!Cidr scalar"
-                    "!Cidr mapping"
-                    "!Cidr sequence"
-                    "!Ref scalar"
-                    "!Ref mapping"
-                    "!Ref sequence"
-                    "!Sub scalar"
-                    "!Sub mapping"
-                    "!Sub sequence"
-                    "!GetAtt scalar"
-                    "!GetAtt mapping"
-                    "!GetAtt sequence"
-                    "!GetAZs scalar"
-                    "!GetAZs mapping"
-                    "!GetAZs sequence"
-                    "!ImportValue scalar"
-                    "!ImportValue mapping"
-                    "!ImportValue sequence"
-                    "!Select scalar"
-                    "!Select mapping"
-                    "!Select sequence"
-                    "!Split scalar"
-                    "!Split mapping"
-                    "!Split sequence"
-                    "!Join scalar"
-                    "!Join mapping"
-                    "!Join sequence"
-                    "!Condition scalar"
-                    "!Condition mapping"
-                    "!Condition sequence"
-                  ];
+                  customTags = cfnTags;
                 };
               };
             };
