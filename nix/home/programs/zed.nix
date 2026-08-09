@@ -86,6 +86,7 @@
           "just"
           "make"
           "nix"
+          "sql"
           "terraform"
           "tombi"
           "toml"
