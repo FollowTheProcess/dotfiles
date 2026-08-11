@@ -6,7 +6,6 @@ _: {
       aws-sam-cli
       bash
       betteralign
-      copier
       curl
       defuddle
       delve

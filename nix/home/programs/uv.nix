@@ -18,6 +18,7 @@
       };
       tool = {
         packages = [
+          "copier"
           "nox"
         ];
         prune = true;
