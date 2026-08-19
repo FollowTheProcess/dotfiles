@@ -1,7 +1,7 @@
 {
   flake.modules.homeManager.macos = {
     services.paneru = {
-      enable = true;
+      enable = false;
 
       # https://github.com/karinushka/paneru/blob/main/CONFIGURATION.md
       settings = {

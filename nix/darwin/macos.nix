@@ -81,7 +81,8 @@
           wvous-br-corner = 4;
         };
 
-        spaces.spans-displays = false;
+        # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
+        spaces.spans-displays = true;
 
         WindowManager.GloballyEnabled = false;
 

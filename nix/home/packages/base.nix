@@ -3,7 +3,6 @@ _: {
   flake.modules.homeManager.base = { pkgs, ... }: {
     home.packages = with pkgs; [
       _1password-cli
-      aws-sam-cli
       bash
       betteralign
       curl
