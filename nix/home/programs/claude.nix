@@ -58,6 +58,7 @@
         skipAutoPermissionPrompt = true;
         disableClaudeAiConnectors = true;
         permissions = {
+          defaultMode = "manual";
           allow = [
             "Bash(* --version)"
             "Bash(* -version)"
