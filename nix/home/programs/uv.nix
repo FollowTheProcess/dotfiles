@@ -2,8 +2,12 @@
   flake.modules.homeManager.base =
     { pkgs, ... }:
     {
-      # uv builds sdists if there are no wheels
-      home.extraActivationPath = [ pkgs.clang ];
+      # clang: uv builds sdists if there are no wheels
+      # cctools: gives uv install_name_tool to patch managed Python dylibs
+      home.extraActivationPath = [
+        pkgs.clang
+        pkgs.cctools
+      ];
 
       programs.uv = {
         enable = true;
@@ -20,6 +24,7 @@
         settings = {
           python-preference = "only-managed";
           compile-bytecode = true;
+          preview-features = [ "python-install-default" ];
         };
         tool = {
           packages = [
