@@ -55,7 +55,6 @@ _: {
       typos
       yamlfmt
       yq
-      zoekt
       zsh-completions
       zsh-patina
     ];
