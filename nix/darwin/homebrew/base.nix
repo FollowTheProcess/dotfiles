@@ -21,20 +21,21 @@
       ];
       # TODO: Try masApps again
       casks = [
-        "1password"
-        "brainfm"
-        "docker-desktop"
         "${config.my.constants.githubUser}/tap/git-rekt"
         "${config.my.constants.githubUser}/tap/gowc"
         "${config.my.constants.githubUser}/tap/spok"
         "${config.my.constants.githubUser}/tap/tag"
         "${config.my.constants.githubUser}/tap/txtract"
+        "1password"
+        "brainfm"
+        "docker-desktop"
+        "logi-options+"
         "obsidian"
         "raycast"
         "slack"
         "spotify"
         "theboredteam/boring-notch/boring-notch"
-        "logi-options+"
+        "zen"
       ];
     };
   };
