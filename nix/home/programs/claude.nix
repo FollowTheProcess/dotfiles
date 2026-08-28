@@ -111,8 +111,6 @@
             "Bash(git -C * worktree list*)"
             "Bash(gh run view *)"
             "Bash(gh run list *)"
-            "Bash(obsidian search *)"
-            "Bash(obsidian read *)"
             "Bash(defaults read *)"
             "Grep"
             "Glob"
@@ -120,7 +118,6 @@
             "Skill(followtheprocess:*)"
             "Skill(superpowers:*)"
             "Skill(code-review:*)"
-            "Skill(obsidian:*)"
             "Skill(i-have-adhd:*)"
             "Skill(humanizer:*)"
             "Skill(simplify)"
@@ -219,16 +216,11 @@
           "superpowers@claude-plugins-official" = true;
           "code-review@claude-plugins-official" = true;
           "code-simplifier@claude-plugins-official" = true;
-          "obsidian@obsidian-skills" = true;
           "followtheprocess@skills" = true;
           "i-have-adhd@i-have-adhd" = true;
           "humanizer@humanizer" = true;
         };
         extraKnownMarketplaces = {
-          obsidian-skills.source = {
-            source = "github";
-            repo = "kepano/obsidian-skills";
-          };
           skills.source = {
             source = "github";
             repo = "FollowTheProcess/skills";
