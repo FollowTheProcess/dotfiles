@@ -48,6 +48,7 @@
         dock = {
           persistent-apps = [
             "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+            "/Applications/Zen.app"
             "/Applications/Slack.app"
             "/Applications/WhatsApp.app"
             "/System/Applications/Messages.app"
