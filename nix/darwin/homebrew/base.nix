@@ -30,6 +30,7 @@
         "brainfm"
         "docker-desktop"
         "logi-options+"
+        "obsidian"
         "raycast"
         "slack"
         "spotify"
