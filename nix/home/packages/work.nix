@@ -9,6 +9,7 @@
       glab
       go-mockery
       gotestsum
+      kubernetes-helm
       k6
       kubectl
       kubectx

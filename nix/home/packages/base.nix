@@ -54,7 +54,7 @@ _: {
       tparse
       typos
       yamlfmt
-      yq
+      yq-go
       zsh-completions
       zsh-patina
     ];

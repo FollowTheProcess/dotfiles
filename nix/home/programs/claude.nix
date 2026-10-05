@@ -86,29 +86,17 @@
             "Bash(terraform validate *)"
             "Bash(tflint *)"
             "Bash(git status*)"
-            "Bash(git -C * status*)"
             "Bash(git diff*)"
-            "Bash(git -C * diff*)"
             "Bash(git log*)"
-            "Bash(git -C * log*)"
             "Bash(git show*)"
-            "Bash(git -C * show*)"
             "Bash(git blame*)"
-            "Bash(git -C * blame*)"
             "Bash(git ls-files*)"
-            "Bash(git -C * ls-files*)"
             "Bash(git rev-parse*)"
-            "Bash(git -C * rev-parse*)"
             "Bash(git describe*)"
-            "Bash(git -C * describe*)"
             "Bash(git shortlog*)"
-            "Bash(git -C * shortlog*)"
             "Bash(git reflog*)"
-            "Bash(git -C * reflog*)"
             "Bash(git fetch*)"
-            "Bash(git -C * fetch*)"
             "Bash(git worktree list*)"
-            "Bash(git -C * worktree list*)"
             "Bash(gh run view *)"
             "Bash(gh run list *)"
             "Bash(defaults read *)"
@@ -140,13 +128,9 @@
             "Bash(reboot*)"
             "Bash(sudo *)"
             "Bash(git push *)"
-            "Bash(git -C * push *)"
             "Bash(git reset --hard*)"
-            "Bash(git -C * reset --hard*)"
             "Bash(git clean -f*)"
-            "Bash(git -C * clean -f*)"
             "Bash(git branch -D *)"
-            "Bash(git -C * branch -D *)"
             "Bash(git filter-branch*)"
             "Bash(git checkout .)"
             "Bash(git restore .)"
@@ -219,6 +203,7 @@
           "followtheprocess@skills" = true;
           "i-have-adhd@i-have-adhd" = true;
           "humanizer@humanizer" = true;
+          "atlassian@claude-plugins-official" = true;
         };
         extraKnownMarketplaces = {
           skills.source = {
