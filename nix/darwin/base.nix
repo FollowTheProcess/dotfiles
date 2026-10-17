@@ -18,7 +18,6 @@
       useUserPackages = true;
       backupFileExtension = "backup";
       sharedModules = [
-        inputs.paneru.homeModules.paneru
         inputs.catppuccin.homeModules.catppuccin
       ];
     };

@@ -103,7 +103,7 @@
             "rustfmt"
           ])
           docker-language-server
-          fenix.rust-analyzer
+          fenix.stable.rust-analyzer
           gnumake
           go
           gofumpt

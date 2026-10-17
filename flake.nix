@@ -37,10 +37,6 @@
       url = "github:zhaofengli/nix-homebrew";
     };
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
-    paneru = {
-      url = "github:karinushka/paneru";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     tg = {
       url = "github:alyraffauf/tg";
       inputs.nixpkgs.follows = "nixpkgs";

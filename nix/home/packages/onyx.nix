@@ -14,7 +14,7 @@
       charm-freeze
       cook-cli
       cosign
-      fenix.rust-analyzer
+      fenix.stable.rust-analyzer
       glow
       hugo
       inputs.tg.packages.${pkgs.stdenv.hostPlatform.system}.default
