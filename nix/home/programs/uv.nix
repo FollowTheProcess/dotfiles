@@ -25,6 +25,7 @@
           python-preference = "only-managed";
           compile-bytecode = true;
           preview-features = [ "python-install-default" ];
+          system-certs = true;
         };
         tool = {
           packages = [

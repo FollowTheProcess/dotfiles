@@ -56,7 +56,12 @@
         };
         skipWorkflowUsageWarning = true;
         skipAutoPermissionPrompt = true;
-        disableClaudeAiConnectors = true;
+        disableClaudeAiConnectors = false;
+        sandbox = {
+          # Go binaries on macos take their TLS roots from the keychain
+          # via com.apple.trustd.agent, which the sandbox blocks.
+          enableWeakerNetworkIsolation = true;
+        };
         permissions = {
           defaultMode = "manual";
           allow = [
@@ -65,6 +70,7 @@
             "Bash(* --help)"
             "Bash(* -help)"
             "Bash(allium *)"
+            "Bash(dash0 *)"
             "Bash(go *)"
             "Bash(cargo *)"
             "Bash(uv *)"
