@@ -17,6 +17,9 @@
             "ALL" # Lint all the things!
           ];
           ignore = [
+            # Annoying
+            "CPY001" # Copyright notice in every file
+
             # Lots of 'D' rules conflict with one another, this seems to be the most stable config
             "D107" # Documenting the init as well as D101 documenting the class is redundant
             "D203" # One blank line before class docstring
