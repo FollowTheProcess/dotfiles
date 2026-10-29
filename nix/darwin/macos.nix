@@ -82,8 +82,10 @@
           wvous-br-corner = 4;
         };
 
-        # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
-        spaces.spans-displays = true;
+        # OmniWM wants this, each display gets it's own space
+        # aerospace doesn't like this so flip to true if using
+        # aerospace
+        spaces.spans-displays = false;
 
         WindowManager.GloballyEnabled = false;
 

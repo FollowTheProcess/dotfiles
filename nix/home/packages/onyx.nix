@@ -17,6 +17,7 @@
       fenix.stable.rust-analyzer
       glow
       hugo
+      # Issue with tests, temporarily disabled
       # inputs.tg.packages.${pkgs.stdenv.hostPlatform.system}.default
       mdbook
       mdbook-admonish
