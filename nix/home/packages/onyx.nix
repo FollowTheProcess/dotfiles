@@ -1,5 +1,5 @@
 # Packages for my personal mac (in addition to base)
-{ inputs, ... }: {
+_: {
   flake.modules.homeManager.onyx = { pkgs, ... }: {
     home.packages = with pkgs; [
       (fenix.stable.withComponents [
