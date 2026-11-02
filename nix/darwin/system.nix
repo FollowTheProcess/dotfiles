@@ -9,7 +9,10 @@
     {
       nixpkgs = {
         config.allowUnfree = true;
-        overlays = [ inputs.fenix.overlays.default ];
+        overlays = [
+          inputs.fenix.overlays.default
+          inputs.self.overlays.atuin
+        ];
         hostPlatform = "aarch64-darwin";
       };
 
