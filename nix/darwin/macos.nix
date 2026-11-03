@@ -59,6 +59,7 @@
             "/System/Applications/Reminders.app"
             "/Applications/1Password.app"
             "/Applications/Bear.app"
+            "/Applications/Obsidian.app"
             "/Applications/Things3.app"
             "${homeDir}/Applications/Home Manager Apps/Ghostty.app"
             "${pkgs.zed-editor}/Applications/Zed.app"

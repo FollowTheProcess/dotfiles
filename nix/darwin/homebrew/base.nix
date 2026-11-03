@@ -35,6 +35,7 @@
         "spotify"
         "theboredteam/boring-notch/boring-notch"
         "zen"
+        "obsidian"
       ];
     };
   };
