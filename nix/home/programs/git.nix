@@ -88,6 +88,13 @@
             graphColors = "blue,yellow,cyan,magenta,green,red";
           };
 
+          remote = {
+            origin = {
+              # Fetch/pull tags and overwrite local ones that moved upstream
+              fetch = "+refs/tags/*:refs/tags/*";
+            };
+          };
+
           status = {
             showStash = true; # show stash count in status
             submoduleSummary = true; # show submodule change summary
