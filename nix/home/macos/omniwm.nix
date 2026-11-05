@@ -35,7 +35,7 @@ let
         }
         {
           name = "moveToWorkspace.${toString index}";
-          value = "Control+Option+Command${toString (index + 1)}";
+          value = "Control+Option+Command+${toString (index + 1)}";
         }
       ]) (builtins.length workspaceLayout)
     )
