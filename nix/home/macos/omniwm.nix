@@ -65,16 +65,6 @@ in
             right = 10.0;
           };
         };
-        monitorGapOverrides = [
-          (omniwmLib.monitor.gap "U32R59x" {
-            monitorDisplayUUID = externalUUID;
-            outerGapTop = 40.0;
-          })
-          (omniwmLib.monitor.gap "Built-in Retina Display" {
-            monitorDisplayUUID = builtinUUID;
-            outerGapTop = 48.0;
-          })
-        ];
         niri = {
           alwaysCenterSingleColumn = true;
           edgeGaps = false;
