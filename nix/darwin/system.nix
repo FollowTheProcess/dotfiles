@@ -12,6 +12,8 @@
         overlays = [
           inputs.fenix.overlays.default
           inputs.self.overlays.atuin
+          inputs.self.overlays.cook-cli
+          inputs.self.overlays.nilaway
         ];
         hostPlatform = "aarch64-darwin";
       };

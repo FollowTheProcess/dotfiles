@@ -13,6 +13,7 @@ _: {
       dust
       entr
       eza
+      ffmpeg
       findutils
       gcc
       gnumake

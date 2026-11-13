@@ -470,3 +470,6 @@ docgen_tmp/
 **/.claude/
 **/docs/superpowers/
 .rumdl-cache/
+
+# Zed
+.zed/

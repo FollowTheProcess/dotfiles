@@ -92,6 +92,8 @@ in
           {
             "moveWindowToMonitor.left" = "Option+Command+Left Arrow";
             "moveWindowToMonitor.right" = "Option+Command+Right Arrow";
+            # The bar overlaps the menu bar, so hide it to reach menu-bar only apps
+            "toggleWorkspaceBarVisibility" = "Option+Shift+B";
           }
           // workspaceHotkeys
         );

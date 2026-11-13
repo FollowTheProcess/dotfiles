@@ -88,6 +88,8 @@
             "Bash(head *)"
             "Bash(tail *)"
             "Bash(awk *)"
+            "Bash(nix run *)"
+            "Bash(nix shell *)"
             "Bash(terraform init *)"
             "Bash(terraform validate *)"
             "Bash(tflint *)"
