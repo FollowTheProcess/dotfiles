@@ -3,7 +3,28 @@ let
   omniwmLib = inputs.omniwm.lib;
 
   builtinUUID = "37D8832A-2D66-02CA-B9F7-8F30A301B230";
-  externalUUID = "E0BAF710-4BE5-445E-9A5F-D4C092EF9912";
+
+  # The external display reports no EDID serial number, so macOS mints a new UUID for it
+  # on some reconnects. An arrangement only applies when its UUIDs match the attached
+  # displays, so add the new UUID here when the layout breaks again.
+  externalUUIDs = [
+    "270847FB-D632-41A1-B905-0431F8A83A60"
+  ];
+
+  externalRightOfBuiltin =
+    externalUUID:
+    omniwmLib.routingArrangement [
+      (omniwmLib.monitor.routing "Built-in Retina Display" {
+        monitorDisplayUUID = builtinUUID;
+        gridColumn = 0;
+        gridRow = 0;
+      })
+      (omniwmLib.monitor.routing "U32R59x" {
+        monitorDisplayUUID = externalUUID;
+        gridColumn = 1;
+        gridRow = 0;
+      })
+    ];
 
   main = {
     monitorAssignment.type = "main";
@@ -73,20 +94,7 @@ in
         mouseWarp.constrainToArrangement = true;
         routing = {
           mode = "custom";
-          arrangements = [
-            (omniwmLib.routingArrangement [
-              (omniwmLib.monitor.routing "Built-in Retina Display" {
-                monitorDisplayUUID = builtinUUID;
-                gridColumn = 0;
-                gridRow = 0;
-              })
-              (omniwmLib.monitor.routing "U32R59x" {
-                monitorDisplayUUID = externalUUID;
-                gridColumn = 1;
-                gridRow = 0;
-              })
-            ])
-          ];
+          arrangements = map externalRightOfBuiltin externalUUIDs;
         };
         hotkeys = omniwmLib.hotkeys (
           {
