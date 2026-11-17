@@ -18,6 +18,13 @@
           name = "theboredteam/boring-notch";
           trusted = true;
         }
+        {
+          name = "alyraffauf/tap";
+          trusted = true;
+        }
+      ];
+      brews = [
+        "alyraffauf/tap/tg"
       ];
       # TODO: Try masApps again
       casks = [
