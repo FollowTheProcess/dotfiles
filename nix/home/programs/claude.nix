@@ -9,19 +9,18 @@
 
         Global guidance for all Agents, regardless of current project.
 
-        - Application/tool config is managed via ~/dotfiles and nix/nix-darwin. Never try and imperitively change configuration.
-        - Unless I explicitly tell you to commit, git commits will be handled by me either during or at the end of a task. You should not commit.
-        - Documentation changes must be run through the humanizer skill and corrected if needed
-        - Do not add comments where they don't add real value to future readers
-        - All communication with me must use the rules in the `i-have-adhd` skill
+        - Application/tool config is managed via ~/dotfiles and nix/nix-darwin. Never try and imperitively change or add configuration.
+        - Unless I explicitly tell you to commit, git commits will be handled by me either during or at the end of a task. You must not commit.
+        - Any piece of text intended to be read by a human must be run through the `i-have-adhd` and `humanizer` skills
+        - Code comments must explain why, not what, and must only be added where they add true, tangible benefit to future readers
+        - All interaction with me must use the `i-have-adhd` skill
         - Always follow TDD
-        - Think deeply and understand the full context
-        - If you're unsure: ask me
+        - If you're unsure: ask me for clarification
         - Don't make assumptions, find facts
-        - Keep docs current on changes
+        - Keep docs current on any changes
         - Use pure functions whenever possible
         - Prefer early returns to nesting
-        - Correctness beats performance
+        - Correctness beats everything
         - Use language specific skills for more details about a specific language's standards
       '';
       lspServers = {
@@ -58,6 +57,9 @@
         skipAutoPermissionPrompt = true;
         disableClaudeAiConnectors = false;
         sandbox = {
+          enabled = true;
+          autoAllowBashIfSandbox = false;
+          allowUnsandboxedCommands = false;
           # Go binaries on macos take their TLS roots from the keychain
           # via com.apple.trustd.agent, which the sandbox blocks.
           enableWeakerNetworkIsolation = true;
