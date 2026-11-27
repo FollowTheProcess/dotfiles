@@ -36,13 +36,14 @@
         "1password"
         "brainfm"
         "docker-desktop"
+        "ladybird"
         "logi-options+"
+        "obsidian"
         "raycast"
         "slack"
         "spotify"
         "theboredteam/boring-notch/boring-notch"
         "zen"
-        "obsidian"
       ];
     };
   };
