@@ -63,6 +63,8 @@
           # Go binaries on macos take their TLS roots from the keychain
           # via com.apple.trustd.agent, which the sandbox blocks.
           enableWeakerNetworkIsolation = true;
+          # Things like Go httptest need to bind local ports, it's fine
+          network.allowLocalBinding = true;
         };
         permissions = {
           defaultMode = "manual";
